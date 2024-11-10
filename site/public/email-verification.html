@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,12 +26,18 @@
         <!-- Header -->
         <header class="site-header">
             <h1 class="site-title">Pet Trace</h1>
+            <!-- Optional authentication buttons (visible based on login state) -->
             <button id="loginButton" class="auth-btn" style="display: none">Login</button>
             <button id="logoutButton" class="auth-btn" style="display: none">Logout</button>
         </header>
 
         <!-- Main Content -->
-        <main class="main-content"></main>
+        <main class="main-content">
+            <h2>Email Verification</h2>
+            <p id="verificationMessage">
+                <!-- Message will be dynamically injected here -->
+            </p>
+        </main>
 
         <!-- Footer -->
         <footer class="site-footer">
