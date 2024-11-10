@@ -19,5 +19,5 @@ logoutButton.addEventListener("click", () => {
 });
 
 loginButton.addEventListener("click", () => {
-    location.reload();
+    window.location = "/login.html";
 });

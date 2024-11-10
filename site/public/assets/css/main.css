@@ -131,3 +131,8 @@ a {
 a:hover {
     color: var(--secondary-color);
 }
+
+main {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
