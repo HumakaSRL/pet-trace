@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Pet Trace - Verify Your Email</title>
+
+        <!-- Firebase SDKs -->
+        <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
+        <script defer src="/__/firebase/init.js"></script>
+
+        <!-- Meta tags -->
+        <meta name="description" content="Pet Trace - Track pets via microchip ID" />
+        <meta name="keywords" content="pet, trace, microchip, pet tracking, pet ID" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/footer.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/email-verification.css" />
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="site-header">
+            <h1 class="site-title">Pet Trace</h1>
+            <button id="loginButton" class="auth-btn" style="display: none">Login</button>
+            <button id="logoutButton" class="auth-btn" style="display: none">Logout</button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content"></main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>&copy; 2024 by Humaka SRL. All rights reserved.</p>
+            <p>
+                <a href="https://humaka.ro" target="_blank" class="footer-link">Humaka SRL</a>
+                |
+                <a href="terms-of-service.html" target="_blank" class="footer-link">
+                    Terms of Service
+                </a>
+                |
+                <a href="privacy-policy.html" target="_blank" class="footer-link">Privacy Policy</a>
+            </p>
+        </footer>
+
+        <!-- JavaScript -->
+        <script type="module" src="assets/js/main.js"></script>
+        <script type="module" src="assets/js/navbar.js"></script>
+        <script type="module" src="assets/js/footer.js"></script>
+        <script type="module" src="assets/js/emailVerification.js"></script>
+    </body>
+</html>

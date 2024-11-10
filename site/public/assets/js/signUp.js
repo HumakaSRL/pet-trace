@@ -61,7 +61,7 @@ function createAccount() {
     const user_data = {
         username: username,
         email: email,
-        timestamp: firebase.database.ServerValue.TIMESTAMP, // Use Firebase's server timestamp
+        created_at: firebase.database.ServerValue.TIMESTAMP,
     };
 
     // Reference to Firebase Database
@@ -82,7 +82,7 @@ function createAccount() {
                 })
                 .then(() => {
                     // Save the user data to the database under "users" node
-                    return databaseRef.child("users").child(user.uid).set(user_data); // Use set() instead of update() to ensure it creates the user data
+                    return databaseRef.child("users").child(user.uid).set(user_data);
                 });
         })
         .then(() => {
