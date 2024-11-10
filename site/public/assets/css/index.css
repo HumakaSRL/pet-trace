@@ -1,0 +1,85 @@
+/* Main Content Styling */
+.search-section {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-microchip-id {
+    font-size: 1rem;
+    padding: 0.75rem;
+    width: 250px;
+    /* Keeps the input field centered */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    /* Ensures text is centered inside the input */
+}
+
+.input-microchip-id:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Search Button Styling */
+.search-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.search-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.search-btn:focus {
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--button-text);
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Input and Textarea Styling */
+input,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}

@@ -1,0 +1,29 @@
+/* Footer Styling */
+footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text);
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: inherit;
+    /* Inherit font size from the footer itself */
+    color: inherit;
+    /* Inherit text color from the footer itself */
+    margin: 0;
+    /* Ensure no margin is added by default */
+}
+
+/* Footer Links Styling */
+footer a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--primary-color);
+}
