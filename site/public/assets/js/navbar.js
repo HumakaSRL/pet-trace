@@ -28,7 +28,7 @@ function logout() {
         .auth()
         .signOut()
         .then(() => {
-            location.reload(); // Reload the page after sign out
+            window.location = "/index.html";
         })
         .catch((error) => {
             console.error("Error signing out: ", error);

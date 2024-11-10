@@ -1,3 +1,7 @@
+firebase.auth().onAuthStateChanged(async (user) => {
+    if (user) window.location = "/dashboard.html";
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
