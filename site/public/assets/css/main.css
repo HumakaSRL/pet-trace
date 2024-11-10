@@ -136,3 +136,7 @@ main {
     margin-top: 25px;
     margin-bottom: 25px;
 }
+
+.error-message {
+    color: red;
+}

@@ -1,0 +1,84 @@
+/* Main Content Styling */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fc;
+}
+
+.sign-up-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Form Styling */
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Form Group Styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label Styling */
+.form-label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Input Field Styling */
+.form-input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #007bff;
+}
+
+/* Button Styling */
+.auth-btn {
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Already have an account Link */
+.login-now-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-now-link:hover {
+    text-decoration: underline;
+}

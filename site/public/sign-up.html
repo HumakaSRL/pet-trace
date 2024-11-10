@@ -3,13 +3,12 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Pet Trace - Login</title>
+        <title>Pet Trace - Sign Up</title>
 
         <!-- Firebase SDKs -->
         <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-database-compat.js"></script>
-        <script defer src="/__/firebase/11.0.1/firebase-storage-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
         <script defer src="/__/firebase/init.js"></script>
 
@@ -21,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
         <link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
         <link rel="stylesheet" type="text/css" href="assets/css/footer.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/login.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/sign-up.css" />
     </head>
     <body>
         <!-- Header -->
@@ -33,9 +32,26 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <section class="login-section">
-                <h2>Login to Your Account</h2>
-                <form id="loginForm" class="login-form">
+            <section class="sign-up-section">
+                <h2>Create Your Account</h2>
+                <form id="signUpForm" class="sign-up-form">
+                    <!-- Username Field -->
+                    <div class="form-group">
+                        <label for="usernameInput" class="form-label">Username</label>
+                        <input
+                            type="text"
+                            id="usernameInput"
+                            name="username"
+                            placeholder="Enter your username"
+                            required
+                            class="form-input"
+                        />
+                        <!-- Error message for Username -->
+                        <div id="usernameError" class="error-message" style="display: none">
+                            Please enter a valid username.
+                        </div>
+                    </div>
+
                     <!-- Email Field -->
                     <div class="form-group">
                         <label for="emailInput" class="form-label">Email</label>
@@ -47,6 +63,10 @@
                             required
                             class="form-input"
                         />
+                        <!-- Error message for Email -->
+                        <div id="emailError" class="error-message" style="display: none">
+                            Please enter a valid email address.
+                        </div>
                     </div>
 
                     <!-- Password Field -->
@@ -60,36 +80,41 @@
                             required
                             class="form-input"
                         />
+                        <!-- Error message for Password -->
+                        <div id="passwordError" class="error-message" style="display: none">
+                            Please enter a valid password.
+                        </div>
                     </div>
 
-                    <!-- Keep Me Logged In Checkbox -->
-                    <div class="form-group checkbox-group">
+                    <!-- Confirm Password Field -->
+                    <div class="form-group">
+                        <label for="confirmPasswordInput" class="form-label">
+                            Confirm Password
+                        </label>
                         <input
-                            type="checkbox"
-                            id="keepLoggedIn"
-                            name="keepLoggedIn"
-                            class="form-checkbox"
+                            type="password"
+                            id="confirmPasswordInput"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            required
+                            class="form-input"
                         />
-                        <label for="keepLoggedIn" class="checkbox-label">Keep me logged in</label>
+                        <!-- Error message for Confirm Password -->
+                        <div id="confirmPasswordError" class="error-message" style="display: none">
+                            Passwords do not match.
+                        </div>
                     </div>
 
-                    <!-- Forgot Password Link -->
+                    <!-- Register Button -->
                     <div class="form-group">
-                        <a href="forgot-password.html" class="forgot-password-link">
-                            Forgot password?
-                        </a>
+                        <button type="submit" id="registerButton" class="auth-btn">Register</button>
                     </div>
 
-                    <!-- Login Button -->
-                    <div class="form-group">
-                        <button type="submit" id="loginUserButton" class="auth-btn">Login</button>
-                    </div>
-
-                    <!-- Join Now Link -->
+                    <!-- Already have an account? -->
                     <div class="form-group">
                         <p>
-                            Don't have an account?
-                            <a href="sign-up.html" class="join-now-link">Join Now</a>
+                            Already have an account?
+                            <a href="login.html" class="login-now-link">Login Now</a>
                         </p>
                     </div>
                 </form>
@@ -114,6 +139,6 @@
         <script type="module" src="assets/js/main.js"></script>
         <script type="module" src="assets/js/navbar.js"></script>
         <script type="module" src="assets/js/footer.js"></script>
-        <script type="module" src="assets/js/login.js"></script>
+        <script type="module" src="assets/js/signUp.js"></script>
     </body>
 </html>
