@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Pet Trace</title>
+        <title>Pet Trace - Dashboard</title>
 
         <!-- Firebase SDKs -->
         <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-database-compat.js"></script>
-        <script defer src="/__/firebase/11.0.1/firebase-storage-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
         <script defer src="/__/firebase/init.js"></script>
 
@@ -19,9 +18,9 @@
 
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
-        <link rel="stylesheet" type="text/css" href="assets/css/index.css" />
         <link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
         <link rel="stylesheet" type="text/css" href="assets/css/footer.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css" />
     </head>
     <body>
         <!-- Navbar 1.0.1 -->
@@ -48,23 +47,7 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="main-content">
-            <section class="search-section">
-                <form id="microchipSearchForm" class="search-form">
-                    <label for="microchipIdInput" class="visually-hidden">Microchip ID</label>
-                    <input
-                        type="text"
-                        id="microchipIdInput"
-                        name="microchipId"
-                        placeholder="Enter the microchip ID"
-                        aria-label="Enter the microchip ID"
-                        required
-                        class="input-field"
-                    />
-                    <button type="submit" id="searchButton" class="search-btn">Search</button>
-                </form>
-            </section>
-        </main>
+        <main class="main-content"></main>
 
         <!-- Footer -->
         <footer class="site-footer">
@@ -84,6 +67,6 @@
         <script type="module" src="assets/js/main.js"></script>
         <script type="module" src="assets/js/navbar.js"></script>
         <script type="module" src="assets/js/footer.js"></script>
-        <script type="module" src="assets/js/index.js"></script>
+        <script type="module" src="assets/js/dashboard.js"></script>
     </body>
 </html>

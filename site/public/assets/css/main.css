@@ -113,7 +113,7 @@ p {
     text-align: center;
 }
 
-.site-header,
+.site-navbar,
 .site-footer {
     background-color: var(--footer-background);
     color: var(--footer-text);

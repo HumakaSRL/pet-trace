@@ -1,0 +1,92 @@
+/* Navbar Styling */
+.site-navbar {
+    background-color: var(--footer-background);
+    color: var(--footer-text);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Site Title */
+.site-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--heading-color);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Auth Button Styling */
+.auth-btn {
+    background-color: var(--secondary-color);
+    /* Rich green */
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #228b4d;
+}
+
+/* User Greeting Styling */
+.user-greeting {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--footer-text);
+}
+
+.user-greeting p {
+    margin: 0;
+}
+
+#usernameNavbarSpan {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .site-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .auth-buttons {
+        margin-top: 10px;
+    }
+
+    .user-greeting {
+        margin-top: 10px;
+    }
+}

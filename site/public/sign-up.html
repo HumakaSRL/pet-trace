@@ -23,12 +23,28 @@
         <link rel="stylesheet" type="text/css" href="assets/css/sign-up.css" />
     </head>
     <body>
-        <!-- Header -->
-        <header class="site-header">
-            <h1 class="site-title">Pet Trace</h1>
-            <button id="loginButton" class="auth-btn" style="display: none">Login</button>
-            <button id="logoutButton" class="auth-btn" style="display: none">Logout</button>
-        </header>
+        <!-- Navbar 1.0.1 -->
+        <nav class="site-navbar">
+            <div class="navbar-container">
+                <!-- Site title -->
+                <h1 class="site-title">Pet Trace</h1>
+
+                <!-- Auth buttons (Login/Logout) -->
+                <div class="auth-buttons">
+                    <button id="loginButton" class="auth-btn" style="display: none">Login</button>
+                    <button id="logoutButton" class="auth-btn" style="display: none">Logout</button>
+                </div>
+
+                <!-- Greeting message for signed-in user, initially hidden -->
+                <div id="userGreeting" class="user-greeting" style="display: none">
+                    <p>
+                        Hello,
+                        <span id="usernameNavbarSpan"></span>
+                        !
+                    </p>
+                </div>
+            </div>
+        </nav>
 
         <!-- Main Content -->
         <main class="main-content">
