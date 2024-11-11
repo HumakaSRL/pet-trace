@@ -29,10 +29,20 @@ function validateFields() {
     } else emailError.style.display = "none";
 
     // Validate Password
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
-    if (!passwordRegex.test(passwordInput.value.trim())) {
+    const password = passwordInput.value.trim();
+    let hasLowercase = false;
+    let hasUppercase = false;
+    let isValidLength = password.length >= 6;
+
+    for (let char of password) {
+        if (char >= "a" && char <= "z") hasLowercase = true;
+        if (char >= "A" && char <= "Z") hasUppercase = true;
+    }
+
+    // Check conditions
+    if (!isValidLength || !hasLowercase || !hasUppercase) {
         passwordError.textContent =
-            "Password must be at least 6 characters and contain one lowercase letter, one uppercase letter, and one number.";
+            "Password must be at least 6 characters long, with at least one lowercase letter and one uppercase letter. Special characters are allowed.";
         passwordError.style.display = "block";
         registerButton.disabled = false;
         return false;
