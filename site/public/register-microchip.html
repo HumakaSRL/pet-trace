@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Pet Trace - Verify Your Email</title>
+
+        <!-- Firebase SDKs -->
+        <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
+        <script defer src="/__/firebase/init.js"></script>
+
+        <!-- Meta tags -->
+        <meta name="description" content="Pet Trace - Track pets via microchip ID" />
+        <meta name="keywords" content="pet, trace, microchip, pet tracking, pet ID" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/footer.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/register-microchip.css" />
+    </head>
+    <body>
+        <
+        <!-- Navbar 1.0.1 -->
+        <nav class="site-navbar">
+            <div class="navbar-container">
+                <!-- Site title -->
+                <h1 class="site-title">Pet Trace</h1>
+
+                <!-- Auth buttons (Login/Logout) -->
+                <div class="auth-buttons">
+                    <button id="loginButton" class="auth-btn" style="display: none">Login</button>
+                    <button id="logoutButton" class="auth-btn" style="display: none">Logout</button>
+                </div>
+
+                <!-- Greeting message for signed-in user, initially hidden -->
+                <div id="userGreeting" class="user-greeting" style="display: none">
+                    <p>
+                        Hello,
+                        <span id="usernameNavbarSpan"></span>
+                        !
+                    </p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="form-section">
+                <h2>Pet Registration Form</h2>
+                <form id="petRegistrationForm" class="registration-form">
+                    <!-- Microchip ID -->
+                    <label for="microchipIdInput" class="form-label">
+                        Microchip ID
+                        <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="microchipIdInput"
+                        name="microchipId"
+                        class="input-field"
+                        required
+                    />
+
+                    <!-- Pet Name -->
+                    <label for="petNameInput" class="form-label">
+                        Pet Name
+                        <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="petNameInput"
+                        name="petName"
+                        class="input-field"
+                        required
+                    />
+
+                    <!-- Pet Date of Birth -->
+                    <label for="petDobInput" class="form-label">Date of Birth (optional)</label>
+                    <input type="date" id="petDobInput" name="petDob" class="input-field" />
+
+                    <!-- Animal Species -->
+                    <label for="animalTypeInput" class="form-label">
+                        Species of Animal
+                        <span class="required">*</span>
+                    </label>
+                    <select id="animalTypeInput" name="animalType" class="input-field" required>
+                        <option value="" disabled selected>Select Species</option>
+                        <option value="cat">Cat</option>
+                        <option value="dog">Dog</option>
+                        <option value="bird">Bird</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <!-- Breed of Animal (Optional) -->
+                    <label for="breedInput" class="form-label">Breed of Animal (Optional)</label>
+                    <input
+                        type="text"
+                        id="breedInput"
+                        name="breed"
+                        class="input-field"
+                        placeholder="Enter breed (e.g., Siamese for cat, Beagle for dog)"
+                    />
+
+                    <!-- Pet Country -->
+                    <label for="countrySelect" class="form-label">
+                        Country
+                        <span class="required">*</span>
+                    </label>
+                    <select id="countrySelect" name="country" required class="input-field">
+                        <option value="" disabled selected>
+                            Where is this pet currently located?
+                        </option>
+                        <option value="AF">Afghanistan</option>
+                        <option value="AL">Albania</option>
+                        <option value="DZ">Algeria</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="AD">Andorra</option>
+                        <option value="AO">Angola</option>
+                        <option value="AI">Anguilla</option>
+                        <option value="AQ">Antarctica</option>
+                        <option value="AG">Antigua and Barbuda</option>
+                        <option value="AR">Argentina</option>
+                        <option value="AM">Armenia</option>
+                        <option value="AW">Aruba</option>
+                        <option value="AU">Australia</option>
+                        <option value="AT">Austria</option>
+                        <option value="AZ">Azerbaijan</option>
+                        <option value="BS">Bahamas</option>
+                        <option value="BH">Bahrain</option>
+                        <option value="BD">Bangladesh</option>
+                        <option value="BB">Barbados</option>
+                        <option value="BY">Belarus</option>
+                        <option value="BE">Belgium</option>
+                        <option value="BZ">Belize</option>
+                        <option value="BJ">Benin</option>
+                        <option value="BM">Bermuda</option>
+                        <option value="BT">Bhutan</option>
+                        <option value="BO">Bolivia</option>
+                        <option value="BA">Bosnia and Herzegovina</option>
+                        <option value="BW">Botswana</option>
+                        <option value="BV">Bouvet Island</option>
+                        <option value="BR">Brazil</option>
+                        <option value="IO">British Indian Ocean Territory</option>
+                        <option value="BN">Brunei Darussalam</option>
+                        <option value="BG">Bulgaria</option>
+                        <option value="BF">Burkina Faso</option>
+                        <option value="BI">Burundi</option>
+                        <option value="KH">Cambodia</option>
+                        <option value="CM">Cameroon</option>
+                        <option value="CA">Canada</option>
+                        <option value="CV">Cape Verde</option>
+                        <option value="KY">Cayman Islands</option>
+                        <option value="CF">Central African Republic</option>
+                        <option value="TD">Chad</option>
+                        <option value="CL">Chile</option>
+                        <option value="CN">China</option>
+                        <option value="CX">Christmas Island</option>
+                        <option value="CC">Cocos (Keeling) Islands</option>
+                        <option value="CO">Colombia</option>
+                        <option value="KM">Comoros</option>
+                        <option value="CG">Congo</option>
+                        <option value="CD">Congo (Democratic Republic)</option>
+                        <option value="CK">Cook Islands</option>
+                        <option value="CR">Costa Rica</option>
+                        <option value="CI">Côte d'Ivoire</option>
+                        <option value="HR">Croatia</option>
+                        <option value="CU">Cuba</option>
+                        <option value="CY">Cyprus</option>
+                        <option value="CZ">Czech Republic</option>
+                        <option value="DK">Denmark</option>
+                        <option value="DJ">Djibouti</option>
+                        <option value="DM">Dominica</option>
+                        <option value="DO">Dominican Republic</option>
+                        <option value="EC">Ecuador</option>
+                        <option value="EG">Egypt</option>
+                        <option value="SV">El Salvador</option>
+                        <option value="GQ">Equatorial Guinea</option>
+                        <option value="ER">Eritrea</option>
+                        <option value="EE">Estonia</option>
+                        <option value="ET">Ethiopia</option>
+                        <option value="FK">Falkland Islands</option>
+                        <option value="FO">Faroe Islands</option>
+                        <option value="FJ">Fiji</option>
+                        <option value="FI">Finland</option>
+                        <option value="FR">France</option>
+                        <option value="GF">French Guiana</option>
+                        <option value="PF">French Polynesia</option>
+                        <option value="TF">French Southern Territories</option>
+                        <option value="GA">Gabon</option>
+                        <option value="GM">Gambia</option>
+                        <option value="GE">Georgia</option>
+                        <option value="DE">Germany</option>
+                        <option value="GH">Ghana</option>
+                        <option value="GI">Gibraltar</option>
+                        <option value="GR">Greece</option>
+                        <option value="GL">Greenland</option>
+                        <option value="GD">Grenada</option>
+                        <option value="GP">Guadeloupe</option>
+                        <option value="GU">Guam</option>
+                        <option value="GT">Guatemala</option>
+                        <option value="GG">Guernsey</option>
+                        <option value="GN">Guinea</option>
+                        <option value="GW">Guinea-Bissau</option>
+                        <option value="GY">Guyana</option>
+                        <option value="HT">Haiti</option>
+                        <option value="HM">Heard Island and McDonald Islands</option>
+                        <option value="HN">Honduras</option>
+                        <option value="HK">Hong Kong</option>
+                        <option value="HU">Hungary</option>
+                        <option value="IS">Iceland</option>
+                        <option value="IN">India</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="IR">Iran</option>
+                        <option value="IQ">Iraq</option>
+                        <option value="IE">Ireland</option>
+                        <option value="IL">Israel</option>
+                        <option value="IT">Italy</option>
+                        <option value="JM">Jamaica</option>
+                        <option value="JP">Japan</option>
+                        <option value="JE">Jersey</option>
+                        <option value="JO">Jordan</option>
+                        <option value="KZ">Kazakhstan</option>
+                        <option value="KE">Kenya</option>
+                        <option value="KI">Kiribati</option>
+                        <option value="KW">Kuwait</option>
+                        <option value="KG">Kyrgyzstan</option>
+                        <option value="LA">Laos</option>
+                        <option value="LV">Latvia</option>
+                        <option value="LB">Lebanon</option>
+                        <option value="LS">Lesotho</option>
+                        <option value="LR">Liberia</option>
+                        <option value="LY">Libya</option>
+                        <option value="LI">Liechtenstein</option>
+                        <option value="LT">Lithuania</option>
+                        <option value="LU">Luxembourg</option>
+                        <option value="MO">Macao</option>
+                        <option value="MK">Macedonia</option>
+                        <option value="MG">Madagascar</option>
+                        <option value="MW">Malawi</option>
+                        <option value="MY">Malaysia</option>
+                        <option value="MV">Maldives</option>
+                        <option value="ML">Mali</option>
+                        <option value="MT">Malta</option>
+                        <option value="MH">Marshall Islands</option>
+                        <option value="MQ">Martinique</option>
+                        <option value="MR">Mauritania</option>
+                        <option value="MU">Mauritius</option>
+                        <option value="YT">Mayotte</option>
+                        <option value="MX">Mexico</option>
+                        <option value="FM">Micronesia</option>
+                        <option value="MD">Moldova</option>
+                        <option value="MC">Monaco</option>
+                        <option value="MN">Mongolia</option>
+                        <option value="ME">Montenegro</option>
+                        <option value="MS">Montserrat</option>
+                        <option value="MA">Morocco</option>
+                        <option value="MZ">Mozambique</option>
+                        <option value="MM">Myanmar</option>
+                        <option value="NA">Namibia</option>
+                        <option value="NR">Nauru</option>
+                        <option value="NP">Nepal</option>
+                        <option value="NL">Netherlands</option>
+                        <option value="NC">New Caledonia</option>
+                        <option value="NZ">New Zealand</option>
+                        <option value="NI">Nicaragua</option>
+                        <option value="NE">Niger</option>
+                        <option value="NG">Nigeria</option>
+                        <option value="NU">Niue</option>
+                        <option value="NF">Norfolk Island</option>
+                        <option value="MP">Northern Mariana Islands</option>
+                        <option value="NO">Norway</option>
+                        <option value="OM">Oman</option>
+                        <option value="PK">Pakistan</option>
+                        <option value="PL">Poland</option>
+                        <option value="PT">Portugal</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="QA">Qatar</option>
+                        <option value="RE">Réunion</option>
+                        <option value="RO">Romania</option>
+                        <option value="RU">Russia</option>
+                        <option value="RW">Rwanda</option>
+                        <option value="BL">Saint Barthélemy</option>
+                        <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                        <option value="KN">Saint Kitts and Nevis</option>
+                        <option value="LC">Saint Lucia</option>
+                        <option value="MF">Saint Martin (French part)</option>
+                        <option value="SX">Sint Maarten (Dutch part)</option>
+                        <option value="SD">Sudan</option>
+                        <option value="SR">Suriname</option>
+                        <option value="SJ">Svalbard and Jan Mayen</option>
+                        <option value="SE">Sweden</option>
+                        <option value="CH">Switzerland</option>
+                        <option value="SY">Syria</option>
+                        <option value="TW">Taiwan</option>
+                        <option value="TJ">Tajikistan</option>
+                        <option value="TZ">Tanzania</option>
+                        <option value="TH">Thailand</option>
+                        <option value="TL">Timor-Leste</option>
+                        <option value="TG">Togo</option>
+                        <option value="TK">Tokelau</option>
+                        <option value="TO">Tonga</option>
+                        <option value="TT">Trinidad and Tobago</option>
+                        <option value="TN">Tunisia</option>
+                        <option value="TR">Turkey</option>
+                        <option value="TM">Turkmenistan</option>
+                        <option value="TC">Turks and Caicos Islands</option>
+                        <option value="TV">Tuvalu</option>
+                        <option value="UG">Uganda</option>
+                        <option value="UA">Ukraine</option>
+                        <option value="AE">United Arab Emirates</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="US">United States</option>
+                        <option value="UY">Uruguay</option>
+                        <option value="UZ">Uzbekistan</option>
+                        <option value="VU">Vanuatu</option>
+                        <option value="VE">Venezuela</option>
+                        <option value="VN">Vietnam</option>
+                        <option value="WF">Wallis and Futuna</option>
+                        <option value="EH">Western Sahara</option>
+                        <option value="YE">Yemen</option>
+                        <option value="ZM">Zambia</option>
+                        <option value="ZW">Zimbabwe</option>
+                    </select>
+
+                    <!-- Pet City -->
+                    <label for="cityInput" class="form-label">
+                        City
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" id="cityInput" name="city" required class="input-field" />
+
+                    <!-- Current Status -->
+                    <label for="statusSelect" class="form-label">
+                        Current Status
+                        <span class="required">*</span>
+                    </label>
+                    <select id="statusSelect" name="status" required class="input-field">
+                        <option value="alive" selected>Alive</option>
+                        <option value="missing">Missing (Lost or Found)</option>
+                        <option value="deceased">Deceased</option>
+                    </select>
+
+                    <!-- Owner's Name -->
+                    <label for="ownerNameInput" class="form-label">
+                        Owner's Name
+                        <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="ownerNameInput"
+                        name="ownerName"
+                        class="input-field"
+                        required
+                    />
+
+                    <!-- Owner's Phone Number -->
+                    <label for="ownerPhoneContainer" class="form-label">
+                        Phone Number
+                        <span class="required">*</span>
+                    </label>
+                    <div id="ownerPhoneContainer" class="phone-input">
+                        <input
+                            type="text"
+                            id="countryCodeInput"
+                            name="countryCode"
+                            placeholder="Country Code"
+                            class="input-field"
+                            required
+                        />
+                        <input
+                            type="text"
+                            id="phoneNumberInput"
+                            name="phoneNumber"
+                            placeholder="Phone Number"
+                            class="input-field"
+                            required
+                        />
+                    </div>
+
+                    <!-- Owner's Email -->
+                    <label for="ownerEmailInput" class="form-label">
+                        Email
+                        <span class="required">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="ownerEmailInput"
+                        name="ownerEmail"
+                        class="input-field"
+                        required
+                    />
+
+                    <!-- Owner's Facebook -->
+                    <label for="ownerFacebookInput" class="form-label">
+                        Facebook Link (optional)
+                    </label>
+                    <input
+                        type="text"
+                        id="ownerFacebookInput"
+                        name="ownerFacebook"
+                        class="input-field"
+                    />
+
+                    <!-- Owner's Instagram -->
+                    <label for="ownerInstagramInput" class="form-label">
+                        Instagram Link (optional)
+                    </label>
+                    <input
+                        type="text"
+                        id="ownerInstagramInput"
+                        name="ownerInstagram"
+                        class="input-field"
+                    />
+
+                    <!-- Other Note from the Owner -->
+                    <label for="ownerNoteInput" class="form-label">
+                        Additional Notes (optional)
+                    </label>
+                    <p class="note-instructions">
+                        This message is for anyone who might find your pet if it gets lost. Please
+                        provide important details that could help them care for your pet until it is
+                        safely returned.
+                    </p>
+                    <ol class="note-list">
+                        <li>
+                            <span class="bold">Diet & Food Preferences:</span>
+                            What food does your pet eat? Does it have any allergies or special diet
+                            requirements?
+                        </li>
+                        <li>
+                            <span class="bold">Responding to Sounds:</span>
+                            Does your pet respond to a certain call, whistle, or sound? If yes,
+                            please specify.
+                        </li>
+                        <li>
+                            <span class="bold">Behavior & Personality:</span>
+                            How does your pet behave? Is it friendly or shy around people? Does it
+                            have any specific likes or dislikes?
+                        </li>
+                        <li>
+                            <span class="bold">Fears or Comfort:</span>
+                            Does your pet have any fears, like loud noises or strangers? What can
+                            help calm it down?
+                        </li>
+                        <li>
+                            <span class="bold">Health Concerns:</span>
+                            Any medical issues or medications the pet needs to take?
+                        </li>
+                        <li>
+                            <span class="bold">Favorite Toys or Items:</span>
+                            Does your pet have a favorite toy, blanket, or item that brings it
+                            comfort?
+                        </li>
+                    </ol>
+                    <p class="note-instructions">
+                        By providing this information, you’ll help the person who finds your pet
+                        take better care of it until it is reunited with you.
+                    </p>
+                    <textarea
+                        id="ownerNoteInput"
+                        name="ownerNote"
+                        class="input-field"
+                        placeholder="Provide any additional information about your pet here."
+                    ></textarea>
+
+                    <!-- Pet Picture -->
+                    <label for="petImageInput" class="form-label">
+                        Upload Pet's Image (JPG, JPEG, PNG only)
+                        <span class="required">*</span>
+                    </label>
+                    <input
+                        type="file"
+                        id="petImageInput"
+                        name="petImage"
+                        class="input-field"
+                        accept=".jpg, .jpeg, .png"
+                        required
+                    />
+
+                    <!-- Submit Button -->
+                    <button id="submitPetForm" type="submit" class="submit-btn">Submit</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>&copy; 2024 by Humaka SRL. All rights reserved.</p>
+            <p>
+                <a href="https://humaka.ro" target="_blank" class="footer-link">Humaka SRL</a>
+                |
+                <a href="terms-of-service.html" target="_blank" class="footer-link">
+                    Terms of Service
+                </a>
+                |
+                <a href="privacy-policy.html" target="_blank" class="footer-link">Privacy Policy</a>
+            </p>
+        </footer>
+
+        <!-- JavaScript -->
+        <script type="module" src="assets/js/main.js"></script>
+        <script type="module" src="assets/js/navbar.js"></script>
+        <script type="module" src="assets/js/footer.js"></script>
+        <script type="module" src="assets/js/registerMicrochip.js"></script>
+    </body>
+</html>

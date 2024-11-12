@@ -49,56 +49,66 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Pet Information Section -->
-            <section class="pet-info">
-                <h2>Pet Information</h2>
-                <p>
-                    Chip ID:
-                    <span id="chipId"></span>
-                    <br />
-                    Name:
-                    <span id="petName"></span>
-                    <br />
-                    Age:
-                    <span id="petAge"></span>
-                    <br />
-                    Kind:
-                    <span id="petKind"></span>
-                    <br />
-                    Species:
-                    <span id="petSpecies"></span>
-                    <br />
-                    Status:
-                    <span id="petStatus"></span>
-                </p>
-            </section>
+            <div id="chipInformation" style="display: none">
+                <!-- Pet Information Section -->
+                <section class="pet-info">
+                    <h2>Pet Information</h2>
+                    <p>
+                        Chip ID:
+                        <span id="chipId"></span>
+                        <br />
+                        Name:
+                        <span id="petName"></span>
+                        <br />
+                        Age:
+                        <span id="petAge"></span>
+                        <br />
+                        Kind:
+                        <span id="petKind"></span>
+                        <br />
+                        Species:
+                        <span id="petSpecies"></span>
+                        <br />
+                        Status:
+                        <span id="petStatus"></span>
+                    </p>
+                </section>
 
-            <!-- Owner Information Section -->
-            <section class="owner-info">
-                <h2>Owner Information</h2>
-                <p>
-                    Name:
-                    <span id="ownerName"></span>
-                    <br />
-                    Phone:
-                    <span id="ownerPhone"></span>
-                    <br />
-                    Email:
-                    <span id="ownerEmail"></span>
-                </p>
-            </section>
+                <!-- Owner Information Section -->
+                <section class="owner-info">
+                    <h2>Owner Information</h2>
+                    <p>
+                        Name:
+                        <span id="ownerName"></span>
+                        <br />
+                        Phone:
+                        <span id="ownerPhone"></span>
+                        <br />
+                        Email:
+                        <span id="ownerEmail"></span>
+                    </p>
+                </section>
 
-            <!-- Last Update Section -->
-            <section class="update-info">
-                <h2>Last Update</h2>
+                <!-- Last Update Section -->
+                <section class="update-info">
+                    <h2>Last Update</h2>
+                    <p>
+                        Last Update:
+                        <span id="lastUpdate"></span>
+                        <br />
+                        Status:
+                        <span id="lifeStatus"></span>
+                    </p>
+                </section>
+            </div>
+            <div id="noMatchSection" style="display: none">
+                <p>Microchip <span id="microchipIdSpan"></span> is not registered in our database</p>
                 <p>
-                    Last Update:
-                    <span id="lastUpdate"></span>
-                    <br />
-                    Status:
-                    <span id="lifeStatus"></span>
+                    Is this your pet's microchip?
+                    <a href="/register-microchip.html">Register</a>
+                    it here for free now!
                 </p>
-            </section>
+            </div>
         </main>
 
         <!-- Footer -->

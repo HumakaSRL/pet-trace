@@ -7,7 +7,7 @@
     background-color: #f4f7fc;
 }
 
-.sign-up-section {
+.register-section {
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
@@ -24,7 +24,7 @@ h2 {
 }
 
 /* Form Styling */
-.sign-up-form {
+.register-form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
