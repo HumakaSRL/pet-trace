@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
     loginButton.addEventListener("click", () => {
         window.location = "/login.html";
     });
+    navLogo.addEventListener("click", () => {
+        window.location = "/index.html";
+    });
+    usernameNavbarSpan.addEventListener("click", () => {
+        window.location = "/dashboard.html";
+    });
 });
 
 function logout() {

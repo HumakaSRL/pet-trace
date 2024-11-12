@@ -69,6 +69,11 @@
     color: var(--accent-color);
 }
 
+#navLogo,
+#usernameNavbarSpan {
+    cursor: pointer;
+}
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     .site-navbar {
