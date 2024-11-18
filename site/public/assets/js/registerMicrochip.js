@@ -3,6 +3,7 @@ let currentUserUid = null;
 // Check if a user is authenticated and store their UID
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
+        mainContent.style.display = "block";
         currentUserUid = user.uid; // Store the UID in a global variable
     } else {
         // Redirect to Login
@@ -37,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
 
 async function constructPetData(userUid) {
     const chip_id = microchipIdInput.value.trim();
