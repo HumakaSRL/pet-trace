@@ -20,21 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        try {
-            const chipData = await constructPetData(currentUserUid);
+        if (checkPetData()) {
+            try {
+                const chipData = await constructPetData(currentUserUid);
 
-            // Create a new entry in the "chips" node and get the key
-            const newChipRef = await firebase.database().ref(`chips`).push();
-            const newChipKey = newChipRef.key; // Get the generated key
+                // Create a new entry in the "chips" node and get the key
+                const newChipRef = await firebase.database().ref(`chips`).push();
+                const newChipKey = newChipRef.key; // Get the generated key
 
-            // Save the data with the generated key
-            await newChipRef.set(chipData); //! push this id along with some data into the users info so the user knows what chips/pets he had registered also
+                // Save the data with the generated key
+                await newChipRef.set(chipData); //! push this id along with some data into the users info so the user knows what chips/pets he had registered also
 
-            console.log("Pet data has been saved successfully!");
-            console.log("New chip ID:", newChipKey); // Log the key
-        } catch (error) {
-            console.error("Error saving pet data:", error);
-            console.error("Failed to save pet data. Please try again.");
+                console.log("Pet data has been saved successfully!");
+                console.log("New chip ID:", newChipKey); // Log the key
+            } catch (error) {
+                console.error("Error saving pet data:", error);
+                console.error("Failed to save pet data. Please try again.");
+            }
         }
     });
 });
@@ -82,4 +84,25 @@ async function constructPetData(userUid) {
     };
 
     return chip_data;
+}
+
+function checkPetData() {
+    const chip_id = microchipIdInput.value.trim();
+    const pet_name = petNameInput.value.trim();
+    const pet_dob = petDobInput.value;
+    const pet_species = animalSpeciesInput.value;
+    const pet_breed = breedInput.value.trim();
+    const pet_country = countrySelect.value;
+    const pet_city = cityInput.value.trim();
+    const pet_status = statusSelect.value;
+    const owner_name = ownerNameInput.value.trim();
+    const owner_phone_country_code = countryCodeInput.value.trim();
+    const owner_phone_number = phoneNumberInput.value.trim();
+    const owner_email = ownerEmailInput.value.trim();
+    const owner_facebook = ownerFacebookInput.value.trim();
+    const owner_instagram = ownerInstagramInput.value.trim();
+    const owner_note = ownerNoteInput.value.trim();
+
+    //! make tests here
+
 }
