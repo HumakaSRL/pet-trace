@@ -103,6 +103,74 @@ function checkPetData() {
     const owner_instagram = ownerInstagramInput.value.trim();
     const owner_note = ownerNoteInput.value.trim();
 
-    //! make tests here
+    // Validation Logic
+    //! needs testing
 
+    if (chip_id.length < 9 || chip_id.length > 15) {
+        alert("The chip ID must be 9-15 digits long.");
+        return false;
+    }
+    if (pet_name.length < 2 || pet_name.length > 25) {
+        alert("Please enter a valid name for your pet!");
+        return false;
+    }
+    if (new Date(pet_dob).getFullYear() < 1980) {
+        alert("Your pet cannot be older than 40 years old. Please check the date of birth!");
+        return false;
+    }
+    if (!pet_species) {
+        alert("Please choose your pet species!");
+        return false;
+    }
+    if (pet_breed && (pet_breed.length < 4 || pet_breed.length > 25)) {
+        alert("Please enter a valid pet breed.");
+        return false;
+    }
+    if (!pet_country) {
+        alert("Please select your pet's current country.");
+        return false;
+    }
+    if (pet_city.length < 2 || pet_city.length > 50) {
+        alert("Please enter a valid city name.");
+        return false;
+    }
+    if (!pet_status) {
+        alert("Please select the pet's current status.");
+        return false;
+    }
+    if (owner_name.length < 2 || owner_name.length > 50) {
+        alert("Please enter a valid owner's name.");
+        return false;
+    }
+    if (!/^\d+$/.test(owner_phone_country_code)) {
+        alert("Please enter a valid country code.");
+        return false;
+    }
+    if (
+        !/^\d+$/.test(owner_phone_number) ||
+        owner_phone_number.length < 7 ||
+        owner_phone_number.length > 15
+    ) {
+        alert("Please enter a valid phone number.");
+        return false;
+    }
+    if (owner_email && !/\S+@\S+\.\S+/.test(owner_email)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
+    if (owner_facebook && owner_facebook.length < 5) {
+        alert("Please enter a valid Facebook profile link.");
+        return false;
+    }
+    if (owner_instagram && owner_instagram.length < 5) {
+        alert("Please enter a valid Instagram profile link.");
+        return false;
+    }
+    if (owner_note.length > 500) {
+        alert("The owner note must not exceed 500 characters.");
+        return false;
+    }
+
+    // If all validations pass
+    return true;
 }
