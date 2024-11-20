@@ -31,8 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Save the data with the generated key
                 await newChipRef.set(chipData); //! push this id along with some data into the users info so the user knows what chips/pets he had registered also
 
-                console.log("Pet data has been saved successfully!");
+                alert("Pet data has been saved successfully!");
+                console.log("Chip data: ", chipData);
                 console.log("New chip ID:", newChipKey); // Log the key
+                // TODO: redirect the user to dashboard
             } catch (error) {
                 console.error("Error saving pet data:", error);
                 console.error("Failed to save pet data. Please try again.");
@@ -110,12 +112,16 @@ function checkPetData() {
         alert("The chip ID must be 9-15 digits long.");
         return false;
     }
-    if (pet_name.length < 2 || pet_name.length > 25) {
-        alert("Please enter a valid name for your pet!");
+    if (pet_name.length < 2 || pet_name.length > 25 || /\d/.test(pet_name)) {
+        alert("Please enter a valid name for your pet! Names cannot contain numbers.");
         return false;
     }
     if (new Date(pet_dob).getFullYear() < 1980) {
         alert("Your pet cannot be older than 40 years old. Please check the date of birth!");
+        return false;
+    }
+    if (new Date(pet_dob).getFullYear() > new Date().getFullYear()) {
+        alert("Your pet cannot be born in the future. Please check the date of birth!");
         return false;
     }
     if (!pet_species) {
@@ -154,7 +160,11 @@ function checkPetData() {
         alert("Please enter a valid phone number.");
         return false;
     }
-    if (owner_email && !/\S+@\S+\.\S+/.test(owner_email)) {
+    if (!owner_email) {
+        alert("Email address cannot be empty. Please provide a valid email address.");
+        return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(owner_email)) {
         alert("Please enter a valid email address.");
         return false;
     }
@@ -166,8 +176,8 @@ function checkPetData() {
         alert("Please enter a valid Instagram profile link.");
         return false;
     }
-    if (owner_note.length > 500) {
-        alert("The owner note must not exceed 500 characters.");
+    if (owner_note.length > 2500) {
+        alert("The owner note must not exceed 2500 characters.");
         return false;
     }
 
