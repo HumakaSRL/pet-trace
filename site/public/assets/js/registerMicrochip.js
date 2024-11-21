@@ -1,37 +1,59 @@
 let currentUserUid = null;
 
-// Main event listener for form submission
 document.addEventListener("DOMContentLoaded", () => {
     submitPetFormButton.addEventListener("click", async (e) => {
         e.preventDefault();
 
+        // Check if the user is authenticated
         if (!currentUserUid) {
             console.error("User not authenticated. Please log in.");
             return;
         }
 
+        // Check if all required pet data is filled out
         if (checkPetData()) {
             try {
+                // Get pet data from the form
                 const chipData = await constructPetData(currentUserUid);
+
+                // Check if the pet image is valid
+                const petImageFile = petImageInput.files[0];
+                if (!petImageFile) {
+                    alert("Please select a pet image.");
+                    return;
+                }
+
+                // Validate and compress the image file
+                const validatedFile = checkImage(petImageFile);
+                if (!validatedFile) {
+                    console.error("Invalid image file.");
+                    alert("Please select a valid image file (JPG, PNG, or GIF).");
+                    return;
+                }
+
+                // Compress the image before uploading
+                const compressedFile = await compressImage(validatedFile);
 
                 // Create a new entry in the "chips" node and get the key
                 const newChipRef = await firebase.database().ref("chips").push();
                 const newChipKey = newChipRef.key; // Get the generated key
 
-                // Save the data with the generated key
+                // Save the pet data in the "chips" node
                 await newChipRef.set(chipData);
+
+                // Upload the compressed image to Firebase Storage
+                const imageFilePath = `pet_images/${newChipKey}/pet_image_${Date.now()}.jpg`; //! check here image format
+                await uploadFileToStorage(compressedFile, imageFilePath);
 
                 // Add the chip ID directly to the user's pets (no extra keys generated)
                 const userPetsRef = firebase.database().ref(`users/${currentUserUid}/pets`);
                 userPetsRef.push(newChipKey);
 
+                // Display success message
                 showSuccessMessage("Pet data has been saved successfully!", newChipKey);
 
-                console.log("Chip data: ", chipData);
-                console.log("New chip ID:", newChipKey);
-
-                // Optionally redirect to dashboard
-                // window.location = "/dashboard.html";
+                console.log("Chip data: ", chipData); //! RBI
+                console.log("New chip ID:", newChipKey); //! RBI
             } catch (error) {
                 console.error("Error saving pet data:", error);
                 alert("There was an error saving the pet data. Please try again later.");
@@ -267,3 +289,157 @@ function checkPetData() {
 
     return true;
 }
+
+function compressImage(imageFile) {
+    return new Promise((resolve, reject) => {
+        const maxWidth = 200;
+        const quality = 0.98;
+
+        if (!imageFile) {
+            alert("No file provided.");
+            reject("No file provided.");
+            return;
+        }
+
+        let reader = new FileReader();
+        reader.readAsDataURL(imageFile);
+
+        reader.onload = (event) => {
+            let image_url = event.target.result;
+            let image = new Image();
+            image.src = image_url;
+
+            image.onload = () => {
+                let canvas = document.createElement("canvas");
+                let ratio = maxWidth / image.width;
+                canvas.width = maxWidth;
+                canvas.height = image.height * ratio;
+
+                let context = canvas.getContext("2d");
+                context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                canvas.toBlob(
+                    (blob) => {
+                        resolve(blob); // Resolve with the compressed image Blob
+                    },
+                    "image/jpeg",
+                    quality
+                );
+            };
+
+            image.onerror = (error) => {
+                alert("Error loading image", error);
+                console.error("Error loading image", error);
+                reject("Error loading image");
+            };
+        };
+
+        reader.onerror = (error) => {
+            alert("Error reading file");
+            console.error("Error reading file", error);
+            reject("Error reading file");
+        };
+    });
+}
+
+// // Add click event listener to the profile photo
+// profilePhoto.addEventListener("click", () => imageFile.click());
+
+// // Add change event listener to the file input
+// imageFile.addEventListener("change", (event) => {
+//     /*
+//     If the user choses multiple files, it only selects the first one,
+//     it doesn't get all the images don't worry, thats why we use [0] here,
+//     is to get the first file in the "array" if there is an "array" of files.
+//     */
+//     const file = event.target.files[0];
+//     if (file) {
+//         imageError.textContent = "";
+//         const preparedFile = checkImage(file);
+//         if (preparedFile) {
+//             // File is prepared, you can show the upload button
+//             uploadImageButton.style.display = "block";
+//             imageError.textContent = `Selected file: ${file.name}`;
+//         }
+//     } else {
+//         // No file selected, hide the upload button
+//         uploadImageButton.style.display = "none";
+//         imageError.textContent = "";
+//     }
+// });
+
+// // Add click event listener to the upload overlay on the picture
+// uploadImageButton.addEventListener("click", async () => {
+//     const file = imageFile.files[0];
+//     if (file) {
+//         const preparedFile = checkImage(file);
+//         const compressedFile = await compressImage(preparedFile);
+//         if (preparedFile) {
+//             // Handle file upload using preparedFile...
+//             uploadImageButton.style.display = "none";
+//             const filePath = `user_data/${currentUser.uid}/profile_picture`;
+//             // Upload the file to Firebase Storage
+//             uploadFileToStorage(compressedFile, filePath);
+//         }
+//     }
+// });
+
+function checkImage(file) {
+    imageError.textContent = "";
+
+    // Check if a file is provided
+    if (!file) return null;
+
+    // Check file type
+    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
+    if (!allowedTypes.includes(file.type)) {
+        alert("Unsupported file type. Please select a PNG, JPG, or GIF image");
+        return null;
+    }
+
+    // Check file size (5 MB limit)
+    const maxSizeInBytes = 25 * 1024 * 1024; // 5 MB in bytes
+    if (file.size > maxSizeInBytes) {
+        alert("Image size exceeds the limit (25 MB)");
+        return null;
+    }
+
+    return file;
+}
+
+// function uploadFileToStorage(file, filePath) {
+//     const storageRef = firebase.storage().ref();
+//     const uploadTask = storageRef.child(filePath).put(file);
+
+//     // Add a listener to the upload task to track its completion
+//     uploadTask.on(
+//         "state_changed",
+//         (snapshot) => {
+//             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//             imageError.textContent = `Uploading ${Math.round(progress)}%`;
+//         },
+//         (error) => {
+//             // Handle upload errors
+//             (imageError.textContent = "Upload failed"), error;
+//         },
+//         async () => {
+//             try {
+//                 // Get the download URL for the uploaded file
+//                 const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
+
+//                 // Update the photoURL in the user's profile
+//                 const user = firebase.auth().currentUser;
+//                 await user.updateProfile({
+//                     photoURL: downloadURL,
+//                 });
+
+//                 // Update successful, reload the page or perform other actions
+//                 updateProfilePictureUI();
+//             } catch (error) {
+//                 // Handle errors updating the user profile
+//                 console.error("Error updating user profile:", error);
+//                 imageError.textContent = "Error updating user profile";
+//             }
+//         }
+//     );
+// }
