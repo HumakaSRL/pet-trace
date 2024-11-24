@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 await updateImageURL(chipKey, imageURL);
 
                 // Display success message
-                showSuccessMessage("Pet data has been saved successfully!", chipKey);
+                showSuccessMessage("Pet data has been saved successfully!", chipData.chip_id);
 
                 console.log("Chip data: ", chipData); //! RBI
                 console.log("New chip ID:", chipKey); //! RBI
