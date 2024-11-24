@@ -1,5 +1,16 @@
 let currentUserUid = null;
 
+// Check if a user is authenticated and store their UID
+firebase.auth().onAuthStateChanged(async (user) => {
+    if (user) {
+        mainContent.style.display = "block";
+        currentUserUid = user.uid; // Store the UID in a global variable
+    } else {
+        // Redirect to Login
+        window.location = "/login.html";
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     submitPetFormButton.addEventListener("click", async (e) => {
         e.preventDefault();
@@ -69,17 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Check if a user is authenticated and store their UID
-firebase.auth().onAuthStateChanged(async (user) => {
-    if (user) {
-        mainContent.style.display = "block";
-        currentUserUid = user.uid; // Store the UID in a global variable
-    } else {
-        // Redirect to Login
-        window.location = "/login.html";
-    }
-});
-
 // Helper function for phone number validation
 function isValidPhoneNumber(phoneNumber) {
     return /^\d+$/.test(phoneNumber) && phoneNumber.length >= 7 && phoneNumber.length <= 15;
@@ -119,7 +119,7 @@ function showSuccessMessage(message, chipId) {
     viewPetButton.textContent = "View Your Pet";
     viewPetButton.classList.add("popup-button");
     viewPetButton.onclick = () => {
-        window.location.href = `/pet.html?chip=${chipId}`;
+        window.location.href = `/view.html?chip=${chipId}`;
     };
     successPopup.appendChild(viewPetButton);
 

@@ -47,8 +47,22 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="main-content">
-            <a href="/register-microchip.html">Register a pet</a>
+        <main id="mainContent" class="main-content" style="display: none">
+            <!-- Button to register a new pet -->
+            <div class="register-pet-container">
+                <a href="/register-microchip.html" class="register-pet-btn">Register a New Pet</a>
+            </div>
+
+            <!-- Section for user's pets -->
+            <section class="my-pets-section">
+                <h2 class="section-title">My Pets</h2>
+                <div id="petsContainer" class="pets-container">
+                    <!-- Pets will be dynamically generated here -->
+                    <p id="noPetsMessage" class="no-pets-message" style="display: none">
+                        You have not registered any pets yet.
+                    </p>
+                </div>
+            </section>
         </main>
 
         <!-- Footer -->

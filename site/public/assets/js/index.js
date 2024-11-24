@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function searchPet(inputElement) {
-    const microchipId = inputElement.value.trim();
-    if (microchipId) window.location.href = `/pet-details.html?microchip=${microchipId}`;
+    const chip = inputElement.value.trim();
+    if (chip) window.location.href = `/view.html?chip=${chip}`;
     else alert("Please enter a valid Microchip ID.");
 }
