@@ -1,3 +1,10 @@
+let currentUserUid = null;
+
+// Check if a user is authenticated and store their UID
+firebase.auth().onAuthStateChanged(async (user) => {
+    if (user) currentUserUid = user.uid; // Store the UID in a global variable
+});
+
 document.addEventListener("DOMContentLoaded", async () => {
     // Extract the "chip" parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -12,8 +19,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             petImage.src = microchipData.image_url;
 
-            // Show the chip information section
+            // Show the chip information section along with the toolbar
             chipInformation.style.display = "flex";
+
+            if (microchipData.owner_uid === currentUserUid) editSection.style.display = "flex";
 
             // Populate the data in the respective fields
             chipId.textContent = microchipData.chip_id;
