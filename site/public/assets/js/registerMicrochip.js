@@ -3,10 +3,11 @@ let currentUserUid = null;
 document.addEventListener("DOMContentLoaded", () => {
     submitPetFormButton.addEventListener("click", async (e) => {
         e.preventDefault();
+        submitPetFormButton.disabled = true;
 
         // Check if the user is authenticated
         if (!currentUserUid) {
-            console.error("User not authenticated. Please log in.");
+            window.location = "/login.html";
             return;
         }
 
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const petImageFile = petImageInput.files[0];
                 if (!petImageFile) {
                     alert("Please select a pet image.");
+                    submitPetFormButton.disabled = false;
                     return;
                 }
 
@@ -27,9 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const validatedFile = checkImage(petImageFile);
                 if (!validatedFile) {
                     console.error("Invalid image file.");
-                    alert("Please select a valid image file (JPG, PNG, or GIF).");
+                    submitPetFormButton.disabled = false;
                     return;
                 }
+
+                // Check image format
+                const imageFormat = checkFormat(petImageFile);
 
                 // Compress the image before uploading
                 const compressedFile = await compressImage(validatedFile);
@@ -41,13 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Save the pet data in the "chips" node
                 await newChipRef.set(chipData);
 
-                // Upload the compressed image to Firebase Storage
-                const imageFilePath = `pet_images/${newChipKey}/pet_image_${Date.now()}.jpg`; //! check here image format
-                await uploadFileToStorage(compressedFile, imageFilePath);
-
                 // Add the chip ID directly to the user's pets (no extra keys generated)
                 const userPetsRef = firebase.database().ref(`users/${currentUserUid}/pets`);
                 userPetsRef.push(newChipKey);
+
+                // Upload the compressed image to Firebase Storage
+                const imageFilePath = `pet_images/${newChipKey}/${currentUserUid}/pet_image_${Date.now()}${imageFormat}`;
+                await uploadFileToStorage(compressedFile, imageFilePath);
 
                 // Display success message
                 showSuccessMessage("Pet data has been saved successfully!", newChipKey);
@@ -154,7 +159,7 @@ async function constructPetData(userUid) {
     const chip_data = {
         chip_id: chip_id,
         created_at: firebase.database.ServerValue.TIMESTAMP,
-        created_by: userUid,
+        owner_uid: userUid,
         pet_info: {
             pet_name: pet_name,
             pet_dob: pet_dob,
@@ -180,7 +185,7 @@ async function constructPetData(userUid) {
 
 // Validation logic for pet data form
 function checkPetData() {
-    const chip_id = microchipIdInput.value.trim();
+    const chip_id = microchipIdInput.value.trim().toUpperCase();
     const pet_name = petNameInput.value.trim();
     const pet_dob = petDobInput.value;
     const pet_species = animalSpeciesInput.value;
@@ -197,14 +202,16 @@ function checkPetData() {
     const owner_note = ownerNoteInput.value.trim();
 
     // Chip ID Validation
-    if (!/^\d{9,15}$/.test(chip_id)) {
-        alert("The chip ID must be 9-15 digits long.");
+    if (!/^[A-Z0-9]{9,15}$/.test(chip_id)) {
+        alert("The chip ID must be 9-15 characters long and contain only letters and numbers.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Pet Name Validation
     if (pet_name.length < 2 || pet_name.length > 25 || /\d/.test(pet_name)) {
         alert("Please enter a valid name for your pet! Names cannot contain numbers.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
@@ -212,78 +219,92 @@ function checkPetData() {
     const pet_dob_year = new Date(pet_dob).getFullYear();
     if (pet_dob_year < 1980) {
         alert("Your pet cannot be older than 40 years old. Please check the date of birth!");
+        submitPetFormButton.disabled = false;
         return false;
     }
     if (pet_dob_year > new Date().getFullYear()) {
         alert("Your pet cannot be born in the future. Please check the date of birth!");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Species Validation
     if (!pet_species) {
         alert("Please choose your pet species!");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Pet Breed Validation
     if (pet_breed && (pet_breed.length < 4 || pet_breed.length > 25)) {
         alert("Please enter a valid pet breed.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Country Validation
     if (!pet_country) {
         alert("Please select your pet's current country.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // City Validation
     if (pet_city.length < 2 || pet_city.length > 50) {
         alert("Please enter a valid city name.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Pet Status Validation
     if (!pet_status) {
         alert("Please select the pet's current status.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Owner Name Validation
     if (owner_name.length < 2 || owner_name.length > 50) {
         alert("Please enter a valid owner's name.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Phone Number Validation
     if (!/^\d+$/.test(owner_phone_country_code)) {
         alert("Please enter a valid country code.");
+        submitPetFormButton.disabled = false;
         return false;
     }
     if (!isValidPhoneNumber(owner_phone_number)) {
         alert("Please enter a valid phone number.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Email Validation
     if (!owner_email || !isValidEmail(owner_email)) {
         alert("Please enter a valid email address.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Social Media Links Validation
     if (owner_facebook && owner_facebook.length < 5) {
         alert("Please enter a valid Facebook profile link.");
+        submitPetFormButton.disabled = false;
         return false;
     }
     if (owner_instagram && owner_instagram.length < 5) {
         alert("Please enter a valid Instagram profile link.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
     // Owner Note Validation
     if (owner_note.length > 2500) {
         alert("The owner note must not exceed 2500 characters.");
+        submitPetFormButton.disabled = false;
         return false;
     }
 
@@ -292,8 +313,8 @@ function checkPetData() {
 
 function compressImage(imageFile) {
     return new Promise((resolve, reject) => {
-        const maxWidth = 200;
-        const quality = 0.98;
+        const maxWidth = 400;
+        const quality = 0.97;
 
         if (!imageFile) {
             alert("No file provided.");
@@ -342,48 +363,6 @@ function compressImage(imageFile) {
     });
 }
 
-// // Add click event listener to the profile photo
-// profilePhoto.addEventListener("click", () => imageFile.click());
-
-// // Add change event listener to the file input
-// imageFile.addEventListener("change", (event) => {
-//     /*
-//     If the user choses multiple files, it only selects the first one,
-//     it doesn't get all the images don't worry, thats why we use [0] here,
-//     is to get the first file in the "array" if there is an "array" of files.
-//     */
-//     const file = event.target.files[0];
-//     if (file) {
-//         imageError.textContent = "";
-//         const preparedFile = checkImage(file);
-//         if (preparedFile) {
-//             // File is prepared, you can show the upload button
-//             uploadImageButton.style.display = "block";
-//             imageError.textContent = `Selected file: ${file.name}`;
-//         }
-//     } else {
-//         // No file selected, hide the upload button
-//         uploadImageButton.style.display = "none";
-//         imageError.textContent = "";
-//     }
-// });
-
-// // Add click event listener to the upload overlay on the picture
-// uploadImageButton.addEventListener("click", async () => {
-//     const file = imageFile.files[0];
-//     if (file) {
-//         const preparedFile = checkImage(file);
-//         const compressedFile = await compressImage(preparedFile);
-//         if (preparedFile) {
-//             // Handle file upload using preparedFile...
-//             uploadImageButton.style.display = "none";
-//             const filePath = `user_data/${currentUser.uid}/profile_picture`;
-//             // Upload the file to Firebase Storage
-//             uploadFileToStorage(compressedFile, filePath);
-//         }
-//     }
-// });
-
 function checkImage(file) {
     imageError.textContent = "";
 
@@ -407,39 +386,14 @@ function checkImage(file) {
     return file;
 }
 
-// function uploadFileToStorage(file, filePath) {
-//     const storageRef = firebase.storage().ref();
-//     const uploadTask = storageRef.child(filePath).put(file);
+function checkFormat(file) {
+    if (file.type === "image/jpeg") return ".jpg";
+    else if (file.type === "image/png") return ".png";
+    else if (file.type === "image/gif") return ".gif";
+    return null; // Return null for unsupported formats
+}
 
-//     // Add a listener to the upload task to track its completion
-//     uploadTask.on(
-//         "state_changed",
-//         (snapshot) => {
-//             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-//             imageError.textContent = `Uploading ${Math.round(progress)}%`;
-//         },
-//         (error) => {
-//             // Handle upload errors
-//             (imageError.textContent = "Upload failed"), error;
-//         },
-//         async () => {
-//             try {
-//                 // Get the download URL for the uploaded file
-//                 const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
-
-//                 // Update the photoURL in the user's profile
-//                 const user = firebase.auth().currentUser;
-//                 await user.updateProfile({
-//                     photoURL: downloadURL,
-//                 });
-
-//                 // Update successful, reload the page or perform other actions
-//                 updateProfilePictureUI();
-//             } catch (error) {
-//                 // Handle errors updating the user profile
-//                 console.error("Error updating user profile:", error);
-//                 imageError.textContent = "Error updating user profile";
-//             }
-//         }
-//     );
-// }
+function uploadFileToStorage(file, filePath) {
+    const storageRef = firebase.storage().ref();
+    return storageRef.child(filePath).put(file);
+}

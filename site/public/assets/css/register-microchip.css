@@ -1,4 +1,8 @@
 /* Form-Specific Styles */
+.error-text {
+    color: red;
+}
+
 .form-section h2 {
     font-size: 1.5rem;
     color: var(--heading-color);

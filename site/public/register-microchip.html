@@ -9,6 +9,7 @@
         <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-storage-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
         <script defer src="/__/firebase/init.js"></script>
 
@@ -476,10 +477,10 @@
                         id="petImageInput"
                         name="petImage"
                         class="input-field"
-                        accept=".jpg, .jpeg, .png"
+                        accept=".jpg, .jpeg, .png, .gif"
                         required
                     />
-                    <span id="imageError"></span>
+                    <span id="imageError" class="error-text"></span>
 
                     <!-- Submit Button -->
                     <button id="submitPetFormButton" type="submit" class="submit-btn">
