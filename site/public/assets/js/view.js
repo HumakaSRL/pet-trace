@@ -6,6 +6,16 @@ firebase.auth().onAuthStateChanged(async (user) => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
+    editButton.addEventListener("click", showEditOptions);
+    cancelButton.addEventListener("click", () => {
+        const confirmation = confirm("All changes will be lost, are you sure?");
+        if (confirmation) hideEditOptions();
+    });
+    saveButton.addEventListener("click", () => {
+        const confirmation = confirm("Are you sure you want to save the changes?");
+        if (confirmation) saveChanges();
+    });
+
     // Extract the "chip" parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const microchipId = urlParams.get("chip");
@@ -100,4 +110,22 @@ async function searchMicrochip(microchipId) {
         console.error("Error fetching data: ", error);
         return null;
     }
+}
+
+function showEditOptions() {
+    editButton.style.display = "none";
+    saveButton.style.display = "block";
+    cancelButton.style.display = "block";
+}
+
+function hideEditOptions() {
+    // TODO: Reset every edit field here
+    editButton.style.display = "block";
+    saveButton.style.display = "none";
+    cancelButton.style.display = "none";
+}
+
+function saveChanges() {
+    // TODO: Save the data
+    hideEditOptions();
 }
