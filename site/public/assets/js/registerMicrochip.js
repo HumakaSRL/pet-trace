@@ -152,6 +152,9 @@ async function constructPetData(userUid) {
     pet_city = capitalizeWords(pet_city);
     owner_name = capitalizeWords(owner_name);
 
+    // Capitalize all letters in chip_id, while keeping numbers intact
+    chip_id = chip_id.replace(/[a-zA-Z]/g, (match) => match.toUpperCase());
+
     // Make email, facebook, and instagram lowercase
     owner_email = owner_email.toLowerCase();
     owner_facebook = owner_facebook.toLowerCase();
