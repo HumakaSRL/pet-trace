@@ -41,24 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Create a new entry in the "chips" node and get the key
                 const newChipRef = await firebase.database().ref("chips").push();
-                const newChipKey = newChipRef.key; // Get the generated key
+                const chipKey = newChipRef.key; // Get the generated key
 
                 // Save the pet data in the "chips" node
                 await newChipRef.set(chipData);
 
                 // Add the chip ID directly to the user's pets (no extra keys generated)
                 const userPetsRef = firebase.database().ref(`users/${currentUserUid}/pets`);
-                userPetsRef.push(newChipKey);
+                userPetsRef.push(chipKey);
 
                 // Upload the compressed image to Firebase Storage
-                const imageFilePath = `pet_images/${newChipKey}/${currentUserUid}/pet_image_${Date.now()}${imageFormat}`;
-                await uploadFileToStorage(compressedFile, imageFilePath);
+                const imageFilePath = `pet_images/${chipKey}/${currentUserUid}/pet_image_${Date.now()}${imageFormat}`;
+                const imageURL = await uploadFileToStorage(compressedFile, imageFilePath);
+
+                await updateImageURL(chipKey, imageURL);
 
                 // Display success message
-                showSuccessMessage("Pet data has been saved successfully!", newChipKey);
+                showSuccessMessage("Pet data has been saved successfully!", chipKey);
 
                 console.log("Chip data: ", chipData); //! RBI
-                console.log("New chip ID:", newChipKey); //! RBI
+                console.log("New chip ID:", chipKey); //! RBI
             } catch (error) {
                 console.error("Error saving pet data:", error);
                 alert("There was an error saving the pet data. Please try again later.");
@@ -393,7 +395,22 @@ function checkFormat(file) {
     return null; // Return null for unsupported formats
 }
 
-function uploadFileToStorage(file, filePath) {
+async function uploadFileToStorage(file, filePath) {
     const storageRef = firebase.storage().ref();
-    return storageRef.child(filePath).put(file);
+    const fileRef = storageRef.child(filePath);
+
+    // Upload the file
+    await fileRef.put(file);
+
+    // Get and return the download URL
+    return fileRef.getDownloadURL();
+}
+
+async function updateImageURL(chipKey, imageURL) {
+    const dbRef = firebase.database().ref(`chips/${chipKey}`);
+
+    // Update the image_url field for the specific chip
+    await dbRef.update({
+        image_url: imageURL,
+    });
 }
