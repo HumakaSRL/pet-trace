@@ -49,70 +49,115 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div id="chipInformation" style="display: none">
-                <!-- Pet Information Section -->
-                <section class="pet-info">
-                    <h2>Pet Information</h2>
-                    <p>
-                        Chip ID:
-                        <span id="chipId"></span>
-                        <br />
-                        Name:
-                        <span id="petName"></span>
-                        <br />
-                        Age:
-                        <span id="petAge"></span>
-                        <br />
-                        Kind:
-                        <span id="petKind"></span>
-                        <br />
-                        Species:
-                        <span id="petSpecies"></span>
-                        <br />
-                        Status:
-                        <span id="petStatus"></span>
-                    </p>
-                </section>
+            <!-- Pet Information Section (hidden by default) -->
+            <section id="chipInformation" class="info-section" style="display: none">
+                <!-- Pet Image -->
+                <div class="pet-image">
+                    <img id="petImage" alt="Pet Image" />
+                </div>
 
-                <!-- Owner Information Section -->
-                <section class="owner-info">
-                    <h2>Owner Information</h2>
-                    <p>
-                        Name:
-                        <span id="ownerName"></span>
-                        <br />
-                        Phone:
-                        <span id="ownerPhone"></span>
-                        <br />
-                        Email:
-                        <span id="ownerEmail"></span>
-                    </p>
-                </section>
+                <!-- Pet Information -->
+                <div class="pet-info">
+                    <h2 class="section-title">Pet Information</h2>
+                    <div class="info-item">
+                        <strong>Chip ID:</strong>
+                        <span id="chipId" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Name:</strong>
+                        <span id="petName" class="info-detail"></span>
+                    </div>
+                    <div id="petDobDiv" class="info-item">
+                        <strong>Date of Birth:</strong>
+                        <span id="petDob" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Age:</strong>
+                        <span id="petAge" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Species:</strong>
+                        <span id="petSpecies" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Kind:</strong>
+                        <span id="petBreed" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Status:</strong>
+                        <span id="petStatus" class="info-detail"></span>
+                    </div>
+                </div>
 
-                <!-- Last Update Section -->
-                <section class="update-info">
-                    <h2>Last Update</h2>
-                    <p>
-                        Last Update:
-                        <span id="lastUpdate"></span>
-                        <br />
-                        Status:
-                        <span id="lifeStatus"></span>
-                    </p>
-                </section>
-            </div>
-            <div id="noMatchSection" style="display: none">
-                <p>
+                <!-- Owner Information -->
+                <div class="owner-info">
+                    <h2 class="section-title">Owner Information</h2>
+                    <div class="info-item">
+                        <strong>Name:</strong>
+                        <span id="ownerName" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Phone:</strong>
+                        <span id="ownerPhone" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Email:</strong>
+                        <span id="ownerEmail" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Facebook:</strong>
+                        <span id="ownerFacebook" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Instagram:</strong>
+                        <span id="ownerInstagram" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Owner's Note:</strong>
+                        <span id="ownerNote" class="info-detail"></span>
+                    </div>
+                </div>
+
+                <!-- Update Information -->
+                <div class="update-info">
+                    <h2 class="section-title">Update Information</h2>
+                    <div class="info-item">
+                        <strong>Registered On:</strong>
+                        <span id="registeredOn" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Last Update:</strong>
+                        <span id="lastUpdate" class="info-detail"></span>
+                    </div>
+                </div>
+
+                <!-- Location Information -->
+                <div class="location-info">
+                    <h2 class="section-title">Location</h2>
+                    <div class="info-item">
+                        <strong>Country:</strong>
+                        <span id="country" class="info-detail"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>City:</strong>
+                        <span id="city" class="info-detail"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- No Match Section (hidden by default) -->
+            <section id="noMatchSection" class="no-match-section" style="display: none">
+                <p class="no-match-message">
                     Microchip
-                    <span id="microchipIdSpan"></span>
-                    is not registered in our database
+                    <span id="microchipIdSpan" class="no-match-chip-id"></span>
+                    is not registered in our database.
                 </p>
-                <p>
+                <p class="no-match-message">
                     Is this your pet's microchip?
-                    <a href="/register-microchip.html">Register</a>
+                    <a href="/register-microchip.html" class="register-link">Register</a>
                     it here for free now!
                 </p>
-            </div>
+            </section>
         </main>
 
         <!-- Footer -->

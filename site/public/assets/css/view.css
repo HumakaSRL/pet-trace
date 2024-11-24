@@ -1,3 +1,135 @@
-#microchipIdSpan {
+/* Main Content Styling */
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.5rem;
+    color: #0073e6;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0073e6;
+    padding-bottom: 0.5rem;
+}
+
+/* Info Sections */
+.info-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+/* Pet Image Styling */
+.pet-image {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+.pet-image img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    /* Ensures image maintains aspect ratio */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Information Sections */
+.pet-info,
+.owner-info,
+.update-info,
+.location-info {
+    flex: 1 1 calc(50% - 2rem);
+    min-width: 300px;
+}
+
+/* Info Items */
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    word-wrap: break-word;
+}
+
+.info-item strong {
     font-weight: bold;
+    color: #555;
+    flex-shrink: 0;
+    margin-right: 1rem;
+    min-width: 150px;
+}
+
+.info-detail {
+    color: #333;
+    flex-grow: 1;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Scrollbar styling for modern appearance */
+.info-detail::-webkit-scrollbar {
+    width: 6px;
+}
+
+.info-detail::-webkit-scrollbar-thumb {
+    background: #0073e6;
+    border-radius: 3px;
+}
+
+.info-detail::-webkit-scrollbar-thumb:hover {
+    background: #005bb5;
+}
+
+/* No Match Section */
+.no-match-section {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px dashed #ff6347;
+    background-color: #fffafa;
+    border-radius: 8px;
+}
+
+.no-match-message {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.register-link {
+    color: #0073e6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column;
+    }
+
+    .pet-info,
+    .owner-info,
+    .update-info,
+    .location-info {
+        flex: 1 1 100%;
+    }
 }
