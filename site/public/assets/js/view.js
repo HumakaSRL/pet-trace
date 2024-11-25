@@ -116,12 +116,50 @@ function showEditOptions() {
     editButton.style.display = "none";
     saveButton.style.display = "block";
     cancelButton.style.display = "block";
+
+    showEditFields();
 }
 
 function hideEditOptions() {
     editButton.style.display = "block";
     saveButton.style.display = "none";
     cancelButton.style.display = "none";
+
+    hideEditFields();
+}
+
+function showEditFields() {
+    const displayStyle = "flex";
+    editPetName.style.display = displayStyle;
+    editPetDob.style.display = displayStyle;
+    editPetSpecies.style.display = displayStyle;
+    editPetBreed.style.display = displayStyle;
+    editPetStatus.style.display = displayStyle;
+    editOwnerName.style.display = displayStyle;
+    editOwnerPhone.style.display = displayStyle;
+    editOwnerEmail.style.display = displayStyle;
+    editOwnerFacebook.style.display = displayStyle;
+    editOwnerInstagram.style.display = displayStyle;
+    editOwnerNote.style.display = displayStyle;
+    editCountry.style.display = displayStyle;
+    editCity.style.display = displayStyle;
+}
+
+function hideEditFields() {
+    const displayStyle = "none";
+    editPetName.style.display = displayStyle;
+    editPetDob.style.display = displayStyle;
+    editPetSpecies.style.display = displayStyle;
+    editPetBreed.style.display = displayStyle;
+    editPetStatus.style.display = displayStyle;
+    editOwnerName.style.display = displayStyle;
+    editOwnerPhone.style.display = displayStyle;
+    editOwnerEmail.style.display = displayStyle;
+    editOwnerFacebook.style.display = displayStyle;
+    editOwnerInstagram.style.display = displayStyle;
+    editOwnerNote.style.display = displayStyle;
+    editCountry.style.display = displayStyle;
+    editCity.style.display = displayStyle;
 }
 
 function saveChanges() {

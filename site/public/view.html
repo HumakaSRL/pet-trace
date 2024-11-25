@@ -131,12 +131,16 @@
                     <div class="info-item">
                         <strong>Status:</strong>
                         <span id="petStatus" class="info-detail"></span>
-                        <input
-                            type="text"
+                        <select
                             id="editPetStatus"
+                            name="status"
                             class="edit-field"
                             style="display: none"
-                        />
+                        >
+                            <option value="alive" selected>Alive</option>
+                            <option value="missing">Missing (Lost or Found)</option>
+                            <option value="deceased">Deceased</option>
+                        </select>
                     </div>
                 </div>
 
@@ -224,7 +228,7 @@
                         <strong>Country:</strong>
                         <span id="country" class="info-detail"></span>
                         <select
-                            id="countrySelect"
+                            id="editCountry"
                             name="country"
                             required
                             class="input-field"
