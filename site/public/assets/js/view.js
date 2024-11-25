@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     editButton.addEventListener("click", showEditOptions);
     cancelButton.addEventListener("click", () => {
         const confirmation = confirm("All changes will be lost, are you sure?");
-        if (confirmation) hideEditOptions();
+        if (confirmation) cancelChanges();
     });
     saveButton.addEventListener("click", () => {
         const confirmation = confirm("Are you sure you want to save the changes?");
@@ -119,7 +119,6 @@ function showEditOptions() {
 }
 
 function hideEditOptions() {
-    // TODO: Reset every edit field here
     editButton.style.display = "block";
     saveButton.style.display = "none";
     cancelButton.style.display = "none";
@@ -128,4 +127,9 @@ function hideEditOptions() {
 function saveChanges() {
     // TODO: Save the data
     hideEditOptions();
+}
+
+function cancelChanges() {
+    hideEditOptions();
+    // TODO: Reset every edit field here
 }
