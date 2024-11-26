@@ -51,7 +51,8 @@
 }
 
 /* Info Items */
-.info-item {
+.info-item,
+.input-field {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;

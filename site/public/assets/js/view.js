@@ -6,7 +6,10 @@ firebase.auth().onAuthStateChanged(async (user) => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-    editButton.addEventListener("click", showEditOptions);
+    editButton.addEventListener("click", () => {
+        hideInitialFields();
+        showEditOptions();
+    });
     cancelButton.addEventListener("click", () => {
         const confirmation = confirm("All changes will be lost, are you sure?");
         if (confirmation) cancelChanges();
@@ -162,6 +165,40 @@ function hideEditFields() {
     editCity.style.display = displayStyle;
 }
 
+function hideInitialFields() {
+    const displayStyle = "none";
+    petName.style.display = displayStyle;
+    petDob.style.display = displayStyle;
+    petSpecies.style.display = displayStyle;
+    petBreed.style.display = displayStyle;
+    petStatus.style.display = displayStyle;
+    ownerName.style.display = displayStyle;
+    ownerPhone.style.display = displayStyle;
+    ownerEmail.style.display = displayStyle;
+    ownerFacebook.style.display = displayStyle;
+    ownerInstagram.style.display = displayStyle;
+    ownerNote.style.display = displayStyle;
+    country.style.display = displayStyle;
+    city.style.display = displayStyle;
+}
+
+function showInitialFields() {
+    const displayStyle = "flex";
+    petName.style.display = displayStyle;
+    petDob.style.display = displayStyle;
+    petSpecies.style.display = displayStyle;
+    petBreed.style.display = displayStyle;
+    petStatus.style.display = displayStyle;
+    ownerName.style.display = displayStyle;
+    ownerPhone.style.display = displayStyle;
+    ownerEmail.style.display = displayStyle;
+    ownerFacebook.style.display = displayStyle;
+    ownerInstagram.style.display = displayStyle;
+    ownerNote.style.display = displayStyle;
+    country.style.display = displayStyle;
+    city.style.display = displayStyle;
+}
+
 function saveChanges() {
     // TODO: Save the data
     hideEditOptions();
@@ -169,5 +206,7 @@ function saveChanges() {
 
 function cancelChanges() {
     hideEditOptions();
+    showInitialFields();
     // TODO: Reset every edit field here
+    // fetchPetData();
 }
