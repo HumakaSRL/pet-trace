@@ -131,33 +131,22 @@ function showSuccessMessage(message, chipId) {
 async function constructPetData(userUid) {
     // Get the data from the input fields
     let chip_id = microchipIdInput.value.trim();
-    let pet_name = petNameInput.value.trim();
+    const pet_name = petNameInput.value.trim().toLowerCase();
     const pet_dob = petDobInput.value;
-    const pet_species = animalSpeciesInput.value;
-    let pet_breed = breedInput.value.trim();
-    const pet_country = countrySelect.value;
-    let pet_city = cityInput.value.trim();
-    const pet_status = statusSelect.value;
-    let owner_name = ownerNameInput.value.trim();
+    const pet_species = animalSpeciesInput.value.toLowerCase();
+    const pet_breed = breedInput.value.trim().toLowerCase();
+    const pet_country = countrySelect.value.toLowerCase();
+    const pet_city = cityInput.value.trim().toLowerCase();
+    const pet_status = statusSelect.value.toLowerCase();
+    const owner_name = ownerNameInput.value.trim().toLowerCase();
     const owner_phone_number = phoneNumberInput.value.trim();
-    let owner_email = ownerEmailInput.value.trim();
-    let owner_facebook = ownerFacebookInput.value.trim();
-    let owner_instagram = ownerInstagramInput.value.trim();
+    const owner_email = ownerEmailInput.value.trim().toLowerCase();
+    const owner_facebook = ownerFacebookInput.value.trim().toLowerCase();
+    const owner_instagram = ownerInstagramInput.value.trim().toLowerCase();
     const owner_note = ownerNoteInput.value.trim();
 
-    // Capitalize the first letter of each word for certain fields
-    pet_name = capitalizeWords(pet_name);
-    pet_breed = capitalizeWords(pet_breed);
-    pet_city = capitalizeWords(pet_city);
-    owner_name = capitalizeWords(owner_name);
-
-    // Capitalize all letters in chip_id, while keeping numbers intact
-    chip_id = chip_id.replace(/[a-zA-Z]/g, (match) => match.toUpperCase());
-
-    // Make email, facebook, and instagram lowercase
-    owner_email = owner_email.toLowerCase();
-    owner_facebook = owner_facebook.toLowerCase();
-    owner_instagram = owner_instagram.toLowerCase();
+    // Convert all letters in chip_id to lowercase, while keeping numbers intact
+    chip_id = chip_id.replace(/[a-zA-Z]/g, (match) => match.toLowerCase());
 
     // Organize the chip data into an object
     const chip_data = {
@@ -191,18 +180,18 @@ async function constructPetData(userUid) {
 // Validation logic for pet data form
 function checkPetData() {
     const chip_id = microchipIdInput.value.trim().toUpperCase();
-    const pet_name = petNameInput.value.trim();
+    const pet_name = petNameInput.value.trim().toLowerCase();
     const pet_dob = petDobInput.value;
-    const pet_species = animalSpeciesInput.value;
-    const pet_breed = breedInput.value.trim();
-    const pet_country = countrySelect.value;
-    const pet_city = cityInput.value.trim();
-    const pet_status = statusSelect.value;
-    const owner_name = ownerNameInput.value.trim();
+    const pet_species = animalSpeciesInput.value.toLowerCase();
+    const pet_breed = breedInput.value.trim().toLowerCase();
+    const pet_country = countrySelect.value.toLowerCase();
+    const pet_city = cityInput.value.trim().toLowerCase();
+    const pet_status = statusSelect.value.toLowerCase();
+    const owner_name = ownerNameInput.value.trim().toLowerCase();
     const owner_phone_number = phoneNumberInput.value.trim();
-    const owner_email = ownerEmailInput.value.trim();
-    const owner_facebook = ownerFacebookInput.value.trim();
-    const owner_instagram = ownerInstagramInput.value.trim();
+    const owner_email = ownerEmailInput.value.trim().toLowerCase();
+    const owner_facebook = ownerFacebookInput.value.trim().toLowerCase();
+    const owner_instagram = ownerInstagramInput.value.trim().toLowerCase();
     const owner_note = ownerNoteInput.value.trim();
 
     // Chip ID Validation
