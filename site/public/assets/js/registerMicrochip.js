@@ -139,7 +139,6 @@ async function constructPetData(userUid) {
     let pet_city = cityInput.value.trim();
     const pet_status = statusSelect.value;
     let owner_name = ownerNameInput.value.trim();
-    const owner_phone_country_code = countryCodeInput.value.trim();
     const owner_phone_number = phoneNumberInput.value.trim();
     let owner_email = ownerEmailInput.value.trim();
     let owner_facebook = ownerFacebookInput.value.trim();
@@ -200,7 +199,6 @@ function checkPetData() {
     const pet_city = cityInput.value.trim();
     const pet_status = statusSelect.value;
     const owner_name = ownerNameInput.value.trim();
-    const owner_phone_country_code = countryCodeInput.value.trim();
     const owner_phone_number = phoneNumberInput.value.trim();
     const owner_email = ownerEmailInput.value.trim();
     const owner_facebook = ownerFacebookInput.value.trim();
