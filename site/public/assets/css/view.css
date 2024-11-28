@@ -174,14 +174,21 @@
     background-color: #a71d2a;
 }
 
+.delete-btn {
+    margin-right: auto;
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #a71d2a;
+}
+
 .error-message {
     font-size: 0.95rem;
     margin-top: 0.5rem;
     font-weight: 500;
     line-height: 1.5;
 }
-
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
