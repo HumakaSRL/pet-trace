@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 microchipData.pet_info.pet_status.charAt(0).toUpperCase() +
                 microchipData.pet_info.pet_status.slice(1);
 
-            petBreed.textContent = microchipData.pet_info.pet_breed;
+            petBreed.textContent = microchipData.pet_info.pet_breed || "Unspecified";
             ownerName.textContent = microchipData.owner_info.owner_name;
 
             // Format the owner's phone number
@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             ownerFacebook.textContent = microchipData.owner_info.owner_facebook || "Unspecified";
             ownerInstagram.textContent = microchipData.owner_info.owner_instagram || "Unspecified";
 
-            ownerNote.textContent = microchipData.owner_info.owner_note;
+            ownerNote.textContent =
+                microchipData.owner_info.owner_note ||
+                "No additional information about this pet has been provided by the owner.";
 
             // Format timestamps into readable dates
             registeredOn.textContent = new Date(microchipData.created_at).toLocaleString();
