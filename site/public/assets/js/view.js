@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (confirmation) saveChanges();
     });
 
-    const chipData = await getChipData();
-
-    updateUI(chipData);
+    await updateUI();
 });
 
 async function getChipData() {
@@ -59,7 +57,8 @@ async function getChipData() {
     }
 }
 
-function updateUI(chipData) {
+async function updateUI() {
+    const chipData = await getChipData();
     if (chipData) {
         console.log(chipData);
 
@@ -205,6 +204,8 @@ function showInitialFields() {
 function saveChanges() {
     // TODO: Save the data
     hideEditOptions();
+    updateUI();
+    showInitialFields();
 }
 
 function cancelChanges() {
@@ -223,9 +224,9 @@ async function updateEditFields() {
 
     editPetName.value = capitalizeFirstLetters(chipData.pet_info.pet_name);
     editPetDob.value = chipData.pet_info.pet_dob;
-    editPetSpecies.value = capitalizeFirstLetters(chipData.pet_info.pet_species);
+    editPetSpecies.value = chipData.pet_info.pet_species;
     editPetBreed.value = capitalizeFirstLetters(chipData.pet_info.pet_breed);
-    editPetStatus.value = capitalizeFirstLetters(chipData.pet_info.pet_status);
+    editPetStatus.value = chipData.pet_info.pet_status;
     editOwnerName.value = capitalizeFirstLetters(chipData.owner_info.owner_name);
     editOwnerPhone.value = chipData.owner_info.owner_phone_number;
     editOwnerEmail.value = chipData.owner_info.owner_email;
