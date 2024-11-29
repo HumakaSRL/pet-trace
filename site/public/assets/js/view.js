@@ -6,6 +6,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
+    await updateUI();
+
     deleteButton.addEventListener("click", () => {
         const confirmation = confirm(
             "This pet will be permanently deleted from our database, are you sure?"
@@ -14,22 +16,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     editButton.addEventListener("click", async () => {
-        hideInitialFields();
+        saveButton.disabled = false;
         await updateEditFields();
+        hideInitialFields();
         showEditOptions();
     });
 
-    cancelButton.addEventListener("click", () => {
+    cancelButton.addEventListener("click", async () => {
         const confirmation = confirm("All changes will be lost, are you sure?");
-        if (confirmation) cancelChanges();
+        if (confirmation) await cancelChanges();
     });
 
-    saveButton.addEventListener("click", () => {
+    saveButton.addEventListener("click", async () => {
         const confirmation = confirm("Are you sure you want to save the changes?");
-        if (confirmation) saveChanges();
+        if (confirmation) await saveChanges();
     });
-
-    await updateUI();
 });
 
 async function getChipData() {
@@ -80,6 +81,7 @@ async function updateUI() {
             const ageInMillis = Date.now() - dob.getTime();
             const ageInYears = Math.floor(ageInMillis / (365.25 * 24 * 60 * 60 * 1000));
             petAge.textContent = `${ageInYears} year(s) old`;
+            ageDiv.style.display = "flex";
         } else ageDiv.style.display = "none";
 
         // Capitalize the first letter of pet_species and pet_status
@@ -171,6 +173,7 @@ function hideInitialFields() {
     const displayStyle = "none";
     petName.style.display = displayStyle;
     petDob.style.display = displayStyle;
+    ageDiv.style.display = displayStyle;
     petSpecies.style.display = displayStyle;
     petBreed.style.display = displayStyle;
     petStatus.style.display = displayStyle;
@@ -201,18 +204,25 @@ function showInitialFields() {
     city.style.display = displayStyle;
 }
 
-function saveChanges() {
-    // TODO: Save the data
-    hideEditOptions();
-    updateUI();
-    showInitialFields();
+async function saveChanges() {
+    try {
+        saveButton.disabled = true;
+        hideEditOptions();
+        await updatePetData();
+        await updateUI();
+        showInitialFields();
+    } catch (error) {
+        console.error("Error in saveChanges():", error);
+        alert("An error has occurred, please try again later");
+        saveButton.disabled = false;
+    }
 }
 
-function cancelChanges() {
+async function cancelChanges() {
     hideEditOptions();
+    await updateEditFields();
+    await updateUI();
     showInitialFields();
-    // TODO: Reset every edit field here
-    // fetchPetData();
 }
 
 function deletePet() {
@@ -250,4 +260,85 @@ function capitalizeFirstLetters(string) {
         .split(" ")
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ");
+}
+
+async function updatePetData() {
+    try {
+        const newPetData = getNewData();
+        if (!newPetData || typeof newPetData !== "object")
+            throw new Error("Invalid pet data provided.");
+
+        const chipKey = await getChipKey();
+        if (!chipKey) throw new Error("Chip key not found. Please check the chip ID.");
+
+        const chipRef = firebase.database().ref(`/chips/${chipKey}/`);
+        await chipRef.update(newPetData);
+
+        alert("Pet data updated successfully.");
+    } catch (error) {
+        console.error("Error in updatePetData():", error);
+        throw new Error("Failed to update pet data. Please try again later.");
+    }
+}
+
+function getNewData() {
+    const petName = editPetName.value.trim().toLowerCase();
+    const petSpecies = editPetSpecies.value.trim().toLowerCase();
+    const petBreed = editPetBreed.value.trim().toLowerCase();
+    const petStatus = editPetStatus.value.trim().toLowerCase();
+    const petCountry = editCountry.value.trim().toLowerCase();
+    const petCity = editCity.value.trim().toLowerCase();
+    const petDob = editPetDob.value;
+    const ownerName = editOwnerName.value.trim().toLowerCase();
+    const ownerPhone = editOwnerPhone.value.trim().toLowerCase();
+    const ownerEmail = editOwnerEmail.value.trim().toLowerCase();
+    const ownerFacebook = editOwnerFacebook.value.trim().toLowerCase();
+    const ownerInstagram = editOwnerInstagram.value.trim().toLowerCase();
+    const ownerNote = editOwnerNote.value.trim().toLowerCase();
+    const data = {
+        pet_info: {
+            pet_breed: petBreed,
+            pet_city: petCity,
+            pet_country: petCountry,
+            pet_dob: petDob,
+            pet_name: petName,
+            pet_species: petSpecies,
+            pet_status: petStatus,
+        },
+        owner_info: {
+            owner_email: ownerEmail,
+            owner_facebook: ownerFacebook,
+            owner_instagram: ownerInstagram,
+            owner_name: ownerName,
+            owner_note: ownerNote,
+            owner_phone_number: ownerPhone,
+        },
+    };
+    return data;
+}
+
+async function getChipKey() {
+    // Extract the "chip" parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const chipId = urlParams.get("chip").toLowerCase();
+    try {
+        const snapshot = await firebase
+            .database()
+            .ref("chips")
+            .orderByChild("chip_id")
+            .equalTo(chipId)
+            .once("value");
+
+        // Check if the snapshot exists and extract the first key
+        if (snapshot.exists()) {
+            const chips = snapshot.val();
+            if (chips && typeof chips === "object") {
+                const chipKey = Object.keys(chips)[0];
+                return chipKey || null;
+            }
+        } else return null;
+    } catch (error) {
+        console.error("Error fetching data: ", error);
+        return null;
+    }
 }
