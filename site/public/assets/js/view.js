@@ -80,7 +80,7 @@ async function updateUI() {
             const dob = new Date(chipData.pet_info.pet_dob);
             const ageInMillis = Date.now() - dob.getTime();
             const ageInYears = Math.floor(ageInMillis / (365.25 * 24 * 60 * 60 * 1000));
-            petAge.textContent = `${ageInYears} year(s) old`;
+            petAge.textContent = `${ageInYears} year(s) old`; // TODO: calculate months also, and use better format
             ageDiv.style.display = "flex";
         } else ageDiv.style.display = "none";
 
@@ -205,11 +205,13 @@ function showInitialFields() {
 }
 
 async function saveChanges() {
+    // TODO: add field verification here, also the birthdate can't be in the future
+    // TODO: update profile picture
     try {
         saveButton.disabled = true;
-        hideEditOptions();
         await updatePetData();
         await updateUI();
+        hideEditOptions();
         showInitialFields();
     } catch (error) {
         console.error("Error in saveChanges():", error);
@@ -219,13 +221,14 @@ async function saveChanges() {
 }
 
 async function cancelChanges() {
-    hideEditOptions();
     await updateEditFields();
     await updateUI();
+    hideEditOptions();
     showInitialFields();
 }
 
 function deletePet() {
+    // TODO: implement this function, don't forget about the profile picture also!
     alert("This pet has been permanently deleted from our database.");
 }
 
@@ -295,6 +298,7 @@ function getNewData() {
     const ownerFacebook = editOwnerFacebook.value.trim().toLowerCase();
     const ownerInstagram = editOwnerInstagram.value.trim().toLowerCase();
     const ownerNote = editOwnerNote.value.trim().toLowerCase();
+
     const data = {
         pet_info: {
             pet_breed: petBreed,
@@ -313,6 +317,7 @@ function getNewData() {
             owner_note: ownerNote,
             owner_phone_number: ownerPhone,
         },
+        last_update: firebase.database.ServerValue.TIMESTAMP,
     };
     return data;
 }
