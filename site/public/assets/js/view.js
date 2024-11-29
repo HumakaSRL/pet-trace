@@ -95,7 +95,7 @@ function updateUI(chipData) {
         ownerName.textContent = chipData.owner_info.owner_name;
 
         // Format the owner's phone number
-        ownerPhone.textContent = `+${chipData.owner_info.owner_phone_country_code} ${chipData.owner_info.owner_phone_number}`;
+        ownerPhone.textContent = chipData.owner_info.owner_phone_number;
 
         ownerEmail.textContent = chipData.owner_info.owner_email;
 
