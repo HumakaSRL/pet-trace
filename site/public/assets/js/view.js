@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function getChipData() {
     // Extract the "chip" parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
-    const chipId = urlParams.get("chip");
+    const chipId = urlParams.get("chip").toLowerCase();
     try {
         const snapshot = await firebase
             .database()
@@ -71,8 +71,8 @@ function updateUI(chipData) {
         if (chipData.owner_uid === currentUserUid) editSection.style.display = "flex";
 
         // Populate the data in the respective fields
-        chipId.textContent = chipData.chip_id;
-        petName.textContent = chipData.pet_info.pet_name;
+        chipId.textContent = chipData.chip_id.toUpperCase();
+        petName.textContent = capitalizeFirstLetters(chipData.pet_info.pet_name);
         petDob.textContent = chipData.pet_info.pet_dob || "Unspecified";
 
         // If pet_dob is present, calculate the pet's age
@@ -84,19 +84,14 @@ function updateUI(chipData) {
         } else ageDiv.style.display = "none";
 
         // Capitalize the first letter of pet_species and pet_status
-        petSpecies.textContent =
-            chipData.pet_info.pet_species.charAt(0).toUpperCase() +
-            chipData.pet_info.pet_species.slice(1);
-        petStatus.textContent =
-            chipData.pet_info.pet_status.charAt(0).toUpperCase() +
-            chipData.pet_info.pet_status.slice(1);
+        petSpecies.textContent = capitalizeFirstLetters(chipData.pet_info.pet_species);
+        petStatus.textContent = capitalizeFirstLetters(chipData.pet_info.pet_status);
 
         petBreed.textContent = chipData.pet_info.pet_breed || "Unspecified";
-        ownerName.textContent = chipData.owner_info.owner_name;
+        ownerName.textContent = capitalizeFirstLetters(chipData.owner_info.owner_name);
 
         // Format the owner's phone number
         ownerPhone.textContent = chipData.owner_info.owner_phone_number;
-
         ownerEmail.textContent = chipData.owner_info.owner_email;
 
         // Provide default values for missing social media links
@@ -112,16 +107,14 @@ function updateUI(chipData) {
         lastUpdate.textContent = new Date(chipData.last_update).toLocaleString();
 
         // Capitalize the first letter of pet_country and pet_city
-        country.textContent =
-            chipData.pet_info.pet_country.charAt(0).toUpperCase() +
-            chipData.pet_info.pet_country.slice(1);
-        city.textContent =
-            chipData.pet_info.pet_city.charAt(0).toUpperCase() +
-            chipData.pet_info.pet_city.slice(1);
+        country.textContent = capitalizeFirstLetters(chipData.pet_info.pet_country);
+        city.textContent = capitalizeFirstLetters(chipData.pet_info.pet_city);
     } else {
+        const urlParams = new URLSearchParams(window.location.search);
+        const chipId = urlParams.get("chip").toUpperCase();
         // If no data found, show the "no match" section
-        noMatchSection.style.display = "flex";
-        microchipIdSpan.textContent = microchipId;
+        noMatchSection.style.display = "block";
+        microchipIdSpan.textContent = chipId;
     }
 }
 
@@ -243,15 +236,15 @@ async function updateEditFields() {
     editCity.value = capitalizeFirstLetters(chipData.pet_info.pet_city);
 }
 
-function capitalizeFirstLetters(text) {
-    if (typeof text !== "string") {
+function capitalizeFirstLetters(string) {
+    if (typeof string !== "string") {
         console.error("Input must be a string.");
         return "";
     }
 
-    if (text.trim() === "") return "";
+    if (string.trim() === "") return "";
 
-    return text
+    return string
         .toLowerCase()
         .split(" ")
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

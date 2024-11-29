@@ -92,7 +92,9 @@ function isValidEmail(email) {
 
 // Helper function to capitalize the first letter of each word in a string
 function capitalizeWords(str) {
-    return str.replace(/\b\w/g, (char) => char.toUpperCase());
+    if (typeof str !== "string") console.error("Input must be a string");
+
+    return str.trim().replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 // Helper function to handle success message UI
