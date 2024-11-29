@@ -165,7 +165,6 @@ async function constructPetData(userUid) {
         },
         owner_info: {
             owner_name: owner_name,
-            owner_phone_country_code: owner_phone_country_code,
             owner_phone_number: owner_phone_number,
             owner_email: owner_email,
             owner_facebook: owner_facebook,
@@ -263,12 +262,6 @@ function checkPetData() {
         return false;
     }
 
-    // Phone Number Validation
-    if (!/^\d+$/.test(owner_phone_country_code)) {
-        alert("Please enter a valid country code.");
-        submitPetFormButton.disabled = false;
-        return false;
-    }
     if (!isValidPhoneNumber(owner_phone_number)) {
         alert("Please enter a valid phone number.");
         submitPetFormButton.disabled = false;
