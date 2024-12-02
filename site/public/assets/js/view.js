@@ -31,6 +31,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         const confirmation = confirm("Are you sure you want to save the changes?");
         if (confirmation) await saveChanges();
     });
+
+    // Add an event listener for file input change
+    petImageInput.addEventListener("change", function (event) {
+        const file = event.target.files[0]; // Get the selected file
+
+        if (file) {
+            const reader = new FileReader();
+
+            // When the file is loaded, set it as the image source
+            reader.onload = function (e) {
+                petImage.src = e.target.result; // Set the image source to the loaded file
+                petImage.style.display = "block"; // Ensure the image is visible
+            };
+
+            // Read the file as a data URL
+            reader.readAsDataURL(file);
+        }
+    });
 });
 
 async function getChipData() {
