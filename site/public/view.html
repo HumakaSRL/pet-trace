@@ -78,7 +78,16 @@
                 <!-- Pet Image -->
                 <div class="pet-image">
                     <img id="petImage" alt="Pet Image" />
-                    <!-- //! add an option here to change the image -->
+                    <div class="image-overlay" id="imageOverlay" style="display: none">
+                        <label for="fileInput" class="overlay-text">Edit</label>
+                        <input
+                            type="file"
+                            id="fileInput"
+                            class="file-input"
+                            accept="image/*"
+                            style="display: none"
+                        />
+                    </div>
                 </div>
 
                 <!-- Pet Information -->

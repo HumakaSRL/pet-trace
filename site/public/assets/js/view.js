@@ -150,6 +150,7 @@ function showEditFields() {
     editOwnerNote.style.display = displayStyle;
     editCountry.style.display = displayStyle;
     editCity.style.display = displayStyle;
+    imageOverlay.style.display = displayStyle;
 }
 
 function hideEditFields() {
@@ -167,6 +168,7 @@ function hideEditFields() {
     editOwnerNote.style.display = displayStyle;
     editCountry.style.display = displayStyle;
     editCity.style.display = displayStyle;
+    imageOverlay.style.display = displayStyle;
 }
 
 function hideInitialFields() {

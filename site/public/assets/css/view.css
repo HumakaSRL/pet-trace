@@ -25,20 +25,70 @@
     padding: 1.5rem;
 }
 
-/* Pet Image Styling */
+/* Pet Image Container */
 .pet-image {
-    flex: 1 1 200px;
+    position: relative;
+    display: inline-block;
     text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 300px;
+    max-height: 300px;
+    margin: auto;
+    padding: 1rem;
 }
 
+/* Pet Image */
 .pet-image img {
+    display: block;
     width: 100%;
     height: auto;
     max-width: 300px;
     border-radius: 8px;
     object-fit: cover;
-    /* Ensures image maintains aspect ratio */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Overlay Styling */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.image-overlay:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Overlay Text */
+.overlay-text {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    pointer-events: none;
+    /* Ensure it doesn't interfere with input */
+}
+
+/* Hidden File Input */
+.file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /* Invisible but clickable */
+    cursor: pointer;
 }
 
 /* Information Sections */
