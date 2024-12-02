@@ -297,7 +297,7 @@ function getNewData() {
     const ownerEmail = editOwnerEmail.value.trim().toLowerCase();
     const ownerFacebook = editOwnerFacebook.value.trim().toLowerCase();
     const ownerInstagram = editOwnerInstagram.value.trim().toLowerCase();
-    const ownerNote = editOwnerNote.value.trim().toLowerCase();
+    const ownerNote = editOwnerNote.value.trim();
 
     const data = {
         pet_info: {

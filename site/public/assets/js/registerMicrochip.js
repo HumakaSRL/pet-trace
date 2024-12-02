@@ -216,6 +216,7 @@ function checkPetData() {
         submitPetFormButton.disabled = false;
         return false;
     }
+
     if (pet_dob_year > new Date().getFullYear()) {
         alert("Your pet cannot be born in the future. Please check the date of birth!");
         submitPetFormButton.disabled = false;
