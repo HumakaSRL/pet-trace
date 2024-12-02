@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                // Check image format
+                // Check image format and store it into a variable (to use it as a file extension)
                 const imageFormat = checkFormat(petImageFile);
 
                 // Compress the image before uploading
@@ -365,7 +365,7 @@ function checkImage(file) {
         return null;
     }
 
-    // Check file size (5 MB limit)
+    // Check file size (25 MB limit)
     const maxSizeInBytes = 25 * 1024 * 1024; // 5 MB in bytes
     if (file.size > maxSizeInBytes) {
         alert("Image size exceeds the limit (25 MB)");

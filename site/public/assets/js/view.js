@@ -211,10 +211,12 @@ async function saveChanges() {
     // TODO: update profile picture
     try {
         saveButton.disabled = true;
-        await updatePetData();
-        await updateUI();
-        hideEditOptions();
-        showInitialFields();
+        if (checkFields()) {
+            await updatePetData();
+            await updateUI();
+            hideEditOptions();
+            showInitialFields();
+        }
     } catch (error) {
         console.error("Error in saveChanges():", error);
         alert("An error has occurred, please try again later");
@@ -278,6 +280,8 @@ async function updatePetData() {
 
         const chipRef = firebase.database().ref(`/chips/${chipKey}/`);
         await chipRef.update(newPetData);
+
+        await updateNewPetImage();
 
         alert("Pet data updated successfully.");
     } catch (error) {
@@ -346,6 +350,216 @@ async function getChipKey() {
         } else return null;
     } catch (error) {
         console.error("Error fetching data: ", error);
+        return null;
+    }
+}
+
+function compressImage(imageFile) {
+    return new Promise((resolve, reject) => {
+        const maxWidth = 400;
+        const quality = 0.97;
+
+        if (!imageFile) {
+            alert("No file provided.");
+            reject("No file provided.");
+            return;
+        }
+
+        let reader = new FileReader();
+        reader.readAsDataURL(imageFile);
+
+        reader.onload = (event) => {
+            let image_url = event.target.result;
+            let image = new Image();
+            image.src = image_url;
+
+            image.onload = () => {
+                let canvas = document.createElement("canvas");
+                let ratio = maxWidth / image.width;
+                canvas.width = maxWidth;
+                canvas.height = image.height * ratio;
+
+                let context = canvas.getContext("2d");
+                context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                canvas.toBlob(
+                    (blob) => {
+                        resolve(blob); // Resolve with the compressed image Blob
+                    },
+                    "image/jpeg",
+                    quality
+                );
+            };
+
+            image.onerror = (error) => {
+                alert("Error loading image", error);
+                console.error("Error loading image", error);
+                reject("Error loading image");
+            };
+        };
+
+        reader.onerror = (error) => {
+            alert("Error reading file");
+            console.error("Error reading file", error);
+            reject("Error reading file");
+        };
+    });
+}
+
+function checkImage(file) {
+    // Check if a file is provided
+    if (!file) return null;
+
+    // Check file type
+    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
+    if (!allowedTypes.includes(file.type)) {
+        alert("Unsupported file type. Please select a PNG, JPG, or GIF image");
+        return null;
+    }
+
+    // Check file size (5 MB limit)
+    const maxSizeInBytes = 25 * 1024 * 1024; // 25 MB in bytes
+    if (file.size > maxSizeInBytes) {
+        alert("Image size exceeds the limit (25 MB)");
+        return null;
+    }
+
+    return file;
+}
+
+function checkFormat(file) {
+    if (file.type === "image/jpeg") return ".jpg";
+    else if (file.type === "image/png") return ".png";
+    else if (file.type === "image/gif") return ".gif";
+    return null; // Return null for unsupported formats
+}
+
+async function uploadFileToStorage(file, filePath) {
+    const storageRef = firebase.storage().ref();
+    const fileRef = storageRef.child(filePath);
+
+    // Upload the file
+    await fileRef.put(file);
+
+    // Get and return the download URL
+    return fileRef.getDownloadURL();
+}
+
+async function updateImageURL(chipKey, imageURL) {
+    const dbRef = firebase.database().ref(`chips/${chipKey}`);
+
+    // Update the image_url field for the specific chip
+    await dbRef.update({
+        image_url: imageURL,
+    });
+}
+
+function checkFields() {
+    // TODO: check the fields here
+
+    // Pet Image Validation
+    const petImageFile = petImageInput.files[0];
+    if (!petImageFile) return false;
+
+    const validatedFile = checkImage(petImageFile);
+    if (!validatedFile) {
+        alert("Invalid image file.");
+        return false;
+    }
+
+    if (!checkFormat(petImageFile)) return false;
+
+    return true;
+}
+
+async function updateNewPetImage() {
+    const petImageFile = petImageInput.files[0];
+    if (petImageFile) {
+        try {
+            // Check image format and store it into a variable (to use it as a file extension)
+            const imageFormat = checkFormat(petImageFile);
+
+            // Compress the image before uploading
+            const compressedFile = await compressImage(petImageFile);
+
+            // Get the chip key
+            const chipKey = await getChipKey();
+
+            // Delete old image and then proceed to upload the new image
+            const currentImageURL = await getCurrentImagePath(chipKey);
+            const currentImagePath = convertURLtoPath(currentImageURL);
+            await deleteFile(currentImagePath);
+
+            // Upload the compressed image to Firebase Storage
+            const imageFilePath = `pet_images/${chipKey}/${currentUserUid}/pet_image_${Date.now()}${imageFormat}`;
+            const imageURL = await uploadFileToStorage(compressedFile, imageFilePath);
+
+            // Update the database with the new image URL
+            await updateImageURL(chipKey, imageURL);
+        } catch (error) {
+            console.error("Error updating pet image:", error);
+        }
+    } else {
+        console.log("No new pet image selected");
+        return;
+    }
+}
+
+async function deleteFile(filePath) {
+    const fileRef = firebase.storage().ref(filePath);
+
+    try {
+        // Attempt to delete the file
+        await fileRef.delete();
+        console.log(`File at ${filePath} deleted successfully`);
+    } catch (error) {
+        if (error.code === "storage/object-not-found") {
+            console.log(`File at ${filePath} does not exist`);
+        } else {
+            console.error(`Error deleting file at ${filePath}:`, error);
+            throw new Error("Failed to delete the file");
+        }
+    }
+}
+
+async function getCurrentImagePath(chipKey) {
+    try {
+        // Reference to the database path where the image URL is stored
+        const imageRef = firebase.database().ref(`chips/${chipKey}/image_url`);
+
+        // Fetch the data from the database
+        const snapshot = await imageRef.once("value");
+
+        // Check if the image_url exists and return it
+        if (snapshot.exists()) {
+            const imageUrl = snapshot.val();
+            console.log(`Current image URL: ${imageUrl}`);
+            return imageUrl;
+        } else {
+            console.log("No image URL found for the specified chipKey");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error retrieving current image path:", error);
+        throw new Error("Failed to retrieve current image path");
+    }
+}
+
+function convertURLtoPath(url) {
+    try {
+        // Create a URL object from the given string
+        const urlObject = new URL(url);
+
+        // Extract the 'o' parameter from the pathname of the URL
+        const pathMatch = urlObject.pathname.match(/\/o\/(.+)/);
+
+        if (pathMatch && pathMatch[1]) {
+            return decodeURIComponent(pathMatch[1]);
+        } else {
+            throw new Error("Path not found in the URL");
+        }
+    } catch (error) {
+        console.error("Error converting URL to path:", error);
         return null;
     }
 }
