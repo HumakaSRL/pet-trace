@@ -62,7 +62,7 @@
     background: rgba(0, 0, 0, 0);
     cursor: pointer;
     border-radius: 8px;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .image-overlay:hover {
@@ -71,12 +71,19 @@
 
 /* Overlay Text */
 .overlay-text {
-    color: white;
-    font-size: 1.5em;
+    color: #000;
+    opacity: 0.6;
+    font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
     pointer-events: none;
     /* Ensure it doesn't interfere with input */
+    transition: all 0.3s ease;
+}
+
+.image-overlay:hover .overlay-text {
+    color: #fff;
+    opacity: 1;
 }
 
 /* Hidden File Input */
