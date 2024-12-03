@@ -50,12 +50,17 @@
         <main id="mainContent" class="main-content" style="display: none">
             <!-- Button to register a new pet -->
             <div class="register-pet-container">
-                <a href="/register-microchip.html" class="register-pet-btn">Register a New Pet</a>
+                <button id="registerPetButton" class="register-pet-btn" disabled>
+                    Register a New Pet
+                </button>
             </div>
 
             <!-- Section for user's pets -->
             <section class="my-pets-section">
-                <h2 class="section-title">My Pets</h2>
+                <h2 class="section-title">
+                    My Pets
+                    <span id="petCountSpan"></span>
+                </h2>
                 <div id="petsContainer" class="pets-container">
                     <!-- Pets will be dynamically generated here -->
                     <p id="noPetsMessage" class="no-pets-message" style="display: none">

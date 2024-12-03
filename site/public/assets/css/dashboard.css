@@ -48,6 +48,11 @@
     transform: translateY(-2px);
 }
 
+#registerPetButton {
+    filter: grayscale(100%);
+    cursor: pointer;
+}
+
 .section-title {
     font-size: 24px;
     font-weight: 600;

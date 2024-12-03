@@ -1,4 +1,6 @@
 let currentUserUid = null;
+let petCount = 0;
+const MAX_PETS = 5;
 
 // Wait for authentication
 const authReady = new Promise((resolve) => {
@@ -18,7 +20,6 @@ const authReady = new Promise((resolve) => {
 // Wait for DOM content to load
 const domReady = new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
-        console.log("DOM content loaded.");
         resolve(); // Resolve when DOM is ready
     });
 });
@@ -42,6 +43,7 @@ async function fetchUserPets() {
             // Loop over the pets and render the pet cards
             for (const chip in userPets) {
                 if (userPets.hasOwnProperty(chip)) {
+                    petCount++;
                     const chipId = userPets[chip];
 
                     // Now get the detailed pet data from the 'chips/{chipId}' path
@@ -61,6 +63,14 @@ async function fetchUserPets() {
             const noPetsMessage = document.getElementById("noPetsMessage");
             noPetsMessage.style.display = "block";
         }
+        if (petCount < MAX_PETS) {
+            registerPetButton.addEventListener("click", () => {
+                window.location = "register-microchip.html";
+            });
+            registerPetButton.disabled = false;
+            registerPetButton.style.filter = "none";
+        }
+        petCountSpan.textContent = `${petCount}/${MAX_PETS}`;
     } catch (error) {
         console.error("Error fetching pets data:", error);
     }
