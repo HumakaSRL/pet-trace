@@ -30,7 +30,6 @@ Promise.all([authReady, domReady]).then(() => {
     fetchUserPets();
 });
 
-// Fetch user pets logic
 async function fetchUserPets() {
     // Get the reference to the pets in the user's account
     const petsRef = firebase.database().ref(`users/${currentUserUid}/pets`);

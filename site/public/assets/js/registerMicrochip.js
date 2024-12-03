@@ -1,14 +1,15 @@
 let currentUserUid = null;
+let petCount = 0;
+const MAX_PETS = 5;
 
 // Check if a user is authenticated and store their UID
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
-        mainContent.style.display = "block";
-        currentUserUid = user.uid; // Store the UID in a global variable
-    } else {
-        // Redirect to Login
-        window.location = "/login.html";
-    }
+        currentUserUid = user.uid;
+        if (await countPets()) {
+            mainContent.style.display = "block";
+        } else window.location = "dashboard.html";
+    } else window.location = "login.html";
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Check if all required pet data is filled out
-        if (checkPetData()) {
+        if (await checkPetData()) {
             try {
                 // Get pet data from the form
                 const chipData = await constructPetData(currentUserUid);
@@ -179,7 +180,12 @@ async function constructPetData(userUid) {
 }
 
 // Validation logic for pet data form
-function checkPetData() {
+async function checkPetData() {
+    if (await !countPets()) {
+        alert(`You can't register more than ${MAX_PETS} pets.`);
+        return false;
+    }
+
     const chip_id = microchipIdInput.value.trim().toUpperCase();
     const pet_name = petNameInput.value.trim().toLowerCase();
     const pet_dob = petDobInput.value;
@@ -400,4 +406,20 @@ async function updateImageURL(chipKey, imageURL) {
     await dbRef.update({
         image_url: imageURL,
     });
+}
+
+async function countPets() {
+    // Get the reference to the pets in the user's account
+    const petsRef = firebase.database().ref(`users/${currentUserUid}/pets`);
+
+    try {
+        const snapshot = await petsRef.once("value");
+        const userPets = snapshot.val();
+
+        if (userPets) for (const chip in userPets) if (userPets.hasOwnProperty(chip)) petCount++;
+
+        return petCount < MAX_PETS;
+    } catch (error) {
+        console.error("Error counting pets:", error);
+    }
 }
