@@ -109,7 +109,7 @@ async function updateUI() {
         petSpecies.textContent = capitalizeFirstLetters(chipData.pet_info.pet_species);
         petStatus.textContent = capitalizeFirstLetters(chipData.pet_info.pet_status);
 
-        petBreed.textContent = chipData.pet_info.pet_breed || "Unspecified";
+        petBreed.textContent = capitalizeFirstLetters(chipData.pet_info.pet_breed) || "Unspecified";
         ownerName.textContent = capitalizeFirstLetters(chipData.owner_info.owner_name);
 
         // Format the owner's phone number
@@ -519,16 +519,12 @@ function checkFields() {
 
     // Pet Image Validation
     const petImageFile = petImageInput.files[0];
-    if (!petImageFile) return false;
-
-    const validatedFile = checkImage(petImageFile);
-    if (!validatedFile) {
-        alert("Invalid image file.");
-        return false;
+    if (petImageFile) {
+        if (!checkImage(petImageFile) || !checkFormat(petImageFile)) {
+            alert("Invalid image file.");
+            return false;
+        }
     }
-
-    if (!checkFormat(petImageFile)) return false;
-
     return true;
 }
 
