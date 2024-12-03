@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     editButton.addEventListener("click", async () => {
+        cancelButton.disabled = false;
         saveButton.disabled = false;
         await updateEditFields();
         hideInitialFields();
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     saveButton.addEventListener("click", async () => {
         const confirmation = confirm("Are you sure you want to save the changes?");
-        if (confirmation) await saveChanges();
+        if (confirmation && checkFields()) await saveChanges();
     });
 
     // Add an event listener for file input change
@@ -228,18 +229,19 @@ function showInitialFields() {
 }
 
 async function saveChanges() {
-    // TODO: add field verification here, also the birthdate can't be in the future
     try {
+        cancelButton.disabled = true;
         saveButton.disabled = true;
-        if (checkFields()) {
-            await updatePetData();
-            await updateUI();
-            hideEditOptions();
-            showInitialFields();
-        }
+        await updatePetData();
+        await updateUI();
+        hideEditOptions();
+        showInitialFields();
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
     } catch (error) {
         console.error("Error in saveChanges():", error);
         alert("An error has occurred, please try again later");
+        cancelButton.disabled = false;
         saveButton.disabled = false;
     }
 }
@@ -515,13 +517,165 @@ async function updateImageURL(chipKey, imageURL) {
 }
 
 function checkFields() {
-    // TODO: check the fields here
+    cancelButton.disabled = true;
+    saveButton.disabled = true;
+    const pet_name = editPetName.value.trim().toLowerCase();
+    const pet_dob = editPetDob.value;
+    const pet_species = editPetSpecies.value.toLowerCase();
+    const pet_breed = editPetBreed.value.trim().toLowerCase();
+    const pet_status = editPetStatus.value.toLowerCase();
+    const owner_name = editOwnerName.value.trim().toLowerCase();
+    const owner_phone_number = editOwnerPhone.value.trim();
+    const owner_email = editOwnerEmail.value.trim().toLowerCase();
+    const owner_facebook = editOwnerFacebook.value.trim().toLowerCase();
+    const owner_instagram = editOwnerInstagram.value.trim().toLowerCase();
+    const owner_note = editOwnerNote.value.trim();
+    const pet_country = editCountry.value.toLowerCase();
+    const pet_city = editCity.value.trim().toLowerCase();
+
+    // Pet Name Validation
+    if (!/^[a-zA-Z\s]+$/.test(pet_name) || pet_name.length < 2 || pet_name.length > 25) {
+        alert("Please enter a valid name for your pet! Names can only contain letters and spaces.");
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Date of Birth Validation
+    if (pet_dob) {
+        const petDob = new Date(pet_dob); // Parse the date input
+        const currentDate = new Date();
+
+        if (isNaN(petDob)) {
+            alert("Invalid date of birth. Please enter a valid date!");
+            cancelButton.disabled = false;
+            saveButton.disabled = false;
+            return false;
+        }
+
+        const ageInYears = (currentDate - petDob) / (1000 * 60 * 60 * 24 * 365.25);
+
+        if (ageInYears > 40 || petDob > currentDate) {
+            alert(
+                ageInYears > 40
+                    ? "Your pet cannot be older than 40 years old. Please check the date of birth!"
+                    : "Your pet cannot be born in the future. Please check the date of birth!"
+            );
+            cancelButton.disabled = false;
+            saveButton.disabled = false;
+            return false;
+        }
+    }
+
+    // Species Validation
+    if (!pet_species) {
+        alert("Please choose your pet species!");
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Pet Breed Validation
+    if (
+        pet_breed &&
+        (!/^[a-zA-Z\s]+$/.test(pet_breed) || pet_breed.length < 3 || pet_breed.length > 25)
+    ) {
+        alert(
+            "Please enter a valid pet breed. Only letters and spaces are allowed, and the length must be between 3 and 25 characters."
+        );
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Country Validation
+    if (!pet_country) {
+        alert("Please select your pet's current country.");
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // City Validation
+    if (!/^[a-zA-Z\s]+$/.test(pet_city) || pet_city.length < 3 || pet_city.length > 25) {
+        alert(
+            "Please enter a valid city name. Only letters and spaces are allowed, and the length must be between 3 and 25 characters."
+        );
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Pet Status Validation
+    if (!pet_status) {
+        alert("Please select the pet's current status.");
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Owner Name Validation
+    if (!/^[a-zA-Z\s]+$/.test(owner_name) || owner_name.length < 3 || owner_name.length > 25) {
+        alert(
+            "Please enter a valid owner's name. Only letters and spaces are allowed, and the length must be between 3 and 25 characters."
+        );
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Phone Number Validation
+    if (!/^\+\d{10,15}$/.test(owner_phone_number)) {
+        alert(
+            "Invalid phone number. It must start with '+' followed by 10 to 15 digits (e.g., +123456789)."
+        );
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Email Validation
+    if (!/^[a-zA-Z0-9.\-]{3,30}@[a-zA-Z0-9.\-]{3,20}\.[a-zA-Z]{2,4}$/.test(owner_email)) {
+        alert("Please enter a valid email address.");
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Social Media Links Validation
+    if (owner_facebook && (owner_facebook.length < 10 || owner_facebook.length > 150)) {
+        alert(
+            "Please enter a valid Facebook profile name or link. It should be between 10 and 150 characters."
+        );
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    if (owner_instagram && (owner_instagram.length < 10 || owner_instagram.length > 150)) {
+        alert(
+            "Please enter a valid Instagram profile name or link. It should be between 10 and 150 characters."
+        );
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
+
+    // Owner Note Validation
+    if (owner_note.length > 2000) {
+        alert("The owner note must not exceed 2000 characters.");
+        cancelButton.disabled = false;
+        saveButton.disabled = false;
+        return false;
+    }
 
     // Pet Image Validation
     const petImageFile = petImageInput.files[0];
     if (petImageFile) {
         if (!checkImage(petImageFile) || !checkFormat(petImageFile)) {
             alert("Invalid image file.");
+            cancelButton.disabled = false;
+            saveButton.disabled = false;
             return false;
         }
     }
