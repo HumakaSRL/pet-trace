@@ -37,14 +37,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Add an event listener for file input change
-    petImageInput.addEventListener("change", function (event) {
+    petImageInput.addEventListener("change", (event) => {
         const file = event.target.files[0]; // Get the selected file
 
         if (file) {
             const reader = new FileReader();
 
             // When the file is loaded, set it as the image source
-            reader.onload = function (e) {
+            reader.onload = (e) => {
                 petImage.src = e.target.result; // Set the image source to the loaded file
                 petImage.style.display = "block"; // Ensure the image is visible
             };
@@ -238,11 +238,13 @@ async function saveChanges() {
         showInitialFields();
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
     } catch (error) {
         console.error("Error in saveChanges():", error);
         alert("An error has occurred, please try again later");
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
     }
 }
 
@@ -314,6 +316,7 @@ async function updateEditFields() {
     editOwnerNote.value = chipData.owner_info.owner_note || "";
     editCountry.value = capitalizeFirstLetters(chipData.pet_info.pet_country);
     editCity.value = capitalizeFirstLetters(chipData.pet_info.pet_city);
+    petImageInput.value = null;
 }
 
 function capitalizeFirstLetters(string) {
@@ -517,6 +520,7 @@ async function updateImageURL(chipKey, imageURL) {
 }
 
 function checkFields() {
+    displayLoadingSpinner();
     cancelButton.disabled = true;
     saveButton.disabled = true;
     const pet_name = editPetName.value.trim().toLowerCase();
@@ -772,4 +776,14 @@ function convertURLtoPath(url) {
         console.error("Error converting URL to path:", error);
         return null;
     }
+}
+
+function displayLoadingSpinner() {
+    loadingSpinner.style.display = "block";
+    viewOverlay.style.display = "block";
+}
+
+function hideLoadingSpinner() {
+    loadingSpinner.style.display = "none";
+    viewOverlay.style.display = "none";
 }
