@@ -81,16 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Helper function for phone number validation
-function isValidPhoneNumber(phoneNumber) {
-    return /^\d+$/.test(phoneNumber) && phoneNumber.length >= 7 && phoneNumber.length <= 15;
-}
-
-// Helper function for validating email format
-function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-}
-
 // Helper function to capitalize the first letter of each word in a string
 function capitalizeWords(str) {
     if (typeof str !== "string") console.error("Input must be a string");
@@ -186,7 +176,7 @@ async function checkPetData() {
         return false;
     }
 
-    const chip_id = microchipIdInput.value.trim().toUpperCase();
+    const chip_id = microchipIdInput.value.trim().toLowerCase();
     const pet_name = petNameInput.value.trim().toLowerCase();
     const pet_dob = petDobInput.value;
     const pet_species = animalSpeciesInput.value.toLowerCase();
@@ -202,31 +192,41 @@ async function checkPetData() {
     const owner_note = ownerNoteInput.value.trim();
 
     // Chip ID Validation
-    if (!/^[A-Z0-9]{9,15}$/.test(chip_id)) {
+    if (!/^[a-z0-9]{9,15}$/.test(chip_id)) {
         alert("The chip ID must be 9-15 characters long and contain only letters and numbers.");
         submitPetFormButton.disabled = false;
         return false;
     }
 
     // Pet Name Validation
-    if (pet_name.length < 2 || pet_name.length > 25 || /\d/.test(pet_name)) {
-        alert("Please enter a valid name for your pet! Names cannot contain numbers.");
+    if (!/^[a-zA-Z\s]+$/.test(pet_name) || pet_name.length < 2 || pet_name.length > 25) {
+        alert("Please enter a valid name for your pet! Names can only contain letters and spaces.");
         submitPetFormButton.disabled = false;
         return false;
     }
 
     // Date of Birth Validation
-    const pet_dob_year = new Date(pet_dob).getFullYear();
-    if (pet_dob_year < 1980) {
-        alert("Your pet cannot be older than 40 years old. Please check the date of birth!");
-        submitPetFormButton.disabled = false;
-        return false;
-    }
+    if (pet_dob) {
+        const petDob = new Date(pet_dob); // Parse the date input
+        const currentDate = new Date();
 
-    if (pet_dob_year > new Date().getFullYear()) {
-        alert("Your pet cannot be born in the future. Please check the date of birth!");
-        submitPetFormButton.disabled = false;
-        return false;
+        if (isNaN(petDob)) {
+            alert("Invalid date of birth. Please enter a valid date!");
+            submitPetFormButton.disabled = false;
+            return false;
+        }
+
+        const ageInYears = (currentDate - petDob) / (1000 * 60 * 60 * 24 * 365.25);
+
+        if (ageInYears > 40 || petDob > currentDate) {
+            alert(
+                ageInYears > 40
+                    ? "Your pet cannot be older than 40 years old. Please check the date of birth!"
+                    : "Your pet cannot be born in the future. Please check the date of birth!"
+            );
+            submitPetFormButton.disabled = false;
+            return false;
+        }
     }
 
     // Species Validation
@@ -237,8 +237,13 @@ async function checkPetData() {
     }
 
     // Pet Breed Validation
-    if (pet_breed && (pet_breed.length < 4 || pet_breed.length > 25)) {
-        alert("Please enter a valid pet breed.");
+    if (
+        pet_breed &&
+        (!/^[a-zA-Z\s]+$/.test(pet_breed) || pet_breed.length < 3 || pet_breed.length > 25)
+    ) {
+        alert(
+            "Please enter a valid pet breed. Only letters and spaces are allowed, and the length must be between 3 and 25 characters."
+        );
         submitPetFormButton.disabled = false;
         return false;
     }
@@ -251,8 +256,10 @@ async function checkPetData() {
     }
 
     // City Validation
-    if (pet_city.length < 2 || pet_city.length > 50) {
-        alert("Please enter a valid city name.");
+    if (!/^[a-zA-Z\s]+$/.test(pet_city) || pet_city.length < 3 || pet_city.length > 25) {
+        alert(
+            "Please enter a valid city name. Only letters and spaces are allowed, and the length must be between 3 and 25 characters."
+        );
         submitPetFormButton.disabled = false;
         return false;
     }
@@ -265,40 +272,50 @@ async function checkPetData() {
     }
 
     // Owner Name Validation
-    if (owner_name.length < 2 || owner_name.length > 50) {
-        alert("Please enter a valid owner's name.");
+    if (!/^[a-zA-Z\s]+$/.test(owner_name) || owner_name.length < 3 || owner_name.length > 25) {
+        alert(
+            "Please enter a valid owner's name. Only letters and spaces are allowed, and the length must be between 3 and 25 characters."
+        );
         submitPetFormButton.disabled = false;
         return false;
     }
 
-    if (!isValidPhoneNumber(owner_phone_number)) {
-        alert("Please enter a valid phone number.");
+    // Phone Number Validation
+    if (!/^\+\d{10,15}$/.test(owner_phone_number)) {
+        alert(
+            "Invalid phone number. It must start with '+' followed by 10 to 15 digits (e.g., +123456789)."
+        );
         submitPetFormButton.disabled = false;
         return false;
     }
 
     // Email Validation
-    if (!owner_email || !isValidEmail(owner_email)) {
+    if (!/^[a-zA-Z0-9.\-]{3,30}@[a-zA-Z0-9.\-]{3,20}\.[a-zA-Z]{2,4}$/.test(owner_email)) {
         alert("Please enter a valid email address.");
         submitPetFormButton.disabled = false;
         return false;
     }
 
     // Social Media Links Validation
-    if (owner_facebook && owner_facebook.length < 5) {
-        alert("Please enter a valid Facebook profile link.");
+    if (owner_facebook && (owner_facebook.length < 10 || owner_facebook.length > 150)) {
+        alert(
+            "Please enter a valid Facebook profile name or link. It should be between 10 and 150 characters."
+        );
         submitPetFormButton.disabled = false;
         return false;
     }
-    if (owner_instagram && owner_instagram.length < 5) {
-        alert("Please enter a valid Instagram profile link.");
+
+    if (owner_instagram && (owner_instagram.length < 10 || owner_instagram.length > 150)) {
+        alert(
+            "Please enter a valid Instagram profile name or link. It should be between 10 and 150 characters."
+        );
         submitPetFormButton.disabled = false;
         return false;
     }
 
     // Owner Note Validation
-    if (owner_note.length > 2500) {
-        alert("The owner note must not exceed 2500 characters.");
+    if (owner_note.length > 2000) {
+        alert("The owner note must not exceed 2000 characters.");
         submitPetFormButton.disabled = false;
         return false;
     }
