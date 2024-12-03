@@ -8,11 +8,14 @@ firebase.auth().onAuthStateChanged(async (user) => {
 document.addEventListener("DOMContentLoaded", async () => {
     await updateUI();
 
-    deleteButton.addEventListener("click", () => {
+    deleteButton.addEventListener("click", async () => {
         const confirmation = confirm(
             "This pet will be permanently deleted from our database, are you sure?"
         );
-        if (confirmation) deletePet();
+        if (confirmation) {
+            await deletePet();
+            window.location = "dashboard.html";
+        }
     });
 
     editButton.addEventListener("click", async () => {
@@ -226,7 +229,6 @@ function showInitialFields() {
 
 async function saveChanges() {
     // TODO: add field verification here, also the birthdate can't be in the future
-    // TODO: update profile picture
     try {
         saveButton.disabled = true;
         if (checkFields()) {
@@ -249,9 +251,49 @@ async function cancelChanges() {
     showInitialFields();
 }
 
-function deletePet() {
-    // TODO: implement this function, don't forget about the profile picture also!
-    alert("This pet has been permanently deleted from our database.");
+async function deletePet() {
+    try {
+        // Get the chip key and pet ID
+        const chipKey = await getChipKey();
+        const petKey = await getPetKey();
+        const currentImageURL = await getCurrentImagePath(chipKey);
+        const currentImagePath = convertURLtoPath(currentImageURL);
+
+        // References to the database paths
+        const chipRef = firebase.database().ref(`chips/${chipKey}`);
+        const userPetRef = firebase.database().ref(`users/${currentUserUid}/pets/${petKey}`);
+
+        // Delete the data from the Realtime Database
+        await chipRef.remove();
+        await userPetRef.remove();
+
+        // Delete the pet image
+        await deleteFile(currentImagePath);
+
+        alert("This pet has been permanently deleted from our database.");
+    } catch (error) {
+        console.error("Error deleting the pet:", error);
+        alert("An error occurred while deleting the pet. Please try again.");
+    }
+}
+
+async function getPetKey() {
+    try {
+        const chipKey = await getChipKey();
+        const petsRef = firebase.database().ref(`users/${currentUserUid}/pets/`);
+        const snapshot = await petsRef.once("value");
+        let petId = null;
+
+        snapshot.forEach((childSnapshot) => {
+            if (childSnapshot.val() === chipKey) petId = childSnapshot.key; // Get the pet's Key
+        });
+
+        if (!petId) throw new Error("Pet ID not found for the given chip key.");
+
+        return petId;
+    } catch (error) {
+        throw error; // Rethrow the error to be handled by the caller
+    }
 }
 
 async function updateEditFields() {
@@ -299,7 +341,7 @@ async function updatePetData() {
         const chipRef = firebase.database().ref(`/chips/${chipKey}/`);
         await chipRef.update(newPetData);
 
-        await updateNewPetImage();
+        await updatePetImage();
 
         alert("Pet data updated successfully.");
     } catch (error) {
@@ -490,7 +532,7 @@ function checkFields() {
     return true;
 }
 
-async function updateNewPetImage() {
+async function updatePetImage() {
     const petImageFile = petImageInput.files[0];
     if (petImageFile) {
         try {

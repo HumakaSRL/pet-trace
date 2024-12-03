@@ -16,7 +16,7 @@
 .register-pet-btn {
     display: inline-block;
     padding: 14px 24px;
-    background: linear-gradient(90deg, #0078D7, #005bb5);
+    background: linear-gradient(90deg, #0078d7, #005bb5);
     color: #ffffff;
     font-size: 16px;
     font-weight: bold;
@@ -118,7 +118,7 @@
 .view-pet-button {
     margin-top: 10px;
     padding: 8px 16px;
-    background-color: #007BFF;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
