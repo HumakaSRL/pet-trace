@@ -542,6 +542,7 @@ function checkFields() {
         alert("Please enter a valid name for your pet! Names can only contain letters and spaces.");
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -554,6 +555,7 @@ function checkFields() {
             alert("Invalid date of birth. Please enter a valid date!");
             cancelButton.disabled = false;
             saveButton.disabled = false;
+            hideLoadingSpinner();
             return false;
         }
 
@@ -567,6 +569,7 @@ function checkFields() {
             );
             cancelButton.disabled = false;
             saveButton.disabled = false;
+            hideLoadingSpinner();
             return false;
         }
     }
@@ -576,6 +579,7 @@ function checkFields() {
         alert("Please choose your pet species!");
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -589,6 +593,7 @@ function checkFields() {
         );
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -597,6 +602,7 @@ function checkFields() {
         alert("Please select your pet's current country.");
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -607,6 +613,7 @@ function checkFields() {
         );
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -615,6 +622,7 @@ function checkFields() {
         alert("Please select the pet's current status.");
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -625,6 +633,7 @@ function checkFields() {
         );
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -635,6 +644,7 @@ function checkFields() {
         );
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -643,6 +653,7 @@ function checkFields() {
         alert("Please enter a valid email address.");
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -653,6 +664,7 @@ function checkFields() {
         );
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -662,6 +674,7 @@ function checkFields() {
         );
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -670,6 +683,7 @@ function checkFields() {
         alert("The owner note must not exceed 2000 characters.");
         cancelButton.disabled = false;
         saveButton.disabled = false;
+        hideLoadingSpinner();
         return false;
     }
 
@@ -680,6 +694,7 @@ function checkFields() {
             alert("Invalid image file.");
             cancelButton.disabled = false;
             saveButton.disabled = false;
+            hideLoadingSpinner();
             return false;
         }
     }
