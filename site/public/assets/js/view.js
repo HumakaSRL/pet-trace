@@ -58,13 +58,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function getChipData() {
     // Extract the "chip" parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
-    const chipId = urlParams.get("chip").toLowerCase();
+    const chipId = urlParams.get("chip");
+
+    if (!chipId || !checkChipId(chipId)) return null;
+
     try {
         const snapshot = await firebase
             .database()
             .ref("chips")
             .orderByChild("chip_id")
-            .equalTo(chipId)
+            .equalTo(chipId.toLowerCase())
             .once("value");
 
         if (snapshot.exists()) {
@@ -72,10 +75,12 @@ async function getChipData() {
             const data = Object.values(snapshot.val())[0];
             return data;
         } else {
+            console.warn("No data found for the provided chip ID.");
             return null;
         }
     } catch (error) {
         console.error("Error fetching data: ", error);
+        alert("An error occurred while fetching chip data. Please try again later.");
         return null;
     }
 }
@@ -133,12 +138,32 @@ async function updateUI() {
         country.textContent = capitalizeFirstLetters(chipData.pet_info.pet_country);
         city.textContent = capitalizeFirstLetters(chipData.pet_info.pet_city);
     } else {
-        const urlParams = new URLSearchParams(window.location.search);
-        const chipId = urlParams.get("chip").toUpperCase();
-        // If no data found, show the "no match" section
-        noMatchSection.style.display = "block";
-        microchipIdSpan.textContent = chipId;
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const chipId = urlParams.get("chip");
+
+            if (!chipId || !checkChipId(chipId)) {
+                alert("Invalid URL, please check the link and try again.");
+                window.location = "/";
+                return;
+            }
+
+            // Show the "no match" section with the chip ID
+            noMatchSection.style.display = "block";
+            microchipIdSpan.textContent = chipId.toUpperCase();
+        } catch (error) {
+            console.error("An error occurred while processing the chip ID:", error);
+            alert("An unexpected error occurred. Please try again later.");
+            noMatchSection.style.display = "block";
+            microchipIdSpan.textContent = "N/A";
+        }
     }
+}
+
+function checkChipId(chipId) {
+    // Chip ID Validation
+    if (/^[a-z0-9]{9,15}$/.test(chipId.toLowerCase())) return true;
+    return false;
 }
 
 function showEditOptions() {
@@ -396,26 +421,28 @@ function getNewData() {
 async function getChipKey() {
     // Extract the "chip" parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
-    const chipId = urlParams.get("chip").toLowerCase();
-    try {
-        const snapshot = await firebase
-            .database()
-            .ref("chips")
-            .orderByChild("chip_id")
-            .equalTo(chipId)
-            .once("value");
+    const chipId = urlParams.get("chip");
+    if (chipId) {
+        try {
+            const snapshot = await firebase
+                .database()
+                .ref("chips")
+                .orderByChild("chip_id")
+                .equalTo(chipId.toLowerCase())
+                .once("value");
 
-        // Check if the snapshot exists and extract the first key
-        if (snapshot.exists()) {
-            const chips = snapshot.val();
-            if (chips && typeof chips === "object") {
-                const chipKey = Object.keys(chips)[0];
-                return chipKey || null;
-            }
-        } else return null;
-    } catch (error) {
-        console.error("Error fetching data: ", error);
-        return null;
+            // Check if the snapshot exists and extract the first key
+            if (snapshot.exists()) {
+                const chips = snapshot.val();
+                if (chips && typeof chips === "object") {
+                    const chipKey = Object.keys(chips)[0];
+                    return chipKey || null;
+                }
+            } else return null;
+        } catch (error) {
+            console.error("Error fetching data: ", error);
+            return null;
+        }
     }
 }
 
