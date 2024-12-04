@@ -136,7 +136,7 @@ async function updateUI() {
         // Show the chip information section along with the toolbar
         chipInformation.style.display = "flex";
         if (chipData.owner_uid === currentUserUid) editSection.style.display = "flex";
-        mainContent.style.display = "flex";
+        mainContent.style.display = "block";
     } else {
         try {
             const urlParams = new URLSearchParams(window.location.search);
