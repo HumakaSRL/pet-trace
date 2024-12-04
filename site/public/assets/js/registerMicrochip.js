@@ -196,6 +196,10 @@ async function checkPetData() {
         alert("The chip ID must be 9-15 characters long and contain only letters and numbers.");
         submitPetFormButton.disabled = false;
         return false;
+    } else if (await checkIfExists(chip_id)) {
+        alert("The chip ID is already registered in our database.");
+        submitPetFormButton.disabled = false;
+        return false;
     }
 
     // Pet Name Validation
@@ -438,5 +442,23 @@ async function countPets() {
         return petCount < MAX_PETS;
     } catch (error) {
         console.error("Error counting pets:", error);
+    }
+}
+
+async function checkIfExists(chipId) {
+    try {
+        const snapshot = await firebase
+            .database()
+            .ref("chips")
+            .orderByChild("chip_id")
+            .equalTo(chipId.toLowerCase())
+            .once("value");
+
+        if (snapshot.exists()) return true;
+        else return false;
+    } catch (error) {
+        console.error("Error fetching data: ", error);
+        alert("An error occurred while checking the chip data. Please try again later.");
+        return null;
     }
 }
