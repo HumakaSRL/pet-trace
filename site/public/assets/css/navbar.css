@@ -74,6 +74,42 @@
     cursor: pointer;
 }
 
+/* Donate Button Container */
+.donate-button {
+    text-align: center;
+}
+
+/* Donate Button Styling */
+.donate-btn {
+    background-color: var(--secondary-color); /* Consistent with the auth buttons */
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+/* Hover Effect */
+.donate-btn:hover {
+    background-color: #228b4d; /* Matches the hover color of auth buttons */
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Active Effect */
+.donate-btn:active {
+    background-color: #1a6437; /* Slightly darker shade */
+    color: white;
+    transform: translateY(0);
+}
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     .site-navbar {
