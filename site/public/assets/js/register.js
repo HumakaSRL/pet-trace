@@ -26,6 +26,11 @@ function validateFields() {
         emailError.style.display = "block";
         registerButton.disabled = false;
         return false;
+    } else if (checkEmailList(emailInput.value.trim())) {
+        emailError.textContent = "Please use a trusted email provider such as gmail.com";
+        emailError.style.display = "block";
+        registerButton.disabled = false;
+        return false;
     } else emailError.style.display = "none";
 
     // Validate Password
@@ -111,4 +116,36 @@ function createAccount() {
             // Re-enable the button after the process completes
             registerButton.disabled = false;
         });
+}
+
+function checkEmailList(email) {
+    email = email.trim().toLowerCase();
+
+    // List of supported email domains
+    const supportedDomains = [
+        "@gmail.com",
+        "@hotmail.com",
+        "@yahoo.com",
+        "@icloud.com",
+        "@outlook.com",
+        "@live.com",
+        "@aol.com",
+        "@protonmail.com",
+        "@mail.com",
+        "@zoho.com",
+        "@gmx.com",
+        "@yandex.com",
+        "@qq.com",
+        "@naver.com",
+        "@daum.net",
+        "@web.de",
+        "@libero.it",
+        "@orange.fr",
+        "@t-online.de",
+        "@mail.ru",
+        "@rediffmail.com",
+    ];
+
+    // Check if the email ends with any supported domain
+    return !supportedDomains.some((domain) => email.endsWith(domain));
 }
