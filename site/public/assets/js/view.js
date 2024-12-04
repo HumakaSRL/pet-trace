@@ -92,11 +92,6 @@ async function updateUI() {
 
         petImage.src = chipData.image_url;
 
-        // Show the chip information section along with the toolbar
-        chipInformation.style.display = "flex";
-
-        if (chipData.owner_uid === currentUserUid) editSection.style.display = "flex";
-
         // Populate the data in the respective fields
         chipId.textContent = chipData.chip_id.toUpperCase();
         petName.textContent = capitalizeFirstLetters(chipData.pet_info.pet_name);
@@ -137,6 +132,11 @@ async function updateUI() {
         // Capitalize the first letter of pet_country and pet_city
         country.textContent = capitalizeFirstLetters(chipData.pet_info.pet_country);
         city.textContent = capitalizeFirstLetters(chipData.pet_info.pet_city);
+
+        // Show the chip information section along with the toolbar
+        chipInformation.style.display = "flex";
+        if (chipData.owner_uid === currentUserUid) editSection.style.display = "flex";
+        mainContent.style.display = "flex";
     } else {
         try {
             const urlParams = new URLSearchParams(window.location.search);
@@ -151,11 +151,13 @@ async function updateUI() {
             // Show the "no match" section with the chip ID
             noMatchSection.style.display = "block";
             microchipIdSpan.textContent = chipId.toUpperCase();
+            mainContent.style.display = "flex";
         } catch (error) {
             console.error("An error occurred while processing the chip ID:", error);
             alert("An unexpected error occurred. Please try again later.");
             noMatchSection.style.display = "block";
             microchipIdSpan.textContent = "N/A";
+            mainContent.style.display = "flex";
         }
     }
 }
