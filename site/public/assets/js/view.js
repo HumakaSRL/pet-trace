@@ -83,7 +83,7 @@ async function getChipData() {
 async function updateUI() {
     const chipData = await getChipData();
     if (chipData) {
-        console.log(chipData);
+        // console.log(chipData);
 
         petImage.src = chipData.image_url;
 
@@ -728,10 +728,7 @@ async function updatePetImage() {
         } catch (error) {
             console.error("Error updating pet image:", error);
         }
-    } else {
-        console.log("No new pet image selected");
-        return;
-    }
+    } else return;
 }
 
 async function deleteFile(filePath) {
@@ -740,12 +737,12 @@ async function deleteFile(filePath) {
     try {
         // Attempt to delete the file
         await fileRef.delete();
-        console.log(`File at ${filePath} deleted successfully`);
+        // console.log(`File at ${filePath} deleted successfully`);
     } catch (error) {
         if (error.code === "storage/object-not-found") {
-            console.log(`File at ${filePath} does not exist`);
+            // console.log(`File at ${filePath} does not exist`);
         } else {
-            console.error(`Error deleting file at ${filePath}:`, error);
+            // console.error(`Error deleting file at ${filePath}:`, error);
             throw new Error("Failed to delete the file");
         }
     }
@@ -762,10 +759,10 @@ async function getCurrentImagePath(chipKey) {
         // Check if the image_url exists and return it
         if (snapshot.exists()) {
             const imageUrl = snapshot.val();
-            console.log(`Current image URL: ${imageUrl}`);
+            // console.log(`Current image URL: ${imageUrl}`);
             return imageUrl;
         } else {
-            console.log("No image URL found for the specified chipKey");
+            // console.log("No image URL found for the specified chipKey");
             return null;
         }
     } catch (error) {

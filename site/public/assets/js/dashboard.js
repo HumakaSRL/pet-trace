@@ -8,12 +8,8 @@ const authReady = new Promise((resolve) => {
         if (user) {
             currentUserUid = user.uid; // Store the UID
             mainContent.style.display = "flex";
-            console.log("User authenticated:", currentUserUid);
             resolve(); // Resolve when authentication is ready
-        } else {
-            console.log("No user authenticated, redirecting to login.");
-            window.location = "/login.html";
-        }
+        } else window.location = "/login.html";
     });
 });
 
@@ -26,7 +22,7 @@ const domReady = new Promise((resolve) => {
 
 // Fetch user pets only when both conditions are met
 Promise.all([authReady, domReady]).then(() => {
-    console.log("Both authentication and DOM are ready. Fetching user pets...");
+    // console.log("Both authentication and DOM are ready. Fetching user pets...");
     fetchUserPets();
 });
 
@@ -51,13 +47,13 @@ async function fetchUserPets() {
                     const chipData = chipDataSnapshot.val();
 
                     if (chipData) {
-                        console.log(chipData);
+                        // console.log(chipData);
                         renderPetCard(chipData);
                     } else console.log("no pets");
                 }
             }
         } else {
-            console.log("No pets registered.");
+            // console.log("No pets registered.");
             // Optionally, show a message if there are no pets
             const noPetsMessage = document.getElementById("noPetsMessage");
             noPetsMessage.style.display = "block";
