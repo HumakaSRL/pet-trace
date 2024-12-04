@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location = "/login.html";
     });
     navLogo.addEventListener("click", () => {
-        window.location = "/index.html";
+        window.location = "/";
     });
     usernameNavbarSpan.addEventListener("click", () => {
         window.location = "/dashboard.html";
@@ -34,7 +34,7 @@ function logout() {
         .auth()
         .signOut()
         .then(() => {
-            window.location = "/index.html";
+            window.location = "/";
         })
         .catch((error) => {
             console.error("Error signing out: ", error);
