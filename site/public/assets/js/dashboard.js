@@ -1,4 +1,5 @@
 let currentUserUid = null;
+let currentUser = null;
 let petCount = 0;
 const MAX_PETS = 5;
 
@@ -7,6 +8,7 @@ const authReady = new Promise((resolve) => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             currentUserUid = user.uid; // Store the UID
+            currentUser = user; // Store the user object
             mainContent.style.display = "flex";
             resolve(); // Resolve when authentication is ready
         } else window.location = "/login.html";
@@ -58,13 +60,14 @@ async function fetchUserPets() {
             const noPetsMessage = document.getElementById("noPetsMessage");
             noPetsMessage.style.display = "block";
         }
-        if (petCount < MAX_PETS) {
+        if (petCount < MAX_PETS && currentUser.emailVerified) {
             registerPetButton.addEventListener("click", () => {
                 window.location = "register-microchip.html";
             });
             registerPetButton.disabled = false;
             registerPetButton.style.filter = "none";
-        }
+        } else if (!currentUser.emailVerified) emailVerificationError.style.display = "block";
+
         petCountSpan.textContent = `${petCount}/${MAX_PETS}`;
     } catch (error) {
         console.error("Error fetching pets data:", error);
