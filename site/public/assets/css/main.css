@@ -43,63 +43,58 @@ table {
 
 /* Theme Colors */
 :root {
-    --primary-color: #004a99;
-    /* Deep professional blue */
-    --secondary-color: #2c9a6a;
-    /* Rich green */
-    --accent-color: #ffd700;
-    /* Gold accent */
-    --background-color: #eef4fb;
-    /* Light blue-gray background */
-    --text-color: #222222;
-    /* Dark gray for readability */
-    --heading-color: #1a4d7d;
-    /* Darker blue for headings */
-    --footer-background: #003366;
-    /* Dark footer for contrast */
-    --footer-text: #ffffff;
-    /* White text for footer */
+    --primary-color: #1a73e8; /* Bright modern blue */
+    --secondary-color: #34a853; /* Clean green */
+    --accent-color: #ffb300; /* Warm yellow */
+    --background-color: #f9fafc; /* Very light gray */
+    --text-color: #3c4043; /* Neutral gray */
+    --heading-color: #202124; /* Dark neutral for headings */
+    --footer-background: #202124; /* Dark footer for contrast */
+    --footer-text: #e8eaed; /* Light text for footer */
+    --border-color: #e0e0e0; /* Soft border color */
 }
 
 /* Basic Layout */
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
-/* Generic Typography */
+/* Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-weight: bold;
+    font-weight: 700;
     color: var(--heading-color);
     line-height: 1.2;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 h2 {
-    font-size: 1.75rem;
+    font-size: 2rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 /* Layout Containers */
@@ -113,75 +108,121 @@ p {
     text-align: center;
 }
 
-.site-navbar,
+/* Navigation Bar */
+.site-navbar {
+    background-color: var(--primary-color);
+    color: var(--footer-text);
+    padding: 1rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .site-footer {
     background-color: var(--footer-background);
     color: var(--footer-text);
     padding: 1rem 2rem;
     text-align: center;
+    border-top: 2px solid var(--accent-color);
 }
 
 /* Links */
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
+/* Main Content */
 main {
     margin-top: 25px;
     margin-bottom: 25px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Buttons */
+button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Error Message */
 .error-message {
-    color: red;
+    color: #d32f2f;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    background-color: #ffebee;
+    border-radius: 6px;
+    border: 1px solid #f44336;
 }
 
+/* Cookie Consent */
 .cookie-consent {
-    /* display: none; */
     position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: #fff;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 10px;
     z-index: 1000;
+    border: 1px solid var(--border-color);
 }
 
 .cookie-consent p {
     margin-bottom: 10px;
+    font-size: 0.95rem;
 }
 
 .cookie-consent .buttons {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
 }
 
 .cookie-consent button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #343a40;
+    background-color: var(--secondary-color);
     color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 0.9rem;
 }
 
 .cookie-consent button:hover {
-    background-color: #212529;
+    background-color: var(--primary-color);
 }
 
 .cookie-consent #closeCookieConsent {
     position: absolute;
     top: 5px;
     right: 10px;
-    border: none;
     background-color: transparent;
     color: #555;
-    font-size: 20px;
+    font-size: 1.5rem;
     cursor: pointer;
+    border: none;
+    transition: color 0.2s ease;
+}
+
+.cookie-consent #closeCookieConsent:hover {
+    color: var(--accent-color);
 }
