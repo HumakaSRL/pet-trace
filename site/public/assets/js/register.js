@@ -44,7 +44,7 @@ function validateFields() {
         if (char >= "A" && char <= "Z") hasUppercase = true;
     }
 
-    // Check conditions
+    // Check password conditions
     if (!isValidLength || !hasLowercase || !hasUppercase) {
         passwordError.textContent =
             "Password must be at least 6 characters long, with at least one lowercase letter and one uppercase letter. Special characters are allowed.";
@@ -60,6 +60,13 @@ function validateFields() {
         registerButton.disabled = false;
         return false;
     } else confirmPasswordError.style.display = "none";
+
+    // Validate Terms of Service
+    if (!acceptTerms.checked) {
+        acceptTermsError.style.display = "block";
+        registerButton.disabled = false;
+        return false;
+    } else acceptTermsError.style.display = "none";
 
     return true;
 }
