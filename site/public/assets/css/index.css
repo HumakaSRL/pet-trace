@@ -2,6 +2,27 @@ main {
     margin: 25px;
 }
 
+/* Disclaimer Section */
+.disclaimer-section {
+    background-color: #f8f9fa;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.disclaimer-text {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.disclaimer-text strong {
+    font-weight: bold;
+    color: #d32f2f;
+}
+
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
