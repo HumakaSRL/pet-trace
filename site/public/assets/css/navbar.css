@@ -1,13 +1,14 @@
 /* Navbar Styling */
 .site-navbar {
-    background-color: var(--footer-background);
+    background-color: var(--primary-color); /* Updated primary color */
     color: var(--footer-text);
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
 }
 
 /* Navbar Container */
@@ -16,48 +17,93 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 1200px; /* Limit max width for better layout */
+    margin: 0 auto; /* Center the container */
 }
 
 /* Site Title */
 .site-title {
     font-size: 1.75rem;
     font-weight: bold;
-    color: var(--heading-color);
+    color: var(--footer-text);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Auth Buttons */
-.auth-buttons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.site-title .site-logo-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
-/* Auth Button Styling */
+/* Navbar Content (Aligning donate and auth section) */
+.navbar-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* More space between the elements */
+}
+
+/* Donate Button Styling */
+.donate-btn {
+    background-color: var(--secondary-color); /* Matching the color scheme */
+    color: white;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px; /* Rounded corners for a modern look */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+.donate-btn:hover {
+    background-color: #228b4d;
+    transform: translateY(-2px);
+}
+
+.donate-btn:active {
+    background-color: #1a6437;
+    transform: translateY(0);
+}
+
+/* Auth Section (Login/Logout & User Greeting) */
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Slight gap between login/logout and greeting */
+}
+
 .auth-btn {
     background-color: var(--secondary-color);
-    /* Rich green */
     color: white;
     padding: 8px 16px;
     font-size: 14px;
-    cursor: pointer;
+    font-weight: bold;
     border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    border-radius: 30px; /* Matching rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .auth-btn:hover {
     background-color: #228b4d;
+    transform: translateY(-2px);
+}
+
+.auth-btn:active {
+    background-color: #1a6437;
+    transform: translateY(0);
 }
 
 /* User Greeting Styling */
 .user-greeting {
-    display: flex;
-    align-items: center;
     font-size: 1rem;
     color: var(--footer-text);
+    display: flex;
+    align-items: center;
 }
 
 .user-greeting p {
@@ -67,47 +113,7 @@
 #usernameNavbarSpan {
     font-weight: bold;
     color: var(--accent-color);
-}
-
-#navLogo,
-#usernameNavbarSpan {
     cursor: pointer;
-}
-
-/* Donate Button Container */
-.donate-button {
-    text-align: center;
-}
-
-/* Donate Button Styling */
-.donate-btn {
-    background-color: var(--secondary-color); /* Consistent with the auth buttons */
-    color: white;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    letter-spacing: 0.5px;
-    display: inline-block;
-}
-
-/* Hover Effect */
-.donate-btn:hover {
-    background-color: #228b4d; /* Matches the hover color of auth buttons */
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* Active Effect */
-.donate-btn:active {
-    background-color: #1a6437; /* Slightly darker shade */
-    color: white;
-    transform: translateY(0);
 }
 
 /* Mobile Responsiveness */
@@ -123,7 +129,12 @@
         width: 100%;
     }
 
-    .auth-buttons {
+    .navbar-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .auth-section {
         margin-top: 10px;
     }
 

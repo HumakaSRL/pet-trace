@@ -6,7 +6,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
 
         // Check if user has a display name and set it
         if (user.displayName) {
-            usernameNavbarSpan.textContent = user.displayName;
+            usernameNavbarSpan.textContent = `${user.displayName}!`;
             userGreeting.style.display = "flex"; // Show greeting message
         }
     } else {

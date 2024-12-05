@@ -24,37 +24,45 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/terms-of-service.css" />
     </head>
     <body>
-        <!-- Navbar 1.1.0 -->
+        <!-- Navbar 1.2.0 -->
         <nav class="site-navbar">
             <div class="navbar-container">
-                <!-- Site title -->
-                <h1 id="navLogo" class="site-title">Pet Trace</h1>
+                <!-- Site title/logo -->
+                <h1 id="navLogo" class="site-title">
+                    <a href="/" class="site-logo-link">Pet Trace</a>
+                </h1>
 
-                <!-- Auth buttons (Login/Logout) -->
-                <div class="donate-button">
-                    <a
-                        href="https://donate.stripe.com/9AQ9COboD6Yi1C8005"
-                        id="donateButton"
-                        class="donate-btn"
-                        target="_blank"
-                    >
-                        Donate
-                    </a>
-                </div>
+                <!-- Navbar content -->
+                <div class="navbar-content">
+                    <!-- Donate button -->
+                    <div class="donate-button">
+                        <a
+                            href="https://donate.stripe.com/9AQ9COboD6Yi1C8005"
+                            id="donateButton"
+                            class="donate-btn"
+                            target="_blank"
+                        >
+                            Donate
+                        </a>
+                    </div>
 
-                <!-- Auth buttons (Login/Logout) -->
-                <div class="auth-buttons">
-                    <button id="loginButton" class="auth-btn" style="display: none">Login</button>
-                    <button id="logoutButton" class="auth-btn" style="display: none">Logout</button>
-                </div>
+                    <!-- Auth buttons -->
+                    <div class="auth-section">
+                        <button id="loginButton" class="auth-btn" style="display: none">
+                            Login
+                        </button>
+                        <button id="logoutButton" class="auth-btn" style="display: none">
+                            Logout
+                        </button>
 
-                <!-- Greeting message for signed-in user, initially hidden -->
-                <div id="userGreeting" class="user-greeting" style="display: none">
-                    <p>
-                        Hello,
-                        <span id="usernameNavbarSpan"></span>
-                        !
-                    </p>
+                        <!-- Greeting message -->
+                        <div id="userGreeting" class="user-greeting" style="display: none">
+                            <p>
+                                Hello,
+                                <span id="usernameNavbarSpan"></span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
