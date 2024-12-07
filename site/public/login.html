@@ -83,6 +83,8 @@
                             required
                             class="form-input"
                         />
+                        <!-- Error message for Email -->
+                        <div id="emailError" class="error-message" style="display: none"></div>
                     </div>
 
                     <!-- Password Field -->
@@ -96,13 +98,13 @@
                             required
                             class="form-input"
                         />
+                        <!-- Error message for Password -->
+                        <div id="passwordError" class="error-message" style="display: none"></div>
                     </div>
 
                     <!-- Forgot Password Link -->
-                    <div class="form-group">
-                        <a href="forgot-password.html" class="forgot-password-link">
-                            Forgot password?
-                        </a>
+                    <div id="forgotPasswordDiv" class="form-group">
+                        <a id="forgotPasswordLink" class="forgot-password-link">Forgot password?</a>
                     </div>
 
                     <!-- Login Button -->
