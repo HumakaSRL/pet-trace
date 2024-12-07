@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,12 +24,12 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/footer.css" />
     </head>
     <body>
-        <!-- Navbar 1.2.0 -->
+        <!-- Navbar 1.2.1 -->
         <nav class="site-navbar">
             <div class="navbar-container">
                 <!-- Site title/logo -->
                 <h1 id="navLogo" class="site-title">
-                    <a href="/" class="site-logo-link">Pet Trace</a>
+                    <a href="/" class="site-logo-link" aria-label="Go to home page">Pet Trace</a>
                 </h1>
 
                 <!-- Navbar content -->
@@ -41,6 +41,7 @@
                             id="donateButton"
                             class="donate-btn"
                             target="_blank"
+                            aria-label="Donate to Pet Trace"
                         >
                             Donate
                         </a>
@@ -48,10 +49,20 @@
 
                     <!-- Auth buttons -->
                     <div class="auth-section">
-                        <button id="loginButton" class="auth-btn" style="display: none">
+                        <button
+                            id="loginButton"
+                            class="auth-btn"
+                            style="display: none"
+                            aria-label="Login to your account"
+                        >
                             Login
                         </button>
-                        <button id="logoutButton" class="auth-btn" style="display: none">
+                        <button
+                            id="logoutButton"
+                            class="auth-btn"
+                            style="display: none"
+                            aria-label="Logout of your account"
+                        >
                             Logout
                         </button>
 
@@ -59,7 +70,7 @@
                         <div id="userGreeting" class="user-greeting" style="display: none">
                             <p>
                                 Hello,
-                                <span id="usernameNavbarSpan"></span>
+                                <span id="usernameNavbarSpan" aria-label="User's name"></span>
                             </p>
                         </div>
                     </div>
@@ -83,24 +94,32 @@
             </section>
             <!-- Hero Section -->
             <section class="hero-section">
-                <h2>Welcome to Pet Trace</h2>
-                <p class="hero-text">
+                <h2 aria-label="Welcome message">Welcome to Pet Trace</h2>
+                <p class="hero-text" aria-label="Platform purpose">
                     The ultimate platform to keep your pets safe and traceable. Whether your pet has
                     gone missing or you're looking to ensure they’re always findable, Pet Trace is
                     here to help.
                 </p>
-                <a href="/login.html" class="cta-btn">Register Your Pet</a>
+                <a href="/login.html" class="cta-btn" aria-label="Register your pet on Pet Trace">
+                    Register Your Pet
+                </a>
             </section>
 
             <!-- Search Section -->
             <section class="search-section">
-                <h3>Search for a Pet</h3>
-                <p class="search-description">
+                <h3 aria-label="Search for a pet">Search for a Pet</h3>
+                <p class="search-description" aria-label="Search description">
                     If you’ve found a lost pet, enter its microchip ID below to locate the owner.
                     Using Pet Trace is completely free!
                 </p>
                 <form id="microchipSearchForm" class="search-form">
-                    <label for="microchipIdInput" class="visually-hidden">Microchip ID</label>
+                    <label
+                        for="microchipIdInput"
+                        class="visually-hidden"
+                        aria-label="Microchip ID input"
+                    >
+                        Microchip ID
+                    </label>
                     <input
                         type="text"
                         id="microchipIdInput"
@@ -118,27 +137,34 @@
                         aria-live="polite"
                         style="display: none"
                     ></div>
-                    <button type="submit" id="searchButton" class="search-btn">Search</button>
+                    <button
+                        type="submit"
+                        id="searchButton"
+                        class="search-btn"
+                        aria-label="Submit search for pet"
+                    >
+                        Search
+                    </button>
                 </form>
             </section>
 
             <!-- Features Section -->
             <section class="features-section">
-                <h3>Why Choose Pet Trace?</h3>
+                <h3 aria-label="Features section title">Why Choose Pet Trace?</h3>
                 <ul class="features-list">
-                    <li>
+                    <li aria-label="Free features">
                         <strong>Completely Free:</strong>
                         All features are available at no cost to ensure your pet’s safety.
                     </li>
-                    <li>
+                    <li aria-label="Easy registration">
                         <strong>Easy Registration:</strong>
                         Register your pet's details in minutes and ensure they’re always traceable.
                     </li>
-                    <li>
+                    <li aria-label="Microchip integration">
                         <strong>Microchip Integration:</strong>
                         Use your pet's unique microchip ID for efficient and accurate tracking.
                     </li>
-                    <li>
+                    <li aria-label="Owner connectivity">
                         <strong>Owner Connectivity:</strong>
                         Quickly connect lost pets with their rightful owners.
                     </li>
@@ -147,26 +173,42 @@
 
             <!-- Call to Action -->
             <section class="cta-section">
-                <h3>Protect Your Pet Today</h3>
-                <p class="cta-text">
+                <h3 aria-label="Call to action title">Protect Your Pet Today</h3>
+                <p class="cta-text" aria-label="Call to action text">
                     Don’t wait for an emergency. Take proactive steps to safeguard your pet and give
                     yourself peace of mind. Best of all, it’s completely free!
                 </p>
-                <a href="/register.html" class="cta-btn">Join Us</a>
+                <a href="/register.html" class="cta-btn" aria-label="Join us to protect your pet">
+                    Join Us
+                </a>
             </section>
         </main>
 
-        <!-- Footer v 1.0.2 -->
+        <!-- Footer v 1.1.0 -->
         <footer class="site-footer">
             <p>
-                &copy; 2024 by
-                <a href="https://humaka.ro" target="_blank" class="footer-link">Humaka SRL.</a>
-                All rights reserved.
+                &copy; 2024 PET-TRACE.COM - all rights reserved by
+                <a
+                    href="https://humaka.ro"
+                    target="_blank"
+                    class="footer-link"
+                    aria-label="Visit Humaka's website"
+                >
+                    HUMAKA SRL
+                </a>
             </p>
             <p>
-                <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+                <a
+                    href="terms-of-service.html"
+                    class="footer-link"
+                    aria-label="View terms of service"
+                >
+                    Terms of Service
+                </a>
                 |
-                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <a href="privacy-policy.html" class="footer-link" aria-label="View privacy policy">
+                    Privacy Policy
+                </a>
             </p>
         </footer>
 

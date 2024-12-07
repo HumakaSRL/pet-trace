@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,12 +24,12 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/terms-of-service.css" />
     </head>
     <body>
-        <!-- Navbar 1.2.0 -->
+        <!-- Navbar 1.2.1 -->
         <nav class="site-navbar">
             <div class="navbar-container">
                 <!-- Site title/logo -->
                 <h1 id="navLogo" class="site-title">
-                    <a href="/" class="site-logo-link">Pet Trace</a>
+                    <a href="/" class="site-logo-link" aria-label="Go to home page">Pet Trace</a>
                 </h1>
 
                 <!-- Navbar content -->
@@ -41,6 +41,7 @@
                             id="donateButton"
                             class="donate-btn"
                             target="_blank"
+                            aria-label="Donate to Pet Trace"
                         >
                             Donate
                         </a>
@@ -48,10 +49,20 @@
 
                     <!-- Auth buttons -->
                     <div class="auth-section">
-                        <button id="loginButton" class="auth-btn" style="display: none">
+                        <button
+                            id="loginButton"
+                            class="auth-btn"
+                            style="display: none"
+                            aria-label="Login to your account"
+                        >
                             Login
                         </button>
-                        <button id="logoutButton" class="auth-btn" style="display: none">
+                        <button
+                            id="logoutButton"
+                            class="auth-btn"
+                            style="display: none"
+                            aria-label="Logout of your account"
+                        >
                             Logout
                         </button>
 
@@ -59,7 +70,7 @@
                         <div id="userGreeting" class="user-greeting" style="display: none">
                             <p>
                                 Hello,
-                                <span id="usernameNavbarSpan"></span>
+                                <span id="usernameNavbarSpan" aria-label="User's name"></span>
                             </p>
                         </div>
                     </div>
@@ -307,17 +318,31 @@
             </section>
         </main>
 
-        <!-- Footer v 1.0.2 -->
+        <!-- Footer v 1.1.0 -->
         <footer class="site-footer">
             <p>
-                &copy; 2024 by
-                <a href="https://humaka.ro" target="_blank" class="footer-link">Humaka SRL.</a>
-                All rights reserved.
+                &copy; 2024 PET-TRACE.COM - all rights reserved by
+                <a
+                    href="https://humaka.ro"
+                    target="_blank"
+                    class="footer-link"
+                    aria-label="Visit Humaka's website"
+                >
+                    HUMAKA SRL
+                </a>
             </p>
             <p>
-                <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+                <a
+                    href="terms-of-service.html"
+                    class="footer-link"
+                    aria-label="View terms of service"
+                >
+                    Terms of Service
+                </a>
                 |
-                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <a href="privacy-policy.html" class="footer-link" aria-label="View privacy policy">
+                    Privacy Policy
+                </a>
             </p>
         </footer>
 
