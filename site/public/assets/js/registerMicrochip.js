@@ -5,6 +5,7 @@ const MAX_PETS = 5;
 // Check if a user is authenticated and store their UID
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
+        if (!user.emailVerified) window.location = "/email-verification.html";
         currentUserUid = user.uid;
         if (await countPets()) {
             mainContent.style.display = "block";

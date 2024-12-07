@@ -1,16 +1,8 @@
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
-        if (!user.emailVerified) {
-            // If the user's email is not verified, send a verification email
-            verifyUser(user);
-        } else {
-            // If the email is already verified, display the corresponding message
-            displayAlreadyVerifiedMessage();
-        }
-    } else {
-        // If no user is logged in, show an error message
-        displayErrorMessage();
-    }
+        if (!user.emailVerified) verifyUser(user);
+        else displayAlreadyVerifiedMessage();
+    } else displayErrorMessage();
 });
 
 function verifyUser(user) {
