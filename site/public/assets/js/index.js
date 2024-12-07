@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isValid) {
             errorContainer.textContent =
                 "Invalid ID. Ensure it has 9-15 characters, only letters and numbers, without dashes.";
+            errorContainer.style.display = "flex";
             return;
         }
 
