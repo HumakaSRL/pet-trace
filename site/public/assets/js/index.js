@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
         searchButton.textContent = "Searching...";
         microchipIdInput.disabled = true;
 
+        // Log event for search button click
+        firebase.analytics().logEvent("search_button_click", {
+            microchipId: microchipIdInput.value.trim(),
+        });
+
         // Get the microchip ID input value
         let microchipId = microchipIdInput.value.trim();
 
@@ -22,6 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         checkChip(microchipId);
+    });
+
+    donateButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        // Log event for donate button click
+        firebase.analytics().logEvent("donate_button_click", {
+            donationAction: "clicked",
+        });
+
+        // Redirect to the donation link
+        window.open("https://donate.stripe.com/9AQ9COboD6Yi1C8005", "_blank");
     });
 });
 
