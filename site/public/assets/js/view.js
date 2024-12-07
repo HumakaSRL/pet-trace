@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 });
 
-async function getChipData() {
+async function checkChip() {
     // Extract the "chip" parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const chipId = urlParams.get("chip");
@@ -86,7 +86,7 @@ async function getChipData() {
 }
 
 async function updateUI() {
-    const chipData = await getChipData();
+    const chipData = await checkChip();
     if (chipData) {
         // console.log(chipData);
 
@@ -328,7 +328,7 @@ async function getPetKey() {
 }
 
 async function updateEditFields() {
-    const chipData = await getChipData();
+    const chipData = await checkChip();
 
     editPetName.value = capitalizeFirstLetters(chipData.pet_info.pet_name);
     editPetDob.value = chipData.pet_info.pet_dob;

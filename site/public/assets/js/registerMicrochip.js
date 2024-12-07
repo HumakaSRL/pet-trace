@@ -9,6 +9,10 @@ firebase.auth().onAuthStateChanged(async (user) => {
         currentUserUid = user.uid;
         if (await countPets()) {
             mainContent.style.display = "block";
+            // Extract the "chip" parameter from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const chipId = urlParams.get("chip");
+            if (chipId) microchipIdInput.value = chipId.toLocaleUpperCase();
         } else window.location = "dashboard.html";
     } else window.location = "login.html";
 });
@@ -72,8 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Display success message
                 showSuccessMessage("Pet data has been saved successfully!", chipData.chip_id);
 
-                console.log("Chip data: ", chipData); //! RBI
-                console.log("New chip ID:", chipKey); //! RBI
+                // console.log("Chip data: ", chipData); //! RBI
+                // console.log("New chip ID:", chipKey); //! RBI
             } catch (error) {
                 console.error("Error saving pet data:", error);
                 alert("There was an error saving the pet data. Please try again later.");
