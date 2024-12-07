@@ -1,9 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Character Encoding and Viewport -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Pet Trace</title>
+
+        <!-- Title -->
+        <title>Pet Trace - Track Lost Pets with Microchip ID</title>
+
+        <!-- Meta Tags -->
+        <meta
+            name="description"
+            content="Pet Trace helps you track lost pets using microchip IDs. Find pet owners easily and ensure your pets are safe. Join for free today!"
+        />
+        <meta property="og:title" content="Pet Trace: Track Lost Pets with Microchip IDs | Free" />
+        <meta
+            property="og:description"
+            content="Track lost pets using Pet Trace's microchip ID system. Find pet owners easily and ensure your pets' safety. Join for free!"
+        />
+        <meta property="og:url" content="https://pet-trace.com" />
+        <meta property="og:type" content="website" />
+
+        <!-- Canonical Link -->
+        <link rel="canonical" href="https://pet-trace.com" />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Pet Trace",
+                "url": "https://pet-trace.com",
+                "logo": "https://pet-trace.com/assets/images/logo.png"
+            }
+        </script>
 
         <!-- Firebase SDKs -->
         <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
@@ -13,16 +43,13 @@
         <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
         <script defer src="/__/firebase/init.js"></script>
 
-        <!-- Meta tags -->
-        <meta name="description" content="Pet Trace - Track pets via microchip ID" />
-        <meta name="keywords" content="pet, trace, microchip, pet tracking, pet ID" />
-
-        <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/index.css" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/navbar.css" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/footer.css" />
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="stylesheet" href="/assets/css/index.css" />
+        <link rel="stylesheet" href="/assets/css/navbar.css" />
+        <link rel="stylesheet" href="/assets/css/footer.css" />
     </head>
+
     <body>
         <!-- Navbar 1.2.1 -->
         <nav class="site-navbar">
@@ -96,9 +123,9 @@
             <section class="hero-section">
                 <h2 aria-label="Welcome message">Welcome to Pet Trace</h2>
                 <p class="hero-text" aria-label="Platform purpose">
-                    The ultimate platform to keep your pets safe and traceable. Whether your pet has
-                    gone missing or you're looking to ensure they’re always findable, Pet Trace is
-                    here to help.
+                    Pet Trace is the ultimate pet tracking platform, helping you find lost pets
+                    through microchip IDs. Whether your pet has gone missing or you're looking to
+                    ensure they’re always findable, Pet Trace is here to help.
                 </p>
                 <a href="/login.html" class="cta-btn" aria-label="Register your pet on Pet Trace">
                     Register Your Pet
