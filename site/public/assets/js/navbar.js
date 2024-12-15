@@ -21,9 +21,22 @@ document.addEventListener("DOMContentLoaded", () => {
     loginButton.addEventListener("click", () => {
         window.location = "/login.html";
     });
+
+    donateButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        // Log event for donate button click
+        firebase.analytics().logEvent("donate_button_click", {
+            donationAction: "clicked",
+        });
+
+        // Redirect to the donation link
+        window.open("https://donate.stripe.com/9AQ9COboD6Yi1C8005", "_blank");
+    });
+
     navLogo.addEventListener("click", () => {
         window.location = "/";
     });
+
     usernameNavbarSpan.addEventListener("click", () => {
         window.location = "/dashboard.html";
     });

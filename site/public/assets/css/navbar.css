@@ -45,26 +45,28 @@
 }
 
 /* Donate Button Styling */
-.donate-btn {
-    background-color: var(--secondary-color); /* Matching the color scheme */
+.donate-btn,
+.auth-btn {
+    background-color: var(--secondary-color);
     color: white;
     padding: 8px 20px;
     font-size: 14px;
     font-weight: bold;
-    text-transform: uppercase;
     text-decoration: none;
     border: none;
-    border-radius: 30px; /* Rounded corners for a modern look */
+    border-radius: 30px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     letter-spacing: 0.5px;
 }
 
-.donate-btn:hover {
+.donate-btn:hover,
+.auth-btn:hover {
     background-color: #228b4d;
     transform: translateY(-2px);
 }
 
-.donate-btn:active {
+.donate-btn:active,
+.auth-btn:active {
     background-color: #1a6437;
     transform: translateY(0);
 }
@@ -74,28 +76,6 @@
     display: flex;
     align-items: center;
     gap: 1.5rem; /* Slight gap between login/logout and greeting */
-}
-
-.auth-btn {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 30px; /* Matching rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.auth-btn:hover {
-    background-color: #228b4d;
-    transform: translateY(-2px);
-}
-
-.auth-btn:active {
-    background-color: #1a6437;
-    transform: translateY(0);
 }
 
 /* User Greeting Styling */

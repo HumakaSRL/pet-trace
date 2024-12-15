@@ -28,17 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         checkChip(microchipId);
     });
-
-    donateButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        // Log event for donate button click
-        firebase.analytics().logEvent("donate_button_click", {
-            donationAction: "clicked",
-        });
-
-        // Redirect to the donation link
-        window.open("https://donate.stripe.com/9AQ9COboD6Yi1C8005", "_blank");
-    });
 });
 
 async function checkChip(chip) {
