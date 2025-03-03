@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Character Encoding and Viewport -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Title -->
+        <title>Pet Trace - International Pet Chip Database</title>
+
+        <!-- Meta Tags -->
+        <meta
+            name="description"
+            content="Pet Trace is an international pet chip database for cats, dogs, and any microchipped animal. Free to use, register, and search for microchips worldwide."
+        />
+        <meta property="og:title" content="Pet Trace: International Pet Chip Database | Free" />
+        <meta
+            property="og:description"
+            content="Pet Trace offers a free international database for tracking pets with microchip IDs. Easily search and register microchips for any pet."
+        />
+        <meta property="og:url" content="https://pet-trace.com" />
+        <meta property="og:type" content="website" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="google-adsense-account" content="ca-pub-1774681077642073" />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Pet Trace",
+                "url": "https://pet-trace.com",
+                "logo": "https://pet-trace.com/assets/images/logo.png",
+                "description": "An international pet chip database for tracking lost pets using microchip IDs."
+            }
+        </script>
+
+        <!-- Firebase SDKs -->
+        <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-storage-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
+        <script defer src="/__/firebase/init.js"></script>
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="stylesheet" href="/assets/css/new-index.css" />
+
+        <!-- Google Adsense -->
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1774681077642073"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            async
+            src="https://fundingchoicesmessages.google.com/i/pub-1774681077642073?ers=1"
+        ></script>
+
+        <script>
+            (function () {
+                function signalGooglefcPresent() {
+                    if (!window.frames["googlefcPresent"]) {
+                        if (document.body) {
+                            const iframe = document.createElement("iframe");
+                            iframe.style =
+                                "width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;";
+                            iframe.style.display = "none";
+                            iframe.name = "googlefcPresent";
+                            document.body.appendChild(iframe);
+                        } else {
+                            setTimeout(signalGooglefcPresent, 0);
+                        }
+                    }
+                }
+                signalGooglefcPresent();
+            })();
+        </script>
+    </head>
+    <body>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 aria-label="International Pet Chip Database">
+                        International Pet Chip Database
+                    </h1>
+                    <p class="hero-text">
+                        Free to use, free to register, and free to search. Pet Trace is an
+                        international database for microchips for pets, including cats, dogs, and
+                        any microchipped animals.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="/register-microchip.html" class="cta-btn">Register Your Pet</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <h2 aria-label="Search for a pet">Search for a Pet</h2>
+                    <p class="search-description" aria-label="Search description">
+                        If you’ve found a lost pet, enter its microchip ID below to locate the
+                        owner. Using Pet Trace is completely free!
+                    </p>
+                    <form id="microchipSearchForm" class="search-form">
+                        <label
+                            for="microchipIdInput"
+                            class="visually-hidden"
+                            aria-label="Microchip ID input"
+                        >
+                            Microchip ID
+                        </label>
+                        <input
+                            type="text"
+                            id="microchipIdInput"
+                            name="microchipId"
+                            placeholder="Enter the microchip ID"
+                            aria-label="Enter the microchip ID"
+                            class="input-field"
+                            autocomplete="off"
+                            required
+                        />
+                        <div
+                            id="errorContainer"
+                            class="error-message"
+                            role="alert"
+                            aria-live="polite"
+                            style="display: none"
+                        ></div>
+                        <button
+                            type="submit"
+                            id="searchButton"
+                            class="search-btn"
+                            aria-label="Submit search for pet"
+                        >
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section" aria-labelledby="featuresTitle">
+                <div class="features-container">
+                    <h2 id="featuresTitle" aria-label="Features of our database">
+                        Why Choose Pet Trace?
+                    </h2>
+                    <ul class="features-list">
+                        <li aria-label="The service is completely free for all users.">
+                            Completely free for everyone.
+                        </li>
+                        <li aria-label="It is easy to register your pet's microchip.">
+                            Easy to register your pet's microchip.
+                        </li>
+                        <li aria-label="Accessible for any microchipped pet worldwide.">
+                            Accessible worldwide for any microchipped pet.
+                        </li>
+                        <li aria-label="Secure and reliable database powered by Google.">
+                            Secure and reliable database powered by Google.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Call to Action Section -->
+            <section class="cta-section">
+                <div class="cta-container">
+                    <h3 aria-label="Call to action title">Protect Your Pet Today</h3>
+                    <p class="cta-text" aria-label="Call to action text">
+                        Don’t wait for an emergency. Take proactive steps to safeguard your pet and
+                        give yourself peace of mind. Register your pet's microchip now for free!
+                    </p>
+                    <a
+                        href="/register-microchip.html"
+                        class="cta-btn"
+                        aria-label="Register your pet"
+                    >
+                        Register Your Pet
+                    </a>
+                </div>
+            </section>
+
+            <!-- Trust Indicators -->
+            <section class="trust-section">
+                <div class="trust-container">
+                    <div class="trust-badge">
+                        <span class="trust-icon">🔒</span>
+                        <span class="trust-text">Secure Database</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-icon">✅</span>
+                        <span class="trust-text">Verified Partners</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-icon">⚙️</span>
+                        <span class="trust-text">Powered by Google</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- JavaScript -->
+        <script type="module" src="/assets/js/main.js"></script>
+        <script type="module" src="/assets/js/index.js"></script>
+    </body>
+</html>

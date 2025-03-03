@@ -1,0 +1,249 @@
+:root {
+    /* Updated Color Palette */
+    --primary-color: #71ceb6; /* Tranquil teal for branding elements */
+    --secondary-color: #f79580; /* Warm peach for secondary highlights */
+    --accent-color: #fda914; /* Sunshine gold for CTAs and key accents */
+    --background-color: #f7dbac; /* Light cream for page backgrounds */
+    --text-color: #333333; /* Dark gray for readability */
+    --heading-color: #a682ec; /* Gentle lavender for headings */
+    --footer-background: #71ceb6; /* Same as primary for consistency */
+    --footer-text: #ffffff; /* White for footer text */
+    --input-border: #f3ce97; /* Soft sand for input borders */
+    --error-color: #e74c3c; /* Red for error messages */
+    --success-color: #bad11d; /* Fresh green for success messages */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Main Container */
+main {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1.5rem;
+}
+
+/* Disclaimer Section */
+.disclaimer-section {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--input-border);
+    text-align: center;
+}
+
+.disclaimer-text {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.disclaimer-text strong {
+    font-weight: bold;
+    color: var(--error-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #ffffff;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero-section .cta-btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-section .cta-btn:hover {
+    background-color: #e6b800;
+    transform: translateY(-2px);
+}
+
+/* Search Section */
+.search-section {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.search-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.search-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-form .input-field {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px var(--shadow-color);
+    transition: border-color 0.3s ease;
+}
+
+.search-form .input-field:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.search-form .search-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-form .search-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Features Section */
+.features-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.features-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.features-list li {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Call-to-Action Section */
+.cta-section {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-bottom: 2rem;
+}
+
+.cta-section h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.cta-section p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cta-section .cta-btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-section .cta-btn:hover {
+    background-color: #e6b800;
+    transform: translateY(-2px);
+}
+
+/* Trust Indicators */
+.trust-section {
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.trust-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
