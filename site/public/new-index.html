@@ -90,6 +90,66 @@
         </script>
     </head>
     <body>
+        <!-- Navbar v2.1 (Mobile-First) -->
+        <nav class="site-navbar">
+            <div class="navbar-container">
+                <!-- Logo / Brand -->
+                <h1 id="navLogo" class="site-title">
+                    <img
+                        src="assets/images/pet-trace-white.svg"
+                        alt="Pet Trace"
+                        class="navbar-logo"
+                    />
+                </h1>
+
+                <!-- Auth Section: Login, Dashboard, Logout, Greeting -->
+                <div class="auth-section">
+                    <!-- Greeting (shown only if user is logged in) -->
+                    <div
+                        id="userGreeting"
+                        class="user-greeting"
+                        style="display: none"
+                        aria-label="Welcome user greeting"
+                    >
+                        <p>
+                            Hello,
+                            <span class="username-span" id="usernameNavbarSpan"></span>
+                        </p>
+                    </div>
+
+                    <!-- Login Button (shown if user is NOT logged in) -->
+                    <button
+                        id="loginButton"
+                        class="auth-btn"
+                        style="display: none"
+                        aria-label="Login to your account"
+                    >
+                        Login
+                    </button>
+
+                    <!-- Dashboard Button (shown if user IS logged in) -->
+                    <button
+                        id="dashboardButton"
+                        class="auth-btn dashboard-btn"
+                        style="display: none"
+                        aria-label="Go to your dashboard"
+                    >
+                        Dashboard
+                    </button>
+
+                    <!-- Logout Button (shown if user IS logged in) -->
+                    <button
+                        id="logoutButton"
+                        class="auth-btn logout-btn"
+                        style="display: none"
+                        aria-label="Logout of your account"
+                    >
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
         <!-- MAIN CONTENT -->
         <main class="main-content">
             <!-- HERO SECTION -->

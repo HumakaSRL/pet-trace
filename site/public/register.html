@@ -23,54 +23,62 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/register.css" />
     </head>
     <body>
-        <!-- Navbar 1.2.2 -->
+        <!-- Navbar v2.1 (Mobile-First) -->
         <nav class="site-navbar">
             <div class="navbar-container">
-                <!-- Site title/logo -->
+                <!-- Logo / Brand -->
                 <h1 id="navLogo" class="site-title">
-                    <a href="/" class="site-logo-link" aria-label="Go to home page">Pet Trace</a>
+                    <img
+                        src="assets/images/pet-trace-white.svg"
+                        alt="Pet Trace"
+                        class="navbar-logo"
+                    />
                 </h1>
 
-                <!-- Navbar content -->
-                <div class="navbar-content">
-                    <!-- Donate button -->
-                    <div class="donate-button">
-                        <button
-                            id="donateButton"
-                            class="donate-btn"
-                            aria-label="Donate to Pet Trace"
-                        >
-                            Donate
-                        </button>
+                <!-- Auth Section: Login, Dashboard, Logout, Greeting -->
+                <div class="auth-section">
+                    <!-- Greeting (shown only if user is logged in) -->
+                    <div
+                        id="userGreeting"
+                        class="user-greeting"
+                        style="display: none"
+                        aria-label="Welcome user greeting"
+                    >
+                        <p>
+                            Hello,
+                            <span class="username-span" id="usernameNavbarSpan"></span>
+                        </p>
                     </div>
 
-                    <!-- Auth buttons -->
-                    <div class="auth-section">
-                        <button
-                            id="loginButton"
-                            class="auth-btn"
-                            style="display: none"
-                            aria-label="Login to your account"
-                        >
-                            Login
-                        </button>
-                        <button
-                            id="logoutButton"
-                            class="auth-btn"
-                            style="display: none"
-                            aria-label="Logout of your account"
-                        >
-                            Logout
-                        </button>
+                    <!-- Login Button (shown if user is NOT logged in) -->
+                    <button
+                        id="loginButton"
+                        class="auth-btn"
+                        style="display: none"
+                        aria-label="Login to your account"
+                    >
+                        Login
+                    </button>
 
-                        <!-- Greeting message -->
-                        <div id="userGreeting" class="user-greeting" style="display: none">
-                            <p>
-                                Hello,
-                                <span id="usernameNavbarSpan" aria-label="User's name"></span>
-                            </p>
-                        </div>
-                    </div>
+                    <!-- Dashboard Button (shown if user IS logged in) -->
+                    <button
+                        id="dashboardButton"
+                        class="auth-btn dashboard-btn"
+                        style="display: none"
+                        aria-label="Go to your dashboard"
+                    >
+                        Dashboard
+                    </button>
+
+                    <!-- Logout Button (shown if user IS logged in) -->
+                    <button
+                        id="logoutButton"
+                        class="auth-btn logout-btn"
+                        style="display: none"
+                        aria-label="Logout of your account"
+                    >
+                        Logout
+                    </button>
                 </div>
             </div>
         </nav>
