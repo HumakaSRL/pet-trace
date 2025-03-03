@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const donateBodyButton = document.getElementById("donateBodyButton");
+    if (donateBodyButton)
+        donateBodyButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            firebase.analytics().logEvent("donate_button_click", {
+                donationAction: "clicked",
+            });
+
+            window.open("https://donate.stripe.com/9AQ9COboD6Yi1C8005", "_blank");
+        });
+
     searchButton.addEventListener("click", (e) => {
         e.preventDefault();
         searchButton.disabled = true;

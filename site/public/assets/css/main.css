@@ -1,211 +1,156 @@
-/* Comprehensive CSS Reset for Consistency Across Browsers */
-*,
-*::before,
-*::after {
+/* -------------------------------
+   MAIN.CSS - Global Styles
+---------------------------------*/
+
+/* 1. Root Variables */
+:root {
+    /* Color Palette */
+    --primary-color: #71ceb6; /* Tranquil Teal */
+    --secondary-color: #f79580; /* Warm Peach */
+    --accent-color: #fda914; /* Sunshine Gold */
+    --background-color: #f7dbac; /* Light Cream */
+    --text-color: #333333; /* Dark Gray */
+    --heading-color: #a682ec; /* Gentle Lavender */
+    --footer-background: #f3ce97; /* Soft Sand */
+    --footer-text: #ffffff; /* White */
+    --input-border: #bad11d; /* Fresh Green */
+    --error-color: #f79580; /* Warm Peach for error messaging */
+    --success-color: #71ceb6; /* Primary Teal for success */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+
+    /* Typography */
+    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+    /* Spacings */
+    --section-padding: 2rem;
+    --container-width: 95%; /* For a mobile-first container approach */
+    --max-width: 1200px; /* For larger screen constraints */
+}
+
+/* 2. Global Reset & Base */
+* {
     margin: 0;
     padding: 0;
-    border: 0;
     box-sizing: border-box;
-    font: inherit;
-    vertical-align: baseline;
-    outline: none;
-    background: none;
-    color: inherit;
 }
 
 html,
 body {
     height: 100%;
-    line-height: 1;
-    font-size: 100%;
-}
-
-a,
-button,
-input,
-select,
-textarea {
-    font: inherit;
-    color: inherit;
-    text-decoration: none;
-}
-
-ul,
-ol,
-li {
-    list-style: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-:root {
-    /* Color Palette */
-    --primary-color: #71ceb6; /* Tranquil Teal - main branding */
-    --secondary-color: #f79580; /* Warm Peach - complementary secondary */
-    --accent-color: #fda914; /* Sunshine Gold - CTA and highlights */
-    --background-color: #f7dbac; /* Light Cream - main background */
-    --text-color: #333333; /* Dark gray for text */
-    --heading-color: #a682ec; /* Gentle Lavender - soft, inviting headings */
-    --footer-background: #f3ce97; /* Soft Sand - warm footer */
-    --footer-text: #ffffff; /* White for footer text */
-    --input-border: #bad11d; /* Fresh Green - subtle accents */
-    --error-color: #f79580; /* Same Warm Peach for warnings (less harsh than red) */
-    --success-color: #71ceb6; /* Match primary teal for consistency */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-}
-
-/* Basic Layout */
-body {
-    font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--background-color);
+    background: var(--background-color);
     color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    line-height: 1.8;
+    font-family: var(--font-stack);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 700;
-    color: var(--heading-color);
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
+img,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.75rem;
-}
-
-p {
-    margin-bottom: 1.25rem;
-    color: var(--text-color);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* Layout Containers */
-.site-main {
-    flex: 1;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-/* Links */
 a {
-    color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    color: inherit;
 }
 
-/* Main Content */
-main {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background: #fff;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-/* Buttons */
 button {
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    border: none;
+    background: none;
 }
 
-button:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
+/* 3. Utility & Helper Classes */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
 }
 
-button:active {
-    transform: translateY(0);
+/* Container Utility Class */
+.container {
+    width: var(--container-width);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0;
 }
 
-/* Error Message */
+/* 4. Shared Elements (e.g., forms, inputs, buttons that are used site-wide) */
+.input-field {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--input-border);
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
 .error-message {
-    margin-top: 10px;
-    color: #d32f2f;
-    font-size: 0.9rem;
+    color: var(--error-color);
     font-weight: bold;
-    padding: 0.5rem;
-    background-color: #ffebee;
-    border-radius: 6px;
-    border: 1px solid #f44336;
-}
-
-/* Cookie Consent */
-.cookie-consent {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #fff;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 1000;
-    border: 1px solid var(--border-color);
-}
-
-.cookie-consent p {
-    margin-bottom: 10px;
     font-size: 0.95rem;
 }
 
-.cookie-consent .buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.cookie-consent button {
-    background-color: var(--secondary-color);
+.search-btn,
+.cta-btn,
+.secondary-cta,
+.donation-btn,
+.contact-btn {
+    display: inline-block;
     color: #fff;
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.cookie-consent button:hover {
-    background-color: var(--primary-color);
+.search-btn {
+    background-color: var(--accent-color);
 }
 
-.cookie-consent #closeCookieConsent {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    background-color: transparent;
-    color: #555;
-    font-size: 1.5rem;
-    cursor: pointer;
-    border: none;
-    transition: color 0.2s ease;
+.cta-btn {
+    background-color: var(--accent-color);
 }
 
-.cookie-consent #closeCookieConsent:hover {
-    color: var(--accent-color);
+.secondary-cta {
+    background-color: var(--secondary-color);
+}
+
+.donation-btn {
+    background-color: var(--secondary-color);
+}
+
+.contact-btn {
+    background-color: var(--accent-color);
+}
+
+.search-btn:hover {
+    background-color: #fbc249;
+}
+
+.cta-btn:hover {
+    background-color: #fbc249;
+}
+
+.secondary-cta:hover {
+    background-color: #ffac97;
+}
+
+.donation-btn:hover {
+    background-color: #ffac97;
+}
+
+.contact-btn:hover {
+    background-color: #ffbb3c;
 }
