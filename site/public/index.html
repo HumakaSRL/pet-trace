@@ -13,10 +13,10 @@
             content="Pet Trace is a free forever international pet chip database for cats, dogs, and any microchipped animal. Easily search, register, and track vaccines or medical history worldwide."
         />
 
-        <!-- Theme Color (for some mobile browsers) -->
+        <!-- Theme Color (Mobile Browsers, Windows 10/11, etc.) -->
         <meta name="theme-color" content="#71ceb6" />
 
-        <!-- Microsoft BrowserConfig (Older IE/Edge for pinned tiles) -->
+        <!-- BrowserConfig (for older IE/Edge pinned tiles) -->
         <meta name="msapplication-config" content="/browserconfig.xml" />
 
         <!-- Open Graph / Facebook -->
@@ -46,14 +46,22 @@
             }
         </script>
 
-        <!-- Favicons & Apple Touch Icons -->
-        <!-- (favicon.ico in root will be auto-detected by some browsers, but it's good to be explicit) -->
+        <!-- Favicons / Classic Desktop Browsers -->
+        <!-- (favicon.ico in root is often auto-detected, but linking is more reliable) -->
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png" />
+        <!-- (If you have a 150×150 PNG and want to offer it as a favicon, you can add that too) -->
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="150x150"
+            href="/assets/favicon/favicon-150x150.png"
+        />
 
-        <!-- Apple Touch Icons (various iOS devices) -->
+        <!-- Apple Touch Icons (iPhone, iPad) -->
+        <!-- Only include the lines for sizes you actually have -->
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png" />
@@ -83,8 +91,12 @@
             sizes="180x180"
             href="/assets/favicon/apple-icon-180x180.png"
         />
+        <link
+            rel="apple-touch-icon-precomposed"
+            href="/assets/favicon/apple-icon-precomposed.png"
+        />
 
-        <!-- PWA Manifest (Android + modern browsers) -->
+        <!-- PWA Manifest (for Android + modern browsers) -->
         <link rel="manifest" href="/manifest.json" />
 
         <!-- CSS Files -->
@@ -93,7 +105,7 @@
         <link rel="stylesheet" href="/assets/css/navbar.css" />
         <link rel="stylesheet" href="/assets/css/index.css" />
 
-        <!-- Google Ad Scripts -->
+        <!-- Google Ads Scripts -->
         <script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1774681077642073"

@@ -1,6 +1,6 @@
 {
     "short_name": "PetTrace",
-    "name": "Pet Trace",
+    "name": "Pet Trace – Free Forever International Pet Chip Database",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#f7dbac",
@@ -41,16 +41,6 @@
             "sizes": "192x192",
             "type": "image/png",
             "density": "4.0"
-        },
-        {
-            "src": "/assets/icons/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/assets/icons/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
         }
     ]
 }
