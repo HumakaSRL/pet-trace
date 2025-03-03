@@ -48,14 +48,7 @@
 
 /* USERNAME SPAN */
 .username-span {
-    color: var(--highlight-color); /* Crisp Purple or a distinct color */
-    cursor: pointer;
     font-weight: bold;
-    transition: color 0.2s ease-in-out;
-}
-
-.username-span:hover {
-    color: var(--heading-color); /* Gentle Lavender or your choice */
 }
 
 /* AUTH BUTTONS (BASE STYLE) */

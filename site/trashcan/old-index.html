@@ -6,30 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <!-- Title -->
-        <title>Pet Trace – Free Forever International Pet Chip Database</title>
+        <title>Pet Trace - International Pet Chip Database</title>
 
-        <!-- Primary Meta Tags -->
+        <!-- Meta Tags -->
         <meta
             name="description"
-            content="Pet Trace is a free forever international pet chip database for cats, dogs, and any microchipped animal. Easily search, register, and track vaccines or medical history worldwide."
+            content="Pet Trace is an international pet chip database for cats, dogs, and any microchipped animal. Free to use, register, and search for microchips worldwide."
         />
-
-        <!-- Open Graph / Facebook -->
-        <meta
-            property="og:title"
-            content="Pet Trace – Free Forever International Pet Chip Database"
-        />
+        <meta property="og:title" content="Pet Trace: International Pet Chip Database | Free" />
         <meta
             property="og:description"
-            content="Pet Trace is fully launched and free to use. Quickly search or register microchips, track your pet’s vaccines, and protect animals worldwide."
+            content="Pet Trace offers a free international database for tracking pets with microchip IDs. Easily search and register microchips for any pet."
         />
         <meta property="og:url" content="https://pet-trace.com" />
         <meta property="og:type" content="website" />
-
-        <!-- Browser Compatibility -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-        <!-- Google AdSense Metadata -->
         <meta name="google-adsense-account" content="ca-pub-1774681077642073" />
 
         <!-- Structured Data -->
@@ -40,7 +31,7 @@
                 "name": "Pet Trace",
                 "url": "https://pet-trace.com",
                 "logo": "https://pet-trace.com/assets/images/logo.png",
-                "description": "An international pet chip database for tracking lost pets using microchip IDs, with added features for medical history and vaccine tracking."
+                "description": "An international pet chip database for tracking lost pets using microchip IDs."
             }
         </script>
 
@@ -54,8 +45,9 @@
 
         <!-- CSS Files -->
         <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="stylesheet" href="/assets/css/index.css" />
+        <link rel="stylesheet" href="/assets/css/old-navbar.css" />
         <link rel="stylesheet" href="/assets/css/footer.css" />
-        <link rel="stylesheet" href="/assets/css/new-index.css" />
 
         <!-- Google Adsense -->
         <script
@@ -63,12 +55,12 @@
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1774681077642073"
             crossorigin="anonymous"
         ></script>
+
         <script
             async
             src="https://fundingchoicesmessages.google.com/i/pub-1774681077642073?ers=1"
         ></script>
 
-        <!-- Google Funding Choices Workaround -->
         <script>
             (function () {
                 function signalGooglefcPresent() {
@@ -89,6 +81,7 @@
             })();
         </script>
     </head>
+
     <body>
         <!-- Navbar v2.1 (Mobile-First) -->
         <nav class="site-navbar">
@@ -150,152 +143,93 @@
             </div>
         </nav>
 
-        <!-- MAIN CONTENT -->
+        <!-- Main Content -->
         <main class="main-content">
-            <!-- HERO SECTION -->
+            <!-- Hero Section -->
             <section class="hero-section">
-                <div class="hero-content">
-                    <h1 class="hero-title">The Free Forever Pet Chip Database</h1>
-                    <p class="hero-subtitle">
-                        Welcome to Pet Trace—your global resource for registering and searching pet
-                        microchips. We’re 100% free, always. No hidden fees or paid upgrades.
-                    </p>
-
-                    <!-- SEARCH FORM -->
-                    <form id="microchipSearchForm" class="hero-search-form">
-                        <label for="microchipIdInput" class="visually-hidden">Microchip ID</label>
-                        <input
-                            id="microchipIdInput"
-                            type="text"
-                            name="microchipId"
-                            class="input-field"
-                            placeholder="Enter a microchip ID"
-                            aria-label="Enter the microchip ID"
-                            required
-                        />
-                        <div
-                            id="errorContainer"
-                            class="error-message"
-                            role="alert"
-                            aria-live="polite"
-                            style="display: none"
-                        ></div>
-                        <button
-                            id="searchButton"
-                            type="submit"
-                            class="search-btn"
-                            aria-label="Search microchip ID"
-                        >
-                            Search
-                        </button>
-                    </form>
-
-                    <!-- PRIMARY CTA: REGISTER A PET -->
-                    <div class="hero-cta">
-                        <a href="/register-microchip.html" class="cta-btn">Register Your Pet</a>
-                    </div>
-                </div>
+                <h1 aria-label="International Pet Chip Database">
+                    International Pet Chip Database
+                </h1>
+                <p class="hero-text">
+                    Free to use, free to register, and free to search. Pet Trace is an international
+                    database for microchips for pets, including cats, dogs, and any microchipped
+                    animals.
+                </p>
+                <a href="/register-microchip.html" class="cta-btn">Register Your Pet</a>
             </section>
 
-            <!-- HOW IT WORKS SECTION -->
-            <section class="steps-section">
-                <h2>How Pet Trace Works</h2>
-                <div class="steps-container">
-                    <div class="step-item">
-                        <span class="step-icon">1</span>
-                        <p class="step-text">
-                            Register your pet’s microchip through our simple online form.
-                        </p>
-                    </div>
-                    <div class="step-item">
-                        <span class="step-icon">2</span>
-                        <p class="step-text">
-                            If your pet goes missing, anyone can quickly search the microchip ID.
-                        </p>
-                    </div>
-                    <div class="step-item">
-                        <span class="step-icon">3</span>
-                        <p class="step-text">
-                            The finder sees your contact info, and you get an immediate notification
-                            for a happy reunion.
-                        </p>
-                    </div>
-                </div>
+            <!-- Search Section -->
+            <section class="search-section">
+                <h3 aria-label="Search for a pet">Search for a Pet</h3>
+                <p class="search-description" aria-label="Search description">
+                    If you’ve found a lost pet, enter its microchip ID below to locate the owner.
+                    Using Pet Trace is completely free!
+                </p>
+                <form id="microchipSearchForm" class="search-form">
+                    <label
+                        for="microchipIdInput"
+                        class="visually-hidden"
+                        aria-label="Microchip ID input"
+                    >
+                        Microchip ID
+                    </label>
+                    <input
+                        type="text"
+                        id="microchipIdInput"
+                        name="microchipId"
+                        placeholder="Enter the microchip ID"
+                        aria-label="Enter the microchip ID"
+                        class="input-field"
+                        autocomplete="off"
+                        required
+                    />
+                    <div
+                        id="errorContainer"
+                        class="error-message"
+                        role="alert"
+                        aria-live="polite"
+                        style="display: none"
+                    ></div>
+                    <button
+                        type="submit"
+                        id="searchButton"
+                        class="search-btn"
+                        aria-label="Submit search for pet"
+                    >
+                        Search
+                    </button>
+                </form>
             </section>
 
-            <!-- BENEFITS SECTION -->
-            <section class="benefits-section">
-                <h2>Why Choose Pet Trace?</h2>
-                <ul class="benefits-list">
-                    <li>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">💸</span>
-                            <p>Always Free—no hidden fees or premium plans</p>
-                        </div>
+            <!-- Features Section -->
+            <section class="features-section" aria-labelledby="featuresTitle">
+                <h2 id="featuresTitle" aria-label="Features of our database">
+                    Why Choose Our Database?
+                </h2>
+                <ul>
+                    <li aria-label="The service is completely free for all users.">
+                        Completely free for everyone.
                     </li>
-                    <li>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🌎</span>
-                            <p>Global Reach—helping pets from all corners of the world</p>
-                        </div>
+                    <li aria-label="It is easy to register your pet's microchip.">
+                        Easy to register your pet's microchip.
                     </li>
-                    <li>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">✨</span>
-                            <p>Fast & Easy—registering takes just a few clicks</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🔒</span>
-                            <p>Secure Database—built on modern, reliable technology</p>
-                        </div>
+                    <li aria-label="Accessible for any microchipped pet worldwide.">
+                        Accessible worldwide for any microchipped pet.
                     </li>
                 </ul>
             </section>
 
-            <!-- ABOUT + FUTURE FEATURES SECTION -->
-            <section class="about-section">
-                <h3>Beyond a Chip Database</h3>
-                <p>
-                    Pet Trace is more than just a microchip lookup. We’re expanding to include:
-                    <strong>vaccine tracking</strong>
-                    ,
-                    <strong>medical history</strong>
-                    , and
-                    <strong>emergency contacts</strong>
-                    —all in one secure dashboard. Protect your pet’s future by joining today.
+            <!-- Call to Action -->
+            <section class="cta-section">
+                <h3 aria-label="Call to action title">Protect Your Pet Today</h3>
+                <p class="cta-text" aria-label="Call to action text">
+                    Don’t wait for an emergency. Take proactive steps to safeguard your pet and give
+                    yourself peace of mind. Safeguard your pets and help lost pets find their
+                    owners. Register now for free!
                 </p>
-                <div class="about-cta">
-                    <a href="/register.html" class="cta-btn secondary-cta">
-                        Create Your Free Account
-                    </a>
-                </div>
-            </section>
-
-            <!-- SUBTLE DONATION SECTION -->
-            <section class="donation-section">
-                <h3>Help Keep Us Free</h3>
-                <p>
-                    We rely on your generosity to cover our running costs. Every donation helps Pet
-                    Trace stay free forever—no strings attached.
-                </p>
-                <a id="donateBodyButton" class="donation-btn" aria-label="Donate to Pet Trace">
-                    Donate
+                <a href="/register.html" class="cta-btn" aria-label="Join us to protect your pet">
+                    Join Now
                 </a>
-            </section>
-
-            <!-- PARTNERSHIP SECTION -->
-            <section class="partnership-section">
-                <div class="partnership-container">
-                    <h3>For Veterinary Clinics & Shelters</h3>
-                    <p>
-                        Partner with us to provide instant microchip lookups and help reunite lost
-                        pets with their families. Join our growing network of trusted clinics around
-                        the world.
-                    </p>
-                    <a href="mailto:contact@pet-trace.com" class="contact-btn">Contact Us</a>
-                </div>
             </section>
         </main>
 
@@ -356,6 +290,7 @@
 
         <!-- JavaScript -->
         <script type="module" src="/assets/js/main.js"></script>
+        <script type="module" src="/assets/js/navbar.js"></script>
         <script type="module" src="/assets/js/footer.js"></script>
         <script type="module" src="/assets/js/index.js"></script>
     </body>

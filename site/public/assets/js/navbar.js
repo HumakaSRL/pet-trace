@@ -47,11 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location = "/";
     });
 
-    // Username click -> Dashboard
-    usernameNavbarSpan.addEventListener("click", () => {
-        window.location = "/dashboard.html";
-    });
-
     // Dashboard button click -> Dashboard
     dashboardButton.addEventListener("click", () => {
         window.location = "/dashboard.html";
