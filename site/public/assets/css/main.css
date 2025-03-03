@@ -41,17 +41,20 @@ table {
     border-spacing: 0;
 }
 
-/* Theme Colors */
 :root {
-    --primary-color: #1a73e8; /* Bright modern blue */
-    --secondary-color: #34a853; /* Clean green */
-    --accent-color: #ffb300; /* Warm yellow */
-    --background-color: #f9fafc; /* Very light gray */
-    --text-color: #3c4043; /* Neutral gray */
-    --heading-color: #202124; /* Dark neutral for headings */
-    --footer-background: #202124; /* Dark footer for contrast */
-    --footer-text: #e8eaed; /* Light text for footer */
-    --border-color: #e0e0e0; /* Soft border color */
+    /* Color Palette */
+    --primary-color: #71ceb6; /* Tranquil Teal - main branding */
+    --secondary-color: #f79580; /* Warm Peach - complementary secondary */
+    --accent-color: #fda914; /* Sunshine Gold - CTA and highlights */
+    --background-color: #f7dbac; /* Light Cream - main background */
+    --text-color: #333333; /* Dark gray for text */
+    --heading-color: #a682ec; /* Gentle Lavender - soft, inviting headings */
+    --footer-background: #f3ce97; /* Soft Sand - warm footer */
+    --footer-text: #ffffff; /* White for footer text */
+    --input-border: #bad11d; /* Fresh Green - subtle accents */
+    --error-color: #f79580; /* Same Warm Peach for warnings (less harsh than red) */
+    --success-color: #71ceb6; /* Match primary teal for consistency */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
 /* Basic Layout */
@@ -106,23 +109,6 @@ p {
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-/* Navigation Bar */
-.site-navbar {
-    background-color: var(--primary-color);
-    color: var(--footer-text);
-    padding: 1rem 2rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.site-footer {
-    background-color: var(--footer-background);
-    color: var(--footer-text);
-    padding: 1rem 2rem;
-    text-align: center;
-    border-top: 2px solid var(--accent-color);
 }
 
 /* Links */

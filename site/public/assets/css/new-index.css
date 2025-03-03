@@ -1,19 +1,3 @@
-:root {
-    /* Color Palette */
-    --primary-color: #71ceb6; /* Tranquil Teal - main branding */
-    --secondary-color: #f79580; /* Warm Peach - complementary secondary */
-    --accent-color: #fda914; /* Sunshine Gold - CTA and highlights */
-    --background-color: #f7dbac; /* Light Cream - main background */
-    --text-color: #333333; /* Dark gray for text */
-    --heading-color: #a682ec; /* Gentle Lavender - soft, inviting headings */
-    --footer-background: #f3ce97; /* Soft Sand - warm footer */
-    --footer-text: #ffffff; /* White for footer text */
-    --input-border: #bad11d; /* Fresh Green - subtle accents */
-    --error-color: #f79580; /* Same Warm Peach for warnings (less harsh than red) */
-    --success-color: #71ceb6; /* Match primary teal for consistency */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-}
-
 /* Main Container */
 main {
     margin: 2rem auto;

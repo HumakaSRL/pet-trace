@@ -11,6 +11,14 @@ footer {
     gap: 0.75rem; /* Adds spacing between the links and copyright text */
 }
 
+.site-footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text);
+    padding: 1rem 2rem;
+    text-align: center;
+    border-top: 2px solid var(--accent-color);
+}
+
 .footer-links {
     display: flex;
     justify-content: center;
