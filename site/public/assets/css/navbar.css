@@ -1,126 +1,126 @@
-/* Navbar Styling */
+/* -----------------------------------------
+   NAVBAR.CSS - Mobile-First Navbar Styles
+------------------------------------------*/
+
+/* NAVBAR WRAPPER */
 .site-navbar {
-    background-color: var(--primary-color); /* Updated primary color */
-    color: var(--footer-text);
-    /* padding: 1rem 2rem; */
-    padding: 0.8rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
+    background-color: var(--primary-color); /* Teal */
+    color: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-/* Navbar Container */
+/* NAVBAR CONTAINER - brand + auth area in a row for larger screens */
 .navbar-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 1200px; /* Limit max width for better layout */
-    margin: 0 auto; /* Center the container */
+    gap: 1rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
 }
 
-/* Site Title */
 .site-title {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: var(--footer-text);
     margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    cursor: pointer; /* Make the logo clickable */
 }
 
-.site-title .site-logo-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+.navbar-logo {
+    display: block;
+    width: 250px;
+    height: auto;
+    margin: 5px 0px;
 }
 
-/* Navbar Content (Aligning donate and auth section) */
-.navbar-content {
-    display: flex;
-    align-items: center;
-    gap: 2rem; /* More space between the elements */
-}
-
-/* Donate Button Styling */
-.donate-btn,
-.auth-btn {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 8px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
-    border: none;
-    border-radius: 30px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    letter-spacing: 0.5px;
-}
-
-.donate-btn:hover,
-.auth-btn:hover {
-    background-color: #228b4d;
-    transform: translateY(-2px);
-}
-
-.donate-btn:active,
-.auth-btn:active {
-    background-color: #1a6437;
-    transform: translateY(0);
-}
-
-/* Auth Section (Login/Logout & User Greeting) */
+/* AUTH SECTION */
 .auth-section {
     display: flex;
+    /* flex-direction: column; */
     align-items: center;
-    gap: 1.5rem; /* Slight gap between login/logout and greeting */
+    gap: 2rem;
 }
 
-/* User Greeting Styling */
-.user-greeting {
-    font-size: 1rem;
-    color: var(--footer-text);
-    display: flex;
-    align-items: center;
-}
-
+/* GREETING */
 .user-greeting p {
+    font-size: 1rem;
     margin: 0;
+    line-height: 1.2;
 }
 
-#usernameNavbarSpan {
-    font-weight: bold;
-    color: var(--accent-color);
+/* USERNAME SPAN */
+.username-span {
+    color: var(--highlight-color); /* Crisp Purple or a distinct color */
     cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
 }
 
-/* Mobile Responsiveness */
-@media screen and (max-width: 768px) {
-    .site-navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.username-span:hover {
+    color: var(--heading-color); /* Gentle Lavender or your choice */
+}
 
+/* AUTH BUTTONS (BASE STYLE) */
+.auth-btn {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    letter-spacing: 0.2px;
+}
+
+/* Hover/Focus for All Auth Buttons */
+.auth-btn:hover,
+.auth-btn:focus {
+    transform: translateY(-1px);
+}
+
+/* LOGIN (Uses Accent Color) */
+.auth-btn:not(.logout-btn):not(.dashboard-btn) {
+    background-color: var(--accent-color); /* Sunshine Gold */
+}
+
+.auth-btn:not(.logout-btn):not(.dashboard-btn):hover {
+    background-color: #fbc249; /* Lighter gold on hover */
+}
+
+/* DASHBOARD BUTTON (Uses Secondary Color) */
+.dashboard-btn {
+    background-color: var(--secondary-color); /* Warm Peach */
+}
+
+.dashboard-btn:hover {
+    background-color: #ffac97; /* Slightly lighter peach */
+}
+
+/* LOGOUT BUTTON (Distinct Danger Color) */
+.logout-btn {
+    background-color: #dc3545; /* Bootstrap-like "danger" red */
+}
+
+.logout-btn:hover {
+    background-color: #c12e3c; /* Darker red on hover */
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 768px) {
     .navbar-container {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .navbar-content {
-        flex-direction: column;
-        gap: 1.5rem;
+    .navbar-logo {
+        width: 180px;
+        margin-left: 10px;
     }
 
     .auth-section {
-        margin-top: 10px;
-    }
-
-    .user-greeting {
-        margin-top: 10px;
+        flex-direction: row;
+        gap: 1rem;
     }
 }

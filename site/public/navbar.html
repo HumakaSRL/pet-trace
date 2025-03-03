@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Character Encoding and Viewport -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Title -->
+        <title>Pet Trace - International Pet Chip Database</title>
+
+        <!-- Meta Tags -->
+        <meta
+            name="description"
+            content="Pet Trace is an international pet chip database for cats, dogs, and any microchipped animal. Free to use, register, and search for microchips worldwide."
+        />
+        <meta property="og:title" content="Pet Trace: International Pet Chip Database | Free" />
+        <meta
+            property="og:description"
+            content="Pet Trace offers a free international database for tracking pets with microchip IDs. Easily search and register microchips for any pet."
+        />
+        <meta property="og:url" content="https://pet-trace.com" />
+        <meta property="og:type" content="website" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="google-adsense-account" content="ca-pub-1774681077642073" />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Pet Trace",
+                "url": "https://pet-trace.com",
+                "logo": "https://pet-trace.com/assets/images/logo.png",
+                "description": "An international pet chip database for tracking lost pets using microchip IDs."
+            }
+        </script>
+
+        <!-- Firebase SDKs -->
+        <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-storage-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
+        <script defer src="/__/firebase/init.js"></script>
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="stylesheet" href="/assets/css/navbar.css" />
+
+        <!-- Google Adsense -->
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1774681077642073"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            async
+            src="https://fundingchoicesmessages.google.com/i/pub-1774681077642073?ers=1"
+        ></script>
+
+        <script>
+            (function () {
+                function signalGooglefcPresent() {
+                    if (!window.frames["googlefcPresent"]) {
+                        if (document.body) {
+                            const iframe = document.createElement("iframe");
+                            iframe.style =
+                                "width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;";
+                            iframe.style.display = "none";
+                            iframe.name = "googlefcPresent";
+                            document.body.appendChild(iframe);
+                        } else {
+                            setTimeout(signalGooglefcPresent, 0);
+                        }
+                    }
+                }
+                signalGooglefcPresent();
+            })();
+        </script>
+    </head>
+
+    <body>
+        <!-- Navbar v2.1 (Mobile-First) -->
+        <nav class="site-navbar">
+            <div class="navbar-container">
+                <!-- Logo / Brand -->
+                <h1 id="navLogo" class="site-title">
+                    <img
+                        src="assets/images/pet-trace-white.svg"
+                        alt="Pet Trace"
+                        class="navbar-logo"
+                    />
+                </h1>
+
+                <!-- Auth Section: Login, Dashboard, Logout, Greeting -->
+                <div class="auth-section">
+                    <!-- Greeting (shown only if user is logged in) -->
+                    <div
+                        id="userGreeting"
+                        class="user-greeting"
+                        style="display: none"
+                        aria-label="Welcome user greeting"
+                    >
+                        <p>
+                            Hello,
+                            <span class="username-span" id="usernameNavbarSpan"></span>
+                        </p>
+                    </div>
+
+                    <!-- Login Button (shown if user is NOT logged in) -->
+                    <button
+                        id="loginButton"
+                        class="auth-btn"
+                        style="display: none"
+                        aria-label="Login to your account"
+                    >
+                        Login
+                    </button>
+
+                    <!-- Dashboard Button (shown if user IS logged in) -->
+                    <button
+                        id="dashboardButton"
+                        class="auth-btn dashboard-btn"
+                        style="display: none"
+                        aria-label="Go to your dashboard"
+                    >
+                        Dashboard
+                    </button>
+
+                    <!-- Logout Button (shown if user IS logged in) -->
+                    <button
+                        id="logoutButton"
+                        class="auth-btn logout-btn"
+                        style="display: none"
+                        aria-label="Logout of your account"
+                    >
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- JavaScript -->
+        <script type="module" src="/assets/js/main.js"></script>
+        <script type="module" src="/assets/js/navbar.js"></script>
+    </body>
+</html>
