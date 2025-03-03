@@ -397,10 +397,6 @@
         font-size: 0.9rem;
     }
 
-    .main-content {
-        max-width: 1200px; /* Reintroduce horizontal constraint on desktops */
-    }
-
     .spinner {
         width: 60px;
         height: 60px;
