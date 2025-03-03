@@ -1,16 +1,16 @@
 :root {
-    /* Updated Color Palette */
-    --primary-color: #71ceb6; /* Tranquil teal for branding elements */
-    --secondary-color: #f79580; /* Warm peach for secondary highlights */
-    --accent-color: #fda914; /* Sunshine gold for CTAs and key accents */
-    --background-color: #f7dbac; /* Light cream for page backgrounds */
-    --text-color: #333333; /* Dark gray for readability */
-    --heading-color: #a682ec; /* Gentle lavender for headings */
-    --footer-background: #71ceb6; /* Same as primary for consistency */
+    /* Color Palette */
+    --primary-color: #71ceb6; /* Tranquil Teal - main branding */
+    --secondary-color: #f79580; /* Warm Peach - complementary secondary */
+    --accent-color: #fda914; /* Sunshine Gold - CTA and highlights */
+    --background-color: #f7dbac; /* Light Cream - main background */
+    --text-color: #333333; /* Dark gray for text */
+    --heading-color: #a682ec; /* Gentle Lavender - soft, inviting headings */
+    --footer-background: #f3ce97; /* Soft Sand - warm footer */
     --footer-text: #ffffff; /* White for footer text */
-    --input-border: #f3ce97; /* Soft sand for input borders */
-    --error-color: #e74c3c; /* Red for error messages */
-    --success-color: #bad11d; /* Fresh green for success messages */
+    --input-border: #bad11d; /* Fresh Green - subtle accents */
+    --error-color: #f79580; /* Same Warm Peach for warnings (less harsh than red) */
+    --success-color: #71ceb6; /* Match primary teal for consistency */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
@@ -19,28 +19,6 @@ main {
     margin: 2rem auto;
     max-width: 1200px;
     padding: 0 1.5rem;
-}
-
-/* Disclaimer Section */
-.disclaimer-section {
-    background-color: var(--background-color);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    border: 1px solid var(--input-border);
-    text-align: center;
-}
-
-.disclaimer-text {
-    font-size: 1rem;
-    color: var(--text-color);
-    line-height: 1.6;
-    margin: 0;
-}
-
-.disclaimer-text strong {
-    font-weight: bold;
-    color: var(--error-color);
 }
 
 /* Hero Section */
@@ -58,6 +36,7 @@ main {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
+    color: #ffffff;
 }
 
 .hero-section p {
@@ -69,7 +48,7 @@ main {
 .hero-section .cta-btn {
     display: inline-block;
     background-color: var(--accent-color);
-    color: var(--text-color);
+    color: #ffffff;
     padding: 1rem 2rem;
     font-size: 1rem;
     font-weight: 600;
@@ -107,13 +86,6 @@ main {
     margin-bottom: 1.5rem;
     color: var(--text-color);
     line-height: 1.6;
-}
-
-.search-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
 }
 
 .search-form .input-field {
@@ -208,7 +180,7 @@ main {
 .cta-section .cta-btn {
     display: inline-block;
     background-color: var(--accent-color);
-    color: var(--text-color);
+    color: #ffffff;
     padding: 1rem 2rem;
     font-size: 1rem;
     font-weight: 600;
