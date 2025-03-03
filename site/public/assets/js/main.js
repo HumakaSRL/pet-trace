@@ -3,12 +3,6 @@ console.log(
     "font-size: 16px; color: #FF0000; font-weight: bold; background-color: #FFD700; padding: 10px; border-radius: 5px;"
 );
 
-firebase.auth().onAuthStateChanged(async (user) => {
-    if (user) {
-        console.log("User is signed in: ", user);
-    } else console.log("User is signed out.");
-});
-
 document.addEventListener("DOMContentLoaded", () => {
     const acceptedAllCookies = localStorage.getItem("acceptedAllCookies");
     const acceptedNecessaryCookies = localStorage.getItem("acceptedNecessaryCookies");

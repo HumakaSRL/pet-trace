@@ -1,19 +1,18 @@
 /* Main Content Styling */
 .main-content {
     max-width: 1200px;
-    margin: 2rem auto;
     padding: 1rem;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 /* Section Titles */
 .section-title {
     font-size: 1.5rem;
-    color: #0073e6;
+    color: var(--primary-color);
     margin-bottom: 1rem;
-    border-bottom: 2px solid #0073e6;
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.5rem;
 }
 
@@ -45,7 +44,7 @@
     max-width: 300px;
     border-radius: 8px;
     object-fit: cover;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 /* Overlay Styling */
@@ -76,7 +75,6 @@
     font-weight: bold;
     text-transform: uppercase;
     pointer-events: none;
-    /* Ensure it doesn't interfere with input */
     transition: all 0.3s ease;
 }
 
@@ -92,8 +90,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    /* Invisible but clickable */
+    opacity: 0; /* Invisible but clickable */
     cursor: pointer;
 }
 
@@ -120,14 +117,14 @@
 
 .info-item strong {
     font-weight: bold;
-    color: #555;
+    color: var(--text-color); /* Dark Gray */
     flex-shrink: 0;
     margin-right: 1rem;
     min-width: 150px;
 }
 
 .info-detail {
-    color: #333;
+    color: var(--text-color);
     flex-grow: 1;
     max-height: 150px;
     overflow-y: auto;
@@ -144,12 +141,12 @@
 }
 
 .info-detail::-webkit-scrollbar-thumb {
-    background: #0073e6;
+    background: var(--primary-color); /* Teal for brand consistency */
     border-radius: 3px;
 }
 
 .info-detail::-webkit-scrollbar-thumb:hover {
-    background: #005bb5;
+    background: #5ec1a3; /* Slightly darker teal on hover */
 }
 
 /* No Match Section */
@@ -157,18 +154,18 @@
     text-align: center;
     margin-top: 2rem;
     padding: 2rem;
-    border: 1px dashed #ff6347;
+    border: 1px dashed var(--error-color); /* Warm Peach for "alert" feel */
     background-color: #fffafa;
     border-radius: 8px;
 }
 
 .no-match-message {
     font-size: 1.2rem;
-    color: #555;
+    color: var(--text-color);
 }
 
 .register-link {
-    color: #0073e6;
+    color: var(--primary-color);
     font-weight: bold;
     text-decoration: none;
 }
@@ -186,7 +183,7 @@
     background-color: #f9f9f9;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px var(--shadow-color);
 }
 
 /* Buttons */
@@ -206,46 +203,51 @@
     transform: scale(0.95);
 }
 
+/* Edit Button -> Teal */
 .edit-btn {
-    background-color: #007bff;
+    background-color: var(--primary-color); /* #71ceb6 */
 }
 
 .edit-btn:hover {
-    background-color: #0056b3;
+    background-color: #5ec1a3; /* Slightly darker teal */
 }
 
+/* Save Button -> "Success" Teal (or new color if you prefer) */
 .save-btn {
-    background-color: #28a745;
+    background-color: var(--success-color); /* #71ceb6 as well, or choose a distinct color */
 }
 
 .save-btn:hover {
-    background-color: #1e7e34;
+    background-color: #5ec1a3; /* same hover as edit, or define your own shade */
 }
 
-.cancel-btn {
-    background-color: #dc3545;
-}
-
-.cancel-btn:hover {
-    background-color: #a71d2a;
-}
-
+/* Cancel / Delete -> Danger Red */
+.cancel-btn,
 .delete-btn {
-    margin-right: auto;
-    background-color: #dc3545;
+    background-color: #dc3545; /* Distinct red for destructive actions */
 }
 
+.cancel-btn:hover,
 .delete-btn:hover {
     background-color: #a71d2a;
 }
 
+.delete-btn {
+    margin-right: auto; /* Align delete button to the left */
+}
+
+/* Error Messages */
 .error-message {
     font-size: 0.95rem;
     margin-top: 0.5rem;
     font-weight: 500;
     line-height: 1.5;
+    color: var(
+        --error-color
+    ); /* Warm Peach if you want error text to match brand, or keep standard red */
 }
 
+/* Overlay for Page Locking (loading) */
 #viewOverlay {
     position: fixed;
     top: 0;
@@ -256,6 +258,7 @@
     z-index: 1000;
 }
 
+/* Loading Spinner */
 .loading-spinner {
     display: flex;
     justify-content: center;
@@ -264,8 +267,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
-    /* Ensure the spinner is on top of other content */
+    z-index: 1000; /* Above main content */
 }
 
 .spinner {
@@ -275,8 +277,7 @@
 }
 
 .path {
-    stroke: #007bff;
-    /* Change the color as needed */
+    stroke: var(--primary-color); /* Teal spinner stroke */
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
 }
@@ -292,12 +293,10 @@
         stroke-dasharray: 1, 150;
         stroke-dashoffset: 0;
     }
-
     50% {
         stroke-dasharray: 90, 150;
         stroke-dashoffset: -35;
     }
-
     100% {
         stroke-dasharray: 90, 150;
         stroke-dashoffset: -124;
@@ -309,7 +308,6 @@
     .info-section {
         flex-direction: column;
     }
-
     .pet-info,
     .owner-info,
     .update-info,
