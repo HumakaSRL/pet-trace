@@ -11,7 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const acceptNecessaryCookies = document.getElementById("acceptNecessaryCookies");
 
     // Check if cookies consent is required
-    if (!acceptedAllCookies && !acceptedNecessaryCookies) {
+    if (
+        !acceptedAllCookies &&
+        !acceptedNecessaryCookies &&
+        !window.location.pathname.endsWith("privacy-policy.html")
+    ) {
         // Create and append the cookie consent HTML
         const cookieConsentHTML = `
             <div id="cookieConsent" class="cookie-consent">
