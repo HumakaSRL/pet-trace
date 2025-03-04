@@ -14,13 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!acceptedAllCookies && !acceptedNecessaryCookies) {
         // Create and append the cookie consent HTML
         const cookieConsentHTML = `
-            <div class="cookie-consent" id="cookieConsent">
-                <p>This website uses cookies to ensure you get the best experience on our website.</p>
-                <div class="buttons">
-                    <button id="acceptNecessaryCookies">Accept Necessary Cookies Only</button>
-                    <button id="acceptAllCookies">Accept All Cookies</button>
+            <div id="cookieConsent" class="cookie-consent">
+                <div class="cookie-wrapper">
+                    <h2>Cookie Consent</h2>
+                    <p>
+                    This website uses cookies to ensure you get the best experience on our website. 
+                    By clicking "Accept All Cookies", you consent to our use of cookies. 
+                    Or choose "Accept Necessary Cookies Only" to continue with essential cookies only.
+                    </p>
+                    <div class="buttons">
+                        <button id="acceptNecessaryCookies">Accept Necessary Cookies Only</button>
+                        <button id="acceptAllCookies">Accept All Cookies</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
         `;
         document.body.insertAdjacentHTML("afterbegin", cookieConsentHTML);
 
