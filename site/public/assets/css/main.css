@@ -173,8 +173,8 @@ button {
 
 /* Inner wrapper to hold content (mobile layout) */
 .cookie-wrapper {
-    max-width: 700px; /* will matter more on desktop */
-    margin: 0 auto; /* center the content horizontally */
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* Headings */
@@ -190,14 +190,17 @@ button {
 .cookie-wrapper p {
     margin-bottom: 1rem;
     line-height: 1.4;
-    font-size: 0.95rem; /* Slightly smaller for mobile */
+    font-size: 0.95rem;
 }
 
-/* Buttons container */
+/* Buttons container - column by default (for very small screens) */
 .cookie-wrapper .buttons {
     display: flex;
     flex-direction: column;
-    align-items: unset;
+}
+
+#acceptNecessaryCookies {
+    margin-bottom: 10px;
 }
 
 /* Buttons styling */
@@ -213,13 +216,13 @@ button {
 
 /* Accept Necessary Cookies Only button */
 #acceptNecessaryCookies {
-    background-color: var(--secondary-color); /* Warm Peach */
+    background-color: var(--secondary-color);
     color: #fff;
 }
 
 /* Accept All Cookies button */
 #acceptAllCookies {
-    background-color: var(--primary-color); /* Tranquil Teal */
+    background-color: var(--primary-color);
     color: #fff;
 }
 
@@ -230,35 +233,33 @@ button {
 }
 
 /* 
-   VERY SMALL SCREENS
+   From 449px up, put the buttons side by side (row).
 */
 
-@media (min-width: 400px) {
+@media (min-width: 449px) {
     .cookie-wrapper .buttons {
-        display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: space-around;
+        gap: 1rem;
     }
 
     #acceptNecessaryCookies {
-        margin-bottom: 10px;
+        margin-bottom: 0; /* Remove the bottom margin if they're side by side */
     }
 }
 
 /* 
-   DESKTOP/LARGER SCREENS:
+   DESKTOP/LARGER SCREENS (768px+):
    Transform the bar into a centered modal/card.
 */
-
 @media (min-width: 768px) {
     .cookie-consent {
         top: 0;
         bottom: 0;
-        /* Instead of stretching full width, let's center everything */
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Dimmed background look */
         background-color: rgba(0, 0, 0, 0.4);
     }
 
@@ -268,7 +269,7 @@ button {
         padding: 2rem;
         box-shadow: 0 4px 8px var(--shadow-color);
         margin: 2rem;
-        max-width: 600px; /* narrower than mobile bar for a “card” feel */
+        max-width: 600px;
     }
 
     .cookie-wrapper h2 {
@@ -284,9 +285,5 @@ button {
     .cookie-wrapper .buttons {
         flex-direction: row;
         gap: 1rem;
-    }
-
-    #acceptNecessaryCookies {
-        margin-bottom: 0;
     }
 }
