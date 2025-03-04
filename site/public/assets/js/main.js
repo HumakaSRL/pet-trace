@@ -16,18 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const cookieConsentHTML = `
             <div id="cookieConsent" class="cookie-consent">
                 <div class="cookie-wrapper">
-                    <h2>Cookie Consent</h2>
+                    <h2>Hey, pet friend!</h2>
                     <p>
-                    This website uses cookies to ensure you get the best experience on our website. 
-                    By clicking "Accept All Cookies", you consent to our use of cookies. 
-                    Or choose "Accept Necessary Cookies Only" to continue with essential cookies only.
+                        We use cookies to keep our site running smoothly and remember your
+                        preferences, just like a loyal companion! Choose "Accept All Cookies" to unlock a
+                        richer, personalized experience with extra features and fun surprises. If you
+                        opt for "Accept Necessary Cookies Only," you'll get only the essential
+                        non-personalized experience.
+                        <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">
+                            Learn more
+                        </a>
                     </p>
                     <div class="buttons">
                         <button id="acceptNecessaryCookies">Accept Necessary Cookies Only</button>
                         <button id="acceptAllCookies">Accept All Cookies</button>
-                        </div>
                     </div>
                 </div>
+            </div>
         `;
         document.body.insertAdjacentHTML("afterbegin", cookieConsentHTML);
 

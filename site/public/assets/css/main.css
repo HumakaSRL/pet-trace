@@ -193,6 +193,11 @@ button {
     font-size: 0.95rem;
 }
 
+/* Learn More Link */
+.cookie-wrapper a {
+    color: var(--heading-color);
+}
+
 /* Buttons container - column by default (for very small screens) */
 .cookie-wrapper .buttons {
     display: flex;
