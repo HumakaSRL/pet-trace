@@ -58,7 +58,6 @@
     color: #fff;
     padding: 0.5rem 1rem;
     font-size: 0.95rem;
-    border-radius: 4px;
     border: none;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
@@ -82,11 +81,11 @@
 
 /* DASHBOARD BUTTON (Uses Secondary Color) */
 .dashboard-btn {
-    background-color: var(--secondary-color); /* Warm Peach */
+    background-color: #fbc249; /* Warm Peach */
 }
 
 .dashboard-btn:hover {
-    background-color: #ffac97; /* Slightly lighter peach */
+    background-color: var(--accent-color); /* Slightly lighter peach */
 }
 
 /* LOGOUT BUTTON (Distinct Danger Color) */

@@ -64,9 +64,11 @@ ul {
     padding: 0;
 }
 
-button {
+button,
+.btn {
     cursor: pointer;
     border: none;
+    border-radius: 10px;
     background: none;
 }
 
@@ -111,7 +113,6 @@ button {
     display: inline-block;
     color: #fff;
     padding: 0.7rem 1.2rem;
-    border-radius: 4px;
     font-size: 1rem;
     transition: background-color 0.2s ease-in-out;
 }
@@ -212,7 +213,6 @@ button {
 .cookie-wrapper .buttons button {
     padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 4px;
     font-weight: 600;
     cursor: pointer;
     font-family: var(--font-stack);
@@ -270,7 +270,7 @@ button {
 
     .cookie-wrapper {
         background-color: var(--background-color);
-        border-radius: 8px;
+        border-radius: 15px;
         padding: 2rem;
         box-shadow: 0 4px 8px var(--shadow-color);
         margin: 2rem;
