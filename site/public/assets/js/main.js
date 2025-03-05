@@ -3,21 +3,20 @@ console.log(
     "font-size: 16px; color: #FF0000; font-weight: bold; background-color: #FFD700; padding: 10px; border-radius: 5px;"
 );
 
-document.addEventListener("DOMContentLoaded", () => {
-    const acceptedAllCookies = localStorage.getItem("acceptedAllCookies");
-    const acceptedNecessaryCookies = localStorage.getItem("acceptedNecessaryCookies");
-    let cookieConsent = document.getElementById("cookieConsent");
-    const acceptAllCookies = document.getElementById("acceptAllCookies");
-    const acceptNecessaryCookies = document.getElementById("acceptNecessaryCookies");
+const acceptedAllCookies = localStorage.getItem("acceptedAllCookies");
+const acceptedNecessaryCookies = localStorage.getItem("acceptedNecessaryCookies");
+let cookieConsent = document.getElementById("cookieConsent");
+const acceptAllCookies = document.getElementById("acceptAllCookies");
+const acceptNecessaryCookies = document.getElementById("acceptNecessaryCookies");
 
-    // Check if cookies consent is required
-    if (
-        !acceptedAllCookies &&
-        !acceptedNecessaryCookies &&
-        !window.location.pathname.endsWith("privacy-policy.html")
-    ) {
-        // Create and append the cookie consent HTML
-        const cookieConsentHTML = `
+// Check if cookies consent is required
+if (
+    !acceptedAllCookies &&
+    !acceptedNecessaryCookies &&
+    !window.location.pathname.endsWith("privacy-policy.html")
+) {
+    // Create and append the cookie consent HTML
+    const cookieConsentHTML = `
             <div id="cookieConsent" class="cookie-consent">
                 <div class="cookie-wrapper">
                     <h2>Hey, pet friend!</h2>
@@ -39,35 +38,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         `;
-        document.body.insertAdjacentHTML("afterbegin", cookieConsentHTML);
+    document.body.insertAdjacentHTML("afterbegin", cookieConsentHTML);
 
-        // Update reference to cookieConsent element after creation
-        cookieConsent = document.getElementById("cookieConsent");
+    // Update reference to cookieConsent element after creation
+    cookieConsent = document.getElementById("cookieConsent");
 
-        // Event listener for accepting all cookies
-        const acceptAllButton = cookieConsent.querySelector("#acceptAllCookies");
-        acceptAllButton.addEventListener("click", () => {
-            cookieConsent.style.display = "none";
-            localStorage.setItem("acceptedAllCookies", true);
-            loadAllCookies();
-        });
+    // Event listener for accepting all cookies
+    const acceptAllButton = cookieConsent.querySelector("#acceptAllCookies");
+    acceptAllButton.addEventListener("click", () => {
+        cookieConsent.style.display = "none";
+        localStorage.setItem("acceptedAllCookies", true);
+        loadAllCookies();
+    });
 
-        // Event listener for accepting necessary cookies only
-        const acceptNecessaryButton = cookieConsent.querySelector("#acceptNecessaryCookies");
-        acceptNecessaryButton.addEventListener("click", () => {
-            cookieConsent.style.display = "none";
-            localStorage.setItem("acceptedNecessaryCookies", true);
-            loadEssentialCookies();
-        });
-    } else {
-        // Hide cookie consent if cookies have been accepted
-        if (cookieConsent) cookieConsent.style.display = "none";
+    // Event listener for accepting necessary cookies only
+    const acceptNecessaryButton = cookieConsent.querySelector("#acceptNecessaryCookies");
+    acceptNecessaryButton.addEventListener("click", () => {
+        cookieConsent.style.display = "none";
+        localStorage.setItem("acceptedNecessaryCookies", true);
+        loadEssentialCookies();
+    });
+} else {
+    // Hide cookie consent if cookies have been accepted
+    if (cookieConsent) cookieConsent.style.display = "none";
 
-        // Load cookies based on previous consent
-        if (acceptedAllCookies) loadAllCookies();
-        else if (acceptedNecessaryCookies) loadEssentialCookies();
-    }
-});
+    // Load cookies based on previous consent
+    if (acceptedAllCookies) loadAllCookies();
+    else if (acceptedNecessaryCookies) loadEssentialCookies();
+}
 
 function loadAllCookies() {
     loadEssentialCookies();
