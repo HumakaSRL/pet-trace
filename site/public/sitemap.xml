@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://pet-trace.com/index.html</loc>
-        <lastmod>2024-12-07</lastmod>
+        <lastmod>2025-05-03</lastmod>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://pet-trace.com/dashboard.html</loc>
-        <lastmod>2024-12-07</lastmod>
+        <lastmod>2025-05-03</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://pet-trace.com/login.html</loc>
-        <lastmod>2024-12-07</lastmod>
+        <lastmod>2025-05-03</lastmod>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://pet-trace.com/privacy-policy.html</loc>
-        <lastmod>2024-12-07</lastmod>
+        <lastmod>2025-05-03</lastmod>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://pet-trace.com/terms-of-service.html</loc>
-        <lastmod>2024-12-07</lastmod>
+        <lastmod>2025-05-03</lastmod>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://pet-trace.com/register.html</loc>
-        <lastmod>2024-12-07</lastmod>
+        <lastmod>2025-05-03</lastmod>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://pet-trace.com/register-microchip.html</loc>
-        <lastmod>2024-12-07</lastmod>
+        <lastmod>2025-05-03</lastmod>
         <priority>0.8</priority>
     </url>
 </urlset>
