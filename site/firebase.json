@@ -11,6 +11,15 @@
                         "value": "public, max-age=2592000"
                     }
                 ]
+            },
+            {
+                "source": "/**",
+                "headers": [
+                    {
+                        "key": "Cross-Origin-Opener-Policy",
+                        "value": "same-origin"
+                    }
+                ]
             }
         ]
     }
