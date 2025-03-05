@@ -26,10 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         preferences, just like a loyal companion! Choose "Accept All Cookies" to unlock a
                         richer, personalized experience with extra features and fun surprises. If you
                         opt for "Accept Necessary Cookies Only," you'll get only the essential
-                        non-personalized experience.
+                        non-personalized experience. Check our
                         <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">
-                            Learn more
+                            Privacy Policy
                         </a>
+                        for more details
                     </p>
                     <div class="buttons">
                         <button id="acceptNecessaryCookies">Accept Necessary Cookies Only</button>

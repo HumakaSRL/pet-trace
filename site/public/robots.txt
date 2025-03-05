@@ -3,6 +3,8 @@ User-agent: *
 Disallow: /view.html
 Disallow: /404.html
 Disallow: /email-verification.html
+Disallow: /navbar.html
+Disallow: /footer.html
 
 # Allow access to CSS and JavaScript files
 Allow: /assets/css/
