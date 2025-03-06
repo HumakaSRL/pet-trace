@@ -3,8 +3,8 @@
     "name": "Pet Trace – Free Forever International Pet Chip Database",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#f7dbac",
-    "theme_color": "#71ceb6",
+    "background_color": "#ffe5ae",
+    "theme_color": "#2ed5ff",
     "icons": [
         {
             "src": "/assets/favicon/android-icon-36x36.png",
