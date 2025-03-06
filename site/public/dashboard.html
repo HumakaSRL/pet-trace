@@ -138,30 +138,32 @@
 
         <!-- Main Content -->
         <main id="mainContent" class="main-content" style="display: none">
-            <!-- Button to register a new pet -->
-            <div class="register-pet-container">
-                <button id="registerPetButton" class="register-pet-btn" disabled>
-                    Register a New Pet
-                </button>
-                <!-- Error message if not email verified -->
-                <div id="emailVerificationError" class="error-message" style="display: none">
-                    Please verify your email to be able to register your pet.
+            <div class="dashboard-container">
+                <!-- Register Pet Area -->
+                <div class="register-pet-container">
+                    <button id="registerPetButton" class="register-pet-btn" disabled>
+                        Register a New Pet
+                    </button>
+                    <div id="emailVerificationError" class="error-message" style="display: none">
+                        Please verify your email to be able to register your pet.
+                    </div>
                 </div>
-            </div>
 
-            <!-- Section for user's pets -->
-            <section class="my-pets-section">
-                <h2 class="section-title">
-                    My Pets
-                    <span id="petCountSpan"></span>
-                </h2>
-                <div id="petsContainer" class="pets-container">
-                    <!-- Pets will be dynamically generated here -->
-                    <p id="noPetsMessage" class="no-pets-message" style="display: none">
-                        You have not registered any pets yet.
-                    </p>
-                </div>
-            </section>
+                <!-- My Pets Section -->
+                <section class="my-pets-section">
+                    <header class="section-header">
+                        <h2 class="section-title">
+                            My Pets
+                            <span id="petCountSpan"></span>
+                        </h2>
+                    </header>
+                    <div id="petsContainer" class="pets-container">
+                        <p id="noPetsMessage" class="no-pets-message" style="display: none">
+                            You have not registered any pets yet.
+                        </p>
+                    </div>
+                </section>
+            </div>
         </main>
 
         <!-- Footer v1.2 -->
