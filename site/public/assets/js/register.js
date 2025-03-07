@@ -9,6 +9,8 @@ function registerUser(e) {
 }
 
 function validateFields() {
+    hideErrorMessages();
+
     // Validate Username
     if (usernameInput.value.trim().length < 6 || /\s/.test(usernameInput.value.trim())) {
         usernameError.textContent =
@@ -67,6 +69,14 @@ function validateFields() {
         registerButton.disabled = false;
         return false;
     } else acceptTermsError.style.display = "none";
+
+    // Validate Privacy Policy
+    if (!acceptPrivacy.checked) {
+        acceptPrivacyError.style.display = "block";
+        registerButton.disabled = false;
+    } else acceptPrivacyError.style.display = "none";
+
+    if (!acceptTerms.checked || !acceptPrivacy.checked) return false;
 
     return true;
 }
@@ -155,4 +165,13 @@ function checkEmailList(email) {
 
     // Check if the email ends with any supported domain
     return !supportedDomains.some((domain) => email.endsWith(domain));
+}
+
+function hideErrorMessages() {
+    usernameError.style.display = "none";
+    emailError.style.display = "none";
+    passwordError.style.display = "none";
+    confirmPasswordError.style.display = "none";
+    acceptTermsError.style.display = "none";
+    acceptPrivacyError.style.display = "none";
 }

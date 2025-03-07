@@ -212,18 +212,26 @@
                     </div>
 
                     <div class="form-group">
+                        <!-- Terms of Service Checkbox -->
                         <label for="acceptTerms" class="checkbox-label">
                             <input id="acceptTerms" name="acceptTerms" type="checkbox" />
-                            By clicking "Register," I acknowledge and agree to the
+                            I agree to the
                             <a href="/terms-of-service.html" target="_blank">Terms of Service</a>
-                            and the
+                            .
+                        </label>
+                        <div id="acceptTermsError" class="error-message" style="display: none">
+                            Please accept the Terms of Service to proceed.
+                        </div>
+
+                        <!-- Privacy Policy Checkbox -->
+                        <label for="acceptPrivacy" class="checkbox-label">
+                            <input id="acceptPrivacy" name="acceptPrivacy" type="checkbox" />
+                            I acknowledge and accept the
                             <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>
                             .
                         </label>
-                        <!-- Error message for Terms -->
-                        <div id="acceptTermsError" class="error-message" style="display: none">
-                            Please accept the Terms of Service and Privacy Policy to proceed with
-                            registration.
+                        <div id="acceptPrivacyError" class="error-message" style="display: none">
+                            Please accept the Privacy Policy to proceed.
                         </div>
                     </div>
 

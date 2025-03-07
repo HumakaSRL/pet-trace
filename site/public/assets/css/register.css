@@ -61,13 +61,14 @@
 }
 
 /* Already Have an Account Link */
-.login-now-link {
-    color: var(--primary-color);
+form a {
+    color: var(--accent-color);
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.login-now-link:hover {
-    text-decoration: underline;
+form a:hover {
+    color: var(--highlight-color);
 }
 
 /* Media Query for Larger Screens */
