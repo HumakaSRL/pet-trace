@@ -25,11 +25,12 @@
     cursor: pointer; /* Make the logo clickable */
 }
 
-.navbar-logo {
-    display: block;
+#navLogoImage {
     width: 250px;
-    height: auto;
-    margin: 5px 0px;
+    height: 28px;
+    margin: 10px 0;
+    background: url("/assets/images/pet-trace-logo.svg") no-repeat center center;
+    background-size: cover;
 }
 
 /* AUTH SECTION */
@@ -105,8 +106,9 @@
         align-items: center;
     }
 
-    .navbar-logo {
+    #navLogoImage {
         width: 180px;
+        height: 20px;
         margin-left: 10px;
     }
 

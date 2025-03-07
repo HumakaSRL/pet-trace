@@ -3,24 +3,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f7fc;
+    min-height: 100vh;
+    padding: 1rem;
+    background-color: var(--background-color);
 }
 
+/* Register Section */
 .register-section {
-    background-color: white;
+    background-color: #fff;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
 }
 
-h2 {
+.register-section h2 {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: var(--heading-color);
 }
 
 /* Form Styling */
@@ -39,7 +42,7 @@ h2 {
 /* Label Styling */
 .form-label {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 
@@ -47,22 +50,39 @@ h2 {
 .form-input {
     padding: 0.75rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s;
 }
 
 .form-input:focus {
-    border-color: #007bff;
+    border-color: var(--primary-color);
 }
 
-/* Already have an account Link */
+/* Already Have an Account Link */
 .login-now-link {
-    color: #007bff;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
 .login-now-link:hover {
     text-decoration: underline;
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+    .register-section {
+        padding: 2.5rem;
+        max-width: 500px;
+    }
+
+    .register-section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .form-input {
+        font-size: 1.1rem;
+    }
 }

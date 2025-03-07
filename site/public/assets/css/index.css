@@ -212,7 +212,6 @@
     }
 
     .hero-search-form {
-        flex-direction: row;
         justify-content: center;
     }
 

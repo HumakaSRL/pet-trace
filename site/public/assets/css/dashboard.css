@@ -1,62 +1,67 @@
+/* Mobile-First Base Styles for Dashboard */
+
 /* Main Content Styling */
 .main-content {
-    padding: 20px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    background-color: #f5f7fa;
+    gap: 1.25rem;
+    background-color: var(--background-color); /* Using theme background color */
+}
+
+/* Register Pet Button Container */
+.register-pet-container {
+    text-align: center;
+    margin-bottom: 1.25rem;
 }
 
 /* Register Pet Button */
-.register-pet-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .register-pet-btn {
     display: inline-block;
-    padding: 14px 24px;
-    background: linear-gradient(90deg, #0078d7, #005bb5);
-    color: #ffffff;
-    font-size: 16px;
+    padding: 0.875rem 1.5rem; /* Approx. 14px 24px */
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 1rem;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: none;
     text-decoration: none;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 120, 215, 0.3);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .register-pet-btn:hover {
-    background: linear-gradient(90deg, #005bb5, #003f8f);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 10px rgba(0, 91, 181, 0.4);
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* My Pets Section */
 .my-pets-section {
-    background-color: #ffffff;
+    background-color: #fff;
     border: 1px solid #e3e6eb;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 
 .my-pets-section:hover {
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* (Optional) Grayscale Effect on Specific Register Button */
 #registerPetButton {
     filter: grayscale(100%);
     cursor: pointer;
 }
 
+/* Section Title */
 .section-title {
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px */
     font-weight: 600;
-    color: #1d3557;
-    margin-bottom: 15px;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
     text-align: center;
     letter-spacing: 0.5px;
 }
@@ -65,22 +70,22 @@
 .pets-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1.25rem;
     justify-content: center;
-    padding-top: 10px;
+    padding-top: 0.625rem;
 }
 
 /* No Pets Message */
 .no-pets-message {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
-    color: #6c757d;
+    color: var(--text-color);
     text-align: center;
-    padding: 15px;
+    padding: 1rem;
     border: 1px dashed #e0e0e0;
     border-radius: 8px;
     background-color: #f8f9fa;
-    margin-top: 10px;
+    margin-top: 0.625rem;
     transition: all 0.3s ease;
 }
 
@@ -90,47 +95,78 @@
     color: #495057;
 }
 
-/* Pet Cards (Dynamic Content Placeholder) */
+/* Pet Card */
 .pet-card {
-    background-color: #ffffff;
+    background-color: #fff;
     border: 1px solid #e3e6eb;
     border-radius: 8px;
-    padding: 15px;
+    padding: 1rem;
     width: 220px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
 .pet-card:hover {
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     transform: translateY(-5px);
 }
 
-/* Pet Image Styles */
+/* Pet Image */
 .pet-image {
     width: 100%;
     height: auto;
     max-height: 150px;
     object-fit: cover;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
+/* View Pet Button */
 .view-pet-button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
+    margin-top: 0.625rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
+    font-size: 0.875rem;
+    transition: all 0.3s;
 }
 
 .view-pet-button:hover {
-    background-color: #0056b3;
+    background-color: var(--secondary-color);
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+    .main-content {
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .register-pet-btn {
+        font-size: 1.125rem;
+    }
+
+    .my-pets-section {
+        padding: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .pet-card {
+        width: 240px;
+        padding: 1.25rem;
+    }
+
+    .view-pet-button {
+        font-size: 1rem;
+    }
 }

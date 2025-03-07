@@ -3,24 +3,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f7fc;
+    background-color: var(--background-color);
+    padding: 1rem; /* Ensures content isn't flush against the viewport on mobile */
 }
 
+/* Login Section */
 .login-section {
-    background-color: white;
+    background-color: #fff;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
     width: 100%;
     max-width: 400px;
+    margin: 1rem; /* Adds spacing around the section */
 }
 
+/* Heading */
 h2 {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: var(--heading-color);
 }
 
 /* Form Styling */
@@ -39,7 +42,7 @@ h2 {
 /* Label Styling */
 .form-label {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 
@@ -47,43 +50,40 @@ h2 {
 .form-input {
     padding: 0.75rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
     border-radius: 5px;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .form-input:focus {
-    border-color: #007bff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
 }
 
 /* Checkbox Styling */
 .checkbox-group {
     display: flex;
     flex-direction: row;
-    /* Align items in a row (default behavior) */
     justify-content: center;
-    /* Center the checkbox and label horizontally */
     align-items: center;
-    /* Vertically align the checkbox and label */
     gap: 0.5rem;
-    /* Space between the checkbox and label */
 }
 
 .form-checkbox {
-    accent-color: #007bff;
+    accent-color: var(--primary-color);
 }
 
 .checkbox-label {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-color);
 }
 
 /* Forgot Password Link */
 .forgot-password-link {
     text-align: right;
     font-size: 0.9rem;
-    color: #007bff;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -93,7 +93,7 @@ h2 {
 
 /* Join Now Link Styling */
 .join-now-link {
-    color: #007bff;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -105,12 +105,29 @@ h2 {
 .form-group p {
     text-align: center;
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-color);
 }
 
 #forgotPasswordLink {
     cursor: pointer;
     text-decoration: none;
+}
+
+/* Submit Button Styling */
+.login-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+}
+
+.login-btn:hover {
+    background-color: var(--secondary-color);
 }
 
 /* Responsive Design for Mobile */
@@ -119,5 +136,24 @@ h2 {
         padding: 1.5rem;
         width: 100%;
         max-width: 100%;
+        margin: 1rem;
+    }
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+    .login-section {
+        padding: 3rem;
+        max-width: 400px;
+        margin: 2rem auto;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .form-input {
+        font-size: 1.1rem;
     }
 }
