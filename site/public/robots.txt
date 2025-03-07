@@ -7,27 +7,11 @@ Disallow: /navbar.html
 Disallow: /footer.html
 
 # Allow access to CSS and JavaScript files
-Allow: /assets/css/
-Allow: /assets/js/
-
-# Specify the main pages to be indexed
-Allow: /index.html
-Allow: /dashboard.html
-Allow: /login.html
-Allow: /privacy-policy.html
-Allow: /terms-of-service.html
-Allow: /register.html
-Allow: /register-microchip.html
-
-# Block specific scraping bots
-User-agent: BadBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
+Allow: /assets/css/*
+Allow: /assets/js/*
+Allow: /assets/favicon/*
+Allow: /assets/images/*
+Allow: /assets/fonts/*
 
 # Specify the sitemap location
 Sitemap: https://pet-trace.com/sitemap.xml
