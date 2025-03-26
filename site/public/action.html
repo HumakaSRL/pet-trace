@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Pet Trace – Free International Pet Chip Database</title>
+
+        <!-- Theme Color -->
+        <meta name="theme-color" content="#71ceb6" />
+
+        <!-- BrowserConfig (for older IE/Edge pinned tiles) -->
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        <!-- PWA Manifest (for Android + modern browsers) -->
+        <link rel="manifest" href="/manifest.json" />
+
+        <!-- Favicons / Classic Desktop Browsers -->
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="150x150"
+            href="/assets/favicon/favicon-150x150.png"
+        />
+
+        <!-- Apple Touch Icons (iPhone, iPad) -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png" />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="150x150"
+            href="/assets/favicon/apple-icon-150x150.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            href="/assets/favicon/apple-icon-precomposed.png"
+        />
+
+        <!-- Firebase SDK's -->
+        <script defer src="/__/firebase/10.8.0/firebase-app-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-auth-compat.js"></script>
+        <script defer src="/__/firebase/10.8.0/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/init.js"></script>
+
+        <!-- Icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        />
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css?v=1.0" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/navbar.css?v=1.0" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/footer.css?v=1.0" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/404.css?v=1.0" />
+    </head>
+    <body>
+        <!-- Navbar v2.2.1 (Mobile-First) -->
+        <nav class="site-navbar">
+            <div class="navbar-container">
+                <!-- Logo / Brand -->
+                <h1 id="navLogo" class="site-title">
+                    <div id="navLogoImage" role="img" aria-label="Pet Trace"></div>
+                </h1>
+
+                <!-- Auth Section: Login, Dashboard, Logout, Greeting -->
+                <div class="auth-section">
+                    <!-- Greeting (shown only if user is logged in) -->
+                    <div
+                        id="userGreeting"
+                        class="user-greeting"
+                        style="display: none"
+                        aria-label="Welcome user greeting"
+                    >
+                        <p>
+                            Hello,
+                            <span class="username-span" id="usernameNavbarSpan"></span>
+                        </p>
+                    </div>
+
+                    <!-- Login Button (shown if user is NOT logged in) -->
+                    <button
+                        id="loginButton"
+                        class="auth-btn"
+                        style="display: none"
+                        aria-label="Login to your account"
+                    >
+                        Login
+                    </button>
+
+                    <!-- Dashboard Button (shown if user IS logged in) -->
+                    <button
+                        id="dashboardButton"
+                        class="auth-btn dashboard-btn"
+                        style="display: none"
+                        aria-label="Go to your dashboard"
+                    >
+                        Dashboard
+                    </button>
+
+                    <!-- Logout Button (shown if user IS logged in) -->
+                    <button
+                        id="logoutButton"
+                        class="auth-btn logout-btn"
+                        style="display: none"
+                        aria-label="Logout of your account"
+                    >
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <!-- Email Verification -->
+            <div id="verificationStatus"></div>
+            <!-- Main Message -->
+            <div id="message"></div>
+            <!-- Password Reset Form -->
+            <div>
+                <form id="passwordResetForm" class="passwordResetForm" style="display: none">
+                    <h2 class="register">Password Reset</h2>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        placeholder="Password"
+                    />
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="confirmPassword"
+                        placeholder="Confirm Password"
+                    />
+                    <div id="errorPassword" class="password-error" style="display: none">
+                        <span id="lowercase-message" class="password-error">
+                            <i class="fa-solid fa-circle-xmark red"></i>
+                            <span class="text">Lowercase letters</span>
+                        </span>
+                        <br />
+                        <span id="uppercase-message" class="password-error">
+                            <i class="fa-solid fa-circle-xmark red"></i>
+                            <span class="text">Uppercase letters</span>
+                        </span>
+                        <br />
+                        <span id="number-message" class="password-error">
+                            <i class="fa-solid fa-circle-xmark red"></i>
+                            <span class="text">Numbers</span>
+                        </span>
+                        <br />
+                        <span id="length-message" class="password-error">
+                            <i class="fa-solid fa-circle-xmark red"></i>
+                            <span class="text">6 characters</span>
+                        </span>
+                        <br />
+                    </div>
+
+                    <p id="passwordErrorMessage"></p>
+                    <button id="changePasswordButton" class="btn btn-primary mt-3" type="submit">
+                        Change Password
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer v1.2 -->
+        <footer class="site-footer">
+            <!-- Top Section: Branding + Navigation Links -->
+            <div class="footer-top">
+                <div class="footer-branding">
+                    <!-- Using a white SVG so no CSS filter is needed -->
+                    <img
+                        src="assets/images/pet-trace-white.svg"
+                        alt="Pet Trace"
+                        class="footer-logo"
+                    />
+                </div>
+
+                <nav class="footer-links">
+                    <a
+                        href="terms-of-service.html"
+                        class="footer-link"
+                        aria-label="View terms of service"
+                    >
+                        Terms of Service
+                    </a>
+                    <a
+                        href="privacy-policy.html"
+                        class="footer-link"
+                        aria-label="View privacy policy"
+                    >
+                        Privacy Policy
+                    </a>
+                    <a
+                        href="mailto:contact@pet-trace.com"
+                        class="footer-link"
+                        aria-label="Contact us via email"
+                    >
+                        Contact Us
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Bottom Section: Copyright -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2024 - 2025 Pet Trace by
+                    <a
+                        href="https://humaka.ro"
+                        target="_blank"
+                        class="footer-link"
+                        aria-label="Visit Humaka's website"
+                    >
+                        Humaka
+                    </a>
+                    - All Rights Reserved
+                </p>
+            </div>
+        </footer>
+
+        <script type="module" src="assets/js/main.js"></script>
+        <script type="module" src="assets/js/action.js"></script>
+    </body>
+</html>
