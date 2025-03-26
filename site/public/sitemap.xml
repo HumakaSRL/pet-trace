@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-    <!-- Homepage (High Priority) -->
     <url>
         <loc>https://pet-trace.com/index.html</loc>
         <lastmod>2025-05-03</lastmod>
-        <changefreq>daily</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://pet-trace.com/assets/images/pet-trace-logo.png</image:loc>
         </image:image>
     </url>
 
-    <!-- Dashboard (Important Page) -->
     <url>
-        <loc>https://pet-trace.com/dashboard.html</loc>
+        <loc>https://pet-trace.com/register.html</loc>
         <lastmod>2025-05-03</lastmod>
-        <changefreq>weekly</changefreq>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- Privacy Policy (Lower Priority) -->
+    <url>
+        <loc>https://pet-trace.com/login.html</loc>
+        <lastmod>2025-05-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
     <url>
         <loc>https://pet-trace.com/privacy-policy.html</loc>
         <lastmod>2025-05-03</lastmod>
@@ -29,20 +33,11 @@
         <priority>0.5</priority>
     </url>
 
-    <!-- Terms of Service (Lower Priority) -->
     <url>
         <loc>https://pet-trace.com/terms-of-service.html</loc>
         <lastmod>2025-05-03</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
-    </url>
-
-    <!-- Important Public Pages -->
-    <url>
-        <loc>https://pet-trace.com/register-microchip.html</loc>
-        <lastmod>2025-05-03</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
     </url>
 
 </urlset>
