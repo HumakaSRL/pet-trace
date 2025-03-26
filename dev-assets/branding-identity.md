@@ -1,24 +1,16 @@
 # Pet Trace – Brand Identity
 
----
-
 ## Purpose
 
 To maintain a **free, global pet database** so every microchipped animal can be swiftly and securely identified, ensuring lost pets are reunited with their families without any financial barrier.
-
----
 
 ## Mission
 
 We exist to **end the heartbreak of lost pets** by offering a reliable, cost-free microchip registration and lookup service. Our commitment is that **no one** should ever have to pay to find or protect a beloved pet. We empower anyone with a microchip scanner to access an animal’s details instantly and reunite them with their rightful owner.
 
----
-
 ## Vision
 
 Our vision is to become the **world’s leading microchip registration platform**—the first and most obvious choice whenever a pet is microchipped. We want “Register on Pet Trace” to be second nature for every pet owner, ensuring seamless, stress-free reunions if an animal goes missing.
-
----
 
 ## Values
 
@@ -34,13 +26,9 @@ Our vision is to become the **world’s leading microchip registration platform*
 -   **Kindness**  
     We treat every client and partner with warmth and respect, going above and beyond to support the cause of pet welfare.
 
----
-
 ## About the Business
 
 We are a **software development company** passionate about creating user-centric, innovative solutions. **Pet Trace** is our personal contribution to the global community—a free platform born from our **love for animals** and our resolve to **keep them safe**. It is our gift to pet owners worldwide, fueled by the belief that every pet deserves a secure future.
-
----
 
 ## Target Market
 
@@ -72,8 +60,6 @@ We are a **software development company** passionate about creating user-centric
 -   **Simple Search**: Anyone finding a lost pet can look up the microchip ID on Pet Trace for immediate owner info.
 -   **Collaboration**: Vet clinics and shelters verify the pet’s chip on Pet Trace, then connect quickly with the registered owner.
 
----
-
 ## Unique Value Proposition
 
 -   **Zero Barriers to Entry**  
@@ -81,8 +67,6 @@ We are a **software development company** passionate about creating user-centric
 
 -   **Global Reach**  
     Without fees, Pet Trace attracts users worldwide, creating a far-reaching and diverse database that often surpasses what paid platforms can achieve.
-
----
 
 ## Personality
 
@@ -97,8 +81,6 @@ We are a **software development company** passionate about creating user-centric
 
 -   **Inclusive & Global**  
     Our free, accessible approach unites pet owners worldwide, reflecting our commitment to diversity and community.
-
----
 
 ## Key Messaging
 
