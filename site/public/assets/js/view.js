@@ -144,6 +144,7 @@ async function updateUI() {
             petStatus.style.color = "#ffffff";
             petStatus.style.fontWeight = "bold";
             petStatusElement.style.backgroundColor = "var(--error-color)";
+            missingBanner.style.display = "flex";
 
             ownerInfoDiv.style.backgroundColor = "#ff6100";
             document.querySelectorAll(".contact-highlight").forEach((element) => {
