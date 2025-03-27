@@ -1,3 +1,5 @@
+@import url("fonts.css");
+
 /* -------------------------------
    MAIN.CSS - Global Styles
 ---------------------------------*/
@@ -21,8 +23,8 @@
     --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 
     /* Typography */
-    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --font-stack: "Raleway", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
     /* Spacings */
     --section-padding: 2rem;
@@ -43,7 +45,7 @@
     --footer-background: #f6692c;
     --footer-text: #ffffc1; /* White */
     --input-border: #bad11d; /* Fresh Green */
-    --error-color: #ff2e43; /* Warm Peach for error messaging */
+    --error-color: #ff2525; /* Warm Peach for error messaging */
     --success-color: #2ed5ff; /* Primary Teal for success */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 
