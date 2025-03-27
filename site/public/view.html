@@ -241,8 +241,8 @@
                             style="display: none"
                         />
                     </div>
-                    <div class="info-item">
-                        <strong>Status:</strong>
+                    <div id="petStatusElement" class="info-item">
+                        <strong id="statusLabel">Status:</strong>
                         <span id="petStatus" class="info-detail"></span>
                         <select
                             id="editPetStatus"
@@ -258,11 +258,11 @@
                 </div>
 
                 <!-- Owner Information -->
-                <div class="owner-info">
-                    <h2 class="section-title">Owner Information</h2>
+                <div id="ownerInfoDiv" class="owner-info">
+                    <h2 class="section-title contact-highlight">Owner Information</h2>
                     <div class="info-item">
-                        <strong>Name:</strong>
-                        <span id="ownerName" class="info-detail"></span>
+                        <strong class="contact-highlight">Name:</strong>
+                        <span id="ownerName" class="info-detail contact-highlight"></span>
                         <input
                             type="text"
                             id="editOwnerName"
@@ -271,8 +271,8 @@
                         />
                     </div>
                     <div class="info-item">
-                        <strong>Phone:</strong>
-                        <span id="ownerPhone" class="info-detail"></span>
+                        <strong class="contact-highlight">Phone:</strong>
+                        <span id="ownerPhone" class="info-detail contact-highlight"></span>
                         <input
                             type="tel"
                             id="editOwnerPhone"
@@ -281,8 +281,8 @@
                         />
                     </div>
                     <div class="info-item">
-                        <strong>Email:</strong>
-                        <span id="ownerEmail" class="info-detail"></span>
+                        <strong class="contact-highlight">Email:</strong>
+                        <span id="ownerEmail" class="info-detail contact-highlight"></span>
                         <input
                             type="email"
                             id="editOwnerEmail"
@@ -291,8 +291,8 @@
                         />
                     </div>
                     <div class="info-item">
-                        <strong>Facebook:</strong>
-                        <span id="ownerFacebook" class="info-detail"></span>
+                        <strong class="contact-highlight">Facebook:</strong>
+                        <span id="ownerFacebook" class="info-detail contact-highlight"></span>
                         <input
                             type="url"
                             id="editOwnerFacebook"
@@ -301,8 +301,8 @@
                         />
                     </div>
                     <div class="info-item">
-                        <strong>Instagram:</strong>
-                        <span id="ownerInstagram" class="info-detail"></span>
+                        <strong class="contact-highlight">Instagram:</strong>
+                        <span id="ownerInstagram" class="info-detail contact-highlight"></span>
                         <input
                             type="url"
                             id="editOwnerInstagram"
@@ -311,8 +311,8 @@
                         />
                     </div>
                     <div class="info-item owner-note">
-                        <strong>Owner's Note:</strong>
-                        <span id="ownerNote" class="info-detail"></span>
+                        <strong class="contact-highlight">Owner's Note:</strong>
+                        <span id="ownerNote" class="info-detail contact-highlight"></span>
                         <textarea
                             id="editOwnerNote"
                             class="edit-field"

@@ -137,6 +137,19 @@ async function updateUI() {
         chipInformation.style.display = "flex";
         if (chipData.owner_uid === currentUserUid) editSection.style.display = "flex";
         mainContent.style.display = "block";
+
+        if (chipData.pet_info.pet_status.toLowerCase() === "missing") {
+            statusLabel.style.color = "#ffffff";
+            petStatus.style.color = "#ffffff";
+            petStatus.style.fontWeight = "bold";
+            petStatusElement.style.backgroundColor = "var(--error-color)";
+
+            ownerInfoDiv.style.backgroundColor = "#ff6100";
+            document.querySelectorAll(".contact-highlight").forEach((element) => {
+                element.style.color = "#fff";
+                element.style.fontWeight = "bold";
+            });
+        }
     } else {
         try {
             const urlParams = new URLSearchParams(window.location.search);
