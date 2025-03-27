@@ -95,7 +95,7 @@
 }
 
 .logout-btn:hover {
-    background-color: #c12e3c; /* Darker red on hover */
+    background-color: var(--error-color);
 }
 
 /* MEDIA QUERIES */

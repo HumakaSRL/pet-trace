@@ -384,6 +384,7 @@
 .missing-banner {
     align-items: center;
     justify-content: center;
+    text-align: center;
     background-color: var(--error-color);
     color: var(--text-inverted);
     border-radius: 10px;

@@ -76,7 +76,7 @@ button,
 .btn {
     cursor: pointer;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     background: none;
 }
 
