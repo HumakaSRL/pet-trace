@@ -241,7 +241,7 @@
 /* Cancel / Delete -> Danger Red */
 .cancel-btn,
 .delete-btn {
-    background-color: #dc3545;
+    background-color: var(--error-color);
 }
 
 .cancel-btn:hover,
@@ -388,6 +388,7 @@
     color: var(--text-inverted);
     border-radius: 10px;
     padding: 16px;
+    margin-bottom: 16px;
     font-size: 0.95rem;
     font-weight: 600;
 }
