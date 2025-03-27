@@ -140,6 +140,17 @@
         <!-- Overlay -->
         <div id="viewOverlay" style="display: none"></div>
 
+        <!-- Missing Pet Alert -->
+        <div id="missingPopup" class="missing-popup" style="display: none">
+            <p class="missing-title">Missing Pet Alert</p>
+            <p class="missing-message">
+                This pet has been reported missing. If you’ve found this animal or have any relevant
+                information, please contact the owner immediately using the details listed in the
+                Owner Information section.
+            </p>
+            <button id="dismissAlertButton" class="dismiss-alert-btn">OK</button>
+        </div>
+
         <!-- Loading spinner -->
         <div id="loadingSpinner" class="loading-spinner" style="display: none">
             <!-- Animated SVG spinner -->
@@ -251,7 +262,7 @@
                             style="display: none"
                         >
                             <option value="alive" selected>Alive</option>
-                            <option value="missing">Missing (Lost or Found)</option>
+                            <option value="missing">Missing</option>
                             <option value="deceased">Deceased</option>
                         </select>
                     </div>

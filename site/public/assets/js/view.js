@@ -139,6 +139,7 @@ async function updateUI() {
         mainContent.style.display = "block";
 
         if (chipData.pet_info.pet_status.toLowerCase() === "missing") {
+            showMissingPopup();
             statusLabel.style.color = "#ffffff";
             petStatus.style.color = "#ffffff";
             petStatus.style.fontWeight = "bold";
@@ -840,4 +841,13 @@ function displayLoadingSpinner() {
 function hideLoadingSpinner() {
     loadingSpinner.style.display = "none";
     viewOverlay.style.display = "none";
+}
+
+function showMissingPopup() {
+    missingPopup.style.display = "flex";
+    viewOverlay.style.display = "block";
+    dismissAlertButton.addEventListener("click", () => {
+        missingPopup.style.display = "none";
+        viewOverlay.style.display = "none";
+    });
 }
