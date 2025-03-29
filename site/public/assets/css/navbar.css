@@ -91,11 +91,11 @@
 
 /* LOGOUT BUTTON (Distinct Danger Color) */
 .logout-btn {
-    background-color: #dc3545; /* Bootstrap-like "danger" red */
+    background-color: var(--error-color);
 }
 
 .logout-btn:hover {
-    background-color: var(--error-color);
+    background-color: var(--error-color-darker);
 }
 
 /* MEDIA QUERIES */

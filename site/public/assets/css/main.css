@@ -18,7 +18,6 @@
     --footer-background: #f6692c;
     --footer-text: #ffffc1; /* White */
     --input-border: #bad11d; /* Fresh Green */
-    --error-color: #ff2525; /* Warm Peach for error messaging */
     --success-color: #2ed5ff; /* Primary Teal for success */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 
@@ -26,6 +25,9 @@
     --yellow-accent: #efe63e;
 
     --accent-color: #ff6e2e;
+
+    --error-color: #ff2525;
+    --error-color-darker: #a71d2a;
 
     /* Typography */
     --font-stack: "Raleway", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
