@@ -79,7 +79,31 @@ body::before {
     display: flex;
     gap: 16px;
     justify-content: center;
-    margin: 32px 0;
+    margin: 28px 5vw;
+    /* margin: 32px 0; */
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px 18px;
+    /* padding: 16px 32px; */
+    border: 2px solid var(--primary-color-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    align-items: center;
+}
+
+.option-card.active {
+    background: var(--primary-color-dark);
+    color: white;
+}
+
+.option-card h3,
+.option-card p {
+    text-align: center;
 }
 
 .option-card {
@@ -92,27 +116,6 @@ body::before {
 
 .option-card.active {
     background: var(--primary-color-dark);
-    color: white;
-}
-
-/* Registration Options */
-.registration-options {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin: 32px 0;
-}
-
-.option-card {
-    padding: 16px 32px;
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.option-card.active {
-    background: var(--primary-color);
     color: white;
 }
 
@@ -330,6 +333,11 @@ body::before {
     text-align: center;
 }
 
+.donation-text p {
+    font-family: "SourGummy";
+    font-weight: 300;
+}
+
 .donation-section h3 {
     color: var(--heading-color);
     font-size: 1.5rem;
@@ -429,7 +437,7 @@ body::before {
 
     .donation-content {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         text-align: left;
     }
 
@@ -441,7 +449,6 @@ body::before {
 
     .donation-text {
         text-align: left;
-        flex: 1;
         padding-right: 3rem;
     }
 
@@ -542,8 +549,7 @@ body::before {
 }
 
 .option-card {
-    display: flex
-;
+    display: flex;
     flex-direction: column;
     place-content: space-evenly;
     padding: 8px 18px;
