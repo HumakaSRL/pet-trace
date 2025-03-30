@@ -87,12 +87,16 @@ function sleep(ms) {
 }
 
 function showForm(formType) {
-    // Get all elements
     const petOwnerCard = document.getElementById("petOwnerCard");
     const shelterClinicCard = document.getElementById("shelterClinicCard");
     const petOwnerAction = document.getElementById("petOwnerAction");
     const shelterClinicAction = document.getElementById("shelterClinicAction");
+    const actionContainer = document.querySelector(".action-container");
     const currentActiveCard = document.querySelector(".option-card.active");
+
+    // Hide all action contents first
+    petOwnerAction.style.display = "none";
+    shelterClinicAction.style.display = "none";
 
     // Check if clicking the already active card
     if (
@@ -100,23 +104,35 @@ function showForm(formType) {
         (formType === "shelterClinic" && currentActiveCard === shelterClinicCard)
     ) {
         currentActiveCard.classList.remove("active");
-        petOwnerAction.style.display = "none";
-        shelterClinicAction.style.display = "none";
+        actionContainer.classList.remove("active");
         return;
     }
 
-    // Remove active class from all cards and hide all actions
+    // Remove active class from all cards
     document.querySelectorAll(".option-card").forEach((card) => card.classList.remove("active"));
-    document
-        .querySelectorAll(".action-content")
-        .forEach((action) => (action.style.display = "none"));
+    actionContainer.classList.remove("active");
 
-    // Activate selected option
-    if (formType === "petOwner") {
-        petOwnerCard.classList.add("active");
-        petOwnerAction.style.display = "block";
-    } else if (formType === "shelterClinic") {
-        shelterClinicCard.classList.add("active");
-        shelterClinicAction.style.display = "block";
-    }
+    // Show and measure the target content
+    const targetContent = formType === "petOwner" ? petOwnerAction : shelterClinicAction;
+    targetContent.style.display = "block";
+    const targetHeight = targetContent.scrollHeight + 40; // + padding
+    targetContent.style.display = "none"; // Hide it again for animation
+
+    // Set container height and make visible
+    actionContainer.style.setProperty("--current-height", `${targetHeight}px`);
+    actionContainer.classList.add("active");
+
+    // Show the correct content
+    targetContent.style.display = "block";
+
+    // Activate with slight delay
+    setTimeout(() => {
+        if (formType === "petOwner") {
+            petOwnerCard.classList.add("active");
+            petOwnerAction.classList.add("active");
+        } else {
+            shelterClinicCard.classList.add("active");
+            shelterClinicAction.classList.add("active");
+        }
+    }, 10);
 }

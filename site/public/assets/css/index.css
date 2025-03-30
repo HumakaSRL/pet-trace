@@ -107,19 +107,39 @@ body::before {
     color: white;
 }
 
-/* Action Section Styles */
+/* Action Container */
 .action-container {
-    margin: 20px auto;
     max-width: 600px;
-    transition: all 0.3s ease;
+    margin: 0 auto;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+}
+
+.action-container.active {
+    height: var(--current-height);
+    margin: 20px auto;
+}
+
+.action-content {
+    display: none; /* Initially hidden */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-out 0.15s;
+}
+
+.action-content.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .action-card {
     padding: 25px;
     border-radius: 10px;
-    background: #f8f9fa;
+    background: white;
     text-align: center;
-    border: 1px solid #e0e0e0;
+    border: 2px solid var(--primary-color-dark);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .action-card h4 {
@@ -142,6 +162,9 @@ body::before {
     border-radius: 50px;
     font-weight: 500;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
 .action-btn:hover {
