@@ -83,10 +83,6 @@ body::before {
     /* margin: 32px 0; */
 }
 
-
-
-
-
 .option-card {
     display: flex;
     flex-direction: column;
@@ -484,7 +480,6 @@ body::before {
     }
 }
 
-
 /* progress register pet chip */
 .process {
     display: flex;
@@ -507,7 +502,7 @@ body::before {
 
 .process-cards:hover {
     transform: translateY(-8px);
-    border-color: #FF9E7D;
+    border-color: #ff9e7d;
     /* Coral accent */
 }
 
@@ -520,9 +515,9 @@ body::before {
 .card-title {
     font-weight: 700;
     font-size: 18px;
-    color: #2E2E2E;
+    color: #2e2e2e;
     margin-bottom: 12px;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 .card-text {
@@ -548,7 +543,7 @@ body::before {
 
 /* Optional: Replace arrows with paw prints */
 .dash-arrow {
-    content: url('/assets/images/paw-arrow.svg');
+    content: url("/assets/images/paw-arrow.svg");
     /* Custom SVG paw/arrow */
 }
 
