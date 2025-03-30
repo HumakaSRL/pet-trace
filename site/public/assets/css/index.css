@@ -302,6 +302,11 @@ body::before {
     text-align: center;
 }
 
+.donation-text p {
+    font-family: "SourGummy";
+    font-weight: 300;
+}
+
 .donation-section h3 {
     color: var(--heading-color);
     font-size: 1.5rem;
@@ -401,7 +406,7 @@ body::before {
 
     .donation-content {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         text-align: left;
     }
 
@@ -413,7 +418,6 @@ body::before {
 
     .donation-text {
         text-align: left;
-        flex: 1;
         padding-right: 3rem;
     }
 
