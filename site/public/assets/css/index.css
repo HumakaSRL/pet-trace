@@ -193,6 +193,7 @@ body::before {
 /* 2. Steps / How It Works Section */
 .steps-section {
     padding: var(--section-padding) 0;
+    margin: 0 5vw;
     text-align: center;
 }
 
@@ -370,31 +371,6 @@ body::before {
     background-color: var(--primary-color-dark);
 }
 
-/* 6. Partnership Section */
-.partnership-section {
-    padding: var(--section-padding) 0;
-}
-
-.partnership-container {
-    text-align: center;
-    width: var(--container-width);
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.partnership-section h3 {
-    color: var(--heading-color);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-.partnership-section p {
-    max-width: 600px;
-    margin: 0 auto 1.5rem auto;
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
 /* 7. Media Queries for Larger Screens */
 @media (min-width: 768px) {
     .hero-title {
@@ -481,19 +457,20 @@ body::before {
 
     .steps-section,
     .benefits-section,
-    .about-section,
-    .partnership-section {
+    .about-section {
         padding: 4rem 0;
     }
 }
 
-/* progress register pet chip */
+/* ==============================================
+   5. HOW IT WORKS SECTION - MOBILE FIRST
+   ============================================== */
 .process {
     display: flex;
-    justify-content: space-between;
-    position: relative;
+    flex-direction: column; /* Stack cards vertically on mobile */
     gap: 20px;
-    padding: 40px 0;
+    padding: 30px 0;
+    width: 100%;
 }
 
 .process-cards {
@@ -502,26 +479,29 @@ body::before {
     padding: 24px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     text-align: center;
-    flex: 1;
-    transition: transform 0.3s;
+    transition: transform 0.3s, border-color 0.3s;
     border: 2px solid #f0f0f0;
+    width: 100%; /* Full width on mobile */
+    box-sizing: border-box;
 }
 
-.process-cards:hover {
-    transform: translateY(-8px);
-    border-color: #ff9e7d;
-    /* Coral accent */
+/* Keep hover effects for devices that support hover */
+@media (hover: hover) {
+    .process-cards:hover {
+        transform: translateY(-8px);
+        border-color: #ff9e7d;
+    }
 }
 
 .card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 16px;
+    width: 50px; /* Slightly smaller on mobile */
+    height: 50px;
+    margin: 0 auto 16px; /* Center the icon */
 }
 
 .card-title {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.1rem; /* Use rem for better scaling */
     color: #2e2e2e;
     margin-bottom: 12px;
     font-family: "Nunito", sans-serif;
@@ -529,27 +509,39 @@ body::before {
 
 .card-text {
     color: #666;
-    font-size: 14px;
+    font-size: 0.875rem; /* 14px equivalent in rem */
     line-height: 1.5;
 }
 
-.arrows {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 80px;
-    z-index: -1;
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+    .process {
+        flex-direction: row; /* Side-by-side on larger screens */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        justify-content: center;
+    }
+
+    .process-cards {
+        flex: 1;
+        min-width: 250px; /* Minimum card width */
+        max-width: 300px; /* Maximum card width */
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+    }
 }
 
-.dash-arrow {
-    width: 80px;
-    opacity: 0.6;
-}
+/* Desktop breakpoint */
+@media (min-width: 1024px) {
+    .process {
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 40px 0;
+    }
 
-/* Optional: Replace arrows with paw prints */
-.dash-arrow {
-    content: url("/assets/images/paw-arrow.svg");
-    /* Custom SVG paw/arrow */
+    .process-cards {
+        padding: 24px;
+    }
 }

@@ -58,7 +58,6 @@
         />
 
         <!-- Apple Touch Icons (iPhone, iPad) -->
-        <!-- Only include the lines for sizes you actually have -->
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png" />
@@ -109,12 +108,6 @@
         <script defer src="/__/firebase/11.0.1/firebase-storage-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
         <script defer src="/__/firebase/init.js"></script>
-
-        <!-- Font Awesome -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
     </head>
 
     <body>
@@ -269,49 +262,58 @@
             <section class="steps-section">
                 <h2>How Pet Trace Works</h2>
                 <div class="process">
+                    <!-- STEP 1 -->
                     <div class="process-cards">
                         <div class="card-icon">
-                            <i class="fas fa-paw fa-fw"></i>
-                            <!-- Alternative: "fa-file-alt" for form -->
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="#ff9e7d">
+                                <path
+                                    d="M19 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-7 3c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm6 12H6v-1.5c0-1.5 3-2.25 4.5-2.25s4.5.75 4.5 2.25V17z"
+                                />
+                            </svg>
                         </div>
                         <div class="card-info">
-                            <p class="card-title">1. Register Your Pet</p>
+                            <p class="card-title">1. Easy Registration</p>
                             <p class="card-text">
-                                Register your pet’s microchip through our simple online form—fast
-                                and secure.
+                                Pet owners and professionals register pets in seconds with just the
+                                microchip ID and basic contact info.
                             </p>
                         </div>
                     </div>
+
+                    <!-- STEP 2 -->
                     <div class="process-cards">
                         <div class="card-icon">
-                            <i class="fas fa-qrcode fa-fw"></i>
-                            <!-- Pet-themed alternative: "fa-qrcode" -->
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="#ff9e7d">
+                                <path
+                                    d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8z"
+                                />
+                            </svg>
                         </div>
                         <div class="card-info">
-                            <p class="card-title">2. Quick ID Search</p>
+                            <p class="card-title">2. Instant ID Lookup</p>
                             <p class="card-text">
-                                If your pet goes missing, anyone can scan the microchip ID to find
-                                your contact details.
+                                Anyone who finds your pet can immediately access your secure contact
+                                details by searching the microchip ID.
                             </p>
                         </div>
                     </div>
+
+                    <!-- STEP 3 -->
                     <div class="process-cards">
                         <div class="card-icon">
-                            <i class="fas fa-bell fa-fw"></i>
-                            <!-- Alternative: "fa-heart" for reunion -->
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="#ff9e7d">
+                                <path
+                                    d="M17.726 13.02 14 16H9v-1h4.065a.5.5 0 0 0 .416-.777l-.888-1.332A2 2 0 0 0 10.93 12H3a1 1 0 0 0-1 1v6a2 2 0 0 0 2 2h9.639a3 3 0 0 0 2.258-1.024L22 13l-1.452-1.526-2.822 1.546zM15.403 12a3 3 0 0 0 2.88-2.176l1.71-6.827-1.974-.494-1.705 6.818A1 1 0 0 1 15.323 10H3a1 1 0 0 0-1 1v1h13.403z"
+                                />
+                            </svg>
                         </div>
                         <div class="card-info">
-                            <p class="card-title">3. Instant Reunion</p>
+                            <p class="card-title">3. Quick Reunion</p>
                             <p class="card-text">
-                                The finder sees your info, and you get an immediate alert for a
-                                happy reunion!
+                                The finder sees your contact information immediately and can reach
+                                out to you directly for a quick reunion.
                             </p>
                         </div>
-                    </div>
-                    <div class="arrows">
-                        <i class="fas fa-arrow-right"></i>
-                        <!-- Optional: Replace with "fa-paw" for playfulness -->
-                        <i class="fas fa-arrow-right"></i>
                     </div>
                 </div>
             </section>
@@ -347,25 +349,6 @@
                 </ul>
             </section>
 
-            <!-- ABOUT + FUTURE FEATURES SECTION -->
-            <section class="about-section">
-                <h3>Beyond a Chip Database</h3>
-                <p>
-                    Pet Trace is more than just a microchip lookup. We’re expanding to include:
-                    <strong>vaccine tracking</strong>
-                    ,
-                    <strong>medical history</strong>
-                    , and
-                    <strong>emergency contacts</strong>
-                    —all in one secure dashboard. Protect your pet’s future by joining today.
-                </p>
-                <div class="about-cta">
-                    <a href="/register.html" class="cta-btn secondary-cta btn">
-                        Create Your Free Account
-                    </a>
-                </div>
-            </section>
-
             <!-- DONATION SECTION - SUPPORT OUR MISSION -->
             <section class="donation-section">
                 <div class="donation-content">
@@ -396,16 +379,22 @@
                 </div>
             </section>
 
-            <!-- PARTNERSHIP SECTION -->
-            <section class="partnership-section">
-                <div class="partnership-container">
-                    <h3>For Veterinary Clinics & Shelters</h3>
-                    <p>
-                        Partner with us to provide instant microchip lookups and help reunite lost
-                        pets with their families. Join our growing network of trusted clinics around
-                        the world.
-                    </p>
-                    <a href="mailto:contact@pet-trace.com" class="contact-btn btn">Contact Us</a>
+            <!-- ABOUT + FUTURE FEATURES SECTION -->
+            <section class="about-section">
+                <h3>Beyond a Chip Database</h3>
+                <p>
+                    Pet Trace is more than just a microchip lookup. We’re expanding to include:
+                    <strong>vaccine tracking</strong>
+                    ,
+                    <strong>medical history</strong>
+                    , and
+                    <strong>emergency contacts</strong>
+                    —all in one secure dashboard. Protect your pet’s future by joining today.
+                </p>
+                <div class="about-cta">
+                    <a href="/register.html" class="cta-btn secondary-cta btn">
+                        Create Your Free Account
+                    </a>
                 </div>
             </section>
         </main>
