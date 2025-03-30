@@ -22,19 +22,25 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ffe5aee6; /* Cream color with 60% opacity */
-    z-index: -1; /* Places it between the background and content */
+    background-color: #ffe5aee6;
+    /* Cream color with 60% opacity */
+    z-index: -1;
+    /* Places it between the background and content */
 }
 
 /* 1. Hero Section */
 .hero-section {
     padding: var(--section-padding) 0;
     text-align: center;
-    color: #ffffff; /* White text for contrast */
+    color: #ffffff;
+    /* White text for contrast */
     background-image: url("/assets/images/free/cute-pet.avif");
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents repeating */
+    background-size: cover;
+    /* Ensures the image covers the entire section */
+    background-position: center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents repeating */
 }
 
 .hero-content {
@@ -104,12 +110,17 @@ body::before {
     text-align: center;
 }
 
-.option-card h3 {
-    text-align: center;
+.option-card {
+    padding: 16px 32px;
+    border: 2px solid var(--primary-color-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.option-card p {
-    font-size: 12px;
+.option-card.active {
+    background: var(--primary-color-dark);
+    color: white;
 }
 
 /* Action Container */
@@ -127,7 +138,8 @@ body::before {
 }
 
 .action-content {
-    display: none; /* Initially hidden */
+    display: none;
+    /* Initially hidden */
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease-out 0.15s;
@@ -143,12 +155,12 @@ body::before {
     border-radius: 10px;
     background: white;
     text-align: center;
-    border: 2px solid var(--primary-color-dark);
+    border: 2px solid var(--primary-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .action-card h4 {
-    color: var(--primary-color-dark);
+    color: var(--primary-color);
     margin-bottom: 12px;
     font-size: 1.3rem;
 }
@@ -173,7 +185,7 @@ body::before {
 }
 
 .action-btn:hover {
-    background-color: var(--primary-color-dark);
+    background-color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -210,7 +222,7 @@ body::before {
     background-color: #ffffff;
     border-radius: 6px;
     padding: 1rem;
-    box-shadow: 0 2px 8px var(--shadow-color);
+    box-shadow: 0 2px 8px var(--shadow-color-dark);
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -346,7 +358,7 @@ body::before {
 }
 
 .donation-btn {
-    background-color: var(--primary-color-dark);
+    background-color: var(--primary-color);
     color: white;
     padding: 0.8rem 2rem;
     border-radius: 50px;
@@ -470,4 +482,86 @@ body::before {
     .partnership-section {
         padding: 4rem 0;
     }
+}
+
+
+/* progress register pet chip */
+.process {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.process-cards {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    flex: 1;
+    transition: transform 0.3s;
+    border: 2px solid #f0f0f0;
+}
+
+.process-cards:hover {
+    transform: translateY(-8px);
+    border-color: #FF9E7D;
+    /* Coral accent */
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #2E2E2E;
+    margin-bottom: 12px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.card-text {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.arrows {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    z-index: -1;
+}
+
+.dash-arrow {
+    width: 80px;
+    opacity: 0.6;
+}
+
+/* Optional: Replace arrows with paw prints */
+.dash-arrow {
+    content: url('/assets/images/paw-arrow.svg');
+    /* Custom SVG paw/arrow */
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    place-content: space-evenly;
+    padding: 8px 18px;
+    /* padding: 16px 32px; */
+    border: 2px solid var(--primary-color-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    justify-content: space-around;
+    align-items: center;
 }

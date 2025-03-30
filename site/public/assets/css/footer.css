@@ -5,7 +5,7 @@
 
 /* Overall Footer Container */
 .site-footer {
-    background-color: var(--footer-background);
+    background-color: var(--primary-color-dark);
     color: var(--footer-text);
     padding: 2rem 1rem;
     font-size: 0.95rem;
