@@ -69,6 +69,98 @@ body::before {
     margin-top: 1rem;
 }
 
+/* 2. Registration Section  */
+.registration-options {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+.option-card {
+    padding: 16px 32px;
+    border: 2px solid var(--primary-color-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option-card.active {
+    background: var(--primary-color-dark);
+    color: white;
+}
+
+/* Registration Options */
+.registration-options {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+.option-card {
+    padding: 16px 32px;
+    border: 2px solid var(--primary-color-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option-card.active {
+    background: var(--primary-color-dark);
+    color: white;
+}
+
+/* Action Section Styles */
+.action-container {
+    margin: 20px auto;
+    max-width: 600px;
+    transition: all 0.3s ease;
+}
+
+.action-card {
+    padding: 25px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.action-card h4 {
+    color: var(--primary-color-dark);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.action-card p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.small-note {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 12px;
+    font-style: italic;
+}
+
 /* 2. Steps / How It Works Section */
 .steps-section {
     padding: var(--section-padding) 0;
@@ -181,24 +273,67 @@ body::before {
     line-height: 1.4;
 }
 
-/* 5. Donation Section */
+/* ==============================================
+   5. DONATION SECTION - MOBILE FIRST
+   ============================================== */
+
 .donation-section {
-    padding: var(--section-padding) 0;
-    text-align: center;
+    padding: var(--section-padding);
     background-color: #ffffff;
+}
+
+.donation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.donation-image {
+    width: 180px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.donation-text {
+    text-align: center;
 }
 
 .donation-section h3 {
     color: var(--heading-color);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .donation-section p {
+    color: #555;
     max-width: 600px;
-    margin: 0 auto 1.5rem auto;
-    font-size: 1rem;
-    line-height: 1.4;
+    margin: 0 auto 1.8rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.donation-btn {
+    background-color: var(--primary-color-dark);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.donation-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donation-btn:active {
+    background-color: var(--primary-color-dark);
 }
 
 /* 6. Partnership Section */
@@ -262,6 +397,34 @@ body::before {
         width: inherit;
         margin: auto;
     }
+
+    .donation-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .donation-image {
+        order: 2;
+        width: 260px;
+        margin-bottom: 0;
+    }
+
+    .donation-text {
+        text-align: left;
+        flex: 1;
+        padding-right: 3rem;
+    }
+
+    .donation-section h3 {
+        font-size: 1.8rem;
+    }
+
+    .donation-section p {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 1.1rem;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -276,7 +439,6 @@ body::before {
     .steps-section,
     .benefits-section,
     .about-section,
-    .donation-section,
     .partnership-section {
         padding: 4rem 0;
     }

@@ -8,6 +8,8 @@
 :root {
     /* Color Palette */
     --primary-color: #2ed5ff; /* Tranquil Teal */
+    --primary-color-dark: #1eb3d8;
+
     --secondary-color: #ff2e78; /* Warm Peach */
 
     --background-color: #ffe5ae; /* Light Cream */
@@ -118,7 +120,6 @@ button,
 .search-btn,
 .cta-btn,
 .secondary-cta,
-.donation-btn,
 .contact-btn {
     display: inline-block;
     color: #fff;
@@ -139,10 +140,6 @@ button,
     background-color: var(--secondary-color);
 }
 
-.donation-btn {
-    background-color: var(--secondary-color);
-}
-
 .contact-btn {
     background-color: var(--accent-color);
 }
@@ -156,10 +153,6 @@ button,
 }
 
 .secondary-cta:hover {
-    background-color: #ffac97;
-}
-
-.donation-btn:hover {
     background-color: #ffac97;
 }
 
