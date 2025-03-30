@@ -65,6 +65,27 @@ body::before {
     margin-top: 1rem;
 }
 
+/* Registration Steps */
+.registration-options {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+.option-card {
+    padding: 16px 32px;
+    border: 2px solid var(--primary-color-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option-card.active {
+    background: var(--primary-color-dark);
+    color: white;
+}
+
 /* 2. Steps / How It Works Section */
 .steps-section {
     padding: var(--section-padding) 0;

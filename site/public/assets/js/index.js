@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+    petOwnerCard.addEventListener("click", () => {
+        showForm("petOwner");
+    });
+
+    shelterClinicCard.addEventListener("click", () => {
+        showForm("shelterClinic");
+    });
+
     const donateBodyButton = document.getElementById("donateBodyButton");
     if (donateBodyButton)
         donateBodyButton.addEventListener("click", (e) => {
@@ -76,4 +84,19 @@ async function checkChip(chip) {
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function showForm(formType) {
+    document.querySelectorAll(".option-card").forEach((card) => card.classList.remove("active"));
+    document
+        .querySelectorAll(".registration-form")
+        .forEach((form) => (form.style.display = "none"));
+
+    if (formType === "petOwner") {
+        // document.querySelector("#petOwnerForm").style.display = "block";
+        document.querySelector(".option-card:first-child").classList.add("active");
+    } else if (formType === "shelterClinic") {
+        // document.querySelector("#vetShelterForm").style.display = "block";
+        document.querySelector(".option-card:last-child").classList.add("active");
+    }
 }
