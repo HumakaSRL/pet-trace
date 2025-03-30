@@ -87,16 +87,36 @@ function sleep(ms) {
 }
 
 function showForm(formType) {
+    // Get all elements
+    const petOwnerCard = document.getElementById("petOwnerCard");
+    const shelterClinicCard = document.getElementById("shelterClinicCard");
+    const petOwnerAction = document.getElementById("petOwnerAction");
+    const shelterClinicAction = document.getElementById("shelterClinicAction");
+    const currentActiveCard = document.querySelector(".option-card.active");
+
+    // Check if clicking the already active card
+    if (
+        (formType === "petOwner" && currentActiveCard === petOwnerCard) ||
+        (formType === "shelterClinic" && currentActiveCard === shelterClinicCard)
+    ) {
+        currentActiveCard.classList.remove("active");
+        petOwnerAction.style.display = "none";
+        shelterClinicAction.style.display = "none";
+        return;
+    }
+
+    // Remove active class from all cards and hide all actions
     document.querySelectorAll(".option-card").forEach((card) => card.classList.remove("active"));
     document
-        .querySelectorAll(".registration-form")
-        .forEach((form) => (form.style.display = "none"));
+        .querySelectorAll(".action-content")
+        .forEach((action) => (action.style.display = "none"));
 
+    // Activate selected option
     if (formType === "petOwner") {
-        // document.querySelector("#petOwnerForm").style.display = "block";
-        document.querySelector(".option-card:first-child").classList.add("active");
+        petOwnerCard.classList.add("active");
+        petOwnerAction.style.display = "block";
     } else if (formType === "shelterClinic") {
-        // document.querySelector("#vetShelterForm").style.display = "block";
-        document.querySelector(".option-card:last-child").classList.add("active");
+        shelterClinicCard.classList.add("active");
+        shelterClinicAction.style.display = "block";
     }
 }

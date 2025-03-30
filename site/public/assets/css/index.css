@@ -65,7 +65,7 @@ body::before {
     margin-top: 1rem;
 }
 
-/* Registration Steps */
+/* 2. Registration Section  */
 .registration-options {
     display: flex;
     gap: 16px;
@@ -84,6 +84,77 @@ body::before {
 .option-card.active {
     background: var(--primary-color-dark);
     color: white;
+}
+
+/* Registration Options */
+.registration-options {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 32px 0;
+}
+
+.option-card {
+    padding: 16px 32px;
+    border: 2px solid var(--primary-color-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option-card.active {
+    background: var(--primary-color-dark);
+    color: white;
+}
+
+/* Action Section Styles */
+.action-container {
+    margin: 20px auto;
+    max-width: 600px;
+    transition: all 0.3s ease;
+}
+
+.action-card {
+    padding: 25px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.action-card h4 {
+    color: var(--primary-color-dark);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.action-card p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.small-note {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 12px;
+    font-style: italic;
 }
 
 /* 2. Steps / How It Works Section */
