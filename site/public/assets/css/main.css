@@ -7,21 +7,32 @@
 /* 1. Root Variables - ORIGINAL */
 :root {
     /* Color Palette */
-    --primary-color: #2ed5ff; /* Tranquil Teal */
+    --primary-color: #2ed5ff;
+    /* Tranquil Teal */
     --primary-color-dark: #1eb3d8;
 
-    --secondary-color: #ff2e78; /* Warm Peach */
+    --secondary-color: #ff2e78;
+    /* Warm Peach */
 
-    --background-color: #ffe5ae; /* Light Cream */
-    --heading-color: #353324; /* Gentle Lavender */
-    --text-color: #5f5e50; /* Dark Gray */
-    --text-inverted: #fff; /* White so it's visible on dark backgrounds */
-    --highlight-color: #d72eff; /* Crisp Purple for special highlights */
+    --background-color: #ffe5ae;
+    /* Light Cream */
+    --heading-color: #353324;
+    /* Gentle Lavender */
+    --text-color: #5f5e50;
+    /* Dark Gray */
+    --text-inverted: #fff;
+    /* White so it's visible on dark backgrounds */
+    --highlight-color: #d72eff;
+    /* Crisp Purple for special highlights */
     --footer-background: #f6692c;
-    --footer-text: #ffffc1; /* White */
-    --input-border: #bad11d; /* Fresh Green */
-    --success-color: #2ed5ff; /* Primary Teal for success */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    --footer-text: #ffffc1;
+    /* White */
+    --input-border: #bad11d;
+    /* Fresh Green */
+    --success-color: #2ed5ff;
+    /* Primary Teal for success */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    /* Light shadow for depth */
 
     /* Colors and their corresponding accents */
     --yellow-accent: #efe63e;
@@ -37,8 +48,21 @@
 
     /* Spacings */
     --section-padding: 2rem;
-    --container-width: 95%; /* For a mobile-first container approach */
-    --max-width: 1200px; /* For larger screen constraints */
+    --container-width: 95%;
+    /* For a mobile-first container approach */
+    --max-width: 1200px;
+    /* For larger screen constraints */
+
+
+    /* Experimental */
+    --primary-color: #393ba7;
+    --primary-color-dark: #1e1f57;
+
+    --secondary-color: #FF6633;
+    --secondary-color-dark: #CC3300;
+
+    --heading-color: #353324;
+    --text-color: #5f5e50;
 }
 
 /* 2. Global Reset & Base */
@@ -253,7 +277,8 @@ button,
     }
 
     #acceptNecessaryCookies {
-        margin-bottom: 0; /* Remove the bottom margin if they're side by side */
+        margin-bottom: 0;
+        /* Remove the bottom margin if they're side by side */
     }
 }
 

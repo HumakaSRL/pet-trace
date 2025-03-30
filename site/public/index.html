@@ -144,6 +144,12 @@
         <script defer src="/__/firebase/11.0.1/firebase-storage-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
         <script defer src="/__/firebase/init.js"></script>
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
     </head>
 
     <body>
@@ -173,7 +179,7 @@
                     <!-- Login Button (shown if user is NOT logged in) -->
                     <button
                         id="loginButton"
-                        class="auth-btn"
+                        class="auth-btn btn"
                         style="display: none"
                         aria-label="Login to your account"
                     >
@@ -236,7 +242,7 @@
                         <button
                             id="searchButton"
                             type="submit"
-                            class="search-btn"
+                            class="search-btn btn"
                             aria-label="Search microchip ID"
                         >
                             Search
@@ -295,25 +301,50 @@
             <!-- HOW IT WORKS SECTION -->
             <section class="steps-section">
                 <h2>How Pet Trace Works</h2>
-                <div class="steps-container">
-                    <div class="step-item">
-                        <span class="step-icon">1</span>
-                        <p class="step-text">
-                            Register your pet’s microchip through our simple online form.
-                        </p>
+                <div class="process">
+                    <div class="process-cards">
+                        <div class="card-icon">
+                            <i class="fas fa-paw fa-fw"></i>
+                            <!-- Alternative: "fa-file-alt" for form -->
+                        </div>
+                        <div class="card-info">
+                            <p class="card-title">1. Register Your Pet</p>
+                            <p class="card-text">
+                                Register your pet’s microchip through our simple online form—fast
+                                and secure.
+                            </p>
+                        </div>
                     </div>
-                    <div class="step-item">
-                        <span class="step-icon">2</span>
-                        <p class="step-text">
-                            If your pet goes missing, anyone can quickly search the microchip ID.
-                        </p>
+                    <div class="process-cards">
+                        <div class="card-icon">
+                            <i class="fas fa-qrcode fa-fw"></i>
+                            <!-- Pet-themed alternative: "fa-qrcode" -->
+                        </div>
+                        <div class="card-info">
+                            <p class="card-title">2. Quick ID Search</p>
+                            <p class="card-text">
+                                If your pet goes missing, anyone can scan the microchip ID to find
+                                your contact details.
+                            </p>
+                        </div>
                     </div>
-                    <div class="step-item">
-                        <span class="step-icon">3</span>
-                        <p class="step-text">
-                            The finder sees your contact info, and you get an immediate notification
-                            for a happy reunion.
-                        </p>
+                    <div class="process-cards">
+                        <div class="card-icon">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <!-- Alternative: "fa-heart" for reunion -->
+                        </div>
+                        <div class="card-info">
+                            <p class="card-title">3. Instant Reunion</p>
+                            <p class="card-text">
+                                The finder sees your info, and you get an immediate alert for a
+                                happy reunion!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="arrows">
+                        <i class="fas fa-arrow-right"></i>
+                        <!-- Optional: Replace with "fa-paw" for playfulness -->
+                        <i class="fas fa-arrow-right"></i>
                     </div>
                 </div>
             </section>
