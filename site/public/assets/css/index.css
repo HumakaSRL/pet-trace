@@ -73,20 +73,39 @@ body::before {
     display: flex;
     gap: 16px;
     justify-content: center;
-    margin: 32px 0;
+    margin: 28px 5vw;
+    /* margin: 32px 0; */
 }
 
 .option-card {
-    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px 18px;
+    /* padding: 16px 32px; */
     border: 2px solid var(--primary-color-dark);
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    align-items: center;
 }
 
 .option-card.active {
     background: var(--primary-color-dark);
     color: white;
+}
+
+.option-card h3,
+.option-card p {
+    text-align: center;
+}
+
+.option-card h3 {
+    text-align: center;
+}
+
+.option-card p {
+    font-size: 12px;
 }
 
 /* Action Container */
