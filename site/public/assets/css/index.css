@@ -28,10 +28,14 @@ body::before {
 
 /* 1. Hero Section */
 .hero-section {
-    background: var(--primary-color);
     padding: var(--section-padding) 0;
     text-align: center;
-    color: #ffffff; /* White text for contrast on teal background */
+    color: #ffffff; /* White text for contrast */
+    
+    background-image: url('/assets/images/free/cute-pet.avif');
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
 }
 
 .hero-content {
