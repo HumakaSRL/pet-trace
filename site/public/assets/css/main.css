@@ -47,7 +47,7 @@
         Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
     /* Spacings */
-    --section-padding: 2rem;
+    --section-padding: 32px;
     --container-width: 95%;
     /* For a mobile-first container approach */
     --max-width: 1200px;

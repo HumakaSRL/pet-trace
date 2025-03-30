@@ -33,14 +33,12 @@ body::before {
     padding: var(--section-padding) 0;
     text-align: center;
     color: #ffffff;
-    /* White text for contrast */
-    background-image: url("/assets/images/free/cute-pet.avif");
+    background-color: var(--primary-color);
+
+    /* background-image: url("/assets/images/free/cute-pet.avif");
     background-size: cover;
-    /* Ensures the image covers the entire section */
     background-position: center;
-    /* Centers the image */
-    background-repeat: no-repeat;
-    /* Prevents repeating */
+    background-repeat: no-repeat; */
 }
 
 .hero-content {
@@ -192,7 +190,7 @@ body::before {
 
 /* 2. Steps / How It Works Section */
 .steps-section {
-    padding: var(--section-padding) 0;
+    padding-top: 32px;
     margin: 0 5vw;
     text-align: center;
 }
@@ -455,10 +453,13 @@ body::before {
         margin: 2px;
     }
 
-    .steps-section,
     .benefits-section,
     .about-section {
-        padding: 4rem 0;
+        padding: 64px 0;
+    }
+
+    .steps-section {
+        padding-top: 64px;
     }
 }
 
@@ -538,7 +539,7 @@ body::before {
     .process {
         justify-content: center;
         flex-wrap: nowrap;
-        padding: 40px 0;
+        padding-top: 40px;
     }
 
     .process-cards {
