@@ -158,8 +158,10 @@ body::before {
 
 .action-card p {
     color: #555;
+}
+
+.action-card-description {
     margin-bottom: 20px;
-    line-height: 1.5;
 }
 
 .action-btn {
