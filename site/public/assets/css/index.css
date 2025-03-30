@@ -3,6 +3,29 @@
    (Specific to index.html)
 ---------------------------------*/
 
+body {
+    /* Fallback solid color if image fails to load */
+    background-color: #f5f5f5;
+    /* This creates the fixed background effect */
+    background-image: url("/assets/images/background.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Cream color overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffe5aee6; /* Cream color with 60% opacity */
+    z-index: -1; /* Places it between the background and content */
+}
+
 /* 1. Hero Section */
 .hero-section {
     background: var(--primary-color);

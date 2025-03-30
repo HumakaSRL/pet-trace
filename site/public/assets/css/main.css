@@ -49,12 +49,12 @@
 html,
 body {
     height: 100%;
-    background: var(--background-color);
     color: var(--text-color);
     font-family: var(--font-stack);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
 }
 
 img,
