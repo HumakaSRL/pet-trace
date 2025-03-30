@@ -177,24 +177,67 @@ body::before {
     line-height: 1.4;
 }
 
-/* 5. Donation Section */
+/* ==============================================
+   5. DONATION SECTION - MOBILE FIRST
+   ============================================== */
+
 .donation-section {
-    padding: var(--section-padding) 0;
-    text-align: center;
+    padding: var(--section-padding);
     background-color: #ffffff;
+}
+
+.donation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.donation-image {
+    width: 180px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.donation-text {
+    text-align: center;
 }
 
 .donation-section h3 {
     color: var(--heading-color);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .donation-section p {
+    color: #555;
     max-width: 600px;
-    margin: 0 auto 1.5rem auto;
-    font-size: 1rem;
-    line-height: 1.4;
+    margin: 0 auto 1.8rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.donation-btn {
+    background-color: var(--primary-color-dark);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.donation-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donation-btn:active {
+    background-color: var(--primary-color-dark);
 }
 
 /* 6. Partnership Section */
@@ -258,6 +301,34 @@ body::before {
         width: inherit;
         margin: auto;
     }
+
+    .donation-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .donation-image {
+        order: 2;
+        width: 260px;
+        margin-bottom: 0;
+    }
+
+    .donation-text {
+        text-align: left;
+        flex: 1;
+        padding-right: 3rem;
+    }
+
+    .donation-section h3 {
+        font-size: 1.8rem;
+    }
+
+    .donation-section p {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 1.1rem;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -272,7 +343,6 @@ body::before {
     .steps-section,
     .benefits-section,
     .about-section,
-    .donation-section,
     .partnership-section {
         padding: 4rem 0;
     }
