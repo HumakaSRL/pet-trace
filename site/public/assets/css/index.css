@@ -87,6 +87,7 @@ body::before {
     justify-content: space-around;
     padding: 8px 18px;
     border: 2px solid var(--primary-color-dark);
+    background-color: #fff;
     border-radius: 8px;
     cursor: pointer;
     align-items: center;
