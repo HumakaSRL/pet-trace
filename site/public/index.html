@@ -31,9 +31,6 @@
         <meta property="og:url" content="https://pet-trace.com" />
         <meta property="og:type" content="website" />
 
-        <!-- Google AdSense Metadata -->
-        <meta name="google-adsense-account" content="ca-pub-1774681077642073" />
-
         <!-- Structured Data (JSON-LD) -->
         <script type="application/ld+json">
             {
@@ -104,38 +101,6 @@
         <link rel="stylesheet" href="/assets/css/footer.css?v=1.2" />
         <link rel="stylesheet" href="/assets/css/navbar.css?v=1.2" />
         <link rel="stylesheet" href="/assets/css/index.css?v=1.2" />
-
-        <!-- Google Ads Scripts -->
-        <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1774681077642073"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            async
-            src="https://fundingchoicesmessages.google.com/i/pub-1774681077642073?ers=1"
-        ></script>
-
-        <!-- Google Funding Choices Workaround -->
-        <script>
-            (function () {
-                function signalGooglefcPresent() {
-                    if (!window.frames["googlefcPresent"]) {
-                        if (document.body) {
-                            const iframe = document.createElement("iframe");
-                            iframe.style =
-                                "width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;";
-                            iframe.style.display = "none";
-                            iframe.name = "googlefcPresent";
-                            document.body.appendChild(iframe);
-                        } else {
-                            setTimeout(signalGooglefcPresent, 0);
-                        }
-                    }
-                }
-                signalGooglefcPresent();
-            })();
-        </script>
 
         <!-- Firebase SDKs -->
         <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
