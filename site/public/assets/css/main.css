@@ -53,13 +53,12 @@
     --max-width: 1200px;
     /* For larger screen constraints */
 
-
     /* Experimental */
     --primary-color: #393ba7;
     --primary-color-dark: #1e1f57;
 
-    --secondary-color: #FF6633;
-    --secondary-color-dark: #CC3300;
+    --secondary-color: #ff6633;
+    --secondary-color-dark: #cc3300;
 
     --heading-color: #353324;
     --text-color: #5f5e50;
@@ -319,4 +318,11 @@ button,
         flex-direction: row;
         gap: 1rem;
     }
+}
+
+.unselectable {
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }

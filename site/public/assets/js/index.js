@@ -115,7 +115,7 @@ function showForm(formType) {
     // Show and measure the target content
     const targetContent = formType === "petOwner" ? petOwnerAction : shelterClinicAction;
     targetContent.style.display = "block";
-    const targetHeight = targetContent.scrollHeight + 40; // + padding
+    const targetHeight = targetContent.scrollHeight + 25; // + padding
     targetContent.style.display = "none"; // Hide it again for animation
 
     // Set container height and make visible

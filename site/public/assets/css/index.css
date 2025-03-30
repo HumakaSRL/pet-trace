@@ -88,17 +88,20 @@ body::before {
     flex-direction: column;
     justify-content: space-around;
     padding: 8px 18px;
-    /* padding: 16px 32px; */
     border: 2px solid var(--primary-color-dark);
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
     align-items: center;
+    transition: all 0.3s;
 }
 
 .option-card.active {
     background: var(--primary-color-dark);
     color: white;
+}
+
+.option-card.active h3 {
+    color: #fff;
 }
 
 .option-card h3,
@@ -106,22 +109,14 @@ body::before {
     text-align: center;
 }
 
-.option-card {
-    padding: 16px 32px;
-    border: 2px solid var(--primary-color-dark);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.option-card.active {
-    background: var(--primary-color-dark);
-    color: white;
+.option-card h3 {
+    color: var(--primary-color-dark);
 }
 
 /* Action Container */
 .action-container {
     max-width: 600px;
+    justify-self: center;
     margin: 0 auto;
     height: 0;
     overflow: hidden;
@@ -130,7 +125,7 @@ body::before {
 
 .action-container.active {
     height: var(--current-height);
-    margin: 20px auto;
+    margin: 20px 5vw;
 }
 
 .action-content {
@@ -412,11 +407,16 @@ body::before {
 
     .hero-search-form {
         justify-content: center;
+        flex-direction: row;
     }
 
     .input-field {
         max-width: 350px;
         margin-right: 0.5rem;
+    }
+
+    .option-card {
+        padding: 16px 32px;
     }
 
     .steps-container,
@@ -470,6 +470,11 @@ body::before {
 
     .hero-section {
         padding: 4rem 0;
+    }
+
+    .option-card h3 {
+        font-size: 22px;
+        margin: 2px;
     }
 
     .steps-section,
@@ -526,9 +531,6 @@ body::before {
     line-height: 1.5;
 }
 
-
-
-
 .arrows {
     position: absolute;
     width: 100%;
@@ -548,18 +550,4 @@ body::before {
 .dash-arrow {
     content: url("/assets/images/paw-arrow.svg");
     /* Custom SVG paw/arrow */
-}
-
-.option-card {
-    display: flex;
-    flex-direction: column;
-    place-content: space-evenly;
-    padding: 8px 18px;
-    /* padding: 16px 32px; */
-    border: 2px solid var(--primary-color-dark);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    justify-content: space-around;
-    align-items: center;
 }
