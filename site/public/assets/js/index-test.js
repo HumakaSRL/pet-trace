@@ -9,10 +9,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
 });
 
-// Mobile menu toggle would go here
-// This is a placeholder for actual functionality
-console.log("Petty website loaded successfully!");
-
 // Search functionality placeholder
 const searchBtn = document.querySelector(".search-btn");
 searchBtn.addEventListener("click", () => {
