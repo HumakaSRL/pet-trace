@@ -417,6 +417,10 @@ nav {
     display: block;
 }
 
+#registerAboutSectionButton {
+    margin-top: 18px;
+}
+
 /* Registration Options */
 .registration-options {
     display: grid;
