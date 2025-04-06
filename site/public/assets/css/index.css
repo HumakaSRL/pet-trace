@@ -467,32 +467,85 @@ body::before {
 /* ==============================================
    5. HOW IT WORKS SECTION - MOBILE FIRST
    ============================================== */
-.process {
-    display: flex;
-    flex-direction: column; /* Stack cards vertically on mobile */
-    gap: 20px;
-    padding: 30px 0;
-    width: 100%;
+.section {
+    padding: 100px 0;
 }
 
-.process-cards {
-    background: #fff;
-    border-radius: 16px;
-    padding: 24px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+.section-title {
     text-align: center;
-    transition: transform 0.3s, border-color 0.3s;
-    border: 2px solid #f0f0f0;
-    width: 100%; /* Full width on mobile */
-    box-sizing: border-box;
+    margin-bottom: 60px;
 }
 
-/* Keep hover effects for devices that support hover */
-@media (hover: hover) {
-    .process-cards:hover {
-        transform: translateY(-8px);
-        border-color: #ff9e7d;
-    }
+.section-title h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2:after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: var(--button-gradient);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.section-title p {
+    font-size: 18px;
+    color: var(--primary-color-dark);
+    max-width: 700px;
+    margin: 25px auto 0;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.step {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 40px 30px;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: var(--button-gradient);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 60px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(253, 141, 50, 0.3);
+}
+
+.step h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
 }
 
 .card-icon {
@@ -515,20 +568,26 @@ body::before {
     line-height: 1.5;
 }
 
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .registration-options {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Tablet breakpoint */
 @media (min-width: 768px) {
-    .process {
-        flex-direction: row; /* Side-by-side on larger screens */
-        flex-wrap: wrap; /* Allow wrapping if needed */
-        justify-content: center;
-    }
-
-    .process-cards {
-        flex: 1;
-        min-width: 250px; /* Minimum card width */
-        max-width: 300px; /* Maximum card width */
-    }
-
     .card-icon {
         width: 60px;
         height: 60px;
@@ -537,13 +596,4 @@ body::before {
 
 /* Desktop breakpoint */
 @media (min-width: 1024px) {
-    .process {
-        justify-content: center;
-        flex-wrap: nowrap;
-        padding-top: 40px;
-    }
-
-    .process-cards {
-        padding: 24px;
-    }
 }
