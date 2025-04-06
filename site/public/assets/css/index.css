@@ -645,7 +645,3 @@ body::before {
         height: 60px;
     }
 }
-
-/* Desktop breakpoint */
-@media (min-width: 1024px) {
-}

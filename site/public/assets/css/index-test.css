@@ -1,4 +1,4 @@
-/* Base Styles */
+/* Base Styles (Mobile First) */
 body {
     background: linear-gradient(0deg, #ddf0ff, #e5f4ff 50%, #fff);
     color: var(--text-color);
@@ -6,23 +6,23 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 /* Section Layout */
 .section {
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .section-title h2 {
-    font-size: 36px;
+    font-size: 28px;
     color: var(--primary-color);
     margin-bottom: 15px;
     position: relative;
@@ -32,60 +32,34 @@ body {
 .section-title h2:after {
     content: "";
     position: absolute;
-    width: 60px;
-    height: 4px;
+    width: 50px;
+    height: 3px;
     background: var(--button-gradient);
-    bottom: -10px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2px;
 }
 
 .section-title p {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--primary-color-dark);
-    max-width: 700px;
-    margin: 25px auto 0;
+    max-width: 100%;
+    margin: 20px auto 0;
+    padding: 0 15px;
 }
 
-/* About Section */
+/* About Section (Mobile First) */
 .about-content {
     display: flex;
-}
-
-.about-text {
-    flex: 1;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border-radius: 20px 0 0 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.about-text h2 {
-    font-size: 36px;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.about-text h2:after {
-    content: "";
-    position: absolute;
-    width: 60px;
-    height: 4px;
-    background: var(--button-gradient);
-    bottom: -10px;
-    left: 0;
-    border-radius: 2px;
+    flex-direction: column;
 }
 
 .about-image {
-    flex: 1;
-    max-height: 500px;
-    border-radius: 0 20px 20px 0;
+    height: 300px;
+    border-radius: 15px 15px 0 0;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .about-image img {
@@ -100,71 +74,186 @@ body {
     transform: scale(1.03);
 }
 
-#registerAboutSectionButton {
-    margin-top: 18px;
+.about-text {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Registration Options */
+.about-text h2 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.about-text h2:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: var(--button-gradient);
+    bottom: -8px;
+    left: 0;
+    border-radius: 2px;
+}
+
+#registerAboutSectionButton {
+    margin-top: 15px;
+}
+
+/* Registration Options (Mobile First) */
 .registration-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
 .option {
     background-color: var(--white);
-    padding: 50px 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: all 0.3s;
 }
 
 .option:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .option h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-bottom: 15px;
     color: var(--primary-color);
 }
 
 .option p {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: var(--text-color);
+    font-size: 15px;
 }
 
 .option h4 {
-    font-size: 20px;
-    margin: 25px 0 15px;
+    font-size: 18px;
+    margin: 20px 0 12px;
     color: var(--primary-color);
 }
 
 .option small {
     display: block;
-    margin-top: 20px;
-    font-size: 14px;
+    margin-top: 15px;
+    font-size: 13px;
     color: #666;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-    .about-content {
-        flex-direction: column;
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+    .section {
+        padding: 80px 0;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+
+    .section-title p {
+        font-size: 17px;
+        max-width: 600px;
     }
 
     .about-text {
-        border-radius: 0 0 20px 20px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 30px;
+        padding: 35px;
+    }
+
+    .registration-options {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .option {
+        padding: 35px;
+    }
+}
+
+/* Desktop Styles (992px and up) */
+@media (min-width: 992px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    .section {
+        padding: 100px 0;
+    }
+
+    .section-title {
+        margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+        font-size: 36px;
+    }
+
+    .section-title h2:after {
+        width: 60px;
+        height: 4px;
+        bottom: -10px;
+    }
+
+    .section-title p {
+        font-size: 18px;
+        max-width: 700px;
+    }
+
+    /* About Section Desktop Layout */
+    .about-content {
+        flex-direction: row;
     }
 
     .about-image {
-        order: -1;
-        border-radius: 20px 20px 0 0;
-        height: 350px;
-        max-height: none;
+        height: auto;
+        max-height: 500px;
+        border-radius: 0 20px 20px 0;
+        order: 2;
+    }
+
+    .about-text {
+        flex: 1;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 20px 0 0 20px;
+        order: 1;
+    }
+
+    .about-text h2 {
+        font-size: 36px;
+    }
+
+    .about-text h2:after {
+        width: 60px;
+        height: 4px;
+        bottom: -10px;
+    }
+
+    /* Registration Options Desktop */
+    .registration-options {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    .option {
+        padding: 50px 40px;
+        border-radius: 15px;
+    }
+
+    .option h3 {
+        font-size: 24px;
+    }
+
+    .option h4 {
+        font-size: 20px;
     }
 }
