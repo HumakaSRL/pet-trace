@@ -185,16 +185,28 @@
 
                     <!-- SEARCH FORM -->
                     <form id="microchipSearchForm" class="hero-search-form">
-                        <label for="microchipIdInput" class="visually-hidden">Microchip ID</label>
-                        <input
-                            id="microchipIdInput"
-                            type="text"
-                            name="microchipId"
-                            class="search-input"
-                            placeholder="Enter a microchip ID"
-                            aria-label="Enter the microchip ID"
-                            required
-                        />
+                        <div class="search-input-form">
+                            <label for="microchipIdInput" class="visually-hidden">
+                                Microchip ID
+                            </label>
+                            <input
+                                id="microchipIdInput"
+                                type="text"
+                                name="microchipId"
+                                class="search-input"
+                                placeholder="Enter a microchip ID"
+                                aria-label="Enter the microchip ID"
+                                required
+                            />
+                            <button
+                                id="searchButton"
+                                type="submit"
+                                class="search-btn btn"
+                                aria-label="Search microchip ID"
+                            >
+                                Search
+                            </button>
+                        </div>
                         <div
                             id="errorContainer"
                             class="error-message"
@@ -202,20 +214,7 @@
                             aria-live="polite"
                             style="display: none"
                         ></div>
-                        <button
-                            id="searchButton"
-                            type="submit"
-                            class="search-btn btn"
-                            aria-label="Search microchip ID"
-                        >
-                            Search
-                        </button>
                     </form>
-
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="Enter Microchip ID" />
-                        <button class="search-btn">Search</button>
-                    </div>
 
                     <!-- PRIMARY CTA: REGISTER A PET -->
                     <div class="hero-cta">

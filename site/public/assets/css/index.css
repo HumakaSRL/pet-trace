@@ -86,12 +86,19 @@ body::before {
     z-index: 0;
 }
 
+.search-input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
 .search-input {
     flex: 1;
     padding: 15px 25px;
     border: none;
     font-size: 16px;
     outline: none;
+    border-radius: 10px 10px 0 0;
     z-index: 1;
 }
 
@@ -618,12 +625,16 @@ body::before {
 
 /* Tablet breakpoint */
 @media (min-width: 768px) {
+    .search-input-form {
+        flex-direction: row;
+    }
+
     .search-input {
-        border-radius: 10px 10px 0 0;
+        border-radius: 25px 0px 0px 25px;
     }
 
     .search-btn {
-        border-radius: 0 0 10px 10px;
+        border-radius: 0px 25px 25px 0px;
         padding: 15px;
     }
 
