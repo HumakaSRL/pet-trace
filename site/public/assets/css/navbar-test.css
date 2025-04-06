@@ -27,7 +27,7 @@ nav {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--light-color);
     text-decoration: none;
@@ -35,9 +35,9 @@ nav {
     align-items: center;
 }
 
-.logo i {
-    margin-right: 10px;
-    color: var(--secondary-color);
+.logo img {
+    margin-right: 18px;
+    width: 34px;
 }
 
 .nav-links {
