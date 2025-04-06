@@ -235,9 +235,10 @@ body::before {
     font-style: italic;
 }
 
-/* 2. Steps / How It Works Section */
+/* 2. How It Works Section */
 .steps-section {
     padding-top: 32px;
+    padding: 32 0 0 0;
     margin: 0 5vw;
     text-align: center;
 }
@@ -501,7 +502,11 @@ body::before {
    5. HOW IT WORKS SECTION - MOBILE FIRST
    ============================================== */
 .section {
-    padding: 100px 0;
+    padding: 50px 0;
+}
+
+.how-it-works {
+    padding-bottom: 0;
 }
 
 .section-title {
