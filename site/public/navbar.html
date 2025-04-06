@@ -21,67 +21,29 @@
 
         <!-- CSS Files -->
         <link rel="stylesheet" href="/assets/css/main.css?v=2.0" />
-        <link rel="stylesheet" href="/assets/css/navbar.css?v=2.0" />
+        <link rel="stylesheet" href="/assets/css/navbar-test.css?v=2.0" />
     </head>
     <body>
-        <!-- Navbar v2.2.2 (Mobile-First) -->
-        <nav class="site-navbar">
-            <div class="navbar-container">
-                <!-- Logo / Brand -->
-                <span id="navLogo" class="site-title">
-                    <div id="navLogoImage" role="img" aria-label="Pet Trace"></div>
-                </span>
-
-                <!-- Auth Section: Login, Dashboard, Logout, Greeting -->
-                <div class="auth-section">
-                    <!-- Greeting (shown only if user is logged in) -->
-                    <div
-                        id="userGreeting"
-                        class="user-greeting"
-                        style="display: none"
-                        aria-label="Welcome user greeting"
-                    >
-                        <p>
-                            Hello,
-                            <span class="username-span" id="usernameNavbarSpan"></span>
-                        </p>
-                    </div>
-
-                    <!-- Login Button (shown if user is NOT logged in) -->
-                    <button
-                        id="loginButton"
-                        class="auth-btn"
-                        style="display: none"
-                        aria-label="Login to your account"
-                    >
-                        Login
-                    </button>
-
-                    <!-- Dashboard Button (shown if user IS logged in) -->
-                    <button
-                        id="dashboardButton"
-                        class="auth-btn dashboard-btn"
-                        style="display: none"
-                        aria-label="Go to your dashboard"
-                    >
-                        Dashboard
-                    </button>
-
-                    <!-- Logout Button (shown if user IS logged in) -->
-                    <button
-                        id="logoutButton"
-                        class="auth-btn logout-btn"
-                        style="display: none"
-                        aria-label="Logout of your account"
-                    >
-                        Logout
-                    </button>
-                </div>
+        <!-- Navbar v3.0 -->
+        <header>
+            <div class="nav-container">
+                <nav>
+                    <a href="/index-test.html" class="logo">
+                        <i class="fas fa-paw"></i>
+                        Pet Trace
+                    </a>
+                    <ul class="nav-links">
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#why-choose-us">Why Choose Us</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#register">Register</a></li>
+                    </ul>
+                    <a href="/login.html" class="btn btn-outline">Login</a>
+                </nav>
             </div>
-        </nav>
+        </header>
 
         <!-- JavaScript -->
         <script type="module" src="/assets/js/main.js?v=2.0"></script>
-        <script type="module" src="/assets/js/navbar.js?v=2.0"></script>
     </body>
 </html>

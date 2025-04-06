@@ -49,16 +49,20 @@
     /* Spacings */
     --section-padding: 32px;
     --container-width: 95%;
+
     /* For a mobile-first container approach */
     --max-width: 1200px;
     /* For larger screen constraints */
 
     /* Experimental */
-    --primary-color: #393ba7;
-    --primary-color-dark: #1e1f57;
+    --primary-color: #183d6d;
+    --primary-color-dark: #051e38;
 
-    --secondary-color: #ff6633;
-    --secondary-color-dark: #cc3300;
+    --secondary-color: #fd8d32;
+    --secondary-color-dark: #e67d22;
+
+    --white: #ffffff;
+    --light-color: #f8f9fa;
 
     --heading-color: #353324;
     --text-color: #5f5e50;
