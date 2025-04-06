@@ -323,25 +323,66 @@ body::before {
     color: var(--primary-color);
 }
 
-/* 4. About + Future Features Section */
-.about-section {
-    padding: var(--section-padding) 0;
-    text-align: center;
-    width: var(--container-width);
-    max-width: var(--max-width);
-    margin: 0 auto;
+/* ==============================================
+   5. ABOUT SECTION - MOBILE FIRST
+   ============================================== */
+
+.about-content {
+    display: flex;
+    flex-direction: column;
 }
 
-.about-section h3 {
-    font-size: 1.3rem;
-    color: var(--heading-color);
-    margin-bottom: 1rem;
+.about-image {
+    /* height: 300px; */
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    order: -1;
 }
 
-.about-section p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.03);
+}
+
+.about-text {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-text h2 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.about-text h2:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: var(--button-gradient);
+    bottom: -8px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.about-text p {
+    padding-top: 6px;
+}
+
+#registerAboutSectionButton {
+    margin-top: 15px;
 }
 
 /* ==============================================
@@ -599,6 +640,57 @@ body::before {
         margin-left: 0;
         margin-right: 0;
         font-size: 1.1rem;
+    }
+
+    .about-text {
+        padding: 35px;
+    }
+
+    .registration-options {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    /* About Section Desktop Layout */
+    .about-content {
+        flex-direction: row;
+    }
+
+    .about-image {
+        height: auto;
+        max-height: 500px;
+        border-radius: 0 20px 20px 0;
+        order: 2;
+    }
+
+    .about-text {
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 20px 0 0 20px;
+        order: 1;
+    }
+
+    .about-text h2 {
+        font-size: 36px;
+    }
+
+    .about-text h2:after {
+        width: 60px;
+        height: 4px;
+        bottom: -10px;
+    }
+
+    .about-text p {
+        font-size: 18px;
+    }
+
+    /* Registration Options Desktop */
+    .registration-options {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
     }
 }
 
