@@ -15,7 +15,7 @@
 /* Form Section Header */
 .form-section h2 {
     font-size: 1.5rem;
-    color: var(--heading-color);
+    color: var(--primary-color);
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -43,7 +43,7 @@
     padding: 0.75rem;
     font-size: 1rem;
     color: var(--text-color);
-    border: 1px solid var(--input-border);
+    border: 2px solid var(--primary-color-dark);
     border-radius: 5px;
     background-color: #fff;
     transition: border-color 0.2s ease;

@@ -220,6 +220,23 @@
     transform: scale(0.95);
 }
 
+/* Edit Fields */
+.edit-field {
+    padding: 12px;
+    font-size: 16px;
+    color: var(--text-color);
+    border: 2px solid var(--primary-color-dark);
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.2s ease;
+    width: 100%;
+}
+
+.edit-field:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
 /* Edit Button -> Teal */
 .edit-btn {
     background-color: var(--primary-color);
