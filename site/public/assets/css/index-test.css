@@ -1,9 +1,4 @@
-:root {
-    --text-color: #333;
-    --light-color: #f8f9fa;
-    --white: #ffffff;
-}
-
+/* Base Styles */
 body {
     background: linear-gradient(0deg, #ddf0ff, #e5f4ff 50%, #fff);
     color: var(--text-color);
@@ -16,7 +11,7 @@ body {
     padding: 0 20px;
 }
 
-/* SECTION CLASS */
+/* Section Layout */
 .section {
     padding: 100px 0;
 }
@@ -53,6 +48,11 @@ body {
     margin: 25px auto 0;
 }
 
+/* About Section */
+.about-content {
+    display: flex;
+}
+
 .about-text {
     flex: 1;
     padding: 40px;
@@ -80,11 +80,6 @@ body {
     border-radius: 2px;
 }
 
-/* About Section - Desktop Refined */
-.about-content {
-    display: flex;
-}
-
 .about-image {
     flex: 1;
     max-height: 500px;
@@ -98,11 +93,11 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s ease; /* Smooth hover effect */
+    transition: transform 0.5s ease;
 }
 
 .about-image:hover img {
-    transform: scale(1.03); /* Gentle zoom on hover */
+    transform: scale(1.03);
 }
 
 #registerAboutSectionButton {
@@ -123,8 +118,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
 }
 
 .option:hover {
@@ -201,7 +194,6 @@ footer {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: all 0.3s;
-    display: inline-block;
 }
 
 .footer-links a:hover {
@@ -217,14 +209,14 @@ footer {
 
 .social-links a {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: 40px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: var(--white);
     transition: all 0.3s;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-links a:hover {
@@ -240,65 +232,22 @@ footer {
     font-size: 14px;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .newsletter-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .benefits-list {
-        align-items: center;
-        justify-content: center;
-    }
-
-    .newsletter-form {
-        width: 100%;
-        max-width: 500px;
-    }
-}
-
-@media (max-width: 480px) {
-    .newsletter-text h2 {
-        font-size: 28px;
-    }
-
-    .newsletter-form {
-        padding: 30px 20px;
-    }
-}
-
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 992px) {
     .about-content {
         flex-direction: column;
     }
 
     .about-text {
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.9);
         border-radius: 0 0 20px 20px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
     }
 
     .about-image {
         order: -1;
+        border-radius: 20px 20px 0 0;
         height: 350px;
         max-height: none;
-        border-radius: 20px 20px 0 0;
-    }
-
-    .about-image img {
-        border-radius: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .btn {
-        width: 100%;
-        max-width: 300px;
     }
 }
