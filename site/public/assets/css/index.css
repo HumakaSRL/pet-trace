@@ -412,92 +412,6 @@ body::before {
     background-color: var(--primary-color-dark);
 }
 
-/* 7. Media Queries for Larger Screens */
-@media (min-width: 768px) {
-    .hero-title {
-        font-size: 2.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.15rem;
-        max-width: 600px;
-        margin: 0 auto 2rem;
-    }
-
-    .input-field {
-        max-width: 350px;
-        margin-right: 0.5rem;
-    }
-
-    .option-card {
-        padding: 16px 32px;
-    }
-
-    .steps-container {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .step-item {
-        flex: 0 0 48%;
-    }
-
-    .step-item {
-        width: inherit;
-        margin: auto;
-    }
-
-    .donation-content {
-        flex-direction: row;
-        justify-content: space-evenly;
-        text-align: left;
-    }
-
-    .donation-image {
-        order: 2;
-        width: 260px;
-        margin-bottom: 0;
-    }
-
-    .donation-text {
-        text-align: left;
-        padding-right: 3rem;
-    }
-
-    .donation-section h3 {
-        font-size: 1.8rem;
-    }
-
-    .donation-section p {
-        margin-left: 0;
-        margin-right: 0;
-        font-size: 1.1rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-section {
-        padding: 4rem 0;
-    }
-
-    .option-card h3 {
-        font-size: 22px;
-        margin: 2px;
-    }
-
-    .about-section {
-        padding: 64px 0;
-    }
-
-    .steps-section {
-        padding-top: 64px;
-    }
-}
-
 /* ==============================================
    5. HOW IT WORKS SECTION - MOBILE FIRST
    ============================================== */
@@ -606,26 +520,23 @@ body::before {
     line-height: 1.5;
 }
 
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .section {
-        padding: 70px 0;
-    }
-
-    .section-title h2 {
-        font-size: 28px;
-    }
-
-    .registration-options {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Tablet breakpoint */
+/* 7. Media Queries for Larger Screens */
 @media (min-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.15rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+
+    .input-field {
+        max-width: 350px;
+        margin-right: 0.5rem;
+    }
+
     .search-input-form {
         flex-direction: row;
     }
@@ -643,5 +554,91 @@ body::before {
     .card-icon {
         width: 60px;
         height: 60px;
+    }
+
+    .option-card {
+        padding: 16px 32px;
+    }
+
+    .steps-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .step-item {
+        flex: 0 0 48%;
+    }
+
+    .step-item {
+        width: inherit;
+        margin: auto;
+    }
+
+    .donation-content {
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: left;
+    }
+
+    .donation-image {
+        order: 2;
+        width: 260px;
+        margin-bottom: 0;
+    }
+
+    .donation-text {
+        text-align: left;
+        padding-right: 3rem;
+    }
+
+    .donation-section h3 {
+        font-size: 1.8rem;
+    }
+
+    .donation-section p {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-section {
+        padding: 4rem 0;
+    }
+
+    .option-card h3 {
+        font-size: 22px;
+        margin: 2px;
+    }
+
+    .about-section {
+        padding: 64px 0;
+    }
+
+    .steps-section {
+        padding-top: 64px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .registration-options {
+        grid-template-columns: 1fr;
     }
 }
