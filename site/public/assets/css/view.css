@@ -226,16 +226,16 @@
 }
 
 .edit-btn:hover {
-    background-color: #5ec1a3;
+    background-color: var(--primary-color-dark);
 }
 
 /* Save Button -> "Success" Teal */
 .save-btn {
-    background-color: var(--success-color);
+    background-color: var(--primary-color);
 }
 
 .save-btn:hover {
-    background-color: #5ec1a3;
+    background-color: var(--primary-color-dark);
 }
 
 /* Cancel / Delete -> Danger Red */
