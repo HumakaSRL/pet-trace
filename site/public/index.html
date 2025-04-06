@@ -95,12 +95,6 @@
         <!-- PWA Manifest (for Android + modern browsers) -->
         <link rel="manifest" href="/manifest.json" />
 
-        <!-- CSS Files -->
-        <link rel="stylesheet" href="/assets/css/main.css?v=2.0" />
-        <link rel="stylesheet" href="/assets/css/footer.css?v=2.0" />
-        <link rel="stylesheet" href="/assets/css/navbar.css?v=2.0" />
-        <link rel="stylesheet" href="/assets/css/index.css?v=2.0" />
-
         <!-- Firebase SDKs -->
         <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
@@ -108,6 +102,17 @@
         <script defer src="/__/firebase/11.0.1/firebase-storage-compat.js"></script>
         <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
         <script defer src="/__/firebase/init.js"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="/assets/css/main.css?v=2.0" />
+        <link rel="stylesheet" href="/assets/css/footer.css?v=2.0" />
+        <link rel="stylesheet" href="/assets/css/navbar.css?v=2.0" />
+        <link rel="stylesheet" href="/assets/css/index.css?v=2.0" />
     </head>
 
     <body>
@@ -259,7 +264,7 @@
             </div>
 
             <!-- HOW IT WORKS SECTION -->
-            <section class="section" id="how-it-works">
+            <section id="how-it-works" class="section">
                 <div class="container">
                     <div class="section-title">
                         <h2>How Pet Trace Works</h2>
@@ -300,35 +305,51 @@
                 </div>
             </section>
 
-            <!-- BENEFITS SECTION -->
-            <section class="benefits-section">
-                <h2>Why Choose Pet Trace?</h2>
-                <ul class="benefits-list">
-                    <li>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">💸</span>
-                            <p>Always Free - no hidden fees or premium plans</p>
+            <!-- WHY CHOSE US SECTION -->
+            <section id="why-choose-us" class="section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Why Choose Pet Trace?</h2>
+                        <p>
+                            We're committed to providing the best free service for pet safety and
+                            reunification
+                        </p>
+                    </div>
+
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h3>Always Free</h3>
+                            <p>
+                                No hidden fees or premium plans. We believe pet safety should be
+                                accessible to everyone.
+                            </p>
                         </div>
-                    </li>
-                    <li>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🌎</span>
-                            <p>Global Reach - helping pets from all corners of the world</p>
+
+                        <div class="feature">
+                            <i class="fas fa-globe"></i>
+                            <h3>Global Reach</h3>
+                            <p>
+                                Helping pets from all corners of the world with our international
+                                database.
+                            </p>
                         </div>
-                    </li>
-                    <li>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">✨</span>
-                            <p>Fast & Easy - registering takes just a few clicks</p>
+
+                        <div class="feature">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Fast & Easy</h3>
+                            <p>Registering takes just a few clicks with our streamlined process.</p>
                         </div>
-                    </li>
-                    <li>
-                        <div class="benefit-item">
-                            <span class="benefit-icon">🔒</span>
-                            <p>Secure Database - built on modern, reliable technology</p>
+
+                        <div class="feature">
+                            <i class="fas fa-lock"></i>
+                            <h3>Secure Database</h3>
+                            <p>
+                                Built on modern, reliable technology to keep your information safe.
+                            </p>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </section>
 
             <!-- DONATION SECTION - SUPPORT OUR MISSION -->

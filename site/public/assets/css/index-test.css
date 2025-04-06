@@ -178,42 +178,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Why Choose Us */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.feature {
-    background-color: var(--white);
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s;
-    text-align: center;
-}
-
-.feature:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.feature i {
-    font-size: 50px;
-    background: var(--button-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
-}
-
-.feature h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
 /* CTA Section */
 .cta {
     background-color: var(--primary-color);
