@@ -62,12 +62,28 @@
     --secondary-color-dark: #e67d22;
 
     --white: #ffffff;
-    --light-color: #f8f9fa;
+    --light-white: #f8f9fa;
 
     --heading-color: #353324;
     --text-color: #5f5e50;
 
+    /* Button gradients */
     --button-gradient: linear-gradient(85deg, #ff2a64, #ffaf48);
+
+    /* Core Gradient Colors (from your --button-gradient) */
+    --gradient-start: #ff2a64; /* Vibrant pink-red */
+    --gradient-mid: #ff6e56; /* Coral blend (midpoint) */
+    --gradient-end: #ffaf48; /* Warm orange */
+
+    /* Text Color */
+    --light-white: #f8fafc; /* Off-white (almost white with subtle cool tone) */
+
+    /* Shadow Colors */
+    --shadow-default: rgba(0, 0, 0, 0.1); /* Default shadow (black 10%) */
+    --shadow-hover: rgba(0, 0, 0, 0.15); /* Hover shadow (black 15%) */
+
+    /* Overlay Color */
+    --hover-overlay: rgba(255, 255, 255, 0.1); /* White 10% overlay on hover */
 }
 
 /* 2. Global Reset & Base */

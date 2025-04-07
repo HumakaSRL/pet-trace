@@ -382,7 +382,72 @@ body::before {
 }
 
 #registerAboutSectionButton {
-    margin-top: 15px;
+    /* Base Styles */
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--button-gradient);
+    color: var(--light-white);
+    font-weight: 500;
+    font-size: 1.05rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px; /* Pill shape */
+    border: none;
+    cursor: pointer;
+    margin-top: 26px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    /* Text styling */
+    letter-spacing: 0.5px;
+    text-transform: none;
+
+    /* Gradient Animation Prep */
+    background-size: 200% auto;
+}
+
+#registerAboutSectionButton:hover {
+    /* Interactive States */
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0.92; /* Subtle transparency */
+
+    /* Gradient Animation */
+    background-position: right center;
+}
+
+#registerAboutSectionButton:active {
+    transform: translateY(0) scale(0.98);
+    opacity: 0.95;
+}
+
+/* Optional: Gradient Animation (if --button-gradient supports it) */
+#registerAboutSectionButton {
+    background-image: linear-gradient(
+        to right,
+        var(--gradient-start) 0%,
+        var(--gradient-mid) 51%,
+        var(--gradient-end) 100%
+    );
+}
+
+/* Micro-interaction for elegance */
+#registerAboutSectionButton::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#registerAboutSectionButton:hover::after {
+    opacity: 1;
 }
 
 /* ==============================================
@@ -530,7 +595,7 @@ body::before {
     border-radius: 50%;
     font-size: 26px;
     font-weight: 700;
-    line-height: 60px;
+    align-content: center;
     margin-bottom: 25px;
     box-shadow: 0 5px 15px rgba(253, 141, 50, 0.3);
 }
@@ -683,14 +748,29 @@ body::before {
         bottom: -10px;
     }
 
+    .about-text {
+        position: relative;
+    }
+
+    #registerAboutSectionButton {
+        position: absolute;
+        right: 6%;
+        bottom: 8%;
+    }
+
     .about-text p {
         font-size: 18px;
+        padding-bottom: 82px;
     }
 
     /* Registration Options Desktop */
     .registration-options {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 30px;
+    }
+
+    #registerAboutSectionButton {
+        float: right;
     }
 }
 
@@ -714,6 +794,10 @@ body::before {
 
     .steps-section {
         padding-top: 64px;
+    }
+
+    .about-text p {
+        font-size: 20px;
     }
 }
 
