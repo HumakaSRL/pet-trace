@@ -114,3 +114,18 @@ footer {
 .copyright a:hover {
     color: var(--secondary-color);
 }
+
+@media (min-width: 768px) {
+    .footer-content {
+        display: flex;
+        gap: 15vw;
+    }
+
+    .footer-column {
+        flex: 1;
+    }
+
+    .footer-sub-content {
+        flex: 2;
+    }
+}
