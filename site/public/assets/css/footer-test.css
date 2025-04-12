@@ -22,7 +22,7 @@ footer {
 }
 
 .brand-column {
-    margin-bottom: 26px;
+    margin-bottom: 42px;
 }
 
 .footer-brand-container {
@@ -35,7 +35,7 @@ footer {
     flex-direction: row;
     justify-self: center;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .footer-column h3 {
@@ -113,6 +113,16 @@ footer {
 
 .copyright a:hover {
     color: var(--secondary-color);
+}
+
+@media (min-width: 449px) {
+    .brand-column {
+        margin-bottom: 58px;
+    }
+
+    .footer-sub-content {
+        justify-content: space-around;
+    }
 }
 
 @media (min-width: 768px) {
