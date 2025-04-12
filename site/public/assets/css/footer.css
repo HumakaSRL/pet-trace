@@ -1,97 +1,141 @@
-/* -------------------------------------------------
-   FOOTER.CSS - Mobile-First Footer Styling
-   (Assumes your :root variables are in main.css)
----------------------------------------------------*/
-
-/* Overall Footer Container */
-.site-footer {
+/* Footer */
+footer {
     background-color: var(--primary-color-dark);
-    color: var(--footer-text);
-    padding: 2rem 1rem;
-    font-size: 0.95rem;
+    color: var(--white);
+    padding: 80px 25px 30px;
 }
 
-/* Footer Top: Logo + Links stacked on mobile */
-.footer-top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-/* Branding (Logo + Tagline) */
-.footer-branding {
-    display: flex;
-    flex-direction: column;
-    width: -webkit-fill-available;
-    align-items: center;
-    gap: 0.5rem;
+.footer-content {
+    gap: 40px;
+    margin-bottom: 50px;
 }
 
 .footer-logo {
-    width: 90%;
-    max-width: 400px;
-    height: auto;
+    width: 26px;
+    margin-right: 10px;
+    margin: 7px 12px auto 0px;
 }
 
-/* Navigation Links */
-.footer-links {
+.footer-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
 }
 
-.footer-link {
-    color: var(--footer-text);
+.brand-column {
+    margin-bottom: 42px;
+}
+
+.footer-brand-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-sub-content {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer-column h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3:after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: var(--button-gradient);
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    transition: opacity 0.2s ease-in-out;
+    transition: all 0.3s;
 }
 
-.footer-link:hover {
-    opacity: 0.8;
+.footer-links a:hover {
+    color: var(--secondary-color);
+    transform: translateX(5px);
 }
 
-/* Footer Bottom Section */
-.footer-bottom {
-    margin-top: 2rem;
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    transition: all 0.3s;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    background: var(--button-gradient);
+    transform: translateY(-3px);
+}
+
+.copyright {
     text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
 }
 
-/* -----------------------------
-     MEDIA QUERIES FOR LARGER SCREENS
-  ------------------------------*/
+.copyright a:hover {
+    transition: all 0.3s ease;
+}
+
+.copyright a:hover {
+    color: var(--secondary-color);
+}
+
+@media (min-width: 449px) {
+    .brand-column {
+        margin-bottom: 58px;
+    }
+
+    .footer-sub-content {
+        justify-content: space-around;
+    }
+}
+
 @media (min-width: 768px) {
-    .footer-top {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1.5rem;
+    .footer-content {
+        display: flex;
+        gap: 15vw;
     }
 
-    .footer-branding {
-        flex-direction: row;
-        align-items: center;
+    .footer-column {
+        flex: 1;
     }
 
-    .footer-logo {
-        width: 60%;
-    }
-
-    .footer-links {
-        flex-direction: row;
-    }
-
-    .footer-link {
-        min-width: 120px;
-        text-align: -webkit-center;
-    }
-}
-
-@media (min-width: 1024px) {
-    .site-footer {
-        padding: 2.5rem 2rem;
+    .footer-sub-content {
+        flex: 2;
     }
 }
