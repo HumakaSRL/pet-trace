@@ -116,9 +116,4 @@ nav {
     .nav-links {
         display: none;
     }
-
-    .btn {
-        width: 100%;
-        max-width: 300px;
-    }
 }
