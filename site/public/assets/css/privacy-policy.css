@@ -2,7 +2,7 @@
 .main-content {
     margin: 20px;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-stack);
 }
 
 /* Section Titles */
@@ -32,8 +32,13 @@
 
 /* Links */
 .main-content a {
-    color: var(--accent-color);
+    color: var(--primary-color);
     text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.main-content a:hover {
+    color: var(--primary-color-dark);
 }
 
 /* Lists */
@@ -76,15 +81,4 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 30px;
-}
-
-.main-content h2,
-.main-content h3 {
-    font-family: "Helvetica", sans-serif;
-}
-
-.main-content p,
-.main-content ul,
-.main-content a {
-    font-family: "Arial", sans-serif;
 }
