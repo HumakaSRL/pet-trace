@@ -2,7 +2,7 @@
 footer {
     background-color: var(--primary-color-dark);
     color: var(--white);
-    padding: 80px 0 30px;
+    padding: 80px 25px 30px;
 }
 
 .footer-content {
@@ -10,6 +10,21 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
     margin-bottom: 50px;
+}
+
+.footer-logo {
+    width: 24px;
+    align-self: start;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand-container {
+    display: flex;
+    flex-direction: row;
 }
 
 .footer-column h3 {
@@ -79,4 +94,12 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
+}
+
+.copyright a:hover {
+    transition: all 0.3s ease;
+}
+
+.copyright a:hover {
+    color: var(--secondary-color);
 }
