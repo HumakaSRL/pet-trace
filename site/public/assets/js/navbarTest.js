@@ -34,7 +34,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     // Logout Icon
-    logoutIcon.addEventListener("click", logout);
+    logoutMobileDiv.addEventListener("click", logout);
 
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");

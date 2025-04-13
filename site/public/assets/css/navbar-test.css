@@ -91,7 +91,7 @@ nav {
     text-align: center;
     padding: 36px 0px 0px 32px;
     padding-bottom: 5vw;
-    gap: 52px;
+    gap: 32px;
     transition: all 0.6s ease;
 }
 
@@ -131,6 +131,13 @@ nav {
     color: var(--secondary-color);
 }
 
+#logoutSpan {
+    display: flex;
+    color: var(--error-color);
+    margin-left: 12px;
+    font-weight: 400;
+}
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -168,7 +175,7 @@ nav {
 
 .user-options {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 12px;
 }
 
@@ -179,8 +186,13 @@ nav {
     align-content: center;
 }
 
-#logoutIcon {
+#logoutMobileDiv {
+    display: flex;
+    flex-direction: row;
     cursor: pointer;
+}
+
+#logoutIcon {
     width: 24px;
 }
 
@@ -216,6 +228,14 @@ nav {
 
     .nav-links li {
         margin-left: 30px;
+    }
+
+    .user-options {
+        flex-direction: row;
+    }
+
+    #logoutSpan {
+        display: none;
     }
 
     .btn {
