@@ -82,23 +82,22 @@ h2 {
 /* Forgot Password Link */
 .forgot-password-link {
     text-align: right;
-    font-size: 0.9rem;
-    color: var(--primary-color);
+    font-size: 14px;
+    color: var(--accent-color);
     text-decoration: none;
-}
-
-.forgot-password-link:hover {
-    text-decoration: underline;
+    transition: all 0.3s ease;
 }
 
 /* Join Now Link Styling */
 .join-now-link {
-    color: var(--primary-color);
+    color: var(--accent-color);
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
+.forgot-password-link:hover,
 .join-now-link:hover {
-    text-decoration: underline;
+    color: var(--secondary-color);
 }
 
 /* Form Group Paragraph */
@@ -113,7 +112,7 @@ h2 {
     text-decoration: none;
 }
 
-/* Submit Button Styling */
+/* Login Button Styling */
 .login-btn {
     padding: 0.75rem 1.25rem;
     font-size: 1rem;

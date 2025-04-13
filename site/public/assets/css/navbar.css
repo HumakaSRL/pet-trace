@@ -89,7 +89,7 @@ nav {
     top: 61px;
     flex-direction: column;
     background: var(--light-white);
-    background: rgba(5, 30, 56, 0.9);
+    background: rgba(5, 30, 56, 0.95);
     width: 100%;
     height: 100%;
     text-align: center;
