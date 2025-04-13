@@ -13,6 +13,19 @@ header {
     z-index: 1000;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .hamburger {
     display: block;
     cursor: pointer;
@@ -22,15 +35,16 @@ header {
 
 .hamburger span {
     display: block;
-    width: 25px;
-    height: 2px;
+    width: 26px;
+    height: 3px;
     margin: 6px;
-    background: #333;
+    border-radius: 5px;
+    background: var(--light-white);
     transition: all 0.3s ease;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -39,19 +53,6 @@ header {
 
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
-}
-
-.nav-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 0;
 }
 
 .logo {
@@ -138,6 +139,24 @@ nav {
 .btn-outline:hover {
     background-color: var(--secondary-color);
     color: var(--white);
+}
+
+.user-options {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.username-span {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--secondary-color);
+    align-content: center;
+}
+
+#logoutIcon {
+    cursor: pointer;
+    width: 24px;
 }
 
 @media (min-width: 872px) {

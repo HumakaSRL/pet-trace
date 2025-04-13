@@ -12,6 +12,12 @@ firebase.auth().onAuthStateChanged(async (user) => {
         deauthElements.forEach((element) => {
             element.style.display = "none";
         });
+
+        // Check if user has a display name and set it
+        if (user.displayName) {
+            usernameNavbarSpan.textContent = user.displayName;
+            userGreeting.style.display = "inherit";
+        }
     } else {
         authElements.forEach((element) => {
             element.style.display = "none";
@@ -24,8 +30,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Logout event
-    logoutButton.addEventListener("click", logout);
+    // Logout Icon
+    logoutIcon.addEventListener("click", logout);
 
     const hamburger = document.querySelector(".hamburger");
 

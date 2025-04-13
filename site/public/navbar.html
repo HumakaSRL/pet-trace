@@ -37,6 +37,7 @@
                         <img src="/assets/images/svg/logo-white.svg" alt="Pet Trace Logo" />
                         Pet Trace
                     </a>
+
                     <ul class="nav-links">
                         <li>
                             <a
@@ -74,10 +75,16 @@
                     >
                         Login
                     </a>
-
-                    <a id="logoutButton" class="btn btn-outline auth" style="display: none">
-                        Logout
-                    </a>
+                    <div class="user-options auth" style="display: none">
+                        <p id="userGreeting" style="display: none">
+                            <span id="usernameNavbarSpan" class="username-span"></span>
+                        </p>
+                        <img
+                            id="logoutIcon"
+                            src="/assets/images/svg/logout-icon.svg"
+                            alt="Logout Icon"
+                        />
+                    </div>
                 </nav>
             </div>
         </header>
