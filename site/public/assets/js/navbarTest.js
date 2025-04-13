@@ -16,9 +16,6 @@ firebase.auth().onAuthStateChanged(async (user) => {
         // Check if user has a display name and set it
         if (user.displayName) {
             usernameNavbarSpan.textContent = user.displayName;
-            usernameNavbarSpan.addEventListener("click", () => {
-                window.location = "/dashboard.html";
-            });
             userGreeting.style.display = "inherit";
         }
     } else {

@@ -131,6 +131,12 @@ nav {
     color: var(--secondary-color);
 }
 
+/* Remove hidden items from layout completely */
+.nav-links > li:has(> [style*="display: none"]),
+.nav-links > li[style*="display: none"] {
+    display: none;
+}
+
 #logoutSpan {
     display: flex;
     color: var(--error-color);
@@ -140,7 +146,7 @@ nav {
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 4px 18px;
     font-size: 14px;
     border-radius: 30px;
     text-decoration: none;
@@ -176,11 +182,11 @@ nav {
 .user-options {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    margin-top: 18px;
+    gap: 26px;
 }
 
 .username-span {
-    cursor: pointer;
     font-weight: bold;
     color: var(--secondary-color);
     align-content: center;
@@ -232,6 +238,7 @@ nav {
 
     .user-options {
         flex-direction: row;
+        gap: 12px;
     }
 
     #logoutSpan {
