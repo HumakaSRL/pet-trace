@@ -110,7 +110,10 @@ async function updateUI() {
         petSpecies.textContent = capitalizeFirstLetters(chipData.pet_info.pet_species);
         petStatus.textContent = capitalizeFirstLetters(chipData.pet_info.pet_status);
 
-        petBreed.textContent = capitalizeFirstLetters(chipData.pet_info.pet_breed) || "Unspecified";
+        if (capitalizeFirstLetters(chipData.pet_info.pet_breed))
+            petBreed.textContent = capitalizeFirstLetters(chipData.pet_info.pet_breed);
+        else breedField.style.display = "none";
+
         ownerName.textContent = capitalizeFirstLetters(chipData.owner_info.owner_name);
 
         // Format the owner's phone number
@@ -220,6 +223,7 @@ function showEditFields() {
     editCountry.style.display = displayStyle;
     editCity.style.display = displayStyle;
     imageOverlay.style.display = displayStyle;
+    breedField.style.display = displayStyle;
     facebookField.style.display = displayStyle;
     instagramField.style.display = displayStyle;
 }

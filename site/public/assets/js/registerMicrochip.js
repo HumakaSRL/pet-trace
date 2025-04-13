@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Check if the pet image is valid
                 const petImageFile = petImageInput.files[0];
                 if (!petImageFile) {
-                    alert("Please select a pet image.");
+                    alert("Please upload a picture of your pet");
                     submitPetFormButton.disabled = false;
                     return;
                 }
