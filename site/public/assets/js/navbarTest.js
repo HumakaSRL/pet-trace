@@ -37,15 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutIcon.addEventListener("click", logout);
 
     const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
 
     hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
     });
 
     // Close menu when clicking outside
     document.addEventListener("click", (e) => {
         if (!e.target.closest("nav")) {
             hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
         }
     });
 
@@ -53,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".nav-links a").forEach((link) => {
         link.addEventListener("click", () => {
             hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
         });
     });
 });
