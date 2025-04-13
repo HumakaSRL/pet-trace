@@ -202,7 +202,7 @@ nav {
     width: 24px;
 }
 
-@media (min-width: 872px) {
+@media (min-width: 892px) {
     .nav {
         padding: 20px 0;
     }
@@ -238,6 +238,7 @@ nav {
 
     .user-options {
         flex-direction: row;
+        margin: 0px 0 0 36px;
         gap: 12px;
     }
 
