@@ -26,6 +26,26 @@ firebase.auth().onAuthStateChanged(async (user) => {
 document.addEventListener("DOMContentLoaded", () => {
     // Logout event
     logoutButton.addEventListener("click", logout);
+
+    const hamburger = document.querySelector(".hamburger");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("nav")) {
+            hamburger.classList.remove("active");
+        }
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+        });
+    });
 });
 
 function logout() {

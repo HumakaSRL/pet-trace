@@ -13,6 +13,34 @@ header {
     z-index: 1000;
 }
 
+.hamburger {
+    display: block;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 6px;
+    background: #333;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
 .nav-container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -23,7 +51,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 14px 0;
 }
 
 .logo {
@@ -113,6 +141,14 @@ nav {
 }
 
 @media (min-width: 872px) {
+    .nav {
+        padding: 20px 0;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
     .logo {
         font-size: 28px;
     }
