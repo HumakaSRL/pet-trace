@@ -117,9 +117,14 @@ async function updateUI() {
         ownerPhone.textContent = chipData.owner_info.owner_phone_number;
         ownerEmail.textContent = chipData.owner_info.owner_email;
 
-        // Provide default values for missing social media links
-        ownerFacebook.textContent = chipData.owner_info.owner_facebook || "Unspecified";
-        ownerInstagram.textContent = chipData.owner_info.owner_instagram || "Unspecified";
+        // Social media links
+        if (chipData.owner_info.owner_facebook)
+            ownerFacebook.textContent = chipData.owner_info.owner_facebook;
+        else facebookField.style.display = "none";
+
+        if (chipData.owner_info.owner_instagram)
+            ownerInstagram.textContent = chipData.owner_info.owner_instagram;
+        else instagramField.style.display = "none";
 
         ownerNote.textContent =
             chipData.owner_info.owner_note ||
@@ -215,6 +220,8 @@ function showEditFields() {
     editCountry.style.display = displayStyle;
     editCity.style.display = displayStyle;
     imageOverlay.style.display = displayStyle;
+    facebookField.style.display = displayStyle;
+    instagramField.style.display = displayStyle;
 }
 
 function hideEditFields() {
