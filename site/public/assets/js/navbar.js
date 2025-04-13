@@ -1,55 +1,60 @@
-// Make sure these elements exist in your HTML
-const loginButton = document.getElementById("loginButton");
-const logoutButton = document.getElementById("logoutButton");
-const dashboardButton = document.getElementById("dashboardButton");
-const navLogo = document.getElementById("navLogo");
-const userGreeting = document.getElementById("userGreeting");
-const usernameNavbarSpan = document.getElementById("usernameNavbarSpan");
-
 /**
  * Detect Auth State Change
  */
 firebase.auth().onAuthStateChanged(async (user) => {
+    const authElements = document.querySelectorAll(".auth");
+    const deauthElements = document.querySelectorAll(".deauth");
     if (user) {
-        // Hide Login button, Show Logout + Dashboard buttons
-        loginButton.style.display = "none";
-        logoutButton.style.display = "block";
-        dashboardButton.style.display = "block";
+        authElements.forEach((element) => {
+            element.style.display = "inherit";
+        });
+
+        deauthElements.forEach((element) => {
+            element.style.display = "none";
+        });
 
         // Check if user has a display name and set it
         if (user.displayName) {
-            usernameNavbarSpan.textContent = `${user.displayName}!`;
-            userGreeting.style.display = "flex"; // Show greeting message
+            usernameNavbarSpan.textContent = user.displayName;
+            userGreeting.style.display = "inherit";
         }
     } else {
-        // Hide Logout + Dashboard buttons, Show Login button
-        loginButton.style.display = "block";
-        logoutButton.style.display = "none";
-        dashboardButton.style.display = "none";
-        userGreeting.style.display = "none";
+        authElements.forEach((element) => {
+            element.style.display = "none";
+        });
+
+        deauthElements.forEach((element) => {
+            element.style.display = "inherit";
+        });
     }
 });
 
-/**
- * Once the DOM is loaded, set up event listeners
- */
 document.addEventListener("DOMContentLoaded", () => {
-    // Logout event
-    logoutButton.addEventListener("click", logout);
+    // Logout Icon
+    logoutMobileDiv.addEventListener("click", logout);
 
-    // Login event
-    loginButton.addEventListener("click", () => {
-        window.location = "/login.html";
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
     });
 
-    // Logo click -> Go to homepage
-    navLogo.addEventListener("click", () => {
-        window.location = "/";
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("nav")) {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        }
     });
 
-    // Dashboard button click -> Dashboard
-    dashboardButton.addEventListener("click", () => {
-        window.location = "/dashboard.html";
+    // Close menu when clicking a link
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
     });
 });
 

@@ -84,61 +84,76 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/terms-of-service.css?v=3.0" />
     </head>
     <body>
-        <!-- Navbar v2.2.3 (Mobile-First) -->
-        <nav class="site-navbar">
-            <div class="navbar-container">
-                <!-- Logo / Brand -->
-                <span id="navLogo" class="site-title">
-                    <div id="navLogoImage" role="img" aria-label="Pet Trace"></div>
-                </span>
-
-                <!-- Auth Section: Login, Dashboard, Logout, Greeting -->
-                <div class="auth-section">
-                    <!-- Greeting (shown only if user is logged in) -->
-                    <div
-                        id="userGreeting"
-                        class="user-greeting"
-                        style="display: none"
-                        aria-label="Welcome user greeting"
-                    >
-                        <p>
-                            Hello,
-                            <span class="username-span" id="usernameNavbarSpan"></span>
-                        </p>
+        <!-- Navbar v3.0.1 -->
+        <header>
+            <div class="nav-container">
+                <nav>
+                    <div class="logo-container">
+                        <button class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <a href="/index.html" class="logo">
+                            <img src="/assets/images/svg/logo-white.svg" alt="Pet Trace Logo" />
+                            Pet Trace
+                        </a>
                     </div>
 
-                    <!-- Login Button (shown if user is NOT logged in) -->
-                    <button
+                    <ul class="nav-links">
+                        <li>
+                            <a
+                                id="dashboardNavbarLink"
+                                href="/dashboard.html"
+                                class="auth"
+                                style="display: none"
+                            >
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/register-microchip.html" class="auth" style="display: none">
+                                Add A Pet
+                            </a>
+                        </li>
+                        <li><a href="/index.html#howItWorks">How It Works</a></li>
+                        <li><a href="/index.html#whyChoseUs">Why Choose Us</a></li>
+                        <li>
+                            <a
+                                id="registerButton"
+                                href="/register.html"
+                                class="deauth"
+                                style="display: none"
+                            >
+                                Register
+                            </a>
+                        </li>
+
+                        <div class="user-options unselectable auth" style="display: none">
+                            <p id="userGreeting" style="display: none">
+                                <span id="usernameNavbarSpan" class="username-span"></span>
+                            </p>
+                            <div id="logoutMobileDiv">
+                                <img
+                                    id="logoutIcon"
+                                    src="/assets/images/svg/logout-icon.svg"
+                                    alt="Logout Icon"
+                                />
+                                <span id="logoutSpan">Logout</span>
+                            </div>
+                        </div>
+                    </ul>
+                    <a
                         id="loginButton"
-                        class="auth-btn btn"
+                        href="/login.html"
+                        class="btn btn-outline deauth"
                         style="display: none"
-                        aria-label="Login to your account"
                     >
                         Login
-                    </button>
-
-                    <!-- Dashboard Button (shown if user IS logged in) -->
-                    <button
-                        id="dashboardButton"
-                        class="auth-btn dashboard-btn btn"
-                        style="display: none"
-                        aria-label="Go to your dashboard"
-                    >
-                        Dashboard
-                    </button>
-
-                    <!-- Logout Button (shown if user IS logged in) -->
-                    <button
-                        id="logoutButton"
-                        class="auth-btn logout-btn btn"
-                        style="display: none"
-                        aria-label="Logout of your account"
-                    >
-                        Logout
-                    </button>
-                </div>
+                    </a>
+                </nav>
             </div>
-        </nav>
+        </header>
 
         <!-- Main Content -->
         <main class="main-content">
