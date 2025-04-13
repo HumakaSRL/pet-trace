@@ -23,7 +23,12 @@ nav {
 .nav-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 12px;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
 }
 
 .hamburger {
@@ -65,7 +70,7 @@ nav {
 }
 
 .logo img {
-    margin-right: 18px;
+    margin: 0px 10px 0px 18px;
     width: 28px;
 }
 
@@ -173,6 +178,7 @@ nav {
     }
 
     .logo img {
+        margin: 0px 14px 0px 6px;
         width: 34px;
     }
 
