@@ -12,11 +12,12 @@
     padding: 16px;
     background-color: #fff;
     box-shadow: 0 4px 6px var(--shadow-color);
+    place-content: center;
 }
 
 /* Section Titles */
 .section-title {
-    font-size: 1.2rem; /* Smaller base for mobile */
+    font-size: 1.2rem;
     color: var(--heading-color);
     margin-bottom: 12px;
     border-bottom: 2px solid var(--heading-color);
@@ -33,7 +34,6 @@
 
 /* Pet Image Container */
 .pet-image {
-    /* Not changing layout or spacing for the picture per your request */
     position: relative;
     text-align: center;
     border-radius: 8px;
@@ -143,10 +143,6 @@
     flex-grow: 1;
     max-height: 120px;
     overflow-y: auto;
-    /* padding: 8px;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-    line-height: 1.3; */
     word-break: break-word;
     font-size: 0.9rem;
 }
@@ -170,7 +166,7 @@
     text-align: center;
     margin-top: 24px;
     padding: 16px;
-    border: 1px dashed var(--error-color); /* Warm Peach */
+    border: 1px solid var(--error-color);
     background-color: #fffafa;
     border-radius: 8px;
 }
@@ -196,11 +192,6 @@
     display: flex;
     justify-content: flex-end;
     gap: 12px;
-    /* margin-bottom: 1rem;
-    background-color: #f9f9f9;
-    padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px var(--shadow-color); */
 }
 
 /* Buttons */
@@ -422,10 +413,9 @@
     .info-item strong {
         margin-right: 0;
         margin-bottom: 4px;
-        min-width: auto; /* Remove fixed min-width for very small screens */
+        min-width: auto;
     }
 
-    /* Decrease spacing in the action bar further */
     .action-bar {
         padding: 8px;
         gap: 8px;
@@ -433,14 +423,13 @@
     }
 
     .action-btn {
-        font-size: 12px; /* Even smaller text for extremely narrow screens */
+        font-size: 12px;
         padding: 0.4rem 0.8rem;
     }
 }
 
 /* ========== Larger Screen Adjustments ========== */
 @media (min-width: 768px) {
-    /* Increase font sizes, switch to multi-column layout for .info-section */
     .section-title {
         font-size: 1.4rem;
     }
@@ -499,7 +488,6 @@
 }
 
 @media (min-width: 1024px) {
-    /* Even larger fonts for big screens */
     .section-title {
         font-size: 1.6rem;
     }

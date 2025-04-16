@@ -62,6 +62,10 @@ async function checkChip() {
 
     if (!chipId || !checkChipId(chipId)) return null;
 
+    if (chipId) {
+        document.title = `${chipId} - Pet Trace&trade;`;
+    }
+
     try {
         const snapshot = await firebase
             .database()
