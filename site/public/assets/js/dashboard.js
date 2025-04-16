@@ -86,7 +86,7 @@ function renderPetCard(petData) {
     // Create the content for the pet card
     petCard.innerHTML = `
         <img src="${image_url}" alt="${pet_name}" class="pet-image" />
-        <h3>${pet_name}</h3>
+        <h3>${capitalizeFirstLetters(pet_name)}</h3>
         <p>Chip ID: ${chip_id}</p>
     `;
 
@@ -105,4 +105,19 @@ function renderPetCard(petData) {
 
     // Append the pet card to the pets container
     petsContainer.appendChild(petCard);
+}
+
+function capitalizeFirstLetters(string) {
+    if (typeof string !== "string") {
+        console.error("Input must be a string.");
+        return "";
+    }
+
+    if (string.trim() === "") return "";
+
+    return string
+        .toLowerCase()
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
 }
