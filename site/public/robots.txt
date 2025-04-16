@@ -1,5 +1,6 @@
 # Allow all user agents to crawl the site
 User-agent: *
+Disallow: /dashboard.html
 Disallow: /view.html
 Disallow: /404.html
 Disallow: /email-verification.html
