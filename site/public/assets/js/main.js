@@ -21,18 +21,16 @@ if (
                 <div class="cookie-wrapper">
                     <h2>Hey, pet friend!</h2>
                     <p>
-                        We use cookies to keep our site running smoothly and remember your
-                        preferences, just like a loyal companion! Choose "Accept All Cookies" to unlock a
-                        richer, personalized experience with extra features and fun surprises. If you
-                        opt for "Accept Necessary Cookies Only," you'll get only the essential
-                        non-personalized experience. Check our
+                        We use cookies to ensure our site functions properly and to remember your preferences.
+                        By selecting "Accept All Cookies" you’ll enjoy a more personalized experience with
+                        additional features. Choosing "Accept Necessary Cookies" will limit functionality to
+                        essential, non-personalized services. For more information, please see our
                         <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">
-                            Privacy Policy
+                            Privacy&nbsp;Policy
                         </a>
-                        for more details
                     </p>
                     <div class="buttons">
-                        <button id="acceptNecessaryCookies">Accept Necessary Cookies Only</button>
+                        <button id="acceptNecessaryCookies">Accept Necessary Cookies</button>
                         <button id="acceptAllCookies">Accept All Cookies</button>
                     </div>
                 </div>
@@ -51,7 +49,7 @@ if (
         loadAllCookies();
     });
 
-    // Event listener for accepting necessary cookies only
+    // Event listener for accepting necessary cookies
     const acceptNecessaryButton = cookieConsent.querySelector("#acceptNecessaryCookies");
     acceptNecessaryButton.addEventListener("click", () => {
         cookieConsent.style.display = "none";
