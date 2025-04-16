@@ -1,7 +1,10 @@
 console.log(
-    "%cPet Trace%cWARNING: Modifying or tampering with the code is strictly prohibited and may result in legal action. Any unauthorized changes can lead to unexpected behavior or security vulnerabilities. If you encounter any issues or have questions, please contact our support team at support@humaka.ro for assistance. Thank you for using our platform responsibly.",
-    "font-size: 20px; color: #FFFFFF; background-color: #051e38; font-weight: bold; padding: 8px 12px; border-radius: 4px;",
-    "font-size: 16px; color: #FFFFFF; font-weight: bold; background-color: #051e38; padding: 10px; border-radius: 5px;"
+    "".concat(
+        "%cPet Trace",
+        "\n\n%cWARNING: This browser console is intended for developers. Modifying or interfering with the code is strictly prohibited. Any unauthorized changes may cause errors, security issues, or legal consequences. If you're experiencing issues or have questions, please contact our support team at support@humaka.ro. Thank you for using our platform responsibly."
+    ),
+    "font-weight: bold; font-size: 50px;color:#007FC8;font-family:Raleway, Roboto,'San Francisco',BlinkMacSystemFont,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif",
+    "font-weight: bold; color:#FFFFFF; background-color: #007FC8; padding: 10px; border-radius: 5px;font-family:Raleway, Roboto,'San Francisco',BlinkMacSystemFont,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;"
 );
 
 const acceptedAllCookies = localStorage.getItem("acceptedAllCookies");
