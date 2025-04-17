@@ -184,6 +184,7 @@
         height: 25vw;
         width: 25vw;
         margin-bottom: 10px;
+        border-radius: 15px;
     }
 
     .pet-card-content {
