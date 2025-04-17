@@ -55,17 +55,15 @@ async function fetchUserPets() {
                 }
             }
         } else {
-            // console.log("No pets registered.");
-            // Optionally, show a message if there are no pets
             const noPetsMessage = document.getElementById("noPetsMessage");
             noPetsMessage.style.display = "block";
         }
         if (petCount < MAX_PETS && currentUser.emailVerified) {
-            registerPetButton.addEventListener("click", () => {
+            addPetButton.addEventListener("click", () => {
                 window.location = "register-microchip.html";
             });
-            registerPetButton.disabled = false;
-            registerPetButton.style.filter = "none";
+            addPetButton.disabled = false;
+            addPetButton.style.filter = "none";
         } else if (!currentUser.emailVerified) emailVerificationError.style.display = "block";
 
         petCountSpan.textContent = `${petCount}/${MAX_PETS}`;

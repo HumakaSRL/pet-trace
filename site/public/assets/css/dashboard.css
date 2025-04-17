@@ -9,17 +9,17 @@
     background-color: var(--background-color); /* Using theme background color */
 }
 
-/* Register Pet Button Container */
-.register-pet-container {
+/* Add Pet Button Container */
+.add-pet-container {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Register Pet Button */
-.register-pet-btn {
+/* Add Pet Button */
+.add-pet-btn {
     display: inline-block;
     padding: 14px 24px;
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -30,7 +30,7 @@
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.register-pet-btn:hover {
+.add-pet-btn:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
@@ -50,8 +50,8 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* (Optional) Grayscale Effect on Specific Register Button */
-#registerPetButton {
+/* Grayscale Effect on Add Pet Button */
+#addPetButton {
     filter: grayscale(100%);
     cursor: pointer;
 }
@@ -113,7 +113,6 @@
 
 .pet-card:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
 }
 
 /* Pet Image */
@@ -178,7 +177,7 @@
         gap: 24px;
     }
 
-    .register-pet-btn {
+    .add-pet-btn {
         font-size: 18px;
     }
 
