@@ -129,11 +129,24 @@
 .pet-card-content {
     display: flex;
     text-align: left;
-    /* justify-content: space-between; */
     flex-direction: column;
     width: 100%;
     margin-left: 0px;
+    min-height: 110px;
     padding-left: 20px;
+}
+
+.pet-name {
+    font-size: 18px;
+}
+
+.pet-type {
+    font-size: 14px;
+}
+
+.pet-location {
+    font-size: 10px;
+    font-style: italic;
 }
 
 /* View Pet Button */
@@ -194,6 +207,20 @@
         border-radius: 15px;
     }
 
+    .pet-name {
+        margin-top: 8px;
+        font-size: 28px;
+    }
+
+    .pet-type {
+        font-size: 18px;
+    }
+
+    .pet-location {
+        font-size: 16px;
+        margin-top: 4px;
+    }
+
     .pet-card-content {
         padding: 0;
         text-align: center;
@@ -204,6 +231,6 @@
         align-self: center;
         width: 100%;
         font-size: 18px;
-        margin-top: 10px;
+        margin-top: 14px;
     }
 }

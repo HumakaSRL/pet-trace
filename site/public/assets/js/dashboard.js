@@ -81,14 +81,19 @@ function renderPetCard(petData) {
 
     // Destructure required fields for clarity
     const { chip_id, image_url, pet_info } = petData;
-    const { pet_name } = pet_info;
+    const { pet_species, pet_breed, pet_city, pet_country, pet_name } = pet_info;
 
     // Create the content for the pet card
     petCard.innerHTML = `
         <img src="${image_url}" alt="${pet_name}" class="pet-image" />
         <div class="pet-card-content">
-            <h3>${capitalizeFirstLetters(pet_name)}</h3>
-            <p>${chip_id}</p>
+            <h3 class="pet-name">${capitalizeFirstLetters(pet_name)}</h3>
+            <p class="pet-type">${capitalizeFirstLetters(pet_breed)} ${capitalizeFirstLetters(
+        pet_species
+    )}</p>
+            <p class="pet-location">${capitalizeFirstLetters(pet_city)}, ${capitalizeFirstLetters(
+        pet_country
+    )}</p>
         </div>
     `;
 
