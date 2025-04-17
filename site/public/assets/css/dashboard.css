@@ -118,10 +118,10 @@
 
 /* Pet Image */
 .pet-image {
-    width: 25vw;
-    min-width: 25vw;
-    height: 25vw;
-    max-height: 25vw;
+    width: 30vw;
+    min-width: 30vw;
+    height: 30vw;
+    max-height: 30vw;
     object-fit: cover;
     border-radius: 4px;
 }
@@ -129,7 +129,7 @@
 .pet-card-content {
     display: flex;
     text-align: left;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-direction: column;
     width: 100%;
     margin-left: 0px;
@@ -138,19 +138,24 @@
 
 /* View Pet Button */
 .view-pet-button {
-    padding: 8px 16px;
-    background-color: var(--accent-color);
-    width: 100%;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
+    padding: 10px 18px;
+    background-color: #fff;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    font-family: "Raleway";
     font-size: 14px;
+    font-weight: 700;
+    align-self: end;
+    position: absolute;
+    bottom: 10px;
     transition: all 0.3s;
 }
 
 .view-pet-button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
+    color: #fff;
 }
 
 /* Media Query for Larger Screens */
@@ -181,8 +186,10 @@
     }
 
     .pet-image {
-        height: 25vw;
         width: 25vw;
+        min-width: 25vw;
+        height: 25vw;
+        max-height: 25vw;
         margin-bottom: 10px;
         border-radius: 15px;
     }
@@ -193,7 +200,10 @@
     }
 
     .view-pet-button {
-        font-size: 16px;
+        position: initial;
+        align-self: center;
+        width: 100%;
+        font-size: 18px;
         margin-top: 10px;
     }
 }
