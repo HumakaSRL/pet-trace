@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch((error) => {
                     // Handle errors here, such as expired or invalid action code
                     message.textContent =
-                        "This reset link is no longer valid, please request a new one.";
+                        "The password reset link is no longer valid, please request a new one.";
                     passwordResetForm.style.display = "none";
                     // console.error("Error resetting password:", error);
                 });

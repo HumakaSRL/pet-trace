@@ -86,8 +86,10 @@ function renderPetCard(petData) {
     // Create the content for the pet card
     petCard.innerHTML = `
         <img src="${image_url}" alt="${pet_name}" class="pet-image" />
-        <h3>${capitalizeFirstLetters(pet_name)}</h3>
-        <p>Chip ID: ${chip_id}</p>
+        <div class="pet-card-content">
+            <h3>${capitalizeFirstLetters(pet_name)}</h3>
+            <p>${chip_id}</p>
+        </div>
     `;
 
     // Create the "View" button
@@ -95,8 +97,9 @@ function renderPetCard(petData) {
     viewButton.className = "view-pet-button";
     viewButton.textContent = "View";
 
-    // Append the button to the pet card
-    petCard.appendChild(viewButton);
+    // Append the button inside the .pet-card-content div
+    const contentDiv = petCard.querySelector(".pet-card-content");
+    contentDiv.appendChild(viewButton);
 
     // Optionally, add a click event to the button
     viewButton.addEventListener("click", () => {

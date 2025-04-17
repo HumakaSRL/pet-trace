@@ -2,26 +2,26 @@
 
 /* Main Content Styling */
 .main-content {
-    padding: 1rem;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 20px;
     background-color: var(--background-color); /* Using theme background color */
 }
 
 /* Register Pet Button Container */
 .register-pet-container {
     text-align: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 20px;
 }
 
 /* Register Pet Button */
 .register-pet-btn {
     display: inline-block;
-    padding: 0.875rem 1.5rem; /* Approx. 14px 24px */
+    padding: 14px 24px;
     background-color: var(--primary-color);
     color: #fff;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: bold;
     text-transform: none;
     text-decoration: none;
@@ -41,7 +41,7 @@
     background-color: #fff;
     border: 1px solid #e3e6eb;
     border-radius: 10px;
-    padding: 1rem;
+    padding: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
 }
@@ -58,10 +58,10 @@
 
 /* Section Title */
 .section-title {
-    font-size: 1.5rem; /* 24px */
+    font-size: 24px;
     font-weight: 600;
     color: var(--heading-color);
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     text-align: center;
     letter-spacing: 0.5px;
 }
@@ -70,22 +70,22 @@
 .pets-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    gap: 20px;
     justify-content: center;
-    padding-top: 0.625rem;
+    padding-top: 10px;
 }
 
 /* No Pets Message */
 .no-pets-message {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 500;
     color: var(--text-color);
     text-align: center;
-    padding: 1rem;
+    padding: 16px;
     border: 1px dashed #e0e0e0;
     border-radius: 8px;
     background-color: #f8f9fa;
-    margin-top: 0.625rem;
+    margin-top: 10px;
     transition: all 0.3s ease;
 }
 
@@ -100,13 +100,15 @@
     background-color: #fff;
     border: 1px solid #e3e6eb;
     border-radius: 8px;
-    padding: 1rem;
-    width: 220px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
     text-align: center;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .pet-card:hover {
@@ -116,24 +118,34 @@
 
 /* Pet Image */
 .pet-image {
-    width: 100%;
-    height: auto;
-    max-height: 150px;
+    width: 25vw;
+    min-width: 25vw;
+    height: 25vw;
+    max-height: 25vw;
     object-fit: cover;
     border-radius: 4px;
-    margin-bottom: 0.625rem;
+}
+
+.pet-card-content {
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 20px;
 }
 
 /* View Pet Button */
 .view-pet-button {
-    margin-top: 0.625rem;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
     background-color: var(--accent-color);
+    width: 100%;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.875rem;
+    font-size: 14px;
     transition: all 0.3s;
 }
 
@@ -144,29 +156,43 @@
 /* Media Query for Larger Screens */
 @media (min-width: 768px) {
     .main-content {
-        padding: 2rem;
-        gap: 1.5rem;
+        padding: 32px;
+        gap: 24px;
     }
 
     .register-pet-btn {
-        font-size: 1.125rem;
+        font-size: 18px;
     }
 
     .my-pets-section {
-        padding: 2rem;
+        padding: 32px;
     }
 
     .section-title {
-        font-size: 1.75rem;
-        margin-bottom: 1.5rem;
+        font-size: 28px;
+        margin-bottom: 24px;
     }
 
     .pet-card {
-        width: 240px;
-        padding: 1.25rem;
+        flex-direction: column;
+        width: fit-content;
+        height: auto;
+        padding: 16px;
+    }
+
+    .pet-image {
+        height: 25vw;
+        width: 25vw;
+        margin-bottom: 10px;
+    }
+
+    .pet-card-content {
+        padding: 0;
+        text-align: center;
     }
 
     .view-pet-button {
-        font-size: 1rem;
+        font-size: 16px;
+        margin-top: 10px;
     }
 }
