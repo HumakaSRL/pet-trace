@@ -3,9 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 1rem;
     background-color: var(--background-color);
+    padding: 1rem;
 }
 
 /* Register Section */
@@ -19,7 +18,7 @@
     margin: 0 auto;
 }
 
-.register-section h2 {
+.register-section h1 {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -91,13 +90,14 @@ form a:hover {
 /* Media Query for Larger Screens */
 @media (min-width: 768px) {
     .register-section {
-        padding: 2.5rem;
-        max-width: 500px;
+        padding: 35px;
+        max-width: 400px;
+        margin: 32px auto;
     }
 
-    .register-section h2 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
+    .register-section h1 {
+        font-size: 28px;
+        margin-bottom: 32px;
     }
 
     .form-input {

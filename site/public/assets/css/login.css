@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
-    padding: 1rem; /* Ensures content isn't flush against the viewport on mobile */
+    padding: 1rem;
 }
 
 /* Login Section */
@@ -19,7 +19,7 @@
 }
 
 /* Heading */
-h2 {
+h1 {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -142,12 +142,12 @@ h2 {
 /* Media Query for Larger Screens */
 @media (min-width: 768px) {
     .login-section {
-        padding: 3rem;
+        padding: 48px;
         max-width: 400px;
-        margin: 2rem auto;
+        margin: 32px auto;
     }
 
-    h2 {
+    h1 {
         font-size: 1.75rem;
         margin-bottom: 2rem;
     }
