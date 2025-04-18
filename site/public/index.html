@@ -43,6 +43,12 @@
                         "url": "https://humaka.ro",
                         "logo": "https://pet-trace.com/assets/images/logo-color-square.png",
                         "description": "Humaka SRL is a software company specializing in web development and custom software solutions.",
+                        "brand": {
+                            "@type": "Brand",
+                            "name": "Pet Trace",
+                            "description": "Free pet microchip registry by Humaka",
+                            "url": "https://pet-trace.com"
+                        },
                         "address": {
                             "@type": "PostalAddress",
                             "streetAddress": "Octavian Goga 36",
@@ -58,14 +64,10 @@
                         }
                     },
                     {
-                        "@type": "WebApplication",
+                        "@type": "WebSite",
                         "name": "Pet Trace",
                         "url": "https://pet-trace.com",
                         "description": "Pet Trace is a free international pet microchip registry that helps reunite lost pets with their owners.",
-                        "applicationCategory": "Pet Registry Platform",
-                        "operatingSystem": "All",
-                        "browserRequirements": "Requires JavaScript",
-                        "inLanguage": "en",
                         "potentialAction": {
                             "@type": "SearchAction",
                             "target": {
@@ -123,30 +125,24 @@
                             "name": "Pet Trace Services",
                             "itemListElement": [
                                 {
-                                    "@type": "OfferCatalog",
-                                    "name": "Free Services",
-                                    "itemListElement": [
-                                        {
-                                            "@type": "Offer",
-                                            "itemOffered": {
-                                                "@type": "Service",
-                                                "name": "Microchip Registration",
-                                                "description": "Free registration of pet microchips in our international database",
-                                                "price": "0",
-                                                "priceCurrency": "USD"
-                                            }
-                                        },
-                                        {
-                                            "@type": "Offer",
-                                            "itemOffered": {
-                                                "@type": "Service",
-                                                "name": "Microchip Lookup",
-                                                "description": "Free search of microchip IDs to help reunite lost pets with owners",
-                                                "price": "0",
-                                                "priceCurrency": "USD"
-                                            }
-                                        }
-                                    ]
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Microchip Registration",
+                                        "description": "Free registration of pet microchips in our international database",
+                                        "price": "0",
+                                        "priceCurrency": "USD"
+                                    }
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Microchip Lookup",
+                                        "description": "Free search of microchip IDs to help reunite lost pets with owners",
+                                        "price": "0",
+                                        "priceCurrency": "USD"
+                                    }
                                 }
                             ]
                         }
