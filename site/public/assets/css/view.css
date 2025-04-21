@@ -431,6 +431,11 @@
 
 /* ========== Larger Screen Adjustments ========== */
 @media (min-width: 768px) {
+    .main-content {
+        max-width: 1000px;
+        justify-self: center;
+    }
+
     .section-title {
         font-size: 1.4rem;
     }
