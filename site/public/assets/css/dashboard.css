@@ -56,6 +56,10 @@
     cursor: pointer;
 }
 
+#emailVerificationError {
+    margin-top: 8px;
+}
+
 /* Section Title */
 .section-title {
     font-size: 24px;
@@ -180,6 +184,11 @@
 
     .add-pet-btn {
         font-size: 18px;
+    }
+
+    #emailVerificationError {
+        font-size: 20px;
+        margin: 14px 0px 26px 0px;
     }
 
     .my-pets-section {

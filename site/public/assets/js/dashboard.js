@@ -1,7 +1,6 @@
 let currentUserUid = null;
 let currentUser = null;
 let petCount = 0;
-const MAX_PETS = 5;
 
 // Wait for authentication
 const authReady = new Promise((resolve) => {
@@ -29,44 +28,51 @@ Promise.all([authReady, domReady]).then(() => {
 });
 
 async function fetchUserPets() {
-    // Get the reference to the pets in the user's account
     const petsRef = firebase.database().ref(`users/${currentUserUid}/pets`);
+    petCount = 0; // reset count if this runs more than once
 
     try {
         const snapshot = await petsRef.once("value");
         const userPets = snapshot.val();
 
         if (userPets) {
-            // Loop over the pets and render the pet cards
-            for (const chip in userPets) {
-                if (userPets.hasOwnProperty(chip)) {
-                    petCount++;
-                    const chipId = userPets[chip];
+            for (const chip of Object.keys(userPets)) {
+                petCount++;
+                const chipId = userPets[chip];
+                const chipDataRef = firebase.database().ref(`chips/${chipId}`);
+                const chipDataSnapshot = await chipDataRef.once("value");
+                const chipData = chipDataSnapshot.val();
 
-                    // Now get the detailed pet data from the 'chips/{chipId}' path
-                    const chipDataRef = firebase.database().ref(`chips/${chipId}`);
-                    const chipDataSnapshot = await chipDataRef.once("value");
-                    const chipData = chipDataSnapshot.val();
-
-                    if (chipData) {
-                        // console.log(chipData);
-                        renderPetCard(chipData);
-                    } else console.log("no pets");
+                if (chipData) {
+                    renderPetCard(chipData);
+                } else {
+                    console.log("Pet data not found for chip:", chipId);
                 }
             }
         } else {
-            const noPetsMessage = document.getElementById("noPetsMessage");
-            noPetsMessage.style.display = "block";
+            document.getElementById("noPetsMessage").style.display = "block";
         }
-        if (petCount < MAX_PETS && currentUser.emailVerified) {
+
+        const maxPetsRef = firebase.database().ref(`users/${currentUserUid}/max_pets`);
+        const maxPetsSnapshot = await maxPetsRef.once("value");
+        let maxPets = maxPetsSnapshot.val();
+
+        if (!maxPets) {
+            maxPets = 5;
+            await maxPetsRef.set(maxPets);
+        }
+
+        if (petCount < maxPets && currentUser.emailVerified) {
             addPetButton.addEventListener("click", () => {
                 window.location = "register-microchip.html";
             });
             addPetButton.disabled = false;
             addPetButton.style.filter = "none";
-        } else if (!currentUser.emailVerified) emailVerificationError.style.display = "block";
+        } else if (!currentUser.emailVerified) {
+            emailVerificationError.style.display = "block";
+        }
 
-        petCountSpan.textContent = `${petCount}/${MAX_PETS}`;
+        petCountSpan.textContent = `${petCount}/${maxPets}`;
     } catch (error) {
         console.error("Error fetching pets data:", error);
     }
