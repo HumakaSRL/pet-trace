@@ -1,19 +1,22 @@
 let currentUserUid = null;
 let petCount = 0;
-const MAX_PETS = 5;
+let maxPets;
 
 // Check if a user is authenticated and store their UID
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
         if (!user.emailVerified) window.location = "/email-verification.html";
         currentUserUid = user.uid;
-        if (await countPets()) {
+        if (await hasAvailablePetSlot()) {
             mainContent.style.display = "block";
             // Extract the "chip" parameter from the URL
             const urlParams = new URLSearchParams(window.location.search);
             const chipId = urlParams.get("chip");
             if (chipId) microchipIdInput.value = chipId.toLocaleUpperCase();
-        } else window.location = "dashboard.html";
+        } else {
+            alert(`You can't register more than ${maxPets} pets at this moment`);
+            window.location = "dashboard.html";
+        }
     } else window.location = "login.html";
 });
 
@@ -172,8 +175,8 @@ async function constructPetData(userUid) {
 
 // Validation logic for pet data form
 async function checkPetData() {
-    if (await !countPets()) {
-        alert(`You can't register more than ${MAX_PETS} pets.`);
+    if (await !hasAvailablePetSlot()) {
+        alert(`You can't register more than ${maxPets} pets at this moment`);
         return false;
     }
 
@@ -411,19 +414,37 @@ async function updateImageURL(chipKey, imageURL) {
     });
 }
 
-async function countPets() {
-    // Get the reference to the pets in the user's account
+async function hasAvailablePetSlot() {
     const petsRef = firebase.database().ref(`users/${currentUserUid}/pets`);
+    const maxPetsRef = firebase.database().ref(`users/${currentUserUid}/max_pets`);
 
     try {
-        const snapshot = await petsRef.once("value");
-        const userPets = snapshot.val();
+        // Fetch user's pets
+        const petsSnapshot = await petsRef.once("value");
+        const userPets = petsSnapshot.val();
 
-        if (userPets) for (const chip in userPets) if (userPets.hasOwnProperty(chip)) petCount++;
+        // Count pets
+        petCount = 0;
+        if (userPets) {
+            for (const pet in userPets) {
+                if (userPets.hasOwnProperty(pet)) petCount++;
+            }
+        }
 
-        return petCount < MAX_PETS;
+        // Fetch max allowed pets
+        const maxPetsSnapshot = await maxPetsRef.once("value");
+        maxPets = maxPetsSnapshot.val();
+
+        // If maxPets is not set, assume default of 5
+        if (!maxPets) {
+            maxPets = 5;
+            await maxPetsRef.set(maxPets);
+        }
+
+        return petCount < maxPets;
     } catch (error) {
         console.error("Error counting pets:", error);
+        return false; // fallback
     }
 }
 
