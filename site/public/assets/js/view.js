@@ -666,7 +666,7 @@ function checkFields() {
     }
 
     // City Validation
-    if (!/^[a-zA-Z\s]+$/.test(pet_city) || pet_city.length < 3 || pet_city.length > 25) {
+    if (!/^[\p{L} ]+$/u.test(pet_city) || pet_city.length < 3 || pet_city.length > 25) {
         alert(
             "Please enter a valid city name. Only letters and spaces are allowed, and the length must be between 3 and 25 characters."
         );

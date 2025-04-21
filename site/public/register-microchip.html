@@ -187,9 +187,9 @@
                     <label for="petDobInput" class="form-label">Date of Birth (optional)</label>
                     <input type="date" id="petDobInput" name="petDob" class="input-field" />
 
-                    <!-- Animal Species -->
+                    <!-- Pet Species -->
                     <label for="animalSpeciesInput" class="form-label">
-                        Species of Animal
+                        Pet Species
                         <span class="required">*</span>
                     </label>
                     <select id="animalSpeciesInput" name="animalType" class="input-field" required>
@@ -200,8 +200,8 @@
                         <option value="other">Other</option>
                     </select>
 
-                    <!-- Breed of Animal (Optional) -->
-                    <label for="breedInput" class="form-label">Breed of Animal (Optional)</label>
+                    <!-- Pet Breed (Optional) -->
+                    <label for="breedInput" class="form-label">Pet Breed (Optional)</label>
                     <input
                         type="text"
                         id="breedInput"
@@ -476,106 +476,48 @@
                         type="text"
                         id="ownerNameInput"
                         name="ownerName"
+                        placeholder="John Doe"
                         class="input-field"
                         required
                     />
 
                     <!-- Owner's Phone Number -->
                     <label for="phoneNumberInput" class="form-label">
-                        Phone Number
+                        Owner's Phone Number
                         <span class="required">*</span>
                     </label>
                     <input
                         type="text"
                         id="phoneNumberInput"
                         name="phoneNumber"
-                        placeholder="Phone Number (+12345678912)"
+                        placeholder="+12345678912"
                         class="input-field"
                         required
                     />
+
                     <!-- Owner's Email -->
                     <label for="ownerEmailInput" class="form-label">
-                        Email
+                        Owner's Email
                         <span class="required">*</span>
                     </label>
                     <input
                         type="email"
                         id="ownerEmailInput"
                         name="ownerEmail"
+                        placeholder="john@example.com"
                         class="input-field"
                         required
                     />
 
-                    <!-- Owner's Facebook -->
-                    <label for="ownerFacebookInput" class="form-label">
-                        Facebook Link (optional)
-                    </label>
-                    <input
-                        type="text"
-                        id="ownerFacebookInput"
-                        name="ownerFacebook"
-                        class="input-field"
-                    />
-
-                    <!-- Owner's Instagram -->
-                    <label for="ownerInstagramInput" class="form-label">
-                        Instagram Link (optional)
-                    </label>
-                    <input
-                        type="text"
-                        id="ownerInstagramInput"
-                        name="ownerInstagram"
-                        class="input-field"
-                    />
-
                     <!-- Other Note from the Owner -->
                     <label for="ownerNoteInput" class="form-label">
-                        Additional Notes (optional)
+                        Additional Notes (Optional)
                     </label>
-                    <p class="note-instructions">
-                        This message is for anyone who might find your pet if it gets lost. Please
-                        provide important details that could help them care for your pet until it is
-                        safely returned.
-                    </p>
-                    <ol class="note-list">
-                        <li>
-                            <span class="bold">Diet & Food Preferences:</span>
-                            What food does your pet eat? Does it have any allergies or special diet
-                            requirements?
-                        </li>
-                        <li>
-                            <span class="bold">Responding to Sounds:</span>
-                            Does your pet respond to a certain call, whistle, or sound?
-                        </li>
-                        <li>
-                            <span class="bold">Behavior & Personality:</span>
-                            How does your pet behave? Is it friendly or shy around people? Does it
-                            have any specific likes or dislikes?
-                        </li>
-                        <li>
-                            <span class="bold">Fears or Comfort:</span>
-                            Does your pet have any fears, like loud noises or strangers? What can
-                            help calm it down?
-                        </li>
-                        <li>
-                            <span class="bold">Health Concerns:</span>
-                            Any medical issues or medications the pet needs to take?
-                        </li>
-                        <li>
-                            <span class="bold">Favorite Toys or Items:</span>
-                            Does your pet have a favorite toy, blanket, or item that brings it
-                            comfort?
-                        </li>
-                    </ol>
-                    <p class="note-instructions">
-                        By providing this information, you’ll help the person who finds your pet
-                        take better care of it until it is reunited with you.
-                    </p>
                     <textarea
                         id="ownerNoteInput"
                         name="ownerNote"
                         class="input-field"
-                        placeholder="Provide any additional information about your pet here."
+                        placeholder="This message is for anyone who might find your pet if it gets lost. Please provide important details that could help them care for your pet until it is safely returned."
                     ></textarea>
 
                     <!-- Pet Picture -->

@@ -139,8 +139,6 @@ async function constructPetData(userUid) {
     const owner_name = ownerNameInput.value.trim().toLowerCase();
     const owner_phone_number = phoneNumberInput.value.trim();
     const owner_email = ownerEmailInput.value.trim().toLowerCase();
-    const owner_facebook = ownerFacebookInput.value.trim().toLowerCase();
-    const owner_instagram = ownerInstagramInput.value.trim().toLowerCase();
     const owner_note = ownerNoteInput.value.trim();
 
     // Convert all letters in chip_id to lowercase, while keeping numbers intact
@@ -165,8 +163,6 @@ async function constructPetData(userUid) {
             owner_name: owner_name,
             owner_phone_number: owner_phone_number,
             owner_email: owner_email,
-            owner_facebook: owner_facebook,
-            owner_instagram: owner_instagram,
             owner_note: owner_note,
         },
     };
@@ -192,8 +188,6 @@ async function checkPetData() {
     const owner_name = ownerNameInput.value.trim().toLowerCase();
     const owner_phone_number = phoneNumberInput.value.trim();
     const owner_email = ownerEmailInput.value.trim().toLowerCase();
-    const owner_facebook = ownerFacebookInput.value.trim().toLowerCase();
-    const owner_instagram = ownerInstagramInput.value.trim().toLowerCase();
     const owner_note = ownerNoteInput.value.trim();
 
     // Chip ID Validation
@@ -265,7 +259,7 @@ async function checkPetData() {
     }
 
     // City Validation
-    if (!/^[a-zA-Z\s]+$/.test(pet_city) || pet_city.length < 3 || pet_city.length > 25) {
+    if (!/^[\p{L} ]+$/u.test(pet_city) || pet_city.length < 3 || pet_city.length > 25) {
         alert(
             "Please enter a valid city name. Only letters and spaces are allowed, and the length must be between 3 and 25 characters."
         );
@@ -301,23 +295,6 @@ async function checkPetData() {
     // Email Validation
     if (!/^[a-zA-Z0-9.\-]{3,30}@[a-zA-Z0-9.\-]{3,20}\.[a-zA-Z]{2,4}$/.test(owner_email)) {
         alert("Please enter a valid email address.");
-        submitPetFormButton.disabled = false;
-        return false;
-    }
-
-    // Social Media Links Validation
-    if (owner_facebook && (owner_facebook.length < 10 || owner_facebook.length > 150)) {
-        alert(
-            "Please enter a valid Facebook profile name or link. It should be between 10 and 150 characters."
-        );
-        submitPetFormButton.disabled = false;
-        return false;
-    }
-
-    if (owner_instagram && (owner_instagram.length < 10 || owner_instagram.length > 150)) {
-        alert(
-            "Please enter a valid Instagram profile name or link. It should be between 10 and 150 characters."
-        );
         submitPetFormButton.disabled = false;
         return false;
     }
