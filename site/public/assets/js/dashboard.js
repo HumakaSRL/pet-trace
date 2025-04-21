@@ -72,6 +72,8 @@ async function fetchUserPets() {
             emailVerificationError.style.display = "block";
         }
 
+        if (petCount >= maxPets) petCountSpan.style.color = "var(--error-color)";
+
         petCountSpan.textContent = `${petCount}/${maxPets}`;
     } catch (error) {
         console.error("Error fetching pets data:", error);
