@@ -92,6 +92,7 @@ function createAccount() {
     // Create the user data object, including timestamp
     const user_data = {
         username: username,
+        role: "owner",
         email: email,
         created_at: firebase.database.ServerValue.TIMESTAMP,
     };

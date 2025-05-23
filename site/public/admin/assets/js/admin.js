@@ -1,15 +1,25 @@
 // Listen to auth state changes
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(async (user) => {
     const loginContainer = document.getElementById("loginContainer");
     const mainContent = document.getElementById("mainContent");
 
     if (user) {
-        // User is signed in: hide login, show main content
-        loginContainer.style.display = "none";
-        mainContent.style.display = "block";
+        try {
+            const snapshot = await firebase.database().ref(`users/${user.uid}/role`).once("value");
+            const userRole = snapshot.val();
+
+            if (userRole === "admin") {
+                loginContainer.style.display = "none";
+                mainContent.style.display = "block";
+            } else {
+                alert("You are not authorized to access this page, the attempt has been recorded.");
+            }
+        } catch (error) {
+            console.error("Error retrieving user role:", error);
+            alert("An error occurred.");
+        }
     } else {
-        // No user signed in: show login, hide main content
-        loginContainer.style.display = "flex"; // since .login-wrapper uses flex
+        loginContainer.style.display = "flex";
         mainContent.style.display = "none";
     }
 });
