@@ -7,7 +7,7 @@
             ".indexOn": ["chip_id"],
             "$chipId": {
                 ".read": "true",
-                ".write": "auth != null && (!data.exists() || data.child('owner_uid').val() === auth.uid)",
+                ".write": "auth != null && (!data.exists() || data.child('created_by').val() === auth.uid)",
                 "created_by": {
                     ".validate": "!data.exists() || data.val() === auth.uid"
                 }
