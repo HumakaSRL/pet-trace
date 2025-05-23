@@ -77,7 +77,36 @@
     </head>
     <body>
         <!-- Main Content -->
-        <main id="mainContent" class="main-content" style="display: none"></main>
+        <main id="mainContent" class="main-content" style="display: none">
+            <aside class="sidebar">
+                <nav class="admin-nav">
+                    <button class="nav-item" data-target="dashboard">Dashboard</button>
+                    <button class="nav-item" data-target="users">Users</button>
+                    <button class="nav-item" data-target="clinics">Clinics</button>
+                    <button class="nav-item" data-target="pets">Pets</button>
+                    <button class="nav-item" data-target="messages">Messages</button>
+                    <div class="bottom-container">
+                        <button class="nav-item logout-btn">Logout</button>
+                    </div>
+                </nav>
+            </aside>
+
+            <div class="active-content">
+                <section id="dashboard" class="admin-section">Welcome to the Dashboard!</section>
+                <section id="users" class="admin-section" style="display: none">
+                    Manage Users Here
+                </section>
+                <section id="clinics" class="admin-section" style="display: none">
+                    Manage Clinics Here
+                </section>
+                <section id="pets" class="admin-section" style="display: none">
+                    Manage Pets Here
+                </section>
+                <section id="messages" class="admin-section" style="display: none">
+                    View Messages Here
+                </section>
+            </div>
+        </main>
 
         <!-- Log In Form -->
         <div id="loginContainer" class="login-wrapper" style="display: none">

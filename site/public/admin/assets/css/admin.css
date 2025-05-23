@@ -109,6 +109,112 @@ body {
     transform: translateY(-2px);
 }
 
+/* Main Admin Layout */
+.main-content {
+    display: flex;
+    min-height: 100vh;
+    font-family: "Raleway", sans-serif;
+    background-color: #fff8e1; /* subtle cream */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: #183d6d;
+    color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Sidebar navigation */
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 20px;
+}
+
+/* Push bottom content to the bottom */
+.bottom-container {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    color: #ffffff;
+    text-align: left;
+    font-family: "Raleway";
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.nav-item:hover {
+    font-weight: 600;
+    background: #ffaf48;
+    color: #183d6d;
+    transform: translateX(4px);
+}
+
+.nav-item.active {
+    font-weight: 700;
+    background: #ffaf48;
+    color: #183d6d;
+}
+
+/* Content Area */
+.active-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #fffdf7;
+    color: #5f5e50;
+    overflow-y: auto;
+}
+
+.admin-section {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.admin-section:first-child {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Red styling for logout button */
+.logout-btn {
+    background: none;
+    border: none;
+    color: #ff4d4f;
+    font-weight: 600;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: transparent;
+    color: #d9363e;
+    transform: none;
+}
+
 /* Responsive styles for mobile devices */
 @media (max-width: 480px) {
     .login-container {
@@ -139,5 +245,36 @@ body {
 
     .login-logo {
         max-width: 40px;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 10px;
+    }
+
+    .admin-nav {
+        flex-direction: row;
+        gap: 6px;
+        padding: 0;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .nav-item {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .active-content {
+        padding: 20px;
     }
 }
