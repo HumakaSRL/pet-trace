@@ -152,7 +152,7 @@ async function constructPetData(userUid) {
         chip_id: chip_id,
         created_at: firebase.database.ServerValue.TIMESTAMP,
         last_update: firebase.database.ServerValue.TIMESTAMP,
-        owner_uid: userUid,
+        created_by: userUid,
         pet_info: {
             pet_name: pet_name,
             pet_dob: pet_dob,
