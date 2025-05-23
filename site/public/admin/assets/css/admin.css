@@ -1,0 +1,103 @@
+/* Import Raleway fonts */
+@import url("fonts.css");
+
+body {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    background-color: #f4f6f8;
+}
+
+/* Wrapper for login screen */
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container for the login form */
+.login-container {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+}
+
+/* Logo */
+.login-logo-container {
+    margin-bottom: 20px;
+}
+.login-logo {
+    max-width: 150px;
+}
+
+/* Title */
+.login-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Labels and Inputs */
+.login-label {
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    color: #34495e;
+    margin-bottom: 6px;
+    margin-top: 20px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Raleway", sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.login-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Error message */
+.login-error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 12px;
+    display: none;
+    font-weight: 500;
+}
+
+/* Buttons */
+.login-buttons {
+    margin-top: 30px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Raleway", sans-serif;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Admin Panel - Pet Trace&trade;</title>
+
+        <!-- No Index Meta Tag -->
+        <meta name="robots" content="noindex, nofollow" />
+
+        <!-- Theme Color -->
+        <meta name="theme-color" content="#1e1f57" />
+
+        <!-- BrowserConfig (for older IE/Edge pinned tiles) -->
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        <!-- PWA Manifest (for Android + modern browsers) -->
+        <link rel="manifest" href="/manifest.json" />
+
+        <!-- Favicons / Classic Desktop Browsers -->
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="150x150"
+            href="/assets/favicon/favicon-150x150.png"
+        />
+
+        <!-- Apple Touch Icons (iPhone, iPad) -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png" />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="150x150"
+            href="/assets/favicon/apple-icon-150x150.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            href="/assets/favicon/apple-icon-precomposed.png"
+        />
+
+        <!-- Firebase SDKs -->
+        <script defer src="/__/firebase/11.0.1/firebase-app-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-auth-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-database-compat.js"></script>
+        <script defer src="/__/firebase/11.0.1/firebase-analytics-compat.js"></script>
+        <script defer src="/__/firebase/init.js"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/admin/assets/css/admin.css?v=4.4" />
+    </head>
+    <body>
+        <!-- Main Content -->
+        <main id="mainContent" class="main-content" style="display: none"></main>
+
+        <!-- Log In Form -->
+        <div id="loginContainer" style="display: nonse" class="login-wrapper">
+            <div class="login-container">
+                <div class="login-logo-container">
+                    <img src="/assets/images/logo-color.png" class="login-logo" />
+                </div>
+                <h2 class="login-title">Admin Panel</h2>
+                <form class="login-form" id="loginForm">
+                    <label for="email" class="login-label">Email</label>
+                    <input type="email" id="email" name="email" class="login-input" required />
+
+                    <label for="password" class="login-label">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="login-input"
+                        required
+                    />
+
+                    <!-- Error message div -->
+                    <div id="loginError" class="login-error">Invalid login credentials.</div>
+
+                    <div class="login-buttons">
+                        <button type="submit" class="login-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script type="module" src="/admin/assets/js/admin.js?v=4.4"></script>
+    </body>
+</html>
