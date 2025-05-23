@@ -80,30 +80,36 @@
         <main id="mainContent" class="main-content" style="display: none"></main>
 
         <!-- Log In Form -->
-        <div id="loginContainer" style="display: none" class="login-wrapper">
+        <div id="loginContainer" class="login-wrapper" style="display: none">
             <div class="login-container">
                 <div class="login-logo-container">
                     <img src="/assets/images/logo-color.png" class="login-logo" />
                 </div>
                 <h2 class="login-title">Admin Panel</h2>
-                <form class="login-form" id="loginForm">
-                    <label for="email" class="login-label">Email</label>
-                    <input type="email" id="email" name="email" class="login-input" required />
-
-                    <label for="password" class="login-label">Password</label>
+                <form id="loginForm" class="login-form">
+                    <label for="loginEmail" class="login-label">Email</label>
                     <input
+                        id="loginEmail"
+                        type="email"
+                        name="loginEmail"
+                        class="login-input"
+                        required
+                    />
+
+                    <label for="loginPassword" class="login-label">Password</label>
+                    <input
+                        id="loginPassword"
                         type="password"
-                        id="password"
-                        name="password"
+                        name="loginPassword"
                         class="login-input"
                         required
                     />
 
                     <!-- Error message div -->
-                    <div id="loginError" class="login-error">Invalid login credentials.</div>
+                    <div id="loginErrorMessage" class="login-error">Invalid login credentials.</div>
 
                     <div class="login-buttons">
-                        <button type="submit" class="login-btn">Login</button>
+                        <button id="loginButton" class="login-btn">Login</button>
                     </div>
                 </form>
             </div>
