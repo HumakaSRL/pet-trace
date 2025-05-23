@@ -127,11 +127,8 @@ async function fetchDashboard() {
         let totalUsers = 0;
         let totalPetOwners = 0;
         let totalClinics = 0;
-
-        // Track newest user registration timestamp
         let newestUserTimestamp = 0;
 
-        // Iterate users
         Object.values(usersData).forEach((user) => {
             totalUsers++;
             if (user.role === "owner") totalPetOwners++;
@@ -145,7 +142,6 @@ async function fetchDashboard() {
             }
         });
 
-        // Update users stats in DOM
         totalUsersEl.textContent = totalUsers;
         totalPetOwnersEl.textContent = totalPetOwners;
         totalClinicsEl.textContent = totalClinics;
@@ -154,9 +150,6 @@ async function fetchDashboard() {
             const date = new Date(newestUserTimestamp);
             latestUserRegDateEl.textContent = date.toLocaleDateString();
             latestUserRegTimeEl.textContent = date.toLocaleTimeString();
-        } else {
-            latestUserRegDateEl.textContent = "-";
-            latestUserRegTimeEl.textContent = "-";
         }
 
         // Fetch all microchips
@@ -182,13 +175,23 @@ async function fetchDashboard() {
             const chipDate = new Date(newestChipTimestamp);
             latestMicrochipRegDateEl.textContent = chipDate.toLocaleDateString();
             latestMicrochipRegTimeEl.textContent = chipDate.toLocaleTimeString();
-        } else {
-            latestMicrochipRegDateEl.textContent = "-";
-            latestMicrochipRegTimeEl.textContent = "-";
         }
+
+        // Fetch messages and count unread
+        const messagesSnapshot = await firebase.database().ref("messages").once("value");
+        const messagesData = messagesSnapshot.val() || {};
+
+        let unreadCount = 0;
+
+        Object.values(messagesData).forEach((msg) => {
+            if (msg.new === true || msg.new === "true") {
+                unreadCount++;
+            }
+        });
+
+        unreadMessagesEl.textContent = unreadCount;
     } catch (error) {
         console.error("Error fetching dashboard data:", error);
-        // Optionally show an error message to the user
     }
 }
 
