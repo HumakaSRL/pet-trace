@@ -11,6 +11,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
             if (userRole === "admin") {
                 loginContainer.style.display = "none";
                 mainContent.style.display = "flex";
+                document.getElementById("welcomeUserName").textContent = user.displayName;
             } else {
                 alert("You are not authorized to access this page, the attempt has been recorded.");
             }
@@ -27,6 +28,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
     loginForm.addEventListener("submit", handleLogin);
+
+    document.getElementById("refreshDashboard").addEventListener("click", refreshDashboardStats);
 
     initializeAdminNavigation();
     fetchDashboard();
@@ -90,6 +93,11 @@ function initializeAdminNavigation() {
     }
 }
 
+function refreshDashboardStats() {
+    rotateRefreshIcon();
+    fetchDashboard();
+}
+
 async function fetchDashboard() {
     const totalUsersEl = document.getElementById("totalUsers");
     const totalPetOwnersEl = document.getElementById("totalPetOwners");
@@ -99,6 +107,17 @@ async function fetchDashboard() {
     const latestUserRegTimeEl = document.getElementById("latestUserRegistrationTime");
     const latestMicrochipRegDateEl = document.getElementById("latestMicrochipRegistrationDate");
     const latestMicrochipRegTimeEl = document.getElementById("latestMicrochipRegistrationTime");
+    const unreadMessagesEl = document.getElementById("unreadMessages");
+
+    totalUsersEl.textContent = "-";
+    totalPetOwnersEl.textContent = "-";
+    totalClinicsEl.textContent = "-";
+    totalMicrochipsEl.textContent = "-";
+    latestUserRegDateEl.textContent = "-";
+    latestUserRegTimeEl.textContent = "-";
+    latestMicrochipRegDateEl.textContent = "-";
+    latestMicrochipRegTimeEl.textContent = "-";
+    unreadMessagesEl.textContent = "-";
 
     try {
         // Fetch all users
@@ -171,4 +190,11 @@ async function fetchDashboard() {
         console.error("Error fetching dashboard data:", error);
         // Optionally show an error message to the user
     }
+}
+
+function rotateRefreshIcon() {
+    const refreshIcon = document.querySelector("#refreshDashboard img");
+    refreshIcon.classList.remove("rotate");
+    void refreshIcon.offsetWidth; // Trigger reflow to restart animation
+    refreshIcon.classList.add("rotate");
 }

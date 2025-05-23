@@ -239,7 +239,19 @@ body {
 
 #refreshDashboard:hover {
     background-color: #ffb963;
-    transform: translateX(4px);
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    animation: rotate360 1s ease-in-out;
 }
 
 /* Stats Container */
