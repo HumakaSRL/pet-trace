@@ -1,6 +1,23 @@
 {
-  "rules": {
-    ".read": "now < 1733781600000",  // 2024-12-10
-    ".write": "now < 1733781600000",  // 2024-12-10
-  }
+    "rules": {
+        ".read": "auth != null || auth.uid === 'YNfXu5NwWjR5fnE2C7wssc1BIQD2' || auth.uid === 'W1UynVfuxYStCAaopgo4JXUuyIq2'",
+        ".write": "false",
+        "chips": {
+            ".read": "true",
+            ".indexOn": ["chip_id"],
+            "$chipId": {
+                ".read": "true",
+                ".write": "auth != null && (!data.exists() || data.child('owner_uid').val() === auth.uid)",
+                "created_by": {
+                    ".validate": "!data.exists() || data.val() === auth.uid"
+                }
+            }
+        },
+        "users": {
+            "$userId": {
+                ".read": "auth != null",
+                ".write": "auth != null && $userId === auth.uid"
+            }
+        }
+    }
 }

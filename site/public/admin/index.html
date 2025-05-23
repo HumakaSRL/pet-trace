@@ -83,7 +83,7 @@
                     <button class="nav-item" data-target="dashboard">Dashboard</button>
                     <button class="nav-item" data-target="users">Users</button>
                     <button class="nav-item" data-target="clinics">Clinics</button>
-                    <button class="nav-item" data-target="pets">Pets</button>
+                    <button class="nav-item" data-target="microchips">Microchips</button>
                     <button class="nav-item" data-target="messages">Messages</button>
                     <div class="bottom-container">
                         <button class="nav-item logout-btn">Logout</button>
@@ -92,18 +92,87 @@
             </aside>
 
             <div class="active-content">
-                <section id="dashboard" class="admin-section">Welcome to the Dashboard!</section>
+                <!-- Dashboard Section -->
+                <section
+                    id="dashboard"
+                    class="admin-section"
+                    style="flex-direction: column; gap: 20px"
+                >
+                    <!-- Welcome message -->
+                    <!-- prettier-ignore -->
+                    <h2>
+                        Welcome,<span id="welcomeUserName"></span>!
+                    </h2>
+
+                    <!-- Refresh button -->
+                    <button
+                        id="refreshDashboard"
+                        class="refresh-btn"
+                        aria-label="Refresh Dashboard"
+                    >
+                        <img src="/assets/img/refresh-icon.svg" alt="Refresh Icon" />
+                        Refresh
+                    </button>
+
+                    <!-- Stats container -->
+                    <div class="dashboard-stats">
+                        <div class="stat-item">
+                            <h3>Total Users</h3>
+                            <p id="totalUsers">-</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <h3>Pet Owners</h3>
+                            <p id="totalPetOwners">-</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <h3>Clinics</h3>
+                            <p id="totalClinics">-</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <h3>Total Microchips</h3>
+                            <p id="totalMicrochips">-</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <h3>Latest User Registration</h3>
+                            <p id="latestUserRegistrationDate" class="small-text">-</p>
+                            <p id="latestUserRegistrationTime" class="small-text">-</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <h3>Latest Microchip Registration</h3>
+                            <p id="latestMicrochipRegistrationDate" class="small-text">-</p>
+                            <p id="latestMicrochipRegistrationTime" class="small-text">-</p>
+                        </div>
+
+                        <div class="stat-item">
+                            <h3>Unread Messages</h3>
+                            <p id="unreadMessages">0</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Users Section -->
                 <section id="users" class="admin-section" style="display: none">
-                    Manage Users Here
+                    In Progress
                 </section>
+
+                <!-- Clinics Section -->
                 <section id="clinics" class="admin-section" style="display: none">
-                    Manage Clinics Here
+                    In Progress
                 </section>
-                <section id="pets" class="admin-section" style="display: none">
-                    Manage Pets Here
+
+                <!-- Microchips Section -->
+                <section id="microchips" class="admin-section" style="display: none">
+                    In Progress
                 </section>
+
+                <!-- Messages Section -->
                 <section id="messages" class="admin-section" style="display: none">
-                    View Messages Here
+                    In Progress
                 </section>
             </div>
         </main>

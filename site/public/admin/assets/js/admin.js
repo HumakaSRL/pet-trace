@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loginForm.addEventListener("submit", handleLogin);
 
     initializeAdminNavigation();
+    fetchDashboard();
 });
 
 async function handleLogin(e) {
@@ -86,5 +87,88 @@ function initializeAdminNavigation() {
         sections.forEach((section) => {
             section.style.display = section.id === "dashboard" ? "flex" : "none";
         });
+    }
+}
+
+async function fetchDashboard() {
+    const totalUsersEl = document.getElementById("totalUsers");
+    const totalPetOwnersEl = document.getElementById("totalPetOwners");
+    const totalClinicsEl = document.getElementById("totalClinics");
+    const totalMicrochipsEl = document.getElementById("totalMicrochips");
+    const latestUserRegDateEl = document.getElementById("latestUserRegistrationDate");
+    const latestUserRegTimeEl = document.getElementById("latestUserRegistrationTime");
+    const latestMicrochipRegDateEl = document.getElementById("latestMicrochipRegistrationDate");
+    const latestMicrochipRegTimeEl = document.getElementById("latestMicrochipRegistrationTime");
+
+    try {
+        // Fetch all users
+        const usersSnapshot = await firebase.database().ref("users").once("value");
+        const usersData = usersSnapshot.val() || {};
+
+        let totalUsers = 0;
+        let totalPetOwners = 0;
+        let totalClinics = 0;
+
+        // Track newest user registration timestamp
+        let newestUserTimestamp = 0;
+
+        // Iterate users
+        Object.values(usersData).forEach((user) => {
+            totalUsers++;
+            if (user.role === "owner") totalPetOwners++;
+            else if (user.role === "clinic") totalClinics++;
+
+            if (user.created_at) {
+                const createdAt = new Date(user.created_at).getTime();
+                if (createdAt > newestUserTimestamp) {
+                    newestUserTimestamp = createdAt;
+                }
+            }
+        });
+
+        // Update users stats in DOM
+        totalUsersEl.textContent = totalUsers;
+        totalPetOwnersEl.textContent = totalPetOwners;
+        totalClinicsEl.textContent = totalClinics;
+
+        if (newestUserTimestamp > 0) {
+            const date = new Date(newestUserTimestamp);
+            latestUserRegDateEl.textContent = date.toLocaleDateString();
+            latestUserRegTimeEl.textContent = date.toLocaleTimeString();
+        } else {
+            latestUserRegDateEl.textContent = "-";
+            latestUserRegTimeEl.textContent = "-";
+        }
+
+        // Fetch all microchips
+        const chipsSnapshot = await firebase.database().ref("chips").once("value");
+        const chipsData = chipsSnapshot.val() || {};
+
+        let totalMicrochips = 0;
+        let newestChipTimestamp = 0;
+
+        Object.values(chipsData).forEach((chip) => {
+            totalMicrochips++;
+            if (chip.created_at) {
+                const chipDate = new Date(chip.created_at).getTime();
+                if (chipDate > newestChipTimestamp) {
+                    newestChipTimestamp = chipDate;
+                }
+            }
+        });
+
+        totalMicrochipsEl.textContent = totalMicrochips;
+
+        if (newestChipTimestamp > 0) {
+            const chipDate = new Date(newestChipTimestamp);
+            latestMicrochipRegDateEl.textContent = chipDate.toLocaleDateString();
+            latestMicrochipRegTimeEl.textContent = chipDate.toLocaleTimeString();
+        } else {
+            latestMicrochipRegDateEl.textContent = "-";
+            latestMicrochipRegTimeEl.textContent = "-";
+        }
+    } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+        // Optionally show an error message to the user
     }
 }

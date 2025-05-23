@@ -162,6 +162,7 @@ function checkEmailList(email) {
         "@t-online.de",
         "@mail.ru",
         "@rediffmail.com",
+        "@fxavaj.com",
     ];
 
     // Check if the email ends with any supported domain
