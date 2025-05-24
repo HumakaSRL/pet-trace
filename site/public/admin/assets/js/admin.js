@@ -220,9 +220,18 @@ async function fetchUsers() {
             .orderByKey()
             .limitToFirst(1000)
             .once("value");
+
         const usersData = snapshot.val() || {};
 
-        Object.entries(usersData).forEach(([uid, user]) => {
+        const sortedUsers = Object.entries(usersData).sort(([, a], [, b]) => {
+            const timeA = new Date(a.created_at || 0).getTime();
+            const timeB = new Date(b.created_at || 0).getTime();
+            return timeB - timeA; // Newest first
+        });
+
+        sortedUsers.forEach(([uid, user]) => {
+            const registrationDate = formatDate(user.created_at);
+
             const row = document.createElement("tr");
 
             row.innerHTML = `
@@ -230,6 +239,7 @@ async function fetchUsers() {
                 <td>${user.email || "N/A"}</td>
                 <td>${user.max_pets !== undefined ? user.max_pets : "-"}</td>
                 <td>${user.role || "-"}</td>
+                <td>${registrationDate}</td>
                 <td>
                     <button class="user-btn-view" data-uid="${uid}">View</button>
                     <button class="user-btn-edit" data-uid="${uid}">Edit</button>
@@ -262,4 +272,13 @@ function attachUserActionEvents() {
             alert("Editing user: " + uid);
         });
     });
+}
+
+function formatDate(timestamp) {
+    if (!timestamp) return "-";
+    const dateObj = new Date(timestamp);
+    const day = String(dateObj.getDate()).padStart(2, "0");
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+    const year = dateObj.getFullYear();
+    return `${day}/${month}/${year}`;
 }
