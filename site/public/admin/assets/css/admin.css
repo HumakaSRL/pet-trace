@@ -469,6 +469,13 @@ body {
     transform: none;
 }
 
+.unselectable {
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
 /* Responsive styles for mobile devices */
 @media (max-width: 480px) {
     .login-container {

@@ -32,6 +32,10 @@ function fetchAdminPanel(user) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".role-filter").forEach((cb) => {
+        cb.addEventListener("change", applyRoleFilter);
+    });
+
     const loginForm = document.getElementById("loginForm");
     loginForm.addEventListener("submit", handleLogin);
 
@@ -246,6 +250,8 @@ async function fetchUsers() {
                 </td>
             `;
 
+            row.setAttribute("data-role", user.role || "-");
+
             userTableBody.appendChild(row);
         });
 
@@ -281,4 +287,17 @@ function formatDate(timestamp) {
     const month = String(dateObj.getMonth() + 1).padStart(2, "0");
     const year = dateObj.getFullYear();
     return `${day}/${month}/${year}`;
+}
+
+function applyRoleFilter() {
+    const selectedRoles = Array.from(document.querySelectorAll(".role-filter:checked")).map(
+        (cb) => cb.value
+    );
+
+    const allRows = document.querySelectorAll("#userTableBody tr");
+
+    allRows.forEach((row) => {
+        const role = row.getAttribute("data-role");
+        row.style.display = selectedRoles.includes(role) ? "table-row" : "none";
+    });
 }
