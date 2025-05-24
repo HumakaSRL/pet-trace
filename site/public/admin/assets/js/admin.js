@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
             if (userRole === "admin") {
                 loginContainer.style.display = "none";
                 mainContent.style.display = "flex";
-                document.getElementById("welcomeUserName").textContent = user.displayName;
+                fetchAdminPanel(user);
             } else {
                 alert("You are not authorized to access this page, the attempt has been recorded.");
             }
@@ -24,6 +24,12 @@ firebase.auth().onAuthStateChanged(async (user) => {
         mainContent.style.display = "none";
     }
 });
+
+function fetchAdminPanel(user) {
+    document.getElementById("welcomeUserName").textContent = user.displayName;
+    fetchDashboard();
+    fetchUsers();
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
@@ -49,7 +55,8 @@ async function handleLogin(e) {
 
     try {
         await firebase.auth().signInWithEmailAndPassword(email, password);
-        fetchDashboard();
+        fetchAdminPanel();
+
         // No need to manually hide/show here because onAuthStateChanged will handle it
     } catch (error) {
         errorMessage.textContent = error.message;
@@ -200,4 +207,59 @@ function rotateRefreshIcon() {
     refreshIcon.classList.remove("rotate");
     void refreshIcon.offsetWidth; // Trigger reflow to restart animation
     refreshIcon.classList.add("rotate");
+}
+
+async function fetchUsers() {
+    const userTableBody = document.getElementById("userTableBody");
+    userTableBody.innerHTML = ""; // Clear current content
+
+    try {
+        const snapshot = await firebase
+            .database()
+            .ref("users")
+            .orderByKey()
+            .limitToFirst(1000)
+            .once("value");
+        const usersData = snapshot.val() || {};
+
+        Object.entries(usersData).forEach(([uid, user]) => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${user.username || "N/A"}</td>
+                <td>${user.email || "N/A"}</td>
+                <td>${user.max_pets !== undefined ? user.max_pets : "-"}</td>
+                <td>${user.role || "-"}</td>
+                <td>
+                    <button class="user-btn-view" data-uid="${uid}">View</button>
+                    <button class="user-btn-edit" data-uid="${uid}">Edit</button>
+                </td>
+            `;
+
+            userTableBody.appendChild(row);
+        });
+
+        attachUserActionEvents();
+    } catch (error) {
+        console.error("Failed to fetch users:", error);
+        alert("Failed to load user data.");
+    }
+}
+
+function attachUserActionEvents() {
+    document.querySelectorAll(".user-btn-view").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const uid = btn.dataset.uid;
+            // Add your view logic here
+            alert("Viewing user: " + uid);
+        });
+    });
+
+    document.querySelectorAll(".user-btn-edit").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const uid = btn.dataset.uid;
+            // Add your edit logic here
+            alert("Editing user: " + uid);
+        });
+    });
 }
