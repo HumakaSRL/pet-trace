@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("refreshDashboard").addEventListener("click", refreshDashboardStats);
 
     initializeAdminNavigation();
-    fetchDashboard();
 });
 
 async function handleLogin(e) {
@@ -50,6 +49,7 @@ async function handleLogin(e) {
 
     try {
         await firebase.auth().signInWithEmailAndPassword(email, password);
+        fetchDashboard();
         // No need to manually hide/show here because onAuthStateChanged will handle it
     } catch (error) {
         errorMessage.textContent = error.message;
