@@ -93,11 +93,7 @@
 
             <div class="active-content">
                 <!-- Dashboard Section -->
-                <section
-                    id="dashboard"
-                    class="admin-section"
-                    style="flex-direction: column; gap: 20px"
-                >
+                <section id="dashboard" class="admin-section">
                     <!-- Welcome message -->
                     <!-- prettier-ignore -->
                     <h2>
@@ -156,8 +152,50 @@
                 </section>
 
                 <!-- Users Section -->
-                <section id="users" class="admin-section" style="display: none">
-                    In Progress
+                <section id="users" class="admin-section users-section" style="display: none">
+                    <div class="section-header">
+                        <h2>Manage Users</h2>
+
+                        <!-- Search input and button -->
+                        <div class="user-search-container">
+                            <input type="text" id="userSearchInput" class="search-input" />
+                            <button id="userSearchBtn" class="search-btn">Search</button>
+                        </div>
+
+                        <!-- Role filter checkboxes -->
+                        <div class="role-filter-container">
+                            <label>
+                                <input type="checkbox" class="role-filter" value="admin" />
+                                Admin
+                            </label>
+                            <label>
+                                <input type="checkbox" class="role-filter" value="clinic" />
+                                Clinic
+                            </label>
+                            <label>
+                                <input type="checkbox" class="role-filter" value="owner" />
+                                Pet Owner
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- User table -->
+                    <div class="user-table-wrapper">
+                        <table class="user-table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Max Pets</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody">
+                                <!-- User rows will be dynamically injected here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
                 <!-- Clinics Section -->
